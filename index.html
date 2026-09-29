@@ -267,7 +267,7 @@ p{margin:0;text-wrap:pretty}
 .modi-punkte button[aria-pressed="true"]{width:60px}
 .modi-punkte button[aria-pressed="true"]::before{background:var(--eloxal)}
 @media (max-width:960px){
-  .modi-raster{display:flex;flex-direction:column;gap:0}
+  .modi-raster{display:flex;flex-direction:column;align-items:stretch;gap:0}   /* stretch: sonst wird die Liste so breit wie ihr Inhalt und scrollt nicht */
   .modi-raster > div:first-child{display:contents}
   .modi-raster .vorspann{order:1;margin-bottom:24px}
   .modi-buehne{order:2;position:static;width:min(300px,72vw);margin:0 auto}
