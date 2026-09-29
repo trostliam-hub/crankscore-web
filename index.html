@@ -96,12 +96,12 @@ p{margin:0;text-wrap:pretty}
 .text .lead{margin-top:16px;font-size:var(--lead);max-width:32em}
 .vorspann{display:grid;gap:14px;max-width:44em;margin-bottom:clamp(28px,4vw,48px)}
 .vorspann .lead{font-size:var(--lead)}
-.nur-klein{display:none}
+.start .nur-klein{display:none}
 .etikett span{white-space:nowrap}
-@media (max-width:960px){.nur-klein{display:inline}.start .etikett{flex-direction:column;gap:6px}.start .etikett::before{display:none}}
+@media (max-width:960px){.start .nur-klein{display:inline-flex}.start .etikett{flex-direction:column;gap:14px}.start .etikett::before{display:none}}
 
 /* Knoepfe */
-.knopf{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;
+.knopf{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:0;font-family:var(--text);cursor:pointer;
   background:var(--eloxal);color:var(--titan);font-weight:700;font-size:var(--s5);text-decoration:none;letter-spacing:-.01em;overflow:hidden;
   box-shadow:0 16px 38px -14px rgba(138,77,255,.9),inset 0 1px 0 rgba(247,245,255,.22);transition:transform .25s var(--weich),box-shadow .25s var(--weich)}
 .knopf:hover{transform:translateY(-2px);box-shadow:0 20px 44px -14px rgba(138,77,255,1),inset 0 1px 0 rgba(247,245,255,.25)}
@@ -166,8 +166,9 @@ p{margin:0;text-wrap:pretty}
   box-shadow:0 50px 100px -40px rgba(91,91,255,.7),0 0 0 1px rgba(247,245,255,.05) inset,0 1px 0 rgba(247,245,255,.08) inset}
 .handy .schirm{border-radius:calc(var(--r5) - 11px);overflow:hidden;background:var(--carbon);aspect-ratio:600/1298}
 .handy video,.handy img{width:100%;height:100%;object-fit:cover}
-.pause{position:absolute;right:22px;bottom:22px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(247,245,255,.18);background:rgba(5,4,12,.62);color:var(--titan);cursor:pointer;display:grid;place-items:center;opacity:.55;transition:opacity .2s}
-.pause:hover,.pause:focus-visible{opacity:1}
+.pause{display:inline-grid;place-items:center;vertical-align:middle;width:28px;height:28px;margin-left:12px;border-radius:50%;border:1px solid var(--linie);background:var(--glas);color:var(--titan);cursor:pointer;padding:0;transition:border-color .2s}
+.pause:hover,.pause:focus-visible{border-color:var(--rand-hell)}
+.modi-punkte .pause{margin-left:8px}
 .pause svg:last-child{display:none}
 .pause:not(.laeuft) svg:first-child{display:none}
 .pause:not(.laeuft) svg:last-child{display:block}
@@ -246,14 +247,13 @@ p{margin:0;text-wrap:pretty}
 #modi.abschnitt{padding-bottom:0}
 #guide.abschnitt{padding-top:clamp(32px,4vw,56px)}
 @media (max-width:960px){#modi.abschnitt{padding-bottom:clamp(64px,8vw,112px)}#guide.abschnitt{padding-top:clamp(64px,8vw,112px)}}
-.modi-liste .weg + .weg{margin-top:clamp(120px,34vh,360px)}
+.modi-liste .weg + .weg{margin-top:clamp(96px,22vh,220px)}
 .weg{position:relative;display:grid;gap:12px;text-align:left;padding:24px 26px;border-radius:var(--r3);border:1px solid var(--linie-2);background:var(--glas);
   transition:border-color .35s,transform .45s var(--weich),background .35s;cursor:pointer}
 .weg::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:3px;background:var(--eloxal);opacity:0;transition:opacity .35s}
 .weg.an{border-color:var(--rand-hell);background:rgba(138,77,255,.08)}
 .weg.an::before{opacity:1}
 .weg:hover{transform:translateY(-3px);border-color:var(--rand-hell)}
-.weg .handy{display:none}
 .weg .txt{font-size:var(--s4)}
 .beleg{margin-top:4px;padding-top:12px;border-top:1px solid var(--linie-2);font-family:var(--mono);font-weight:500;font-size:var(--s2);color:var(--titan)}
 .modi-buehne{position:sticky;top:80px;justify-self:center;width:min(var(--handy-mittel,380px),100%,calc((100vh - 160px) * .4623))}
@@ -262,21 +262,23 @@ p{margin:0;text-wrap:pretty}
 .modi-buehne .schirm > .an{opacity:1}
 .modi-punkte{display:flex;justify-content:center;gap:2px;margin-top:8px}
 .modi-punkte button{position:relative;width:44px;height:28px;border:0;background:none;cursor:pointer;padding:0;transition:width .3s}
-.modi-punkte button::before{content:"";position:absolute;left:6px;right:6px;top:11px;height:6px;border-radius:99px;background:var(--linie);transition:background .3s}
+.modi-punkte button::before{content:"";position:absolute;left:6px;right:6px;top:11px;height:6px;border-radius:99px;background:rgba(247,245,255,.32);transition:background .3s}
+.modi-punkte button:hover::before{background:rgba(247,245,255,.55)}
 .modi-punkte button[aria-pressed="true"]{width:60px}
 .modi-punkte button[aria-pressed="true"]::before{background:var(--eloxal)}
 @media (max-width:960px){
-  .modi-raster{display:block}
-  .modi-buehne{position:static;width:100%}
-  .modi-buehne .handy{display:none}
-  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:28px calc(var(--rand) * -1) 0;padding:0 var(--rand) 8px;scrollbar-width:none}
+  .modi-raster{display:flex;flex-direction:column;gap:0}
+  .modi-raster > div:first-child{display:contents}
+  .modi-raster .vorspann{order:1;margin-bottom:24px}
+  .modi-buehne{order:2;position:static;width:min(300px,72vw);margin:0 auto}
+  .modi-liste{order:3}
+  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 var(--rand) 8px;scrollbar-width:none}
   .modi-liste::-webkit-scrollbar{display:none}
   .modi-liste .weg + .weg{margin-top:0}
   .weg{flex:0 0 min(78vw,330px);scroll-snap-align:center;padding:16px;cursor:default}
   .weg::before{display:none}
   .weg.an{border-color:var(--linie-2);background:var(--glas)}
   .weg:hover{transform:none;border-color:var(--linie-2)}
-  .weg .handy{display:block;width:70%;margin:0 auto 8px}
   .weg .txt{font-size:var(--s3)}
 }
 
@@ -287,7 +289,7 @@ p{margin:0;text-wrap:pretty}
 .guide-innen{position:relative;border-radius:calc(var(--r4) - 1px);background:linear-gradient(180deg,var(--carbon-2),var(--carbon));padding:clamp(24px,4vw,60px);
   display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,80px);align-items:center;text-align:left}
 @keyframes dreh{to{--wink:360deg}}
-.guide-innen .handy{width:min(var(--handy-klein,360px),100%);margin:0 auto}
+.guide-innen .geraet{width:min(var(--handy-klein,360px),100%,calc((100vh - 240px) * .4623));margin:0 auto}
 .guide-punkte{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin-top:30px}
 .guide-punkte div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;align-items:start}
 .guide-punkte .ic{width:44px;height:44px;border-radius:var(--r1);display:grid;place-items:center;background:rgba(138,77,255,.16);color:var(--lila);grid-row:span 2}
@@ -297,12 +299,11 @@ p{margin:0;text-wrap:pretty}
 
 /* ── Federung: Handy und Text nebeneinander, drei Fahrprofile als Kacheln ── */
 .zweier{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,100px);align-items:center;text-align:left}
-.zweier .handy,.zweier .geraet{width:min(var(--handy-mittel,380px),100%);margin:0 auto}
+.zweier .geraet{width:min(var(--handy-mittel,380px),100%,calc((100vh - 200px) * .4623));margin:0 auto}
 .profile{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .profile span{display:grid;gap:2px;align-content:end;padding:14px 18px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas);min-width:120px}
 .profile b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:var(--s6);color:var(--titan);letter-spacing:-.02em}
 .profile small{font-family:var(--mono);font-size:var(--s1);letter-spacing:.06em;text-transform:uppercase;color:var(--grau)}
-.profile span.an{border-color:var(--rand-hell);background:rgba(138,77,255,.12)}
 .profile + .beispiel{display:block;margin-top:14px}
 @media (max-width:960px){.zweier{grid-template-columns:minmax(0,1fr)}.zweier .geraet{order:-1}}
 @media (max-width:520px){.profile span{flex:1 1 0;min-width:0;padding:12px 10px}.profile b{font-size:var(--s5)}}
@@ -354,7 +355,6 @@ p{margin:0;text-wrap:pretty}
 .schluss h2{font-size:clamp(36px,5vw,64px);margin-bottom:18px}
 .schluss p{font-size:var(--s5);margin:0 auto 30px;max-width:32em}
 html:not(.js) #teilen{display:none}
-.knopf{font-family:var(--text)}
 
 /* Fuss */
 .fuss{border-top:1px solid var(--linie-2);background:rgba(5,4,12,.6);padding:clamp(36px,5vw,56px) 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:var(--s3);color:var(--grau)}
@@ -362,8 +362,8 @@ html:not(.js) #teilen{display:none}
 .fuss .marke{display:inline-block;margin:0 0 10px}
 .fuss h4{margin:0 0 12px;font-family:var(--mono);font-weight:500;font-size:var(--s1);letter-spacing:.12em;text-transform:uppercase;color:var(--grau)}
 .fuss ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;justify-items:start}
-.fuss a,.fuss button{text-decoration:none;color:var(--nebel);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-align:left}
-.fuss a:hover,.fuss button:hover{color:var(--titan)}
+.fuss ul a,.fuss ul button{text-decoration:none;color:var(--nebel);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-align:left}
+.fuss ul a:hover,.fuss ul button:hover{color:var(--titan)}
 .fuss button[aria-pressed="true"]{color:var(--titan);font-weight:600}
 .fuss .klein{margin-top:32px;padding-top:20px;border-top:1px solid var(--linie-2);font-size:var(--s1);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 @media (max-width:860px){.fuss-raster{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 20px}.fuss-raster > div:first-child{grid-column:1 / -1}}
@@ -376,7 +376,7 @@ html:not(.js) #teilen{display:none}
   .hero-handy{transform:none;transition:none}
   .js [data-zeige]{opacity:1;animation:none}
   .js [data-zeige].da{animation:none}
-  .knopf,.knopf svg,.weg,.nochmal,.karte,.profile span{transition:none}
+  .knopf,.knopf svg,.weg,.nochmal{transition:none}
   .modi-buehne .schirm > *{transition:none}
   .js .fragen details p{animation:none}
 }
@@ -401,7 +401,7 @@ html:not(.js) #teilen{display:none}
       <button type="button" data-sprache="de" aria-pressed="true" lang="de">DE</button>
       <button type="button" data-sprache="en" aria-pressed="false" lang="en">EN</button>
     </div>
-    <a class="bald" href="#fragen" id="bald" aria-label="Kommt bald — wann, steht bei den Fragen" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
+    <a class="bald" href="#fragen" id="bald" aria-label="Kommt bald — Stand der Testphase bei den Fragen" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
   </div>
 </header>
 
@@ -409,9 +409,9 @@ html:not(.js) #teilen{display:none}
   <section class="start" id="start" aria-labelledby="titel">
     <div class="innen start-raster">
       <div class="text">
-        <p class="etikett" data-zeige><span data-t="start.etikett">Web-App für Mountainbiker</span><span class="nur-klein" data-t="start.bald">Kommt bald</span></p>
+        <p class="etikett" data-zeige><span data-t="start.etikett">Web-App für Mountainbiker</span><span class="nur-klein bald"><i aria-hidden="true"></i><span data-t="start.bald">Kommt bald</span></span></p>
         <h1 class="display" id="titel" data-zeige data-t="start.h1">Passt das zusammen?</h1>
-        <p class="sub" data-zeige data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen — Achsen, Freilauf, Einbaumaße, Klemmungen — und zeigt dir sofort, womit es passt.</p>
+        <p class="sub" data-zeige data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Passt etwas nicht, nennt es dir das Teil, das stattdessen passt.</p>
         <div class="aktionen" data-zeige>
           <a class="knopf" href="#prinzip"><span data-t="start.knopf">So prüft CrankScore</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></a>
@@ -440,7 +440,7 @@ html:not(.js) #teilen{display:none}
       <div class="text" data-zeige>
         <p class="etikett" data-t="prinzip.etikett">Das Prinzip</p>
         <h2 class="display" id="prinzip-titel" data-t="prinzip.h2">Jedes Teil gegen jedes</h2>
-        <p class="lead" data-t="prinzip.p">Sobald ein Teil im Aufbau ist, prüft CrankScore es gegen alle anderen. Am Ende steht eine Zahl — und zu jedem Konflikt das Teil, das ihn löst.</p>
+        <p class="lead" data-t="prinzip.p">Sobald ein Teil im Aufbau ist, prüft CrankScore es gegen alle anderen. Am Ende steht eine Zahl — und zu jedem Konflikt das Teil, das ihn löst.</p>
         <div class="pruefpunkte">
           <div><i aria-hidden="true"></i><b data-t="pp1.b">Maße</b><span data-t="pp1.s">Federweg, Dämpferlänge, Klemmung, Durchmesser</span></div>
           <div><i aria-hidden="true"></i><b data-t="pp2.b">Standards</b><span data-t="pp2.s">Achsen, Freilauf, Innenlager, Steuersatz, UDH</span></div>
@@ -481,32 +481,26 @@ html:not(.js) #teilen{display:none}
       <div class="vorspann">
         <p class="etikett" data-zeige data-t="modi.etikett">Drei Modi</p>
         <h2 class="display" id="modi-titel" data-zeige data-t="modi.h2">Planen, prüfen, bewerten</h2>
-        <p class="lead" data-zeige data-t="modi.p">Drei Modi für drei Fragen, die sich beim Mountainbike immer wieder stellen — hinter jedem steckt dieselbe Prüfung.</p>
+        <p class="lead" data-zeige data-t="modi.p">Drei Modi für drei Fragen, die sich beim Mountainbike immer wieder stellen — hinter jedem steckt dieselbe Prüfung.</p>
         <p class="beispiel" data-zeige data-t="modi.beispiel">Echte App · Beispielanzeige</p>
       </div>
         <div class="modi-liste" id="modi-liste">
           <article class="weg an" data-modus="0" data-zeige>
-            <div class="handy"><div class="schirm"><video muted playsinline loop preload="none" poster="img/v/assistent-poster.webp" data-src="img/v/assistent.webm" data-webp="img/v/assistent.webp"
-              aria-label="Bildschirmaufnahme: Der Assistent stellt ein Enduro-Rad zusammen und übernimmt es in den Aufbau." data-t-aria="v.weg1"></video></div></div>
             <p class="etikett" data-t="weg1.etikett">Traumrad</p>
             <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
-            <p class="txt" data-t="weg1.p">Sag, wofür du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt — danach tauschst du, was du anders willst.</p>
+            <p class="txt" data-t="weg1.p">Sag, wofür du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt — danach tauschst du, was du anders willst.</p>
             <p class="beleg" data-t="weg1.beleg">Enduro · 4.372&nbsp;€ · Score 99</p>
           </article>
           <article class="weg" data-modus="1" data-zeige>
-            <div class="handy"><div class="schirm"><video muted playsinline loop preload="none" poster="img/v/pruefen-poster.webp" data-src="img/v/pruefen.webm" data-webp="img/v/pruefen.webp"
-              aria-label="Bildschirmaufnahme: Die Prüfung meldet, dass der Freilauf nicht zur Kassette passt, und öffnet die passenden Laufräder." data-t-aria="v.weg2"></video></div></div>
             <p class="etikett" data-t="weg2.etikett">Mein Rad</p>
             <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
             <p class="txt" data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
             <p class="beleg" data-t="weg2.beleg">Freilauf Micro Spline ≠ Kassette XD</p>
           </article>
           <article class="weg" data-modus="2" data-zeige>
-            <div class="handy"><div class="schirm"><video muted playsinline loop preload="none" poster="img/v/gebraucht-poster.webp" data-src="img/v/gebraucht.webm" data-webp="img/v/gebraucht.webp"
-              aria-label="Bildschirmaufnahme: Das Urteil zu einem Gebrauchtangebot wechselt mit dem Preis von zu teuer zu marktüblich." data-t-aria="v.weg3"></video></div></div>
             <p class="etikett" data-t="weg3.etikett">Gebraucht</p>
             <h3 data-t="weg3.h3">Ein Angebot bewerten</h3>
-            <p class="txt" data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Alter, Zustand und Preis. Die App rechnet den Gebrauchtwert aus — bevor du zu viel bezahlst.</p>
+            <p class="txt" data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Alter, Zustand und Preis. Die App rechnet den Gebrauchtwert aus — bevor du zu viel bezahlst.</p>
             <p class="beleg" data-t="weg3.beleg">Verlangt 1.450&nbsp;€ · wert rund 1.219&nbsp;€</p>
           </article>
         </div>
@@ -536,14 +530,14 @@ html:not(.js) #teilen{display:none}
           <div class="text">
             <p class="etikett" data-t="guide.etikett">Der Guide</p>
             <h2 class="display" id="guide-titel" data-t="guide.h2">Etwas unklar? Frag.</h2>
-            <p class="lead" data-t="guide.p">Der Guide kennt dein Rad. Er antwortet aus deinem Aufbau, nicht aus einem Lexikon — und öffnet dir die passende Stelle in der App.</p>
+            <p class="lead" data-t="guide.p">Der Guide kennt dein Rad. Er antwortet aus deinem Aufbau, nicht aus einem Lexikon — und öffnet dir die passende Stelle in der App.</p>
             <div class="guide-punkte">
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg></span>
                 <h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">Warum ist der Score 81? Was fehlt noch? Der Guide rechnet mit deinem Aufbau.</p></div>
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s7.5-3.6 7.5-9.5V5.3L12 2.5 4.5 5.3V12c0 5.9 7.5 9.5 7.5 9.5z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg></span>
-                <h3 data-t="g2.h3">Teile prüfen</h3><p data-t="g2.p">„Passt eine Fox 38?“ — der Guide sucht im Katalog und prüft die Ausführung an deinem Rahmen.</p></div>
+                <h3 data-t="g2.h3">Teile prüfen</h3><p data-t="g2.p">„Passt eine Fox 38?“ — der Guide sucht im Katalog und prüft die Ausführung an deinem Rahmen.</p></div>
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19M9 7h6"/></svg></span>
-                <h3 data-t="g3.h3">Begriffe erklärt</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC — in einem Satz, ohne Fachchinesisch.</p></div>
+                <h3 data-t="g3.h3">Begriffe erklärt</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC — in einem Satz, ohne Fachchinesisch.</p></div>
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
                 <h3 data-t="g4.h3">Bringt dich hin</h3><p data-t="g4.p">Ein Tipp auf die Antwort, und die App öffnet das Teil oder die Einstellung.</p></div>
             </div>
@@ -560,10 +554,10 @@ html:not(.js) #teilen{display:none}
       <div class="text" data-zeige>
         <p class="etikett" data-t="fed.etikett">Federungsrechner</p>
         <h2 class="display" id="fed-titel" data-t="fed.h2">Luftdruck und Klicks für dein Gewicht</h2>
-        <p class="lead" data-t="fed.p">Aus Gewicht und Fahrprofil: Luftdruck, Sag und jeder Versteller in Klicks — nach den Tabellen von Fox, RockShox und anderen; fehlt eine Tabelle, nach dem Richtwert der Klasse. Ein Tipp wechselt das Fahrprofil.</p>
+        <p class="lead" data-t="fed.p">Aus Gewicht und Fahrprofil: Luftdruck, Sag und jeder Versteller in Klicks — nach den Tabellen von Fox, RockShox und anderen; fehlt eine Tabelle, nach dem Richtwert der Klasse. Ein Tipp wechselt das Fahrprofil.</p>
         <div class="profile" role="group" aria-label="Beispiel Fox 36 Factory, 78 kg, nach Herstellertabelle" data-t-aria="fed.profile">
           <span><small data-t="fed.m1">Pur Downhill</small><b>83 psi</b></span>
-          <span class="an"><small data-t="fed.m2">Allround</small><b>88 psi</b></span>
+          <span><small data-t="fed.m2">Allround</small><b>88 psi</b></span>
           <span><small data-t="fed.m3">Pur Sprünge</small><b>92 psi</b></span>
         </div>
         <p class="beispiel" data-t="fed.beispiel">Beispiel: 78 kg, Enduro, Fox 36 Factory · nach Herstellertabelle</p>
@@ -584,21 +578,21 @@ html:not(.js) #teilen{display:none}
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17 17 3l4 4L7 21H3z"/><path d="m14 6 2 2M11 9l2 2M8 12l2 2"/></svg></span>
           <h3 data-t="k1.h3">Dein Fit</h3><p data-t="k1.p">Rahmengröße, Lenkerbreite, Kurbellänge und Stützenhub aus Körpergröße und Schrittlänge.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-          <h3 data-t="k2.h3">Upgrades</h3><p data-t="k2.p">Erst, was du kostenlos umstellen kannst — dann echte Verbesserungen, die den Score heben.</p></div>
+          <h3 data-t="k2.h3">Upgrades</h3><p data-t="k2.p">Erst, was du kostenlos umstellen kannst — dann echte Verbesserungen, die den Score heben.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H6.5"/><circle cx="10" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></span>
-          <h3 data-t="k3.h3">Einkaufsliste</h3><p data-t="k3.p">Alle Teile mit Preis und Shop-Link — oder als Text für deine Werkstatt.</p></div>
+          <h3 data-t="k3.h3">Einkaufsliste</h3><p data-t="k3.p">Alle Teile mit Preis und Shop-Link — oder als Text für deine Werkstatt.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span>
-          <h3 data-t="k4.h3">Gebrauchtwert</h3><p data-t="k4.p">Alter, Zustand, fällige Verschleißteile — und ein klares Urteil zum Preis.</p></div>
+          <h3 data-t="k4.h3">Gebrauchtwert</h3><p data-t="k4.p">Alter, Zustand, fällige Verschleißteile — und ein klares Urteil zum Preis.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span>
           <h3 data-t="k5.h3">Modelljahr</h3><p data-t="k5.p">Ältere Jahrgänge kosten weniger. Der Assistent nutzt das bei knappem Budget.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
           <h3 data-t="k6.h3">Mehrere Räder</h3><p data-t="k6.p">Jedes Rad behält seinen eigenen Aufbau, in jedem Modus. Umschalten, ohne etwas zu verlieren.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H8l1.5-2h5L16 6h1.5A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
-          <h3 data-t="k7.h3">Dein Top-Cap-Foto</h3><p data-t="k7.p">Fotografier die Rädchen deiner Gabel — die App schreibt die Klicks direkt ins Bild.</p></div>
+          <h3 data-t="k7.h3">Dein Top-Cap-Foto</h3><p data-t="k7.p">Fotografier die Rädchen deiner Gabel — die App schreibt die Klicks direkt ins Bild.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
-          <h3 data-t="k8.h3">Deutsch und Englisch</h3><p data-t="k8.p">Die ganze App in beiden Sprachen — umschaltbar mit einem Tipp.</p></div>
+          <h3 data-t="k8.h3">Deutsch und Englisch</h3><p data-t="k8.p">Die ganze App in beiden Sprachen — umschaltbar mit einem Tipp.</p></div>
         <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/><path d="m3 3 18 18"/></svg></span>
-          <h3 data-t="k9.h3">Läuft offline</h3><p data-t="k9.p">Einmal geöffnet, läuft die App auch ohne Netz — auf dem Trail wie in der Werkstatt.</p></div>
+          <h3 data-t="k9.h3">Läuft offline</h3><p data-t="k9.p">Einmal geöffnet, läuft die App auch ohne Netz — auf dem Trail wie in der Werkstatt.</p></div>
       </div>
     </div>
   </section>
@@ -631,7 +625,7 @@ html:not(.js) #teilen{display:none}
         <div data-zeige><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="m3 3 18 18"/></svg></span>
           <h3 data-t="d1.h3">Kein Konto</h3><p data-t="d1.p">Keine Anmeldung, keine E-Mail, kein Passwort.</p></div>
         <div data-zeige><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M10 18h4"/></svg></span>
-          <h3 data-t="d2.h3">Alles auf deinem Gerät</h3><p data-t="d2.p">Räder, Maße und Fotos liegen im Speicher deines Browsers — nie auf einem Server.</p></div>
+          <h3 data-t="d2.h3">Alles auf deinem Gerät</h3><p data-t="d2.p">Räder, Maße und Fotos liegen im Speicher deines Browsers — nie auf einem Server.</p></div>
         <div data-zeige><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><path d="m3 3 18 18"/></svg></span>
           <h3 data-t="d3.h3">Kein Tracking</h3><p data-t="d3.p">Keine Analyse-Werkzeuge, keine Cookies, keine Weitergabe.</p></div>
       </div>
@@ -645,7 +639,7 @@ html:not(.js) #teilen{display:none}
       <div class="text" data-zeige>
         <p class="etikett" data-t="fragen.etikett">Fragen</p>
         <h2 class="display" id="fragen-titel" data-t="fragen.h2">Kurz beantwortet</h2>
-        <p class="lead" data-t="fragen.p">Das Wichtigste vor dem Start — Status, Preis, Verlässlichkeit.</p>
+        <p class="lead" data-t="fragen.p">Das Wichtigste vor dem Start — Status, Preis, Verlässlichkeit.</p>
       </div>
       <div class="fragen" data-zeige>
         <details id="f1"><summary data-t="f1.q">Wann kommt CrankScore?</summary>
@@ -653,13 +647,13 @@ html:not(.js) #teilen{display:none}
         <details><summary data-t="f2.q">Was wird CrankScore kosten?</summary>
           <p data-t="f2.a">Nichts. Kein Abo, keine Anmeldung.</p></details>
         <details><summary data-t="f3.q">Wie finanziert sich CrankScore?</summary>
-          <p data-t="f3.a">Über Partnerlinks: Manche Shop-Links werden mit „Anzeige“ markiert sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision — dein Preis bleibt gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
+          <p data-t="f3.a">Über Partnerlinks: Manche Shop-Links werden mit „Anzeige“ markiert sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision — dein Preis bleibt gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
         <details><summary data-t="f4.q">Brauche ich einen App Store?</summary>
-          <p data-t="f4.a">Nein. CrankScore läuft im Browser. Auf dem Handy legst du sie auf den Startbildschirm — dann startet sie wie eine App.</p></details>
+          <p data-t="f4.a">Nein. CrankScore läuft im Browser. Auf dem Handy legst du sie auf den Startbildschirm — dann startet sie wie eine App.</p></details>
         <details><summary data-t="f5.q">Wie verlässlich sind die Werte?</summary>
           <p data-t="f5.a">Maße und Standards sind aus Herstellerangaben recherchiert. Luftdruck und Klicks sind Startwerte zum Feinstellen. Im Zweifel gilt das Datenblatt des Herstellers.</p></details>
         <details><summary data-t="f6.q">Gibt es E-Bikes?</summary>
-          <p data-t="f6.a">Nein. CrankScore plant Mountainbikes ohne Motor — XC, Trail, Enduro, Downhill, Dirt, Slopestyle und Trial.</p></details>
+          <p data-t="f6.a">Nein. CrankScore plant Mountainbikes ohne Motor — XC, Trail, Enduro, Downhill, Dirt, Slopestyle und Trial.</p></details>
       </div>
     </div>
   </section>
@@ -667,7 +661,7 @@ html:not(.js) #teilen{display:none}
   <section class="schluss" id="schluss" aria-labelledby="schluss-titel">
     <div class="innen">
       <h2 class="display" id="schluss-titel" data-zeige data-t="schluss.h2">Kommt bald.</h2>
-      <p data-zeige data-t="schluss.p">CrankScore ist in der Testphase. Diese Seite wächst mit der App — schau wieder vorbei.</p>
+      <p data-zeige data-t="schluss.p">CrankScore ist in der Testphase. Diese Seite wächst mit der App — schau wieder vorbei.</p>
       <div data-zeige><button class="knopf" type="button" id="teilen"><span data-t="schluss.knopf">Seite teilen</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13"/></svg></button></div>
     </div>
@@ -679,7 +673,7 @@ html:not(.js) #teilen{display:none}
     <div class="fuss-raster">
       <div>
         <a class="marke" href="./">Crank<i>Score</i></a>
-        <p data-t="fuss.claim">Rad planen, prüfen, bewerten — Teil für Teil.</p>
+        <p data-t="fuss.claim">Rad planen, prüfen, bewerten — Teil für Teil.</p>
       </div>
       <div>
         <h4 data-t="fuss.h1">Seite</h4>
@@ -712,23 +706,24 @@ html:not(.js) #teilen{display:none}
   var ruhig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var pc = function(){ return window.matchMedia && window.matchMedia("(min-width: 961px)").matches; };
   var hatIO = "IntersectionObserver" in window;
-  function alle(sel){ return [].slice.call(document.querySelectorAll(sel)); }
+  function alle(sel, wo){ return [].slice.call((wo || document).querySelectorAll(sel)); }
+  var pauseKnoepfe = [];
 
   /* ── Sprache: Deutsch steht im Markup, Englisch hier. ── */
   var EN = {
     "weg":"Skip to content", "marke.aria":"CrankScore, to the start page", "nav.aria":"Page", "sprache.aria":"Language",
     "nav.prinzip":"How it works", "nav.modi":"Modes", "nav.guide":"Guide", "nav.fed":"Suspension", "nav.mehr":"More", "nav.fragen":"FAQ",
-    "bald":"Coming soon", "bald.aria":"Coming soon — when, see the FAQ",
-    "titel.seite":"CrankScore — Does your mountain bike fit together?",
+    "bald":"Coming soon", "bald.aria":"Coming soon — status of the test phase in the FAQ",
+    "titel.seite":"CrankScore — Does your mountain bike fit together?",
     "meta.desc":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. Plan a new bike, check your own, rate a used listing. Coming soon.",
     "start.etikett":"Web app for mountain bikers", "start.bald":"Coming soon", "start.h1":"Does it all fit?",
-    "start.sub":"CrankScore checks whether the parts of your mountain bike fit together — axles, freehub, dimensions, clamps — and shows you right away what would fit.",
+    "start.sub":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. If something doesn't fit, it names the part that does.",
     "start.knopf":"How the check works", "start.knopf2":"The three modes",
     "start.fakten":"<span><b>738</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>€0</b> · no account</span>",
     "beispiel":"Real app · sample screen (German)",
     "v.assistent":"Screen recording of the app: the assistant works out an enduro bike, shows a score of 99 and takes it into the build.",
     "band.aria":"Brands in the catalogue", "band.etikett":"In the catalogue · 125 brands",
-    "prinzip.etikett":"How it works", "prinzip.h2":"Part by part",
+    "prinzip.etikett":"How it works", "prinzip.h2":"All parts, cross-checked",
     "prinzip.p":"Once a part is in the build, CrankScore checks it against every other part and gives you one number. Every conflict comes with the part that resolves it.",
     "pp1.b":"Dimensions", "pp1.s":"Travel, shock length, clamp, diameter",
     "pp2.b":"Standards", "pp2.s":"Axles, freehub, bottom bracket, headset, UDH",
@@ -740,11 +735,11 @@ html:not(.js) #teilen{display:none}
     "pruef.urteil":"<b>Solid.</b> No conflicts.<br>€4,372 · 15.26 kg",
     "pruef.cap":"Real app · sample screen: enduro from the assistant, €4,500 budget.",
     "modi.etikett":"Three modes", "modi.h2":"Plan, check, rate",
-    "modi.p":"Three modes for three questions that keep coming up with mountain bikes — and the same check behind each one.",
+    "modi.p":"Three modes for three questions that keep coming up with mountain bikes — and the same check behind each one.",
     "modi.beispiel":"Real app · sample screen (German)", "modi.punkte":"Choose mode",
     "v.weg1":"Screen recording: the assistant puts an enduro bike together and takes it into the build.",
     "weg1.etikett":"Dream bike", "weg1.h3":"Plan a new bike",
-    "weg1.p":"Say what you ride and how much you want to spend. The assistant puts together a bike where every part fits — then you swap whatever you'd do differently.",
+    "weg1.p":"Say what you ride and how much you want to spend. The assistant puts together a bike where every part fits — then you swap whatever you'd do differently.",
     "weg1.beleg":"Enduro · €4,372 · score 99",
     "v.weg2":"Screen recording: the check reports that the freehub doesn't match the cassette and opens the wheels that fit.",
     "weg2.etikett":"My bike", "weg2.h3":"Check your bike",
@@ -752,45 +747,45 @@ html:not(.js) #teilen{display:none}
     "weg2.beleg":"Micro Spline freehub ≠ XD cassette",
     "v.weg3":"Screen recording: the verdict on a used listing changes with the price from overpriced to fair.",
     "weg3.etikett":"Used", "weg3.h3":"Rate a used listing",
-    "weg3.p":"Enter the parts from the listing, plus age, condition and price. The app works out the used value — before you pay too much.",
+    "weg3.p":"Enter the parts from the listing, plus age, condition and price. The app works out the used value — before you pay too much.",
     "weg3.beleg":"Asking €1,450 · worth about €1,219",
     "v.guide":"Screen recording: the guide is asked whether a Fox 38 fits the bike; the answer gives price and weight and confirms that it fits.",
     "guide.etikett":"The guide", "guide.h2":"Not sure? Ask.",
-    "guide.p":"The guide knows your bike. It answers from your build, not from a glossary — and opens the right place in the app for you.",
+    "guide.p":"The guide knows your bike. It answers from your build, not from a glossary — and opens the right place in the app for you.",
     "g1.h3":"Knows your bike", "g1.p":"Why is the score 81? What's still missing? The guide works with your build.",
-    "g2.h3":"Check parts", "g2.p":"“Does a Fox 38 fit?” — the guide searches the catalogue and checks the version against your frame.",
-    "g3.h3":"Terms explained", "g3.p":"Boost, freehub, sag, HSC — in one sentence, no jargon.",
+    "g2.h3":"Check parts", "g2.p":"“Does a Fox 38 fit?” — the guide searches the catalogue and checks the version against your frame.",
+    "g3.h3":"Terms explained", "g3.p":"Boost, freehub, sag, HSC — in one sentence, no jargon.",
     "g4.h3":"Takes you there", "g4.p":"Tap the answer and the app opens the part or the setting.",
     "fed.etikett":"Suspension calculator", "fed.h2":"Air pressure and clicks for your weight",
-    "fed.p":"From weight and riding profile: air pressure, sag and every adjuster in clicks — from the tables by Fox, RockShox and others; where no table exists, from a typical value for its class. Three riding profiles, one tap.",
+    "fed.p":"From weight and riding profile: air pressure, sag and every adjuster in clicks — from the tables by Fox, RockShox and others; where no table exists, from a typical value for its class. Three riding profiles, one tap.",
     "fed.profile":"Example Fox 36 Factory, 78 kg, per manufacturer table", "fed.m1":"Pure downhill", "fed.m2":"All-round", "fed.m3":"Pure jumps",
     "fed.beispiel":"Example: 78 kg, enduro, Fox 36 Factory · per manufacturer table",
     "v.fed":"Screen recording of the suspension calculator: switching between pure downhill, all-round and pure jumps changes air pressure, sag and clicks.",
     "mehr.etikett":"More features", "mehr.h2":"What else is inside",
     "k1.h3":"Your fit", "k1.p":"Frame size, bar width, crank length and dropper travel from your height and inseam.",
-    "k2.h3":"Upgrades", "k2.p":"First what you can adjust for free — then real improvements that raise the score.",
-    "k3.h3":"Shopping list", "k3.p":"Every part with price and shop link — or as text for your workshop.",
-    "k4.h3":"Used value", "k4.p":"Age, condition, worn parts that are due — and a clear verdict on the price.",
+    "k2.h3":"Upgrades", "k2.p":"First what you can adjust for free — then real improvements that raise the score.",
+    "k3.h3":"Shopping list", "k3.p":"Every part with price and shop link — or as text for your workshop.",
+    "k4.h3":"Used value", "k4.p":"Age, condition, worn parts that are due — and a clear verdict on the price.",
     "k5.h3":"Model year", "k5.p":"Older model years cost less. The assistant uses that when money is tight.",
     "k6.h3":"Several bikes", "k6.p":"Every bike keeps its own build, in every mode. Switch without losing anything.",
-    "k7.h3":"Your top-cap photo", "k7.p":"Photograph the dials on your fork — the app writes the clicks straight into the picture.",
-    "k8.h3":"German and English", "k8.p":"The whole app in both languages — switchable with one tap.",
-    "k9.h3":"Works offline", "k9.p":"Once opened, the app runs without a connection — on the trail as in the workshop.",
+    "k7.h3":"Your top-cap photo", "k7.p":"Photograph the dials on your fork — the app writes the clicks straight into the picture.",
+    "k8.h3":"German and English", "k8.p":"The whole app in both languages — switchable with one tap.",
+    "k9.h3":"Works offline", "k9.p":"Once opened, the app runs without a connection — on the trail as in the workshop.",
     "zahlen.aria":"The catalogue in numbers", "zahlen.etikett":"The catalogue in numbers",
     "z1":"parts", "z2":"brands", "z3":"disciplines", "z4":"suspension tables", "z5":"guide topics",
     "daten.etikett":"Privacy", "daten.h2":"Your data stays yours",
     "daten.p":"No server, no account: whatever you enter stays in the browser on your device.",
     "d1.h3":"No account", "d1.p":"No sign-up, no email, no password.",
-    "d2.h3":"Everything on your device", "d2.p":"Bikes, measurements and photos live in your browser's storage — never on a server.",
+    "d2.h3":"Everything on your device", "d2.p":"Bikes, measurements and photos live in your browser's storage — never on a server.",
     "d3.h3":"No tracking", "d3.p":"No analytics, no cookies, no sharing.",
-    "fragen.etikett":"FAQ", "fragen.h2":"Quick answers", "fragen.p":"The essentials before launch — status, price, reliability.",
+    "fragen.etikett":"FAQ", "fragen.h2":"Quick answers", "fragen.p":"The essentials before launch — status, price, reliability.",
     "f1.q":"When is CrankScore coming?", "f1.a":"The app is in testing. We'll release it as soon as the catalogue and the checks are solid enough for you to rely on.",
     "f2.q":"What will CrankScore cost?", "f2.a":"Nothing. No subscription, no sign-up.",
-    "f3.q":"How is CrankScore funded?", "f3.a":"Through partner links: some shop links will be marked “Ad”. If you buy through them, CrankScore gets a small commission — your price stays the same. Which part fits is decided by the check, not by the commission.",
-    "f4.q":"Do I need an app store?", "f4.a":"No. CrankScore runs in the browser. On your phone you add it to the home screen — then it starts like an app.",
+    "f3.q":"How is CrankScore funded?", "f3.a":"Through partner links: some shop links will be marked “Ad”. If you buy through them, CrankScore gets a small commission — your price stays the same. Which part fits is decided by the check, not by the commission.",
+    "f4.q":"Do I need an app store?", "f4.a":"No. CrankScore runs in the browser. On your phone you add it to the home screen — then it starts like an app.",
     "f5.q":"How reliable are the values?", "f5.a":"Dimensions and standards are researched from manufacturer data. Air pressure and clicks are starting values for fine-tuning. When in doubt, the manufacturer's data sheet applies.",
-    "f6.q":"Are there e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
-    "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app — check back soon.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
+    "f6.q":"Are there e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
+    "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app — check back soon.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
     "fuss.claim":"Mountain bikes that fit together.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language",
     "fuss.imp":"Legal notice (German)", "fuss.ds":"Privacy (German)",
     "fuss.marken":"Brand names belong to their owners. They are mentioned only to identify the parts in the catalogue."
@@ -808,6 +803,7 @@ html:not(.js) #teilen{display:none}
     document.title = en ? EN["titel.seite"] : DE_TITEL;
     if(metaDesc) metaDesc.content = en ? EN["meta.desc"] : DE_DESC;
     alle("button[data-sprache]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-sprache") === sp)); });
+    pauseKnoepfe.forEach(function(f){ f(); });
   }
   function startSprache(){
     try{ var g = localStorage.getItem(SPRACHE_KEY); if(g === "de" || g === "en") return g; }catch(e){}
@@ -882,19 +878,24 @@ html:not(.js) #teilen{display:none}
     return v;
   }
   function spielen(v){ if(v && v.tagName === "VIDEO" && v.src && !ruhig && !v.__manuell) v.play().catch(function(){}); }
-  /* Pausenknopf je Handy: haelt das laufende Video an (WCAG 2.2.2), spielt es auf Wunsch wieder ab */
+  /* Pausenknopf je Handy (WCAG 2.2.2): sitzt neben der Bildunterschrift bzw. bei den Punkten, nie ueber der App;
+     sein Zustand kommt aus den play/pause-Ereignissen des gerade sichtbaren Videos */
   function pauseKnopf(handy){
-    if(ruhig || handy.querySelector(".pause")) return;
-    var b = document.createElement("button"); b.type = "button"; b.className = "pause";
-    b.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5"/><rect x="14" y="4" width="5" height="16" rx="1.5"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
-    var beschriften = function(l){ b.setAttribute("aria-label", aktuelleSprache === "en" ? (l ? "Play video" : "Pause video") : (l ? "Video abspielen" : "Video anhalten")); b.classList.toggle("laeuft", !l); };
-    beschriften(false);
+    if(ruhig || handy.__pause) return;
+    var b = document.createElement("button"); b.type = "button"; b.className = "pause"; handy.__pause = b;
+    b.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5"/><rect x="14" y="4" width="5" height="16" rx="1.5"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
+    var aktiv = function(){ return handy.querySelector(".schirm > .an") || handy.querySelector("video"); };
+    var sync = function(){ var v = aktiv(), steht = !v || v.tagName !== "VIDEO" || v.paused;
+      b.classList.toggle("laeuft", !steht);
+      b.setAttribute("aria-label", aktuelleSprache === "en" ? (steht ? "Play video" : "Pause video") : (steht ? "Video abspielen" : "Video anhalten")); };
+    alle("video", handy).forEach(function(v){ v.addEventListener("play", sync); v.addEventListener("pause", sync); });
     b.addEventListener("click", function(){
-      var v = handy.querySelector(".schirm > .an") || handy.querySelector("video"); if(!v || v.tagName !== "VIDEO") return;
-      if(v.paused){ v.__manuell = false; v.play().catch(function(){}); beschriften(false); }
-      else { v.__manuell = true; v.pause(); beschriften(true); }
+      var v = aktiv(); if(!v || v.tagName !== "VIDEO") return;
+      if(v.paused){ v.__manuell = false; v.play().catch(function(){}); } else { v.__manuell = true; v.pause(); }
     });
-    handy.appendChild(b);
+    pauseKnoepfe.push(sync); sync();
+    var ziel = handy.parentNode.querySelector(".modi-punkte") || handy.parentNode.querySelector(".beispiel");
+    if(ziel) ziel.appendChild(b); else handy.insertAdjacentElement("afterend", b);
   }
   function pausieren(v){ if(v && v.tagName === "VIDEO" && v.src) v.pause(); }
   var videos = alle("video[data-src]").filter(function(v){ return !v.closest(".modi-buehne"); });
@@ -926,7 +927,7 @@ html:not(.js) #teilen{display:none}
   if(buehne && hatIO){
     /* Buehne im Bild: Videos laden und das aktive spielen; ausserhalb: alle anhalten */
     var bio = new IntersectionObserver(function(e){
-      buehneImBild = e[0].isIntersecting && pc();
+      buehneImBild = e[0].isIntersecting;
       if(!buehneImBild){ alle("#modi-buehne video").forEach(pausieren); return; }
       modusSetzen(aktiverModus);
     }, {threshold:.2});
@@ -937,13 +938,16 @@ html:not(.js) #teilen{display:none}
       eintraege.forEach(function(e){ if(e.isIntersecting) modusSetzen(parseInt(e.target.getAttribute("data-modus"), 10)); });
     }, {rootMargin:"-45% 0px -45% 0px"});
     wege.forEach(function(w){ wio.observe(w); });
-    /* Handy: die Karte, die im Karussell steht, bestimmt den Punkt */
-    var kio = new IntersectionObserver(function(eintraege){
-      if(pc()) return;
-      eintraege.forEach(function(e){ if(e.isIntersecting) modusSetzen(parseInt(e.target.getAttribute("data-modus"), 10)); });
-    }, {root:liste, threshold:.6});
-    wege.forEach(function(w){ kio.observe(w); });
   }
+  /* Handy: die Karte, deren Mitte der Listenmitte am naechsten liegt, bestimmt Punkt und Video */
+  var karussellLaeuft = false;
+  function karussellLesen(){
+    karussellLaeuft = false; if(pc()) return;
+    var mitte = liste.scrollLeft + liste.clientWidth / 2, best = 0, abstand = Infinity;
+    wege.forEach(function(w, i){ var d = Math.abs(w.offsetLeft + w.offsetWidth / 2 - mitte); if(d < abstand){ abstand = d; best = i; } });
+    if(best !== aktiverModus) modusSetzen(best);
+  }
+  if(liste) liste.addEventListener("scroll", function(){ if(!karussellLaeuft){ karussellLaeuft = true; requestAnimationFrame(karussellLesen); } }, {passive:true});
   /* Klick auf eine Karte wechselt am PC das Video; die Punkte sind die Tastatur-Bedienung (echte Buttons) */
   wege.forEach(function(w){ w.addEventListener("click", function(){ if(pc()) modusSetzen(parseInt(w.getAttribute("data-modus"), 10)); }); });
   punkte.forEach(function(b){ b.addEventListener("click", function(){
