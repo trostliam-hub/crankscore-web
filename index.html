@@ -68,8 +68,9 @@ a{color:inherit}
 /* ── Der Himmel: Farbverlaeufe hinter der ganzen Seite. Drei grosse, weiche Wolken ohne Filter (nur transform);
    die Kerne liegen ausserhalb der Textspalten (Kontrast), der ganze Himmel wandert beim Scrollen langsam mit (--sky),
    sodass jede Bildschirmhoehe ihren eigenen Ausschnitt sieht. ── */
-.himmel{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;transform:translateY(var(--sky,0px));will-change:transform;
+.himmel{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
   background:radial-gradient(120% 70% at 50% -10%,rgba(91,91,255,.3),transparent 60%),linear-gradient(180deg,#151226 0%,#05040c 45%,#0d0b18 100%)}
+.himmel .wolken{position:absolute;inset:0;transform:translateY(var(--sky,0px));will-change:transform}
 .himmel i{position:absolute;border-radius:50%;will-change:transform}
 .himmel .w1{width:100vw;height:100vw;max-width:1500px;max-height:1500px;left:-52vw;top:-55vw;
   background:radial-gradient(circle,rgba(138,77,255,.62) 0%,rgba(138,77,255,.3) 28%,rgba(138,77,255,.08) 52%,transparent 68%);animation:wolke1 38s ease-in-out infinite alternate}
@@ -364,7 +365,7 @@ p{margin:0;text-wrap:pretty}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .bald i,.himmel .w1,.himmel .w2,.himmel .w3,.lauf ul,.guide-karte::before,.buehne::before{animation:none}
-  .himmel{transform:none}
+  .himmel .wolken{transform:none}
   .hero-handy{transform:none;transition:none}
   .js [data-zeige]{opacity:1;animation:none}
   .js [data-zeige].da{animation:none}
@@ -375,7 +376,7 @@ p{margin:0;text-wrap:pretty}
 </style>
 </head>
 <body>
-<div class="himmel" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i></div>
+<div class="himmel" aria-hidden="true"><div class="wolken"><i class="w1"></i><i class="w2"></i><i class="w3"></i></div></div>
 <a class="weg-link" href="#inhalt" data-t="weg">Zum Inhalt springen</a>
 
 <header class="kopf" id="kopf">
