@@ -7,8 +7,15 @@ zum Testen unter https://trostliam-hub.github.io/dreambuild/. Diese Adresse nie 
 Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 
 - Alles auf Deutsch, Texte im Du. Schlicht, keine Werbesprache.
-- Bilder sind echte Screenshots der App (`img/*.webp`). Keine gezeichneten Illustrationen
-  als Ersatz für Bilder, keine fremden Produktfotos (Liams Regeln).
+- Bilder sind echte Bildschirmaufnahmen der App: Videos `img/v/*.webm` (VP9) mit animiertem
+  WebP als Reserve und Poster-Standbild, erzeugt mit dem Aufnahme-Skript (headless Chrome, siehe
+  Obsidian „CrankScore Webseite“). Keine gezeichneten Illustrationen als Ersatz für Bilder, keine
+  fremden Produktfotos (Liams Regeln). Die Aufnahme „Fit“ zeigt die gezeichnete Fahrerfigur der
+  App und bleibt draußen, bis Liam über die Figuren entschieden hat.
+- Aufbau nach dem Vorbild bevel.health/de, aber in OLED-Schwarz: Hero mittig mit gekipptem
+  Handy im Lichtstreifen, Marken-Laufband, Prüfstand, drei Modi mit Videos, Guide-Karte mit
+  Lichtrand, Federung, Raster, Zahlen, Datenschutz, Fragen. Alle Bewegungen fallen bei
+  „weniger Bewegung“ weg; Videos laden erst im Bild.
 - Schriften liegen in `fonts/` (Archivo, Inter, IBM Plex Mono, alle OFL) — nie von Google laden.
 - Impressum ist statisch und noch unvollständig (Anbieterangaben fehlen — Liams Entscheidung).
   Wenn Liam die Angaben liefert: hier UND in der App (`links.json`, Feld `betreiber`) eintragen.
