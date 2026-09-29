@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Impressum — CrankScore</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="img/icon-192.png" type="image/png">
+<link rel="stylesheet" href="recht.css">
+</head>
+<body>
+<header class="kopf"><div class="innen"><a class="marke" href="./">Crank<i>Score</i></a><a class="zurueck" href="./">Zur Startseite</a></div></header>
+<main class="innen text">
+  <p class="etikett">Rechtliches</p>
+  <h1>Impressum</h1>
+
+  <div id="fehlt" class="fehlt" hidden>Die Angaben zum Anbieter werden gerade vervollständigt.</div>
+  <h2>Angaben gemäß § 5 DDG</h2>
+  <p id="anbieter">—</p>
+  <h2>Kontakt</h2>
+  <p id="kontakt">—</p>
+  <div id="ust" hidden><h2>Umsatzsteuer-Identifikationsnummer</h2><p>gemäß § 27a Umsatzsteuergesetz: <span id="ustid"></span></p></div>
+
+  <h2>Affiliate-Links</h2>
+  <p>CrankScore finanziert sich über Provisionen. Shop-Links in der App, die mit „Anzeige“ markiert sind, sind Affiliate-Links:
+    Kaufst du nach einem Klick etwas, bekommt CrankScore vom Shop eine Provision. Dein Preis ändert sich dadurch nicht.</p>
+  <h2>Preise und Angaben</h2>
+  <p>Preise stammen aus den Produktdaten der Partnershops und stehen mit Zeitstempel; maßgeblich ist der Preis im Shop.
+    Technische Daten und Kompatibilitätsprüfungen sind sorgfältig recherchiert, ersetzen aber nicht das Datenblatt des Herstellers.</p>
+</main>
+<footer class="fuss"><div class="innen"><a href="./">Startseite</a><a href="https://app.crankscore.de/">App</a><a href="datenschutz.html">Datenschutz</a></div></footer>
+<script>
+/* Die Anbieterangaben stehen an einer Stelle: in links.json der App. So
+   koennen Webseite und App nie Verschiedenes zeigen. */
+(function(){
+  var esc = function(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
+  var sauber = function(v){ return String(v || "").replace(/\s+/g, " ").trim().slice(0, 120); };
+  function zeigen(b){
+    b = b || {};
+    var f = {}; ["name","zusatz","strasse","ort","email","telefon","ustid"].forEach(function(k){ f[k] = sauber(b[k]); });
+    var fehlt = ["name","strasse","ort","email"].some(function(k){ return !f[k]; });
+    document.getElementById("fehlt").hidden = !fehlt;
+    var adresse = [f.name, f.zusatz, f.strasse, f.ort].filter(Boolean).map(esc).join("<br>");
+    document.getElementById("anbieter").innerHTML = adresse || "—";
+    var k = [];
+    if(f.email) k.push('E-Mail: <a href="mailto:' + esc(f.email) + '">' + esc(f.email) + "</a>");
+    if(f.telefon) k.push("Telefon: " + esc(f.telefon));
+    document.getElementById("kontakt").innerHTML = k.join("<br>") || "—";
+    if(f.ustid){ document.getElementById("ustid").textContent = f.ustid; document.getElementById("ust").hidden = false; }
+  }
+  zeigen(null);
+  fetch("https://app.crankscore.de/links.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(j){ zeigen(j && j.betreiber); })
+    .catch(function(){ zeigen(null); });
+})();
+</script>
+</body>
+</html>
