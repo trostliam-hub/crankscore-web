@@ -19,3 +19,7 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 - Veröffentlichen: auf `main` pushen, GitHub Pages baut neu. Kein Stempel nötig.
 - `mtb-sw.js` ist ein Aufräum-Service-Worker für Browser, die am 29.09. kurz die App auf
   crankscore.de geöffnet hatten. Nicht löschen, nicht als echten Service Worker umbauen.
+- Zweisprachig: Deutsch steht im Markup, Englisch im Wörterbuch `EN` im Skript. Texte tragen
+  `data-t="schlüssel"` (Text), `data-th` (mit HTML), `data-t-alt` / `data-t-aria` (Attribute).
+  Neuer Text = Schlüssel im Markup UND Eintrag in `EN`. Schalter DE/EN in der Kopfzeile, Wahl in
+  `localStorage["cs.sprache"]`; ohne Wahl entscheidet die Browsersprache. Rechtsseiten bleiben deutsch.
