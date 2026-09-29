@@ -17,3 +17,5 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 - Zahlen auf der Seite (738 Teile, 125 Marken, 7 Disziplinen) stammen aus dem Katalog der App,
   Stand 2026-09-29 — bei großen Katalogänderungen nachziehen.
 - Veröffentlichen: auf `main` pushen, GitHub Pages baut neu. Kein Stempel nötig.
+- `mtb-sw.js` ist ein Aufräum-Service-Worker für Browser, die am 29.09. kurz die App auf
+  crankscore.de geöffnet hatten. Nicht löschen, nicht als echten Service Worker umbauen.

@@ -417,6 +417,10 @@ p{margin:0}
 
 <script>
 (function(){
+  /* Reste der App, die am 29.09. kurz hier lag, abmelden (siehe mtb-sw.js) */
+  if("serviceWorker" in navigator && navigator.serviceWorker.getRegistrations){
+    navigator.serviceWorker.getRegistrations().then(function(r){ r.forEach(function(x){ x.unregister(); }); }).catch(function(){});
+  }
   var doc = document.documentElement;
   doc.classList.add("js");
   var ruhig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
