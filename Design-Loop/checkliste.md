@@ -29,3 +29,9 @@ Webseite sein. Design hat oberste Priorität. Nicht aufhören, bis es perfekt is
 - Keine Konsolenfehler, gültige Verschachtelung, `alt`/`aria-label` an Medien, sichtbarer Fokus, Skip-Link.
 - Kein horizontales Scrollen bei 360, 390, 768, 1440, 1920 px.
 - Seite ohne JavaScript weiterhin lesbar (Inhalte im Markup, deutsch).
+
+## D. Bewusste Entscheidungen (Runde 2, mit Begründung — Kritiker bitte nur mit neuem Argument erneut anführen)
+- Die sechs App-Aufnahmen zeigen die **deutsche Oberfläche**, auch in der englischen Fassung. Englische Aufnahmen kämen mit dem Release (die englischen App-Screens ändern sich bis dahin noch); in EN sind die Aufnahmen als „Real app · sample display (German interface)“ gekennzeichnet.
+- Unter 760 px ist die Kopfnavigation ausgeblendet, ohne Menü: Einseiter mit zwei Hero-Knöpfen in die Seite und den Links im Fuß. Ab 760 px (Tablet) ist die Navigation sichtbar.
+- Der rotierende Lichtrand der Guide-Karte bleibt (eine zusammengesetzte Transform-Ebene, kein Filter). Der Himmel hat nur noch zwei Wolken ohne `filter:blur`, der Hero-Glow ist ein Verlauf ohne Filter.
+- Kein Warteliste-Formular: der Anbieter (Brevo) ist nicht eingerichtet, das Impressum nicht vollständig — Liams Entscheidung, siehe Offene Punkte. Der Schluss führt deshalb zu den Fragen.
