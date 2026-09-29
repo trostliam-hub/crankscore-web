@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CrankScore — Passt dein Mountainbike zusammen?</title>
-<meta name="description" content="CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot bewerten — kostenlos, ohne Konto.">
+<meta name="description" content="CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot bewerten. Kommt bald.">
 <link rel="canonical" href="https://crankscore.de/">
 <meta name="theme-color" content="#000000">
 <meta name="color-scheme" content="dark">
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="CrankScore">
 <meta property="og:title" content="CrankScore — Passt dein Mountainbike zusammen?">
-<meta property="og:description" content="Mountainbikes planen, prüfen und bewerten — Teil für Teil. Kostenlos, ohne Konto.">
+<meta property="og:description" content="Mountainbikes planen, prüfen und bewerten — Teil für Teil. Kommt bald.">
 <meta property="og:url" content="https://crankscore.de/">
 <meta property="og:image" content="https://crankscore.de/img/vorschau.png">
 <meta property="og:image:width" content="1200">
@@ -22,12 +22,6 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"CrankScore","url":"https://app.crankscore.de/",
- "applicationCategory":"SportsApplication","operatingSystem":"Web, iOS, Android","inLanguage":["de","en"],
- "description":"Mountainbikes planen, prüfen und bewerten: Kompatibilitätsprüfung, Wertung, Fit und Federungsrechner.",
- "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}
-</script>
 <style>
 /* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO) */
 @font-face{font-family:"Archivo";src:url(fonts/archivo-latin-standard-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
@@ -78,7 +72,10 @@ p{margin:0}
 .knopf:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 18px 40px -14px rgba(110,80,255,.95)}
 .knopf svg{transition:transform .25s var(--weich)}
 .knopf:hover svg{transform:translateX(3px)}
-.knopf.klein{min-height:42px;padding:0 18px;font-size:14.5px;box-shadow:none}
+.bald{display:inline-flex;align-items:center;gap:9px;min-height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--linie);
+  font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--titan)}
+.bald i{width:7px;height:7px;border-radius:50%;background:var(--passt);box-shadow:0 0 0 0 rgba(46,242,154,.55);animation:puls 2.2s infinite}
+@keyframes puls{0%{box-shadow:0 0 0 0 rgba(46,242,154,.5)}70%{box-shadow:0 0 0 8px rgba(46,242,154,0)}100%{box-shadow:0 0 0 0 rgba(46,242,154,0)}}
 .leise{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 6px;color:var(--titan);font-weight:600;text-decoration:none}
 .leise span{border-bottom:1px solid var(--linie);transition:border-color .2s}
 .leise:hover span{border-color:var(--lila)}
@@ -149,7 +146,8 @@ p{margin:0}
 /* Abschnitte */
 .abschnitt{padding:clamp(64px,10vw,130px) 0;border-top:1px solid var(--linie-2)}
 .vorspann{display:grid;gap:18px;max-width:40em;margin-bottom:clamp(36px,5vw,60px)}
-.vorspann p:not(.etikett){font-size:clamp(17px,2vw,19px)}
+.vorspann p:not(.etikett):not(.beispiel){font-size:clamp(17px,2vw,19px)}
+.beispiel{font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.06em;color:var(--grau)}
 
 /* Handy mit echtem Screenshot */
 .handy{position:relative;border-radius:40px;padding:9px;background:#15132a;border:1px solid #2c2848;
@@ -223,6 +221,7 @@ p{margin:0}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .bald i{animation:none}
   .js [data-zeige]{opacity:1;transform:none;transition:none}
   .knopf,.knopf svg,.weg .handy,.nochmal{transition:none}
   .js .fragen details p{animation:none}
@@ -240,7 +239,7 @@ p{margin:0}
       <a href="#so-gehts">So geht's</a>
       <a href="#fragen">Fragen</a>
     </nav>
-    <a class="knopf klein" href="https://app.crankscore.de/">App öffnen</a>
+    <span class="bald"><i aria-hidden="true"></i>Kommt bald</span>
   </div>
 </header>
 
@@ -248,18 +247,17 @@ p{margin:0}
   <section class="start" aria-labelledby="titel">
     <div class="innen start-raster">
       <div class="start-kopf">
-        <p class="etikett" data-zeige>MTB-Planer · kostenlos · ohne Konto</p>
+        <p class="etikett" data-zeige>MTB-Planer · kommt bald</p>
         <h1 class="display" id="titel" data-zeige>Passt das zusammen?</h1>
       </div>
       <div>
         <p class="sub" data-zeige>CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen — Achsen, Freilauf, Einbaumaße, Klemmungen.
           Du siehst sofort, was nicht passt und womit es passt.</p>
         <div class="aktionen" data-zeige>
-          <a class="knopf" href="https://app.crankscore.de/">App öffnen
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
-          <a class="leise" href="#wege"><span>Was die App kann</span></a>
+          <a class="knopf" href="#wege">Was die App kann
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></a>
         </div>
-        <p class="hinweis" data-zeige>Läuft im Browser — auf dem Handy wie eine App, auch offline.</p>
+        <p class="hinweis" data-zeige>CrankScore ist in der Testphase. Bald läuft die App im Browser — auf dem Handy wie eine App, kostenlos und ohne Konto.</p>
       </div>
 
       <figure class="pruef" id="pruef" data-zeige aria-labelledby="pruef-titel">
@@ -283,7 +281,7 @@ p{margin:0}
           <p class="urteil"><b>Stimmig.</b> Keine Konflikte.<br>4.449 € · 15,25 kg</p>
           <div class="balken" aria-hidden="true"><i></i></div>
         </div>
-        <figcaption>Ein echter Aufbau aus dem Assistenten der App: Enduro, Budget 4.500 €.</figcaption>
+        <figcaption>Echte App, Beispielanzeige: ein Aufbau aus dem Assistenten, Enduro, Budget 4.500 €.</figcaption>
       </figure>
     </div>
   </section>
@@ -294,6 +292,7 @@ p{margin:0}
         <p class="etikett" data-zeige>Drei Modi</p>
         <h2 class="display" id="wege-titel" data-zeige>Planen, prüfen, bewerten</h2>
         <p data-zeige>Drei Fragen, die sich beim Mountainbike immer wieder stellen — und hinter jeder steckt dieselbe Prüfung.</p>
+        <p class="beispiel" data-zeige>Echte App · Beispielanzeige mit Beispielrädern</p>
       </div>
       <div class="wege">
         <article class="weg" data-zeige>
@@ -343,12 +342,12 @@ p{margin:0}
         <figure data-zeige>
           <div class="handy"><img src="img/federung.webp" width="390" height="844" loading="lazy" decoding="async"
             alt="Screenshot des Federungsrechners im Modus Pur Downhill: 83 psi, Sag 21 Prozent, Vergleich mit Allround und Pur Sprünge."></div>
-          <figcaption>Federungsrechner, Modus Pur Downhill</figcaption>
+          <figcaption>Federungsrechner, Modus Pur Downhill · Beispielanzeige</figcaption>
         </figure>
         <figure data-zeige>
           <div class="handy"><img src="img/guide.webp" width="390" height="844" loading="lazy" decoding="async"
             alt="Screenshot des Guides: Frage „Passt eine Fox 38 zu meinem Rad?“, Antwort mit Preis, Gewicht und dem Hinweis „Passt zu deinem Rad“."></div>
-          <figcaption>Guide: „Passt eine Fox 38 zu meinem Rad?“</figcaption>
+          <figcaption>Guide: „Passt eine Fox 38 zu meinem Rad?“ · Beispielanzeige</figcaption>
         </figure>
       </div>
       </div>
@@ -360,6 +359,7 @@ p{margin:0}
       <div class="vorspann">
         <p class="etikett" data-zeige>So geht's</p>
         <h2 class="display" id="schritte-titel" data-zeige>In drei Schritten zum Rad</h2>
+        <p data-zeige>So wird es laufen, sobald CrankScore fertig ist.</p>
       </div>
       <ol class="schritte">
         <li data-zeige><h3>Ein paar Fragen</h3><p>Größe, Fahrstil, Budget. Dauert rund zwei Minuten.</p></li>
@@ -377,14 +377,16 @@ p{margin:0}
         <h2 class="display" id="fragen-titel" data-zeige>Kurz beantwortet</h2>
       </div>
       <div class="fragen" data-zeige>
-        <details><summary>Was kostet CrankScore?</summary>
+        <details><summary>Wann kommt CrankScore?</summary>
+          <p>Die App ist in der Testphase. Wir veröffentlichen sie, sobald Katalog und Prüfung so weit sind, dass du dich darauf verlassen kannst.</p></details>
+        <details><summary>Was wird CrankScore kosten?</summary>
           <p>Nichts. Kein Abo, keine Anmeldung, kein Konto.</p></details>
         <details><summary>Wie finanziert sich CrankScore?</summary>
-          <p>Über Partnerlinks: Manche Shop-Links sind mit „Anzeige“ markiert. Kaufst du darüber, bekommt CrankScore eine kleine Provision — dein Preis bleibt gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
+          <p>Über Partnerlinks: Manche Shop-Links werden mit „Anzeige“ markiert sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision — dein Preis bleibt gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
         <details><summary>Wo werden meine Daten gespeichert?</summary>
           <p>Nur auf deinem Gerät, im Speicher deines Browsers. Deine Räder, Maße und Fotos gehen an keinen Server.</p></details>
-        <details><summary>Wie bekomme ich die App aufs Handy?</summary>
-          <p>Öffne app.crankscore.de. <b>iPhone:</b> in Safari auf Teilen, dann „Zum Home-Bildschirm“. <b>Android:</b> in Chrome im Menü auf „App installieren“. Danach startet sie wie eine App und läuft auch offline.</p></details>
+        <details><summary>Brauche ich einen App Store?</summary>
+          <p>Nein. CrankScore läuft im Browser. Auf dem Handy legst du sie auf den Startbildschirm — dann startet sie wie eine App und läuft auch offline.</p></details>
         <details><summary>Wie verlässlich sind die Werte?</summary>
           <p>Maße und Standards sind aus Herstellerangaben recherchiert. Luftdruck und Klicks sind Startwerte zum Feinstellen. Im Zweifel gilt das Datenblatt des Herstellers.</p></details>
         <details><summary>Gibt es E-Bikes?</summary>
@@ -395,10 +397,9 @@ p{margin:0}
 
   <section class="schluss" aria-labelledby="schluss-titel">
     <div class="innen">
-      <h2 class="display" id="schluss-titel" data-zeige>Plan dein Rad.</h2>
-      <p data-zeige>Zwei Minuten Fragen, dann steht dein erster Aufbau.</p>
-      <div data-zeige><a class="knopf" href="https://app.crankscore.de/">App öffnen
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a></div>
+      <h2 class="display" id="schluss-titel" data-zeige>Kommt bald.</h2>
+      <p data-zeige>Zwei Minuten Fragen, dann steht dein erster Aufbau — sobald CrankScore fertig ist.</p>
+      <div data-zeige><span class="bald"><i aria-hidden="true"></i>In der Testphase</span></div>
     </div>
   </section>
 </main>
@@ -408,7 +409,6 @@ p{margin:0}
     <span><a class="marke" href="./" style="font-size:17px">Crank<i>Score</i></a></span>
     <span>Mountainbikes planen, prüfen und bewerten.</span>
     <nav aria-label="Rechtliches">
-      <a href="https://app.crankscore.de/">App</a>
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
     </nav>
