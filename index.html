@@ -163,6 +163,9 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 .modus h3{margin-top:10px;font-size:clamp(26px,2.2vw,34px)}
 .modus p{margin-top:12px;color:var(--grau);font-size:17px}
 .modus .beleg{margin-top:22px;font:500 13px/1.3 "IBM Plex Mono",monospace;color:var(--tinte);background:rgba(255,255,255,.7);padding:10px 14px;border-radius:14px;display:inline-block}
+.modus{display:flex;flex-direction:column}
+.buehne.mini{margin-top:auto;padding-top:24px;box-sizing:content-box}
+.modus .beleg{align-self:flex-start}
 .modus .zahl{font-size:15px;font-weight:700;color:var(--akzent);letter-spacing:.02em}
 
 /* Breite Karte mit Text links und Buehne rechts */
@@ -223,8 +226,10 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
   .js [data-zeige]{opacity:1} .js [data-zeige].da{animation:none}
   .js .buehne .pop{animation:none} .lauf ul{animation:none}
 }
-.guide{padding-bottom:clamp(28px,4vw,56px)}
-.guide-liste,.daten-liste{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
+.guide{align-items:end}
+.guide-liste div{padding:18px}.karte .text .guide-liste p{font-size:14.5px;margin-top:6px;line-height:1.45}
+.guide-liste{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.daten-liste{display:grid;gap:14px;padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
 .guide-liste div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-klein);padding:22px}
 .guide-liste h3,.daten-liste h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
 .guide-liste p{margin-top:6px;color:#b3afcf;font-size:15.5px}
@@ -341,18 +346,21 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
           <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
           <p data-t="weg1.p">Sag, was du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt&nbsp;— danach tauschst du, was du anders willst.</p>
           <p class="beleg" data-t="weg1.beleg">Trail · 6.247 € · Score 99</p>
+          <div class="buehne mini" style="aspect-ratio:1/.34" role="img" aria-label="Knopf in der App: Traumrad-Assistent – Budget, Marken, Fahrergewicht, fertiger Aufbau." data-t-aria="alt.m1"><div class="pop" style="--w:100;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-assistent.webp" width="900" height="212" alt="" loading="lazy"></div></div>
         </article>
         <article class="karte k-blau modus" data-zeige>
           <p class="zahl">02</p>
           <p class="etikett" data-t="weg2.etikett">Mein Rad</p>
           <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
           <p data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
+          <div class="buehne mini" style="aspect-ratio:1/.5" role="img" aria-label="Hinweis in der App: Trag ein, was an deinem Rad ist – fang beim Rahmen an." data-t-aria="alt.m2"><div class="pop" style="--w:100;left:0;top:4cqw;rotate:1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-meinrad.webp" width="900" height="334" alt="" loading="lazy"></div></div>
         </article>
         <article class="karte k-pfirsich modus" data-zeige>
           <p class="zahl">03</p>
           <p class="etikett" data-t="weg3.etikett">Gebraucht</p>
           <h3 data-t="weg3.h3">Ein Angebot bewerten</h3>
           <p data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Alter, Zustand und Preis. Die App rechnet den Gebrauchtwert aus&nbsp;— bevor du zu viel bezahlst.</p>
+          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Angebot bewerten in der App: Modelljahr 2023, Zustand gepflegt, normale Spuren." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-gebraucht.webp" width="900" height="1862" alt="" loading="lazy"></div></div>
         </article>
       </div>
     </div>
@@ -411,12 +419,17 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
           <p class="etikett" data-t="guide.etikett">Der Guide</p>
           <h2 id="guide-titel" style="margin-top:12px" data-t="guide.h2">Etwas unklar? Frag den Guide.</h2>
           <p data-t="guide.p">Der Guide kennt dein Rad. Er antwortet aus deinem Aufbau, nicht aus einem Lexikon&nbsp;— und öffnet dir die passende Stelle in der App.</p>
+          <div class="guide-liste">
+            <div><h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">Was fehlt zur 100? Taugt das Rad für Enduro? Der Guide rechnet mit deinem Aufbau.</p></div>
+            <div><h3 data-t="g2.h3">Teile prüfen</h3><p data-t="g2.p">„Passt eine Fox 38?“&nbsp;— der Guide sucht im Katalog und prüft die Ausführung an deinem Rahmen.</p></div>
+            <div><h3 data-t="g3.h3">Begriffe erklärt</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC&nbsp;— in einem Satz, ohne Fachchinesisch.</p></div>
+            <div><h3 data-t="g4.h3">Bringt dich hin</h3><p data-t="g4.p">Ein Tipp auf die Antwort, und die App öffnet das Teil oder die Einstellung.</p></div>
+          </div>
+          <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
         </div>
-        <div class="guide-liste" data-zeige>
-          <div><h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">Was fehlt zur 100? Taugt das Rad für Enduro? Der Guide rechnet mit deinem Aufbau.</p></div>
-          <div><h3 data-t="g2.h3">Teile prüfen</h3><p data-t="g2.p">„Passt eine Fox 38?“&nbsp;— der Guide sucht im Katalog und prüft die Ausführung an deinem Rahmen.</p></div>
-          <div><h3 data-t="g3.h3">Begriffe erklärt</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC&nbsp;— in einem Satz, ohne Fachchinesisch.</p></div>
-          <div><h3 data-t="g4.h3">Bringt dich hin</h3><p data-t="g4.p">Ein Tipp auf die Antwort, und die App öffnet das Teil oder die Einstellung.</p></div>
+        <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Der Guide in der App. Auf die Frage „Passt eine Fox 38?“ antwortet er: Fox 38 Factory, 1.549 Euro, gebaut für Enduro und Downhill&nbsp;– passt so nicht zu deinem Rad, zu viel Federweg für die Rahmenfreigabe." data-t-aria="alt.guide">
+          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/guide.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><img data-bild src="img/s/de/k-antwort.webp" width="900" height="993" alt="" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -646,6 +659,10 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     "alt.fed":"Riding profile 78 kg, rough trails, brisk; result for the fork: 75 psi, 5.2 bar, 18 percent sag.",
     "up.h3":"Upgrades & shopping list",
     "up.p":"First what you can adjust for free, then real improvements and cheaper parts with the same dimensions. At the end there’s the shopping list with shop links — or as text for your workshop.",
+    "alt.m1":"App button: dream bike assistant\u00a0— budget, brands, rider weight, finished build.",
+    "alt.m2":"Hint in the app: enter what’s on your bike\u00a0— start with the frame.",
+    "alt.m3":"Rating a used offer in the app: model year 2023, condition well kept, normal wear.",
+    "alt.guide":"The guide in the app. Asked “Does a Fox 38 fit?”, it answers: Fox 38 Factory, €1,549, built for enduro and downhill\u00a0— doesn’t fit your bike like this, too much travel for the frame rating.",
     "alt.up":"Two app screens: upgrades with the Maxxis Minion DHR II tyre for one more point, next to it the shopping list with 19 parts for €6,247."
   };
   var SPRACHE_KEY = "cs.sprache", DE_TITEL = document.title;
