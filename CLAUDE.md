@@ -7,18 +7,18 @@ zum Testen unter https://trostliam-hub.github.io/dreambuild/. Diese Adresse nie 
 Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 
 - Alles auf Deutsch, Texte im Du. Schlicht, keine Werbesprache.
-- Bilder sind echte Bildschirmaufnahmen der App: Videos `img/v/*.webm` (VP9) mit animiertem
-  WebP als Reserve und Poster-Standbild, erzeugt mit dem Aufnahme-Skript (headless Chrome, siehe
-  Obsidian „CrankScore Webseite“). Keine gezeichneten Illustrationen als Ersatz für Bilder, keine
-  fremden Produktfotos (Liams Regeln). Die Aufnahme „Fit“ zeigt die gezeichnete Fahrerfigur der
-  App und bleibt draußen, bis Liam über die Figuren entschieden hat.
-- Aufbau nach dem Vorbild bevel.health/de, dunkel mit Farbverläufen (Himmel aus drei Wolken,
-  Parallaxe): Hero zweispaltig mit gekipptem Gerät (Aufbau-Ansicht), Marken-Laufband,
-  Prinzip + Prüfstand, Modi mit klebendem Gerät (am Handy Bühne + Karussell), Guide-Karte
-  mit Lichtrand, Federung, Weitere Funktionen, Zahlenband, Datenschutz, Fragen, Schluss.
-  Alle Bewegungen fallen bei „weniger Bewegung“ weg; Videos laden erst im Bild; jedes
-  Gerät hat einen Pausenknopf in der Legende (WCAG 2.2.2).
-- **Design-Loop (2026-09-29/30):** neun Kritikerrunden (Brief/System/Craft), Checkliste
+- Bilder sind echte Bildschirmaufnahmen der App, als Standbilder in `img/s/de/` und `img/s/en/`
+  (die Seite tauscht sie mit der Sprache, `img[data-bild]`). Keine gezeichneten Illustrationen als
+  Ersatz, keine fremden Produktfotos (Liams Regeln). Die gezeichnete Fahrerfigur der App bleibt
+  draußen, bis Liam über die Figuren entschieden hat — die Fit-Karte zeigt deshalb nur Ausschnitte.
+  Die alten Videos in `img/v/` nutzt die Seite seit dem hellen Design nicht mehr.
+- **Helles Design (2026-09-30, Liam: „mit dem Design und solche Bilder die Website designen“):**
+  Stil der Werbebilder nach bevel.health — weiße Seite, große Karten mit Farbverlauf (Lila, Nacht,
+  Grün, Mint, Blau, Pfirsich), darin ein silbernes Handy mit App-Aufnahme und herausspringende
+  App-Karten. Bühnen rechnen in `cqw`, alles skaliert mit der Kartenbreite. Nichts doppelt zeigen:
+  was als Karte herausspringt, darf im Handy dahinter nicht zu sehen sein. Bewegung (Einblenden,
+  leichtes Schweben, Laufband) fällt bei „weniger Bewegung“ weg.
+- **Design-Loop (2026-09-29/30, dunkles Design — gilt für das helle nur noch, wo es passt):** neun Kritikerrunden (Brief/System/Craft), Checkliste
   und bewusste Entscheidungen in `Design-Loop/checkliste.md` (Abschnitt D) — dort nachlesen,
   bevor etwas „verbessert“ wird, das absichtlich so ist. Rundenprotokoll in Obsidian
   „CrankScore Webseite“.
@@ -30,14 +30,12 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
   `backwards`**, nicht als Transition (die überschreibt Hover-Transforms); vor jedem
   Gedankenstrich steht ein `&nbsp;`; Plex-Mono-Subset hat kein ✓/≠ (SVG bzw. Wort); im
   Handy-Block der Modi `align-items:stretch`, sonst scrollt das Karussell nicht.
-- Der **Prüfstand** ist eine Darstellung der Seite mit Werten aus der App und ist so
-  beschriftet — nicht „Echte App“. Beispielaufbau: Enduro, Radon Swoop AL, Shimano-SLX-Antrieb
-  + BB-MT800, Score 99 · 4.343 € · 15,26 kg; alle vier Belege (Hero, Prüfstand, Modi-Beleg,
-  Guide-Aufnahme) tragen dieselbe Zahl — bei neuer Aufnahme alle vier prüfen.
+- Beispielaufbau aller Aufnahmen: Traumrad Trail, Specialized Stumpjumper Alloy, Score 99 ·
+  6.247 € · 14,27 kg, Fahrer 182 cm / 78 kg. Bei neuen Aufnahmen alle Zahlen auf der Seite prüfen.
 - Schriften liegen in `fonts/` (Archivo, Inter, IBM Plex Mono, alle OFL) — nie von Google laden.
 - Impressum ist statisch und noch unvollständig (Anbieterangaben fehlen — Liams Entscheidung).
   Wenn Liam die Angaben liefert: hier UND in der App (`links.json`, Feld `betreiber`) eintragen.
-- Aufnahmen sind als „Echte App · Beispielanzeige“ gekennzeichnet (EN: „Real app · sample screen · German UI“).
+- Aufnahmen sind als „Echte App · Beispielanzeige“ gekennzeichnet (EN: „Real app · sample screen“), reine Ausschnitte als „Echte App · Ausschnitte“.
 - Die Datei `CNAME` darf nicht weg (Domain crankscore.de).
 - Zahlen auf der Seite (738 Teile, 125 Marken, 7 Disziplinen, 15 Federtabellen, 106 Guide-Themen) stammen aus dem Katalog der App,
   Stand 2026-09-29 — bei großen Katalogänderungen nachziehen.

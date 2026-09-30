@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
@@ -6,8 +6,8 @@
 <title>CrankScore — Passt dein Mountainbike zusammen?</title>
 <meta name="description" content="CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot bewerten. Kommt bald.">
 <link rel="canonical" href="https://crankscore.de/">
-<meta name="theme-color" content="#05040c">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#f4f4f8">
+<meta name="color-scheme" content="light">
 <link rel="icon" href="img/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:type" content="website">
@@ -23,403 +23,233 @@
 <meta name="twitter:card" content="summary_large_image">
 <script>/* Sprache vor dem ersten Bild: Englisch -> Seite bleibt bis zum Umschalten unsichtbar (Millisekunden) */
 (function(){try{var g=localStorage.getItem("cs.sprache");var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(g==="en"||(g!=="de"&&n.indexOf("de")!==0))document.documentElement.className+=" en-lade";setTimeout(function(){document.documentElement.classList.remove("en-lade");},1500);}catch(e){}})();</script>
-<link rel="preload" href="fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/ibmplexmono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO) */
-@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-standard-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin-ext.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"IBM Plex Mono";src:url(fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500;font-display:swap;
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibmplexmono-500-latin-ext.woff2) format("woff2");font-weight:500;font-display:swap;
-  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 
-/* ── Designsystem CrankScore: Nacht statt Schwarz, Eloxal-Verlauf wie ein eloxiertes Anbauteil ──
-   Schriftstufen (eine Skala, keine Halbpixel): s1 12 Etiketten · s2 13 Messwerte · s3 15 Kartentext
-   · s4 17 Fliesstext · s5 20 Vorspann · s6 24 Wortmarke/Kacheln. Display-Groessen nur bei h1/h2/Zahlen. */
+/* ── Designsystem hell (Stand 2026-09-30): weisse Seite, grosse Karten mit Farbverlauf wie in den
+   Werbebildern; darin ein silbernes Handy mit echter App-Aufnahme und herausspringende App-Karten.
+   Farben der Karten: Lila (Marke), Nacht, Gruen (Pruefung), Mint (Fit), Blau (Federung), Pfirsich (Upgrades).
+   Masse in den Buehnen in cqw: alles skaliert mit der Kartenbreite. ── */
 :root{
-  --nacht:#05040c; --carbon:#0d0b18; --carbon-2:#151226; --glas:rgba(21,18,38,.62);
-  --linie:#2a2544; --linie-2:#1c1930; --rand-hell:rgba(164,123,255,.35);
-  --titan:#f7f5ff; --nebel:#c6c1e4; --grau:#8f89b3;
-  --lila:#a47bff; --eloxal:linear-gradient(120deg,#8a4dff 0%,#5b5bff 50%,#2f8cff 100%);
-  --passt:#2ef29a;
-  --display:"Archivo","Inter",system-ui,sans-serif;
-  --text:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --s1:12px; --s2:13px; --s3:15px; --s4:17px; --s5:20px; --s6:24px;
-  --h1:clamp(44px,5.3vw,80px); --h2:clamp(34px,4.4vw,56px); --lead:clamp(17px,1.5vw,20px);
-  --schluss:clamp(40px,4.8vw,64px); --zahl:64px; --zahlen:clamp(28px,3.2vw,44px);   /* Display-Stufen: Schlusszeile (zwischen h2 und h1), Score, Katalogzahlen */
-  --r1:12px; --r2:22px; --r3:26px; --r4:32px; --r5:46px;   /* Radien: Icon-Kachel · Kachel/Zeile · Karte · Grosskarte · Geraet */
-  --breite:1240px; --rand:clamp(20px,5vw,48px);
-  --weich:cubic-bezier(.2,.75,.2,1);
+  --seite:#f4f4f8; --weiss:#fff; --tinte:#17161e; --text:#3c3d48; --grau:#6c6e7b; --linie:#e3e3ec;
+  --akzent:#6d45f0; --eloxal:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff); --ok:#12a86a;
+  --r:40px; --r-klein:24px; --innen:1240px;
+  --h1:clamp(44px,6.2vw,84px); --h2:clamp(34px,4.4vw,60px); --h3:clamp(28px,2.6vw,40px);
+  --schatten:0 30px 60px -20px rgba(23,22,30,.25);
 }
-/* Grosse Bildschirme: breitere Buehne, groesserer Titel, groessere Geraete -- 1920 ist kein gestrecktes 1440 */
-@media (min-width:1600px){:root{--breite:1400px; --h1:86px; --h2:60px; --handy-gross:470px; --handy-mittel:430px; --handy-klein:400px}}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--nacht)}
-html.en-lade body{visibility:hidden}
-/* body bleibt durchsichtig: sein Hintergrund wuerde sonst ueber dem Himmel (z-index -1) liegen */
-body{margin:0;background:transparent;color:var(--nebel);font-family:var(--text);font-size:var(--s4);line-height:1.6;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;position:relative}
-img,video{display:block;max-width:100%;height:auto}
+@media (min-width:1600px){ :root{ --innen:1400px; } }
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+.en-lade body{visibility:hidden}
+body{background:var(--seite);color:var(--text);font:400 17px/1.55 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--lila);outline-offset:3px;border-radius:6px}
-.weg-link{position:absolute;left:12px;top:-60px;z-index:100;padding:10px 14px;border-radius:var(--r1);background:var(--titan);color:var(--nacht);font-weight:700;text-decoration:none}
-.weg-link:focus{top:12px}
-.innen{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
-main > section[id]{scroll-margin-top:80px}
+:focus-visible{outline:3px solid var(--akzent);outline-offset:3px;border-radius:8px}
+.weg{position:absolute;left:12px;top:-60px;z-index:100;background:var(--tinte);color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none}
+.weg:focus{top:12px}
+.innen{max-width:var(--innen);margin:0 auto;padding:0 24px}
+@media (max-width:520px){ .innen{padding:0 12px} }
+h1,h2,h3{color:var(--tinte);font-weight:700;letter-spacing:-.035em;line-height:1.03}
+h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-spacing:-.03em}
+.etikett{font:500 12px/1.3 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent)}
+.lead{font-size:clamp(18px,1.6vw,22px);color:var(--grau);line-height:1.45;letter-spacing:-.01em}
 
-/* ── Der Himmel: Farbverlaeufe hinter der ganzen Seite. Drei grosse, weiche Wolken ohne Filter (nur transform);
-   die Kerne liegen ausserhalb der Textspalten (Kontrast), der ganze Himmel wandert beim Scrollen langsam mit (--sky),
-   sodass jede Bildschirmhoehe ihren eigenen Ausschnitt sieht. ── */
-.himmel{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
-  background:radial-gradient(120% 70% at 50% -10%,rgba(91,91,255,.3),transparent 60%),linear-gradient(180deg,#151226 0%,#05040c 45%,#0d0b18 100%)}
-.himmel .wolken{position:absolute;inset:0;transform:translateY(var(--sky,0px));will-change:transform}
-.himmel i{position:absolute;border-radius:50%;will-change:transform}
-.himmel .w1{width:100vw;height:100vw;max-width:1500px;max-height:1500px;left:-52vw;top:-55vw;
-  background:radial-gradient(circle,rgba(138,77,255,.62) 0%,rgba(138,77,255,.3) 28%,rgba(138,77,255,.08) 52%,transparent 68%);animation:wolke1 38s ease-in-out infinite alternate}
-.himmel .w2{width:90vw;height:90vw;max-width:1300px;max-height:1300px;right:-50vw;top:30vh;
-  background:radial-gradient(circle,rgba(47,140,255,.55) 0%,rgba(47,140,255,.24) 28%,rgba(47,140,255,.07) 52%,transparent 68%);animation:wolke2 46s ease-in-out infinite alternate}
-.himmel .w3{width:90vw;height:90vw;max-width:1300px;max-height:1300px;right:-34vw;top:110vh;
-  background:radial-gradient(circle,rgba(91,91,255,.46) 0%,rgba(91,91,255,.2) 28%,rgba(91,91,255,.06) 52%,transparent 68%);animation:wolke1 52s ease-in-out infinite alternate-reverse}
-@keyframes wolke1{to{transform:translate(8vw,7vh) scale(1.08)}}
-@keyframes wolke2{to{transform:translate(-8vw,-6vh) scale(1.06)}}
-
-/* Schrift: breite Archivo nur fuer Ueberschriften und Zahlen -- wie die Schrift auf Rahmen und Gabel */
-.display{font-family:var(--display);font-stretch:125%;font-weight:800;color:var(--titan);letter-spacing:-.015em;line-height:.98;margin:0;text-wrap:balance}
-.etikett{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:500;font-size:var(--s1);letter-spacing:.14em;text-transform:uppercase;color:var(--lila);margin:0}
-.etikett::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--eloxal)}
-h2.display{font-size:var(--h2)}
-h3{font-family:var(--text);font-size:var(--s5);line-height:1.3;font-weight:700;color:var(--titan);margin:0;letter-spacing:-.01em}
-p{margin:0;text-wrap:pretty}
-.beispiel{font-family:var(--mono);font-weight:500;font-size:var(--s1);letter-spacing:.06em;color:var(--nebel);text-transform:uppercase}
-/* Textspalte eines Abschnitts: Etikett, Ueberschrift, Vorspann -- immer dieselben Masse */
-.text .etikett + h2{margin-top:14px}
-.text .lead{margin-top:16px;font-size:var(--lead);max-width:32em}
-.vorspann{display:grid;gap:14px;max-width:44em;margin-bottom:clamp(28px,4vw,48px)}
-.vorspann .lead{font-size:var(--lead)}
-.start .nur-klein{display:none}
-
-/* Knoepfe */
-.knopf{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:0;font-family:var(--text);cursor:pointer;
-  background:var(--eloxal);color:var(--titan);font-weight:700;font-size:var(--s5);text-decoration:none;letter-spacing:-.01em;overflow:hidden;
-  box-shadow:0 16px 38px -14px rgba(138,77,255,.9),inset 0 1px 0 rgba(247,245,255,.22);transition:transform .25s var(--weich),box-shadow .25s var(--weich)}
-.knopf:hover{transform:translateY(-2px);box-shadow:0 20px 44px -14px rgba(138,77,255,1),inset 0 1px 0 rgba(247,245,255,.25)}
-.knopf svg{transition:transform .25s var(--weich)}
-.knopf:hover svg{transform:translateY(2px)}
-.knopf.leise{background:var(--glas);color:var(--titan);border:1px solid var(--linie);box-shadow:none}
-.knopf.leise:hover{border-color:var(--rand-hell);box-shadow:0 12px 30px -16px rgba(138,77,255,.6)}
-.bald{display:inline-flex;align-items:center;gap:9px;min-height:38px;padding:0 15px;border-radius:999px;border:1px solid var(--linie);background:var(--glas);
-  font-family:var(--mono);font-weight:500;font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:var(--titan);white-space:nowrap;text-decoration:none;transition:border-color .2s}
-.bald:hover{border-color:var(--rand-hell)}
-.bald i{width:7px;height:7px;border-radius:50%;background:var(--passt);box-shadow:0 0 0 0 rgba(46,242,154,.55);animation:puls 2.2s infinite}
-@keyframes puls{0%{box-shadow:0 0 0 0 rgba(46,242,154,.5)}70%{box-shadow:0 0 0 8px rgba(46,242,154,0)}100%{box-shadow:0 0 0 0 rgba(46,242,154,0)}}
-
-/* Kopfzeile */
-.kopf{position:sticky;top:0;z-index:50;background:rgba(5,4,12,.55);-webkit-backdrop-filter:saturate(160%) blur(18px);backdrop-filter:saturate(160%) blur(18px);
-  border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
-.kopf.unten{border-bottom-color:var(--linie-2);background:rgba(5,4,12,.78)}
-.kopf .innen{display:flex;align-items:center;gap:24px;height:72px}
-.marke{font-family:var(--text);font-weight:800;font-size:var(--s6);letter-spacing:-.035em;color:var(--titan);text-decoration:none;margin-right:auto}
+/* Kopfzeile: weisses Glas */
+.kopf{position:sticky;top:0;z-index:50;background:rgba(244,244,248,.78);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom:1px solid transparent;transition:border-color .2s}
+.kopf.unten{border-bottom-color:var(--linie)}
+.kopf .innen{display:flex;align-items:center;gap:20px;height:64px}
+.marke{font-weight:800;font-size:22px;letter-spacing:-.04em;text-decoration:none;color:var(--tinte)}
 .marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
-.nav{display:flex;gap:6px}
-.nav a{position:relative;padding:8px 12px;border-radius:999px;color:var(--nebel);text-decoration:none;font-size:var(--s3);font-weight:500;white-space:nowrap;transition:color .2s,background .2s}
-.nav a:hover{color:var(--titan);background:rgba(247,245,255,.05)}
-.nav a.an{color:var(--titan);background:rgba(247,245,255,.07)}
-.sprache{display:flex;gap:2px;padding:3px;border-radius:999px;border:1px solid var(--linie);background:var(--glas);flex:none}
-.sprache button{min-width:44px;height:36px;padding:0 10px;border:0;border-radius:999px;background:none;cursor:pointer;
-  font-family:var(--mono);font-weight:500;font-size:var(--s1);letter-spacing:.08em;color:var(--grau);transition:color .2s,background .2s}
-.sprache button:hover{color:var(--titan)}
-.sprache button[aria-pressed="true"]{color:var(--titan);background:rgba(138,77,255,.28)}
-@media (max-width:960px){.kopf .bald{display:none}}
-@media (max-width:760px){.nav{display:none}.kopf .innen{gap:14px}}
-@media (min-width:761px) and (max-width:1100px){.nav{gap:2px}.nav a{padding:8px 8px;font-size:var(--s2)}.kopf .innen{gap:12px}}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{font-size:15px;text-decoration:none;color:var(--grau);padding:8px 12px;border-radius:999px}
+.nav a:hover,.nav a.an{color:var(--tinte);background:rgba(23,22,30,.06)}
+.sprache{display:flex;background:rgba(23,22,30,.06);border-radius:999px;padding:3px}
+.sprache button{font:600 13px "Inter",sans-serif;border:0;background:none;color:var(--grau);padding:6px 11px;border-radius:999px;cursor:pointer;min-height:32px}
+.sprache button[aria-pressed="true"]{background:#fff;color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.bald{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--tinte);padding:9px 16px;border-radius:999px;white-space:nowrap}
+.bald i{width:8px;height:8px;border-radius:50%;background:#2ef29a;box-shadow:0 0 0 3px rgba(46,242,154,.25)}
+@media (max-width:959px){ .nav{display:none} .sprache{margin-left:auto} }
+@media (max-width:420px){ .bald span{display:none} .bald{padding:9px 11px} }
 
-/* ── Start: am PC zwei Spalten, Text links, Handy rechts im Licht ── */
-.start{position:relative;padding:clamp(24px,3.5vw,48px) 0 clamp(36px,5vw,64px);overflow:hidden}
-.start-raster{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center;justify-items:end}
-.start h1{font-size:var(--h1);margin:18px 0 22px}
-.start .sub{font-size:var(--lead);line-height:1.55;max-width:32em;color:var(--nebel)}
-.aktionen{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-top:32px}
-.fakten{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;font-family:var(--mono);font-weight:500;font-size:var(--s2);letter-spacing:.04em;color:var(--grau)}
-.fakten b{color:var(--titan);font-weight:500}
-.buehne{position:relative;justify-self:end;margin-right:clamp(0px,4vw,60px);width:min(100%,var(--handy-gross,420px),max(300px,calc((100vh - 170px) * .4623)));perspective:1600px}
-.buehne::before{content:"";position:absolute;left:50%;top:50%;width:150%;height:110%;transform:translate(-50%,-50%);border-radius:50%;z-index:-1;
-  background:radial-gradient(closest-side,rgba(91,91,255,.4),rgba(138,77,255,.16) 45%,transparent 72%);animation:atem 7s ease-in-out infinite alternate}
-@keyframes atem{to{transform:translate(-50%,-50%) scale(1.08);opacity:.75}}
-.hero-handy{transform:rotateX(var(--rx,6deg)) rotateY(var(--ry,-12deg)) scale(var(--s,1));transform-origin:50% 40%;transition:transform .15s linear;will-change:transform}
-.legende{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:12px;margin-top:16px;text-align:center}
-.legende .beispiel{flex:0 1 auto;min-width:0}
-.legende .beispiel{color:var(--nebel)}
-@media (max-width:960px){
-  :root{--h1:clamp(44px,7vw,64px)}
-  .start .nur-klein{display:inline-flex;justify-self:start;margin-bottom:18px}
-}
-@media (min-width:700px) and (max-width:960px){
-  .start-raster{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px}
-  .start .etikett{display:flex}
-  .aktionen .knopf{flex:1 1 100%}
-  .fakten{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:8px 22px}
-  .buehne{width:min(300px,38vw);justify-self:center;margin-right:0}
-}
-@media (max-width:699px){
-  /* Handy: eine Spalte, linksbuendig; das Geraet steht direkt unter den Knoepfen, die Fakten darunter */
-  .start .text{display:contents}
-  .start-raster{grid-template-columns:minmax(0,1fr);gap:0;justify-items:stretch}
-  .start h1{margin:14px 0 18px}
-  .aktionen{margin-top:26px}
-  .aktionen .knopf{flex:0 1 auto;min-width:200px}
-  .buehne{order:5;justify-self:center;margin:36px auto 0;width:min(300px,70vw)}
-  .buehne::before{width:120%}
-  .fakten{order:6;margin-top:28px;justify-content:center}
-  .hero-handy{transform:rotateX(var(--rx,16deg)) rotateY(0deg) scale(var(--s,.96));transform-origin:50% 20%}
-}
-@media (max-width:520px){.fakten{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;gap:8px 22px}.aktionen .knopf{flex-basis:100%}}
+/* Karten mit Farbverlauf */
+.karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate}
+.karte .text{padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
+.karte .text p{margin-top:14px;font-size:clamp(17px,1.5vw,21px);color:var(--grau);line-height:1.42;max-width:34em}
+.karte .text p.etikett{margin-top:0;font-size:12px;line-height:1.3;color:var(--akzent)}
+.karte.dunkel .text p.etikett{color:#b9a4ff}
+.fragen-raster h2{margin-top:12px}.fragen-raster .lead{margin-top:16px}
+.karte.dunkel h1,.karte.dunkel h2,.karte.dunkel h3{color:#fff}
+.karte.dunkel .text p{color:#b3afcf}
+.karte.dunkel .echt{color:#b3afcf;background:rgba(255,255,255,.08)}
+.k-lila{background:linear-gradient(180deg,#eef0f8 0%,#e7e3fb 45%,#c3b6ff 100%)}
+.k-nacht{background:radial-gradient(90% 60% at 50% 78%,#3b2a8a 0%,#1a1433 48%,#0b0a12 100%)}
+.k-gruen{background:linear-gradient(180deg,#c9ecc3 0%,#e7f5e3 60%,#f3f6f1 100%)}
+.k-mint{background:linear-gradient(160deg,#eef4f1 0%,#d6f0e3 55%,#9fdcbf 100%)}
+.k-blau{background:linear-gradient(180deg,#eef3ff 0%,#cfe0ff 60%,#9fc2ff 100%)}
+.k-pfirsich{background:linear-gradient(180deg,#fff1ea 0%,#ffd9c7 60%,#ffb99a 100%)}
+.k-weiss{background:#fff}
+.echt{display:inline-block;margin-top:18px;font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--grau);background:rgba(23,22,30,.06);padding:8px 12px;border-radius:999px}
 
-/* Handy-Attrappe: schlichter Rahmen, kein Nachbau eines bestimmten Geraets */
-.handy{position:relative;border-radius:var(--r5);padding:11px;background:linear-gradient(160deg,var(--linie),var(--carbon));border:1px solid var(--linie);
-  box-shadow:0 50px 100px -40px rgba(91,91,255,.7),0 0 0 1px rgba(247,245,255,.05) inset,0 1px 0 rgba(247,245,255,.08) inset}
-.handy .schirm{border-radius:calc(var(--r5) - 11px);overflow:hidden;background:var(--carbon);aspect-ratio:600/1298}
-.handy video,.handy img{width:100%;height:100%;object-fit:cover}
-.pause{display:inline-grid;place-items:center;flex:none;width:28px;height:28px;margin:0;border-radius:50%;border:1px solid var(--linie);background:var(--glas);color:var(--titan);cursor:pointer;padding:0;transition:border-color .2s}
-.pause:hover,.pause:focus-visible{border-color:var(--rand-hell)}
-@media (max-width:960px){.pause{width:36px;height:36px}}
-.pause svg:last-child{display:none}
-.pause:not(.laeuft) svg:first-child{display:none}
-.pause:not(.laeuft) svg:last-child{display:block}
+/* Buehne: Handy + herausspringende Karten, Masse in cqw */
+.buehne{position:relative;container-type:inline-size;width:100%;margin-top:auto;flex:none}
+.buehne>*{position:absolute}
+.geraet{--p:60;width:calc(var(--p)*1cqw);padding:calc(var(--p)*.028cqw);border-radius:calc(var(--p)*.165cqw);
+  background:linear-gradient(135deg,#e3e7ee,#8f96a3 30%,#eceff3 55%,#7d8491 80%,#ccd1d8);box-shadow:0 30px 60px -10px rgba(23,22,30,.35)}
+.geraet .glas{position:relative;border-radius:calc(var(--p)*.14cqw);overflow:hidden;background:#000;border:calc(var(--p)*.008cqw) solid #0a0a0c}
+.geraet .leiste{height:calc(var(--p)*.13cqw);background:#0b0b10;color:#fff;display:flex;justify-content:space-between;align-items:center;
+  padding:calc(var(--p)*.016cqw) calc(var(--p)*.095cqw) 0 calc(var(--p)*.11cqw);font-weight:600;font-size:calc(var(--p)*.04cqw)}
+.geraet .leiste::after{content:"";width:calc(var(--p)*.12cqw);height:calc(var(--p)*.03cqw);border-radius:calc(var(--p)*.01cqw);
+  background:linear-gradient(90deg,#fff 0 72%,rgba(255,255,255,.35) 72%)}
+.geraet .insel{position:absolute;top:calc(var(--p)*.036cqw);left:50%;transform:translateX(-50%);width:calc(var(--p)*.28cqw);height:calc(var(--p)*.078cqw);border-radius:999px;background:#000;z-index:2}
+.geraet img{width:100%;height:auto}
+.pop{border-radius:calc(var(--w,60)*.045cqw);overflow:hidden;background:#15141f;width:calc(var(--w,60)*1cqw);
+  box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
+.pop img{width:100%;height:auto}
+.pop.kappe{max-height:calc(var(--w)*var(--k)*1cqw)}
+.blende{left:0;right:0;bottom:0;height:14cqw;background:linear-gradient(180deg,transparent,var(--blende))}
 
-/* ── Marken-Laufband: Rand statt gap, damit -50 % exakt eine Periode ist (keine Naht) ── */
-.band{padding:clamp(28px,4vw,44px) 0;border-top:1px solid var(--linie-2);border-bottom:1px solid var(--linie-2);background:linear-gradient(180deg,rgba(21,18,38,.35),rgba(21,18,38,.0))}
-.band .etikett{display:flex;justify-content:center;margin-bottom:18px;color:var(--grau)}
-.band .etikett::before{display:none}
-.lauf{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.lauf + .lauf{margin-top:12px}
-.lauf ul{display:flex;margin:0;padding:0;list-style:none;width:max-content;animation:lauf 56s linear infinite}
-.lauf.zurueck ul{animation-direction:reverse;animation-duration:64s}
-.lauf li{margin-right:12px;padding:10px 20px;border-radius:999px;border:1px solid var(--linie-2);background:var(--glas);font-weight:600;font-size:var(--s3);color:var(--nebel);white-space:nowrap}
+/* Seitenbau */
+main>section{padding:clamp(56px,8vw,120px) 0 0}
+main>section.start{padding-top:clamp(16px,2vw,28px)}
+.kopfzeile{max-width:780px;margin:0 0 clamp(28px,4vw,48px)}
+.kopfzeile h2{margin-top:12px}
+.kopfzeile .lead{margin-top:18px}
+.zwei{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)}
+.drei{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
+@media (max-width:899px){ .zwei,.drei{grid-template-columns:1fr} }
+
+/* Start */
+.start .karte{display:grid;grid-template-columns:1.05fr 1fr;align-items:end;min-height:min(820px,calc(100vh - 96px))}
+.start .text{padding-bottom:clamp(40px,5vw,72px);align-self:center}
+.start h1{margin-top:16px}
+.start .text p.lead{margin-top:22px;max-width:30em}
+.knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.knopf{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none}
+.knopf.voll{color:#fff;background:var(--eloxal);box-shadow:0 10px 30px -8px rgba(91,91,255,.6)}
+.knopf.leer{color:var(--tinte);background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(23,22,30,.12)}
+.knopf:hover{filter:brightness(1.06)}
+.fakten{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:30px;font-size:15px;color:var(--grau)}
+.fakten b{color:var(--tinte);font-weight:700}
+@media (max-width:899px){ .start .karte{grid-template-columns:1fr;min-height:0} .start .text{padding-bottom:8px} }
+
+/* Marken-Laufband */
+.band{padding:clamp(40px,5vw,64px) 0 0;overflow:hidden}
+.band .etikett{text-align:center;color:var(--grau);margin-bottom:18px}
+.lauf{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.lauf ul{display:flex;gap:44px;list-style:none;padding:8px 0;width:max-content;animation:lauf 60s linear infinite}
+.lauf.zurueck ul{animation-direction:reverse;animation-duration:70s}
+.lauf li{font-weight:700;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:#a3a4b2;white-space:nowrap}
 @keyframes lauf{to{transform:translateX(-50%)}}
+.band:hover .lauf ul{animation-play-state:paused}
 
-/* Abschnitte: leise Faerbung im Wechsel, dazwischen ein Verlauf als Trennlinie */
-.abschnitt{position:relative;padding:clamp(64px,8vw,112px) 0}
-.abschnitt.tint{background:linear-gradient(180deg,transparent,rgba(21,18,38,.78) 18%,rgba(21,18,38,.78) 82%,transparent)}
-.trenn{height:1px;border:0;margin:0;background:linear-gradient(90deg,transparent,rgba(164,123,255,.45),transparent)}
-/* Einblenden als Animation mit fill-mode backwards: nach dem Lauf gilt wieder der normale Stil,
-   Hover-Transforms der Karten bleiben moeglich (eine Transition haette sie ueberschrieben). */
-.js [data-zeige]{opacity:0}
-.js [data-zeige].da{opacity:1;animation:zeige .7s var(--weich) backwards}
-@keyframes zeige{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-.zweispaltig{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,80px);align-items:center}
-.zweispaltig.umgekehrt .text{order:2}
-@media (max-width:960px){.zweispaltig{grid-template-columns:minmax(0,1fr)}.zweispaltig.umgekehrt .text{order:0}}
+/* Prinzip-Punkte */
+.punkte{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 clamp(24px,3vw,32px)}
+.punkte div{background:#fff;border-radius:var(--r-klein);padding:22px 24px}
+.punkte b{display:block;color:var(--tinte);font-size:18px;letter-spacing:-.02em}
+.punkte span{display:block;margin-top:4px;font-size:15px;color:var(--grau)}
+@media (max-width:899px){ .punkte{grid-template-columns:1fr} }
 
-/* ── Prinzip: Text links, Pruefstand rechts ── */
-.pruefpunkte{display:grid;gap:10px;margin-top:26px}
-.pruefpunkte div{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 12px;align-items:center;padding:12px 16px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas)}
-.pruefpunkte i{width:8px;height:8px;border-radius:50%;background:var(--passt);box-shadow:0 0 12px rgba(46,242,154,.6)}
-.pruefpunkte b{color:var(--titan);font-weight:600;font-size:var(--s3)}
-.pruefpunkte span{font-family:var(--mono);font-size:var(--s2);color:var(--grau);grid-column:2}
+/* Modi */
+.modus{padding:clamp(28px,3vw,40px);min-height:100%}
+.modus .etikett{color:var(--grau)}
+.modus h3{margin-top:10px;font-size:clamp(26px,2.2vw,34px)}
+.modus p{margin-top:12px;color:var(--grau);font-size:17px}
+.modus .beleg{margin-top:22px;font:500 13px/1.3 "IBM Plex Mono",monospace;color:var(--tinte);background:rgba(255,255,255,.7);padding:10px 14px;border-radius:14px;display:inline-block}
+.modus{display:flex;flex-direction:column}
+.buehne.mini{margin-top:auto;padding-top:24px;box-sizing:content-box}
+.modus .beleg{align-self:flex-start}
+.modus .zahl{font-size:15px;font-weight:700;color:var(--akzent);letter-spacing:.02em}
 
-.pruef{margin:0 auto;max-width:640px;text-align:left;background:linear-gradient(180deg,var(--carbon-2),var(--carbon));border:1px solid var(--linie);border-radius:var(--r3);
-  padding:22px clamp(18px,3vw,28px) 24px;box-shadow:0 50px 110px -50px rgba(91,91,255,.6)}
-.pruef-kopf{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--linie-2)}
-.pruef-kopf .etikett{white-space:nowrap}
-.pruef-kopf .etikett::before{display:none}
-.pruef-kopf .rad{font-size:var(--s2);color:var(--grau);margin-left:auto;text-align:right}
-.nochmal{width:34px;height:34px;flex:none;border-radius:50%;border:1px solid var(--linie);background:transparent;color:var(--nebel);cursor:pointer;
-  display:grid;place-items:center;transition:color .2s,border-color .2s,transform .5s var(--weich)}
-.nochmal:hover{color:var(--titan);border-color:var(--lila);transform:rotate(-180deg)}
-.nochmal[hidden]{display:grid;visibility:hidden;pointer-events:none}
-.pruef-liste{list-style:none;margin:6px 0 0;padding:0}
-.zeile{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 14px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--linie-2)}
-.zeile .was{font-size:var(--s2);color:var(--grau);font-weight:500}
-.zeile .wert{grid-column:1 / -1;grid-row:2;font-family:var(--mono);font-weight:500;font-size:var(--s2);color:var(--titan);letter-spacing:.01em}
-.zeile .wert em{font-style:normal;color:var(--grau)}
-.zeile .wert i{font-style:normal;color:var(--grau);font-family:var(--text);font-size:var(--s1);margin-right:2px}
-.zeile .status{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:var(--s2);font-weight:500;color:var(--passt);letter-spacing:.04em;white-space:nowrap}
-.ergebnis{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 18px;align-items:center;padding-top:20px}
-.zahl{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:var(--zahl);line-height:1;color:var(--titan);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.zahl small{font-size:var(--s5);color:var(--grau);font-weight:600;letter-spacing:0;margin-left:2px}
-.urteil{font-size:var(--s3);line-height:1.45}
-.urteil b{color:var(--titan)}
-.balken{grid-column:1 / -1;height:6px;border-radius:99px;background:var(--linie-2);overflow:hidden;margin-top:14px}
-.balken i{display:block;height:100%;width:99%;border-radius:inherit;background:var(--eloxal);transform-origin:left}
-.pruef figcaption{margin-top:16px;font-size:var(--s2);color:var(--grau)}
-.js .pruef.laeuft .zeile{opacity:.28;transition:opacity .35s}
-.js .pruef.laeuft .zeile .status{opacity:0;transition:opacity .25s}
-.js .pruef.laeuft .zeile.an{opacity:1}
-.js .pruef.laeuft .zeile.ok .status{opacity:1}
-.js .pruef.laeuft .zeile.an:not(.ok) .wert::after{content:"";display:inline-block;width:.55em;height:1em;margin-left:4px;vertical-align:-2px;background:var(--lila);animation:blink .7s steps(2) infinite}
-@keyframes blink{50%{opacity:0}}
-.js .pruef.laeuft .ergebnis{opacity:0;transition:opacity .5s}
-.js .pruef.laeuft.fertig .ergebnis{opacity:1}
-.js .pruef.laeuft .balken i{transform:scaleX(0);transition:transform 1.1s var(--weich)}
-.js .pruef.laeuft.fertig .balken i{transform:scaleX(1)}
+/* Breite Karte mit Text links und Buehne rechts */
+.breit{display:grid;grid-template-columns:1fr 1.1fr;align-items:end}
+.breit .text{align-self:center;padding-bottom:clamp(28px,4vw,56px)}
+@media (max-width:899px){ .breit{grid-template-columns:1fr} .breit .text{padding-bottom:0} }
 
-/* ── Funktionen (drei Modi): am PC scrollt der Text, das Handy bleibt stehen und wechselt das Video ── */
-.modi-raster{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,6vw,96px);align-items:start}
-.modi-raster .vorspann{margin-bottom:0}
-/* Polster oben/unten und Abstaende so bemessen, dass das Handy bei jeder mittig stehenden Karte ganz im Bild klebt (900 und 1080 px hoch) */
-.modi-liste{display:grid;gap:18px;padding:clamp(40px,8vh,90px) 0 clamp(200px,37vh,420px)}
-/* Das Listenpolster ist zugleich der Abstand zum Guide -- kein zweites Polster obendrauf */
-#modi.abschnitt{padding-bottom:0}
-#guide.abschnitt{padding-top:clamp(32px,4vw,56px)}
-@media (max-width:960px){#modi.abschnitt{padding-bottom:clamp(64px,8vw,112px)}#guide.abschnitt{padding-top:clamp(64px,8vw,112px)}}
-.modi-liste .weg + .weg{margin-top:clamp(80px,18vh,180px)}
-.weg{position:relative;display:grid;gap:12px;text-align:left;padding:24px 26px;border-radius:var(--r3);border:1px solid var(--linie-2);background:var(--glas);
-  transition:border-color .35s,transform .45s var(--weich),background .35s;cursor:pointer}
-.weg::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:3px;background:var(--eloxal);opacity:0;transition:opacity .35s}
-.weg.an{border-color:var(--rand-hell);background:rgba(138,77,255,.08)}
-.weg.an::before{opacity:1}
-.weg:hover{transform:translateY(-3px);border-color:var(--rand-hell)}
-.weg .txt{font-size:var(--s4)}
-.beleg{margin-top:4px;padding-top:12px;border-top:1px solid var(--linie-2);font-family:var(--mono);font-weight:500;font-size:var(--s2);color:var(--titan)}
-.modi-buehne{position:sticky;top:80px;justify-self:center;width:min(var(--handy-mittel,380px),100%,max(280px,calc((100vh - 160px) * .4623)))}
-.modi-buehne .handy .schirm{position:relative}
-.modi-buehne .schirm > *{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--weich)}
-.modi-buehne .schirm > .an{opacity:1}
-.modi-punkte{display:flex;justify-content:center;gap:2px;margin-top:6px}
-.modi-punkte button{position:relative;width:44px;height:28px;border:0;background:none;cursor:pointer;padding:0;transition:width .3s}
-.modi-punkte button::before{content:"";position:absolute;left:6px;right:6px;top:11px;height:6px;border-radius:99px;background:rgba(247,245,255,.32);transition:background .3s}
-.modi-punkte button:hover::before{background:rgba(247,245,255,.55)}
-.modi-punkte button[aria-pressed="true"]{width:60px}
-.modi-punkte button[aria-pressed="true"]::before{background:var(--eloxal)}
-@media (max-width:960px){
-  :root{--karte:min(74vw,330px)}
-  .modi-raster{display:flex;flex-direction:column;align-items:stretch;gap:0}   /* stretch: sonst wird die Liste so breit wie ihr Inhalt und scrollt nicht */
-  .modi-raster > div:first-child{display:contents}
-  .modi-raster .vorspann{order:1;margin-bottom:24px}
-  .modi-buehne{order:2;position:static;width:min(340px,72vw);margin:0 auto}
-  .modi-liste{order:3}
-  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 calc((100% + 2 * var(--rand) - var(--karte)) / 2) 8px;scroll-padding:0 calc((100% + 2 * var(--rand) - var(--karte)) / 2);scrollbar-width:none}
-  .modi-liste::-webkit-scrollbar{display:none}
-  .modi-liste .weg + .weg{margin-top:0}
-  .weg{flex:0 0 var(--karte);scroll-snap-align:center;padding:16px;cursor:default}
-  .weg::before{display:none}
-  .weg.an{border-color:var(--linie-2);background:var(--glas)}
-  .weg:hover{transform:none;border-color:var(--linie-2)}
-  .weg .txt{font-size:var(--s3)}
-}
+/* Kacheln */
+.kachel{background:#fff;border-radius:var(--r-klein);padding:26px}
+.kachel .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#f0ecff;color:var(--akzent)}
+.kachel h3{font-size:20px;letter-spacing:-.02em;margin-top:16px;line-height:1.2}
+.kachel p{margin-top:6px;font-size:15.5px;color:var(--grau)}
 
-/* ── Guide: Karte mit wanderndem Lichtrand ── */
-.guide-karte{position:relative;border-radius:var(--r4);padding:1px;overflow:hidden;background:var(--linie)}
-@property --wink{syntax:"<angle>";inherits:false;initial-value:0deg}
-.guide-karte::before{content:"";position:absolute;inset:0;background:conic-gradient(from var(--wink),transparent 0 55%,#8a4dff 70%,#2f8cff 80%,transparent 90%);animation:dreh 9s linear infinite}
-.guide-innen{position:relative;border-radius:calc(var(--r4) - 1px);background:linear-gradient(180deg,var(--carbon-2),var(--carbon));padding:clamp(24px,4vw,60px);
-  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,80px);align-items:center;text-align:left}
-@keyframes dreh{to{--wink:360deg}}
-.guide-innen .geraet{width:min(var(--handy-klein,360px),100%,max(280px,calc((100vh - 240px) * .4623)));margin:0 auto}
-.guide-punkte{display:grid;grid-template-columns:minmax(0,1fr);gap:18px 28px;margin-top:28px}
-@media (min-width:1600px){.guide-punkte{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:700px) and (max-width:960px){:root{--karte:min(60vw,440px)}}
-.guide-punkte div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;align-items:start;align-content:start}
-.guide-punkte .ic{width:44px;height:44px;border-radius:var(--r1);display:grid;place-items:center;background:rgba(138,77,255,.16);color:var(--lila);grid-row:span 2}
-.guide-punkte h3{font-size:var(--s4)}
-.guide-punkte p{font-size:var(--s3);color:var(--nebel)}
-@media (max-width:960px){.guide-innen{grid-template-columns:minmax(0,1fr)}}
+/* Zahlen */
+.zahlen{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:clamp(56px,8vw,120px)}
+.zahlen div{background:#fff;border-radius:var(--r-klein);padding:24px;text-align:center}
+.zahlen b{display:block;font-size:clamp(34px,3.4vw,48px);font-weight:700;letter-spacing:-.04em;color:var(--tinte);line-height:1}
+.zahlen span{display:block;margin-top:8px;font-size:14px;color:var(--grau)}
+@media (max-width:899px){ .zahlen{grid-template-columns:repeat(2,1fr)} .zahlen div:last-child{grid-column:1/-1} }
 
-/* ── Federung: Handy und Text nebeneinander, drei Fahrprofile als Kacheln ── */
-.zweier{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,100px);align-items:center;text-align:left}
-.zweier .geraet{width:min(var(--handy-mittel,380px),100%,max(280px,calc((100vh - 200px) * .4623)));margin:0 auto}
-.profile{display:flex;flex-wrap:wrap;gap:14px 36px;margin-top:26px}
-.profile span{display:grid;gap:4px;align-content:end;padding:2px 0 2px 14px;border-left:2px solid var(--linie)}
-.profile b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:var(--s6);color:var(--titan);letter-spacing:-.02em}
-.profile small{font-family:var(--mono);font-size:var(--s1);letter-spacing:.06em;text-transform:uppercase;color:var(--grau)}
-.profile + .beispiel{display:block;margin-top:14px}
-@media (max-width:960px){.zweier{grid-template-columns:minmax(0,1fr)}.zweier .geraet{order:-1}}
-@media (max-width:520px){.profile{gap:12px 22px}.profile span{padding-left:10px}.profile b{font-size:var(--s5)}}
-
-/* ── Weitere Funktionen: Raster, Ueberschrift links ── */
-.raster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;text-align:left}
-.karte{position:relative;padding:24px 24px 26px;border-radius:var(--r3);border:1px solid var(--linie-2);background:var(--glas);display:grid;gap:10px;align-content:start}
-.karte .ic{width:44px;height:44px;border-radius:var(--r1);display:grid;place-items:center;background:rgba(138,77,255,.16);color:var(--lila);margin-bottom:4px}
-.karte h3{font-size:var(--s4)}
-.karte p{font-size:var(--s3)}
-@media (max-width:960px){.raster{gap:12px}.karte{padding:20px 18px 22px}}
-@media (min-width:701px) and (max-width:960px){.raster{grid-template-columns:repeat(2,minmax(0,1fr))}.karte:last-child{grid-column:1 / -1}}
-@media (max-width:700px){.raster{grid-template-columns:minmax(0,1fr)}}
-
-/* ── Der Katalog in Zahlen: ein Band, keine eigene Buehne ── */
-.zahlen-band{padding:clamp(36px,5vw,56px) 0;background:linear-gradient(180deg,transparent,rgba(21,18,38,.45) 30%,rgba(21,18,38,.3) 70%,transparent)}
-.zahlen-band .innen{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px clamp(28px,5vw,72px);align-items:center}
-.zahlen{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
-.zahlen div{flex:1 1 calc(20% - 12px);min-width:0;padding:18px 8px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas)}
-.zahlen b{display:block;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:var(--zahlen);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
-  background:linear-gradient(120deg,#f7f5ff,#a47bff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.zahlen span{display:block;margin-top:8px;font-family:var(--mono);font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:var(--grau)}
-@media (max-width:1100px){.zahlen-band .innen{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:960px){.zahlen{gap:18px 34px}.zahlen div{flex:0 0 auto;padding:0;border:0;background:none}.zahlen span{margin-top:6px}}
-
-/* ── Datenschutz: Text links, drei Zusagen rechts ── */
-.daten{display:grid;gap:12px}
-.daten div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:2px 16px;align-items:start;padding:20px 22px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas)}
-.daten .ic{width:44px;height:44px;border-radius:var(--r1);display:grid;place-items:center;background:rgba(46,242,154,.12);color:var(--passt);grid-row:span 2}
-.daten h3{font-size:var(--s4)}
-.daten p{font-size:var(--s3)}
-
-/* ── Fragen: Ueberschrift links, eine Spalte Antworten rechts (nichts springt) ── */
-.fragen-raster{align-items:start}
-.fragen{display:grid;text-align:left}
-.fragen details{border-top:1px solid var(--linie-2)}
-.fragen details:last-child{border-bottom:1px solid var(--linie-2)}
-.fragen summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer;font-weight:600;font-size:var(--s4);color:var(--titan)}
-.fragen summary:hover{color:var(--lila)}
+/* Fragen */
+.fragen-raster{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,64px);align-items:start}
+@media (max-width:899px){ .fragen-raster{grid-template-columns:1fr} }
+.fragen details{background:#fff;border-radius:20px;padding:0 24px;margin-bottom:10px}
+.fragen summary{list-style:none;cursor:pointer;padding:20px 32px 20px 0;font-weight:600;color:var(--tinte);font-size:17.5px;position:relative}
 .fragen summary::-webkit-details-marker{display:none}
-.fragen summary::after{content:"";width:12px;height:12px;flex:none;border-right:2px solid var(--grau);border-bottom:2px solid var(--grau);
-  transform:rotate(45deg) translate(-3px,-3px);transition:transform .35s var(--weich),border-color .2s}
-.fragen details[open] summary::after{transform:rotate(225deg) translate(-3px,-3px);border-color:var(--lila)}
-.fragen details p{padding:0 0 20px;max-width:44em;font-size:var(--s4)}
-.js .fragen details p{animation:auf .45s var(--weich)}
-@keyframes auf{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.fragen summary::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border:solid var(--grau);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.fragen details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.fragen details p{padding:0 0 22px;color:var(--grau);font-size:16px}
 
 /* Schluss */
-.schluss{position:relative;text-align:center;padding:clamp(72px,10vw,140px) 0;overflow:hidden;
-  background:radial-gradient(55% 70% at 50% 100%,rgba(91,91,255,.28),transparent 70%)}
-.schluss h2{font-size:var(--schluss);margin-bottom:18px}
-.schluss p{font-size:var(--s5);margin:0 auto 30px;max-width:32em}
-html:not(.js) #teilen{display:none}
+.schluss .karte{text-align:center;align-items:center;padding:clamp(48px,7vw,96px) 24px}
+.schluss h2{font-size:clamp(40px,5vw,72px)}
+.schluss p{margin-top:16px}
+.teilen{display:inline-flex;align-items:center;gap:10px;margin-top:30px;min-height:48px;padding:0 24px;border:0;border-radius:999px;font:600 16px "Inter",sans-serif;color:#fff;background:var(--eloxal);cursor:pointer;box-shadow:0 10px 30px -8px rgba(91,91,255,.6)}
 
 /* Fuss */
-.fuss{border-top:1px solid var(--linie-2);background:rgba(5,4,12,.6);padding:clamp(36px,5vw,56px) 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:var(--s3);color:var(--grau)}
-.fuss-raster{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px 40px}
-.fuss .marke{display:inline-block;margin:0 0 10px}
-.fuss h4{margin:0 0 12px;font-family:var(--mono);font-weight:500;font-size:var(--s1);letter-spacing:.12em;text-transform:uppercase;color:var(--grau)}
-.fuss ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;justify-items:start}
-.fuss ul a,.fuss ul button{text-decoration:none;color:var(--nebel);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-align:left}
-.fuss ul a:hover,.fuss ul button:hover{color:var(--titan)}
-.fuss button[aria-pressed="true"]{color:var(--titan);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--lila)}
-.fuss .klein{margin-top:32px;padding-top:20px;border-top:1px solid var(--linie-2);font-size:var(--s1);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
-@media (max-width:860px){.fuss-raster{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 20px}.fuss-raster > div:first-child{grid-column:1 / -1}}
-@media (max-width:520px){.fuss-raster{grid-template-columns:repeat(2,minmax(0,1fr))}.fuss-raster > div:last-child{grid-column:1 / -1}.fuss-raster > div:last-child ul{display:flex;gap:18px}.fuss h4{letter-spacing:.08em}}
+.fuss{margin-top:clamp(56px,8vw,120px);background:#fff;border-top:1px solid var(--linie);padding:56px 0 32px;font-size:15px}
+.fuss-raster{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.fuss p{margin-top:10px;color:var(--grau);max-width:22em}
+.fuss h4{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:12px}
+.fuss ul{list-style:none;padding:0}
+.fuss li{margin:6px 0}
+.fuss li a,.fuss li button{color:var(--text);text-decoration:none;background:none;border:0;font:inherit;padding:0;cursor:pointer}
+.fuss li a:hover,.fuss li button:hover{color:var(--akzent)}
+.fuss li button[aria-pressed="true"]{font-weight:600;color:var(--tinte)}
+.klein{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--linie);font-size:13px;color:var(--grau)}
+@media (max-width:760px){ .fuss-raster{grid-template-columns:1fr 1fr} .fuss-raster>div:first-child{grid-column:1/-1} }
 
+/* Einblenden: Animation mit backwards (keine Transition -- die ueberschreibt Hover-Transforms) */
+.js [data-zeige]{opacity:0}
+.js [data-zeige].da{opacity:1;animation:auf .8s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes auf{from{opacity:0;transform:translateY(28px)}}
+.js .buehne .pop{animation:schweben 7s ease-in-out infinite alternate}
+.js .buehne .pop:nth-of-type(2n){animation-delay:-3.5s}
+@keyframes schweben{to{translate:0 -1.2cqw}}
 @media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .bald i,.himmel .w1,.himmel .w2,.himmel .w3,.lauf ul,.guide-karte::before,.buehne::before{animation:none}
-  .himmel .wolken{transform:none}
-  .hero-handy{transform:none;transition:none}
-  .js [data-zeige]{opacity:1;animation:none}
-  .js [data-zeige].da{animation:none}
-  .knopf,.knopf svg,.weg,.nochmal{transition:none}
-  .modi-buehne .schirm > *{transition:none}
-  .js .fragen details p{animation:none}
+  .js [data-zeige]{opacity:1} .js [data-zeige].da{animation:none}
+  .js .buehne .pop{animation:none} .lauf ul{animation:none}
 }
+.guide{align-items:end}
+.guide-liste div{padding:18px}.karte .text .guide-liste p{font-size:14.5px;margin-top:6px;line-height:1.45}
+.guide-liste{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.daten-liste{display:grid;gap:14px;padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
+.guide-liste div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-klein);padding:22px}
+.guide-liste h3,.daten-liste h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.guide-liste p{margin-top:6px;color:#b3afcf;font-size:15.5px}
+.daten{padding-bottom:clamp(28px,4vw,56px)}
+.daten-liste{grid-template-columns:1fr}
+.daten-liste div{background:rgba(255,255,255,.65);border-radius:var(--r-klein);padding:20px 22px}
+.daten-liste p{margin-top:4px;color:var(--grau);font-size:15.5px}
+@media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
-<div class="himmel" aria-hidden="true"><div class="wolken"><i class="w1"></i><i class="w2"></i><i class="w3"></i></div></div>
-<a class="weg-link" href="#inhalt" data-t="weg">Zum Inhalt springen</a>
-
+<a class="weg" href="#inhalt" data-t="weg">Zum Inhalt springen</a>
 <header class="kopf" id="kopf">
   <div class="innen">
     <a class="marke" href="./" aria-label="CrankScore, zur Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
     <nav class="nav" aria-label="Seite" data-t-aria="nav.aria">
       <a href="#prinzip" data-t="nav.prinzip">Prinzip</a>
       <a href="#modi" data-t="nav.modi">Modi</a>
+      <a href="#funktionen" data-t="nav.fed">Fit &amp; Federung</a>
       <a href="#guide" data-t="nav.guide">Guide</a>
-      <a href="#federung" data-t="nav.fed">Federung</a>
       <a href="#mehr" data-t="nav.mehr">Mehr</a>
       <a href="#fragen" data-t="nav.fragen">Fragen</a>
     </nav>
@@ -427,245 +257,236 @@ html:not(.js) #teilen{display:none}
       <button type="button" data-sprache="de" aria-pressed="true" lang="de">DE</button>
       <button type="button" data-sprache="en" aria-pressed="false" lang="en">EN</button>
     </div>
-    <a class="bald" href="#fragen" id="bald" aria-label="Kommt bald — Stand der Testphase bei den Fragen" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
+    <a class="bald" href="#fragen" id="bald" aria-label="Kommt bald&nbsp;— Stand der Testphase bei den Fragen" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
   </div>
 </header>
 
 <main id="inhalt">
   <section class="start" id="start" aria-labelledby="titel">
-    <div class="innen start-raster">
-      <div class="text">
-        <a class="bald nur-klein" href="#fragen" data-zeige aria-label="Kommt bald — Stand der Testphase bei den Fragen" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="start.bald">Kommt bald</span></a>
-        <p class="etikett" data-zeige data-t="start.etikett">Web-App für Mountainbiker</p>
-        <h1 class="display" id="titel" data-zeige data-t="start.h1">Passt das zusammen?</h1>
-        <p class="sub" data-zeige data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Passt etwas nicht, nennt dir die App das Teil, das stattdessen passt.</p>
-        <div class="aktionen" data-zeige>
-          <a class="knopf" href="#prinzip"><span data-t="start.knopf">So prüft CrankScore</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></a>
-          <a class="knopf leise" href="#modi" data-t="start.knopf2">Die drei Modi</a>
+    <div class="innen">
+      <div class="karte k-lila">
+        <div class="text" data-zeige>
+          <p class="etikett" data-t="start.etikett">Web-App für Mountainbiker</p>
+          <h1 id="titel" data-t="start.h1">Passt das zusammen?</h1>
+          <p class="lead" data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Passt etwas nicht, nennt dir die App das Teil, das stattdessen passt.</p>
+          <div class="knoepfe">
+            <a class="knopf voll" href="#prinzip" data-t="start.knopf">So prüft CrankScore</a>
+            <a class="knopf leer" href="#modi" data-t="start.knopf2">Die drei Modi</a>
+          </div>
+          <p class="fakten" data-th="start.fakten"><span><b>738</b> Teile</span><span><b>125</b> Marken</span><span><b>7</b> Disziplinen</span><span><b>0&nbsp;€</b> · kein Konto</span></p>
+          <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
         </div>
-        <p class="fakten" data-zeige data-th="start.fakten"><span><b>738</b> Teile</span><span><b>125</b> Marken</span><span><b>7</b> Disziplinen</span><span><b>0&nbsp;€</b> · kein Konto</span></p>
-      </div>
-      <div class="buehne" data-zeige>
-        <div class="handy hero-handy" id="hero-handy"><div class="schirm">
-          <video muted playsinline loop poster="img/v/aufbau-poster.webp" data-src="img/v/aufbau.webm" data-webp="img/v/aufbau.webp"
-            aria-label="Bildschirmaufnahme der App: die Aufbau-Ansicht eines Enduro-Rads mit Score 99, Preis und Gewicht; die Teileliste scrollt durch." data-t-aria="v.aufbau"></video>
-        </div></div>
-        <p class="legende"><span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></p>
+        <div class="buehne" style="aspect-ratio:1/1.02" role="img" aria-label="Die App zeigt die Teileliste eines Mountainbikes; Rahmen, Federgabel und Bremsen stehen als Karten mit Preis und Gewicht davor." data-t-aria="alt.start">
+          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/auf.webp" width="720" height="1561" alt="" loading="eager"></div></div>
+          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><img data-bild src="img/s/de/t-rahmen.webp" width="900" height="381" alt=""></div>
+          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><img data-bild src="img/s/de/t-gabel.webp" width="900" height="246" alt=""></div>
+          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><img data-bild src="img/s/de/t-bremsen.webp" width="900" height="248" alt=""></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="band" aria-label="Marken im Katalog" data-t-aria="band.aria">
+<section class="band" aria-label="Marken im Katalog" data-t-aria="band.aria">
     <p class="etikett" data-t="band.etikett">Im Katalog · 125 Marken</p>
     <div class="lauf"><ul><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li><li aria-hidden="true">Fox</li><li aria-hidden="true">RockShox</li><li aria-hidden="true">Shimano</li><li aria-hidden="true">SRAM</li><li aria-hidden="true">Maxxis</li><li aria-hidden="true">Schwalbe</li><li aria-hidden="true">DT Swiss</li><li aria-hidden="true">Race Face</li><li aria-hidden="true">Hope</li><li aria-hidden="true">Magura</li><li aria-hidden="true">Continental</li><li aria-hidden="true">Öhlins</li><li aria-hidden="true">Marzocchi</li><li aria-hidden="true">OneUp</li><li aria-hidden="true">Specialized</li><li aria-hidden="true">Canyon</li><li aria-hidden="true">Santa Cruz</li><li aria-hidden="true">Trek</li><li aria-hidden="true">Commencal</li><li aria-hidden="true">Propain</li><li aria-hidden="true">YT</li><li aria-hidden="true">Radon</li><li aria-hidden="true">Nukeproof</li><li aria-hidden="true">Crankbrothers</li></ul></div>
     <div class="lauf zurueck"><ul><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li><li aria-hidden="true">Ergon</li><li aria-hidden="true">WTB</li><li aria-hidden="true">e*thirteen</li><li aria-hidden="true">Cane Creek</li><li aria-hidden="true">Chromag</li><li aria-hidden="true">Spank</li><li aria-hidden="true">Hunt</li><li aria-hidden="true">Newmen</li><li aria-hidden="true">Michelin</li><li aria-hidden="true">Vittoria</li><li aria-hidden="true">Pirelli</li><li aria-hidden="true">TRP</li><li aria-hidden="true">Trickstuff</li><li aria-hidden="true">SQlab</li><li aria-hidden="true">Fizik</li><li aria-hidden="true">KMC</li><li aria-hidden="true">X-Fusion</li><li aria-hidden="true">Manitou</li><li aria-hidden="true">Formula</li><li aria-hidden="true">Sixpack</li><li aria-hidden="true">Orbea</li><li aria-hidden="true">Giant</li><li aria-hidden="true">Scott</li><li aria-hidden="true">Roval</li></ul></div>
   </section>
 
-  <section class="abschnitt" id="prinzip" aria-labelledby="prinzip-titel">
-    <div class="innen zweispaltig umgekehrt">
-      <div class="text" data-zeige>
+  <section id="prinzip" aria-labelledby="prinzip-titel">
+    <div class="innen">
+      <div class="kopfzeile" data-zeige>
         <p class="etikett" data-t="prinzip.etikett">Das Prinzip</p>
-        <h2 class="display" id="prinzip-titel" data-t="prinzip.h2">Jedes Teil gegen jedes</h2>
-        <p class="lead" data-t="prinzip.p">Sobald ein Teil im Aufbau ist, prüft CrankScore es gegen alle anderen. Am Ende steht eine Zahl — und zu jedem Konflikt das Teil, das ihn löst.</p>
-        <div class="pruefpunkte">
-          <div><i aria-hidden="true"></i><b data-t="pp1.b">Maße</b><span data-t="pp1.s">Federweg, Dämpferlänge, Klemmung, Durchmesser</span></div>
-          <div><i aria-hidden="true"></i><b data-t="pp2.b">Standards</b><span data-t="pp2.s">Achsen, Freilauf, Innenlager, Steuersatz, UDH</span></div>
-          <div><i aria-hidden="true"></i><b data-t="pp3.b">Einsatz</b><span data-t="pp3.s">Passt das Teil zu Trail, Enduro oder Downhill?</span></div>
-        </div>
+        <h2 id="prinzip-titel" data-t="prinzip.h2">Jedes Teil gegen jedes</h2>
+        <p class="lead" data-t="prinzip.p">Sobald ein Teil im Aufbau ist, prüft CrankScore es gegen alle anderen. Am Ende steht eine Zahl&nbsp;— und zu jedem Konflikt das Teil, das ihn löst.</p>
       </div>
-      <figure class="pruef" id="pruef" data-zeige aria-labelledby="pruef-titel">
-        <div class="pruef-kopf">
-          <p class="etikett" id="pruef-titel" data-t="pruef.etikett">Prüfstand</p>
-          <p class="rad">Enduro · Radon Swoop AL</p>
-          <button class="nochmal" type="button" id="nochmal" aria-label="Prüfung noch einmal ablaufen lassen" data-t-aria="pruef.nochmal" hidden>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1L3.5 8.4"/><path d="M3.5 3.5v4.9h4.9"/></svg>
-          </button>
-        </div>
-        <ul class="pruef-liste">
-          <li class="zeile"><span class="was" data-t="pruef.was1">Federweg</span><span class="wert" data-th="pruef.wert1"><i>Gabel</i> 160 mm <em>/</em> <i>Rahmen</i> bis 170 mm</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was2">Steuerrohr</span><span class="wert" data-th="pruef.wert2"><i>Gabel</i> tapered <em>/</em> <i>Rahmen</i> tapered</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was3">Dämpfermaß</span><span class="wert" data-th="pruef.wert3"><i>Dämpfer</i> 216×63 <em>/</em> <i>Rahmen</i> 216×63 Standard</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was4">Hinterachse</span><span class="wert" data-th="pruef.wert4"><i>Laufrad</i> 148×12 Boost <em>/</em> <i>Rahmen</i> 148×12</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was5">Freilauf</span><span class="wert" data-th="pruef.wert5"><i>Kassette</i> Micro Spline <em>/</em> <i>Laufrad</i> Micro Spline</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was6">Innenlager</span><span class="wert" data-th="pruef.wert6"><i>Kurbel</i> Hollowtech II <em>/</em> <i>Lager</i> BB-MT800 BSA 73</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
-        </ul>
-        <div class="ergebnis">
-          <div class="zahl" role="img" aria-label="Score 99 von 100" data-t-aria="pruef.zahl"><span id="zahl">99</span><small>/100</small></div>
-          <p class="urteil" data-th="pruef.urteil"><b>Stimmig.</b> Keine Konflikte.<br>4.343&nbsp;€ · 15,26&nbsp;kg</p>
-          <div class="balken" aria-hidden="true"><i></i></div>
-        </div>
-        <figcaption data-t="pruef.cap">Werte aus der App, dargestellt von dieser Seite: Enduro aus dem Assistenten, 4.500&nbsp;€ Budget. Links das Teil, rechts sein Gegenstück.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <hr class="trenn">
-
-  <section class="abschnitt tint" id="modi" aria-labelledby="modi-titel">
-    <div class="innen modi-raster">
-      <div>
-      <div class="vorspann">
-        <p class="etikett" data-zeige data-t="modi.etikett">Drei Modi</p>
-        <h2 class="display" id="modi-titel" data-zeige data-t="modi.h2">Planen, prüfen, bewerten</h2>
-        <p class="lead" data-zeige data-t="modi.p">Drei Modi für drei Fragen, die sich beim Mountainbike immer wieder stellen — hinter jedem steckt dieselbe Prüfung.</p>
+      <div class="punkte" data-zeige>
+        <div><b data-t="pp1.b">Maße</b><span data-t="pp1.s">Federweg, Dämpferlänge, Klemmung, Durchmesser</span></div>
+        <div><b data-t="pp2.b">Standards</b><span data-t="pp2.s">Achsen, Freilauf, Innenlager, Steuersatz, UDH</span></div>
+        <div><b data-t="pp3.b">Einsatz</b><span data-t="pp3.s">Passt das Teil zu Trail, Enduro oder Downhill?</span></div>
       </div>
-        <div class="modi-liste" id="modi-liste">
-          <article class="weg an" data-modus="0">
-            <p class="etikett" data-t="weg1.etikett">Traumrad</p>
-            <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
-            <p class="txt" data-t="weg1.p">Sag, was du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt — danach tauschst du, was du anders willst.</p>
-            <p class="beleg" data-t="weg1.beleg">Enduro · 4.343&nbsp;€ · Score 99</p>
-          </article>
-          <article class="weg" data-modus="1">
-            <p class="etikett" data-t="weg2.etikett">Mein Rad</p>
-            <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
-            <p class="txt" data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
-            <p class="beleg" data-t="weg2.beleg">Freilauf Micro Spline, Kassette XD: passt nicht</p>
-          </article>
-          <article class="weg" data-modus="2">
-            <p class="etikett" data-t="weg3.etikett">Gebraucht</p>
-            <h3 data-t="weg3.h3">Ein Angebot bewerten</h3>
-            <p class="txt" data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Alter, Zustand und Preis. Die App rechnet den Gebrauchtwert aus — bevor du zu viel bezahlst.</p>
-            <p class="beleg" data-t="weg3.beleg">Verlangt 1.450&nbsp;€ · Wert rund 1.219&nbsp;€</p>
-          </article>
-        </div>
-      </div>
-        <div class="modi-buehne" id="modi-buehne" data-zeige>
-          <div class="handy"><div class="schirm">
-            <video class="an" muted playsinline loop preload="none" poster="img/v/assistent-poster.webp" data-src="img/v/assistent.webm" data-webp="img/v/assistent.webp" data-modus="0" aria-label="Bildschirmaufnahme: Der Assistent stellt ein Enduro-Rad zusammen und übernimmt es in den Aufbau." data-t-aria="v.weg1"></video>
-            <video muted playsinline loop preload="none" poster="img/v/pruefen-poster.webp" data-src="img/v/pruefen.webm" data-webp="img/v/pruefen.webp" data-modus="1" aria-label="Bildschirmaufnahme: Die Prüfung meldet, dass der Freilauf nicht zur Kassette passt, und öffnet die passenden Laufräder." data-t-aria="v.weg2"></video>
-            <video muted playsinline loop preload="none" poster="img/v/gebraucht-poster.webp" data-src="img/v/gebraucht.webm" data-webp="img/v/gebraucht.webp" data-modus="2" aria-label="Bildschirmaufnahme: Das Urteil zu einem Gebrauchtangebot wechselt mit dem Preis von zu teuer zu marktüblich." data-t-aria="v.weg3"></video>
-          </div></div>
-          <p class="legende"><span class="beispiel" data-t="modi.beispiel">Echte App · Beispielanzeige</span></p>
-          <div class="modi-punkte" role="group" aria-label="Modus wählen" data-t-aria="modi.punkte">
-            <button type="button" data-modus="0" aria-pressed="true" aria-label="Traumrad" data-t-aria="weg1.etikett"></button>
-            <button type="button" data-modus="1" aria-pressed="false" aria-label="Mein Rad" data-t-aria="weg2.etikett"></button>
-            <button type="button" data-modus="2" aria-pressed="false" aria-label="Gebraucht" data-t-aria="weg3.etikett"></button>
-          </div>
-        </div>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="guide" aria-labelledby="guide-titel">
-    <div class="innen">
-      <div class="guide-karte" data-zeige>
-        <div class="guide-innen">
-          <div class="geraet"><div class="handy"><div class="schirm"><video muted playsinline loop preload="none" poster="img/v/guide-poster.webp" data-src="img/v/guide.webm" data-webp="img/v/guide.webp"
-            aria-label="Bildschirmaufnahme: Im Guide wird gefragt, ob eine Fox 38 zum Rad passt; die Antwort nennt Preis, Gewicht und bestätigt, dass sie passt." data-t-aria="v.guide"></video></div></div>
-            <p class="legende"><span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></p></div>
+      <div class="zwei">
+        <article class="karte k-nacht dunkel" data-zeige>
           <div class="text">
-            <p class="etikett" data-t="guide.etikett">Der Guide</p>
-            <h2 class="display" id="guide-titel" data-t="guide.h2">Etwas unklar? Frag den Guide.</h2>
-            <p class="lead" data-t="guide.p">Der Guide kennt dein Rad. Er antwortet aus deinem Aufbau, nicht aus einem Lexikon — und öffnet dir die passende Stelle in der App.</p>
-            <div class="guide-punkte">
-              <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg></span>
-                <h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">Was fehlt zur 100? Taugt das Rad für Enduro? Der Guide rechnet mit deinem Aufbau.</p></div>
-              <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s7.5-3.6 7.5-9.5V5.3L12 2.5 4.5 5.3V12c0 5.9 7.5 9.5 7.5 9.5z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg></span>
-                <h3 data-t="g2.h3">Teile prüfen</h3><p data-t="g2.p">„Passt eine Fox 38?“ — der Guide sucht im Katalog und prüft die Ausführung an deinem Rahmen.</p></div>
-              <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19M9 7h6"/></svg></span>
-                <h3 data-t="g3.h3">Begriffe erklärt</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC — in einem Satz, ohne Fachchinesisch.</p></div>
-              <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
-                <h3 data-t="g4.h3">Bringt dich hin</h3><p data-t="g4.p">Ein Tipp auf die Antwort, und die App öffnet das Teil oder die Einstellung.</p></div>
-            </div>
+            <h3 data-t="score.h3">Dein Score</h3>
+            <p data-t="score.p">Sieh auf einen Blick, ob alle Teile zusammenpassen und in dieselbe Richtung ziehen.</p>
+            <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
           </div>
-        </div>
+          <div class="buehne" style="aspect-ratio:1/.87" role="img" aria-label="Score 99 von 100: Stimmig, alles zieht in Richtung Trail. Passform 100, Einsatz 98, 6.247 Euro, 14,27 Kilogramm." data-t-aria="alt.score">
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/bremsen.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><img data-bild src="img/s/de/k-score.webp" width="900" height="369" alt="" loading="lazy"></div>
+          </div>
+        </article>
+        <article class="karte k-gruen" data-zeige>
+          <div class="text">
+            <h3 data-t="pruef.h3">Prüfung</h3>
+            <p data-t="pruef.p">Über zwanzig Regeln auf echten Standards prüfen, ob jedes Teil zum anderen passt.</p>
+            <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+          </div>
+          <div class="buehne" style="aspect-ratio:1/.8;--blende:#eef8eb" role="img" aria-label="Die Prüfung meldet: Keine Konflikte. Alle Maße passen." data-t-aria="alt.pruef">
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/pr.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+            <div class="blende" aria-hidden="true"></div>
+            <div class="pop kappe" style="--w:74;--k:.163;left:13cqw;top:63cqw" aria-hidden="true"><img data-bild src="img/s/de/k-ok.webp" width="900" height="820" alt="" loading="lazy"></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <hr class="trenn">
-
-  <section class="abschnitt tint" id="federung" aria-labelledby="fed-titel">
-    <div class="innen zweier">
-      <div class="text" data-zeige>
-        <p class="etikett" data-t="fed.etikett">Federungsrechner</p>
-        <h2 class="display" id="fed-titel" data-t="fed.h2">Luftdruck und Klicks für dein Gewicht</h2>
-        <p class="lead" data-t="fed.p">Aus Gewicht und Fahrprofil rechnet CrankScore Luftdruck, Sag und jeden Versteller in Klicks. Grundlage sind die Tabellen von Fox, RockShox und anderen; fehlt eine Tabelle, gilt der Richtwert der Klasse. Ein Tipp wechselt das Fahrprofil.</p>
-        <div class="profile" role="group" aria-label="Beispiel Fox 36 Factory, 78 kg, nach Herstellertabelle" data-t-aria="fed.profile">
-          <span><small data-t="fed.m1">Pur Downhill</small><b>83 psi</b></span>
-          <span><small data-t="fed.m2">Allround</small><b>88 psi</b></span>
-          <span><small data-t="fed.m3">Pur Sprünge</small><b>92 psi</b></span>
-        </div>
-        <p class="beispiel" data-t="fed.beispiel">Beispiel: 78 kg, Enduro, Fox 36 Factory · nach Herstellertabelle</p>
-      </div>
-      <div class="geraet" data-zeige><div class="handy"><div class="schirm"><video muted playsinline loop preload="none" poster="img/v/federung-poster.webp" data-src="img/v/federung.webm" data-webp="img/v/federung.webp"
-        aria-label="Bildschirmaufnahme des Federungsrechners: Beim Wechsel zwischen Pur Downhill, Allround und Pur Sprünge ändern sich Luftdruck, Sag und Klicks." data-t-aria="v.fed"></video></div></div>
-        <p class="legende"><span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></p></div>
-    </div>
-  </section>
-
-  <section class="abschnitt" id="mehr" aria-labelledby="mehr-titel">
+  <section id="modi" aria-labelledby="modi-titel">
     <div class="innen">
-      <div class="vorspann">
-        <p class="etikett" data-zeige data-t="mehr.etikett">Weitere Funktionen</p>
-        <h2 class="display" id="mehr-titel" data-zeige data-t="mehr.h2">Was sonst noch drinsteckt</h2>
+      <div class="kopfzeile" data-zeige>
+        <p class="etikett" data-t="modi.etikett">Drei Modi</p>
+        <h2 id="modi-titel" data-t="modi.h2">Planen, prüfen, bewerten</h2>
+        <p class="lead" data-t="modi.p">Drei Modi für drei Fragen, die sich beim Mountainbike immer wieder stellen&nbsp;— hinter jedem steckt dieselbe Prüfung.</p>
       </div>
-      <div class="raster">
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17 17 3l4 4L7 21H3z"/><path d="m14 6 2 2M11 9l2 2M8 12l2 2"/></svg></span>
-          <h3 data-t="k1.h3">Dein Fit</h3><p data-t="k1.p">Rahmengröße, Lenkerbreite, Kurbellänge und Stützenhub aus Körpergröße und Schrittlänge.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-          <h3 data-t="k2.h3">Upgrades</h3><p data-t="k2.p">Erst, was du kostenlos umstellen kannst — dann echte Verbesserungen, die den Score heben.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H6.5"/><circle cx="10" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/></svg></span>
-          <h3 data-t="k3.h3">Einkaufsliste</h3><p data-t="k3.p">Alle Teile mit Preis und Shop-Link — oder als Text für deine Werkstatt.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span>
+      <div class="drei">
+        <article class="karte k-lila modus" data-zeige>
+          <p class="zahl">01</p>
+          <p class="etikett" data-t="weg1.etikett">Traumrad</p>
+          <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
+          <p data-t="weg1.p">Sag, was du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt&nbsp;— danach tauschst du, was du anders willst.</p>
+          <p class="beleg" data-t="weg1.beleg">Trail · 6.247 € · Score 99</p>
+          <div class="buehne mini" style="aspect-ratio:1/.34" role="img" aria-label="Knopf in der App: Traumrad-Assistent – Budget, Marken, Fahrergewicht, fertiger Aufbau." data-t-aria="alt.m1"><div class="pop" style="--w:100;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-assistent.webp" width="900" height="212" alt="" loading="lazy"></div></div>
+        </article>
+        <article class="karte k-blau modus" data-zeige>
+          <p class="zahl">02</p>
+          <p class="etikett" data-t="weg2.etikett">Mein Rad</p>
+          <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
+          <p data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
+          <div class="buehne mini" style="aspect-ratio:1/.5" role="img" aria-label="Hinweis in der App: Trag ein, was an deinem Rad ist – fang beim Rahmen an." data-t-aria="alt.m2"><div class="pop" style="--w:100;left:0;top:4cqw;rotate:1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-meinrad.webp" width="900" height="334" alt="" loading="lazy"></div></div>
+        </article>
+        <article class="karte k-pfirsich modus" data-zeige>
+          <p class="zahl">03</p>
+          <p class="etikett" data-t="weg3.etikett">Gebraucht</p>
+          <h3 data-t="weg3.h3">Ein Angebot bewerten</h3>
+          <p data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Alter, Zustand und Preis. Die App rechnet den Gebrauchtwert aus&nbsp;— bevor du zu viel bezahlst.</p>
+          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Angebot bewerten in der App: Modelljahr 2023, Zustand gepflegt, normale Spuren." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-gebraucht.webp" width="900" height="1862" alt="" loading="lazy"></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="funktionen" aria-labelledby="funk-titel">
+    <div class="innen">
+      <div class="kopfzeile" data-zeige>
+        <p class="etikett" data-t="funk.etikett">Auf dich abgestimmt</p>
+        <h2 id="funk-titel" data-t="funk.h2">Dein Körper, dein Fahrstil</h2>
+        <p class="lead" data-t="funk.p">CrankScore rechnet nicht nur mit Teilen, sondern auch mit dir: mit deinen Maßen, deinem Gewicht und wie du fährst.</p>
+      </div>
+      <div class="zwei">
+        <article class="karte k-mint" id="fit" data-zeige>
+          <div class="text">
+            <h3 data-t="fit.h3">Dein Fit</h3>
+            <p data-t="fit.p">Rahmengröße, Lenkerbreite und Vorbau&nbsp;— berechnet aus deinen Körpermaßen.</p>
+            <span class="echt" data-t="ausschnitt">Echte App · Ausschnitte</span>
+          </div>
+          <div class="buehne" style="aspect-ratio:1/.84" role="img" aria-label="Bei 182 Zentimetern: Rahmengröße L, Lenkerbreite 800 Millimeter, Vorbau 40 bis 50 Millimeter." data-t-aria="alt.fit">
+            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><img data-bild src="img/s/de/k-groesse.webp" width="900" height="332" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><img data-bild src="img/s/de/k-lenker.webp" width="528" height="339" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><img data-bild src="img/s/de/k-vorbau.webp" width="528" height="339" alt="" loading="lazy"></div>
+          </div>
+        </article>
+        <article class="karte k-blau" id="federung" data-zeige>
+          <div class="text">
+            <h3 data-t="fed.h3">Fahrwerk</h3>
+            <p data-t="fed.kurz">Luftdruck und Sag für dein Gewicht und deinen Fahrstil&nbsp;— nach den Tabellen von Fox, RockShox und anderen.</p>
+            <span class="echt" data-t="ausschnitt">Echte App · Ausschnitte</span>
+          </div>
+          <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Fahrprofil 78 Kilogramm, ruppige Trails, zügig; Ergebnis für die Federgabel: 75 psi, 5,2 bar, Sag 18 Prozent." data-t-aria="alt.fed">
+            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><img data-bild src="img/s/de/k-profil.webp" width="900" height="606" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><img data-bild src="img/s/de/k-psi.webp" width="900" height="212" alt="" loading="lazy"></div>
+          </div>
+        </article>
+      </div>
+      <article class="karte k-pfirsich breit" style="margin-top:clamp(16px,2vw,24px)" data-zeige>
+        <div class="text">
+          <h3 data-t="up.h3">Upgrades &amp; Einkaufsliste</h3>
+          <p data-t="up.p">Erst, was du kostenlos umstellen kannst, dann echte Verbesserungen und günstigere Teile mit gleichen Maßen. Am Ende steht die Einkaufsliste mit Shop-Links&nbsp;— oder als Text für deine Werkstatt.</p>
+          <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+        </div>
+        <div class="buehne" style="aspect-ratio:1/.78" role="img" aria-label="Zwei Ansichten der App: Upgrades mit dem Reifen Maxxis Minion DHR II für einen Punkt mehr, daneben die Einkaufsliste mit 19 Teilen für 6.247 Euro." data-t-aria="alt.up">
+          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/up.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/kauf.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="guide" aria-labelledby="guide-titel">
+    <div class="innen">
+      <div class="karte k-nacht dunkel breit guide">
+        <div class="text" data-zeige>
+          <p class="etikett" data-t="guide.etikett">Der Guide</p>
+          <h2 id="guide-titel" style="margin-top:12px" data-t="guide.h2">Etwas unklar? Frag den Guide.</h2>
+          <p data-t="guide.p">Der Guide kennt dein Rad. Er antwortet aus deinem Aufbau, nicht aus einem Lexikon&nbsp;— und öffnet dir die passende Stelle in der App.</p>
+          <div class="guide-liste">
+            <div><h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">Was fehlt zur 100? Taugt das Rad für Enduro? Der Guide rechnet mit deinem Aufbau.</p></div>
+            <div><h3 data-t="g2.h3">Teile prüfen</h3><p data-t="g2.p">„Passt eine Fox 38?“&nbsp;— der Guide sucht im Katalog und prüft die Ausführung an deinem Rahmen.</p></div>
+            <div><h3 data-t="g3.h3">Begriffe erklärt</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC&nbsp;— in einem Satz, ohne Fachchinesisch.</p></div>
+            <div><h3 data-t="g4.h3">Bringt dich hin</h3><p data-t="g4.p">Ein Tipp auf die Antwort, und die App öffnet das Teil oder die Einstellung.</p></div>
+          </div>
+          <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+        </div>
+        <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Der Guide in der App. Auf die Frage „Passt eine Fox 38?“ antwortet er: Fox 38 Factory, 1.549 Euro, gebaut für Enduro und Downhill&nbsp;– passt so nicht zu deinem Rad, zu viel Federweg für die Rahmenfreigabe." data-t-aria="alt.guide">
+          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/guide.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><img data-bild src="img/s/de/k-antwort.webp" width="900" height="993" alt="" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mehr" aria-labelledby="mehr-titel">
+    <div class="innen">
+      <div class="kopfzeile" data-zeige>
+        <p class="etikett" data-t="mehr.etikett">Weitere Funktionen</p>
+        <h2 id="mehr-titel" data-t="mehr.h2">Was sonst noch drinsteckt</h2>
+      </div>
+      <div class="drei">
+        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span>
           <h3 data-t="k4.h3">Gebrauchtwert</h3><p data-t="k4.p">Alter, Zustand, fällige Verschleißteile — und ein klares Urteil zum Preis.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span>
+        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span>
           <h3 data-t="k5.h3">Modelljahr</h3><p data-t="k5.p">Ältere Jahrgänge kosten weniger. Der Assistent nutzt das bei knappem Budget.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
+        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
           <h3 data-t="k6.h3">Mehrere Räder</h3><p data-t="k6.p">Jedes Rad behält seinen eigenen Aufbau, in jedem Modus. Umschalten, ohne etwas zu verlieren.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H8l1.5-2h5L16 6h1.5A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
+        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H8l1.5-2h5L16 6h1.5A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
           <h3 data-t="k7.h3">Dein Top-Cap-Foto</h3><p data-t="k7.p">Fotografier die Rädchen deiner Gabel — die App schreibt die Klicks direkt ins Bild.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
           <h3 data-t="k8.h3">Deutsch und Englisch</h3><p data-t="k8.p">Die ganze App in beiden Sprachen — umschaltbar mit einem Tipp.</p></div>
-        <div class="karte" data-zeige><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/><path d="m3 3 18 18"/></svg></span>
+        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/><path d="m3 3 18 18"/></svg></span>
           <h3 data-t="k9.h3">Läuft offline</h3><p data-t="k9.p">Einmal geöffnet, läuft die App auch ohne Netz — auf dem Trail wie in der Werkstatt.</p></div>
       </div>
+      <div class="zahlen" aria-label="Der Katalog in Zahlen" data-t-aria="zahlen.aria" data-zeige>
+        <div><b>738</b><span data-t="z1">Teile</span></div>
+        <div><b>125</b><span data-t="z2">Marken</span></div>
+        <div><b>7</b><span data-t="z3">Disziplinen</span></div>
+        <div><b>15</b><span data-t="z4">Federtabellen</span></div>
+        <div><b>106</b><span data-t="z5">Guide-Themen</span></div>
+      </div>
     </div>
   </section>
 
-  <hr class="trenn">
-
-  <section class="zahlen-band" id="zahlen" data-nav="mehr" aria-label="Der Katalog in Zahlen" data-t-aria="zahlen.aria">
+  <section id="daten" data-nav="mehr" aria-labelledby="daten-titel">
     <div class="innen">
-      <p class="etikett" data-zeige data-t="zahlen.etikett">Der Katalog in Zahlen</p>
-      <div class="zahlen" data-zeige>
-        <div><b data-zaehl="738">738</b><span data-t="z1">Teile</span></div>
-        <div><b data-zaehl="125">125</b><span data-t="z2">Marken</span></div>
-        <div><b data-zaehl="7">7</b><span data-t="z3">Disziplinen</span></div>
-        <div><b data-zaehl="15">15</b><span data-t="z4">Federtabellen</span></div>
-        <div><b data-zaehl="106">106</b><span data-t="z5">Guide-Themen</span></div>
+      <div class="karte k-gruen breit daten">
+        <div class="text" data-zeige>
+          <p class="etikett" data-t="daten.etikett">Datenschutz</p>
+          <h2 id="daten-titel" style="margin-top:12px" data-t="daten.h2">Deine Daten bleiben bei dir</h2>
+          <p data-t="daten.p">Kein Server, kein Konto: Was du einträgst, bleibt im Browser auf deinem Gerät.</p>
+        </div>
+        <div class="daten-liste" data-zeige>
+          <div><h3 data-t="d1.h3">Kein Konto</h3><p data-t="d1.p">Keine Anmeldung, keine E-Mail, kein Passwort.</p></div>
+          <div><h3 data-t="d2.h3">Alles auf deinem Gerät</h3><p data-t="d2.p">Räder, Maße und Fotos liegen im Speicher deines Browsers&nbsp;— nie auf einem Server.</p></div>
+          <div><h3 data-t="d3.h3">Kein Tracking</h3><p data-t="d3.p">Keine Analyse-Werkzeuge, keine Cookies, keine Weitergabe.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <hr class="trenn">
-
-  <section class="abschnitt" id="daten" data-nav="mehr" aria-labelledby="daten-titel">
-    <div class="innen zweispaltig umgekehrt">
-      <div class="text" data-zeige>
-        <p class="etikett" data-t="daten.etikett">Datenschutz</p>
-        <h2 class="display" id="daten-titel" data-t="daten.h2">Deine Daten bleiben bei dir</h2>
-        <p class="lead" data-t="daten.p">Kein Server, kein Konto: Was du einträgst, bleibt im Browser auf deinem Gerät.</p>
-      </div>
-      <div class="daten">
-        <div data-zeige><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="m3 3 18 18"/></svg></span>
-          <h3 data-t="d1.h3">Kein Konto</h3><p data-t="d1.p">Keine Anmeldung, keine E-Mail, kein Passwort.</p></div>
-        <div data-zeige><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M10 18h4"/></svg></span>
-          <h3 data-t="d2.h3">Alles auf deinem Gerät</h3><p data-t="d2.p">Räder, Maße und Fotos liegen im Speicher deines Browsers — nie auf einem Server.</p></div>
-        <div data-zeige><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><path d="m3 3 18 18"/></svg></span>
-          <h3 data-t="d3.h3">Kein Tracking</h3><p data-t="d3.p">Keine Analyse-Werkzeuge, keine Cookies, keine Weitergabe.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="trenn">
-
-  <section class="abschnitt tint" id="fragen" aria-labelledby="fragen-titel">
-    <div class="innen zweispaltig fragen-raster">
+<section id="fragen" aria-labelledby="fragen-titel">
+    <div class="innen fragen-raster">
       <div class="text" data-zeige>
         <p class="etikett" data-t="fragen.etikett">Fragen</p>
-        <h2 class="display" id="fragen-titel" data-t="fragen.h2">Kurz beantwortet</h2>
+        <h2 id="fragen-titel" data-t="fragen.h2">Kurz beantwortet</h2>
         <p class="lead" data-t="fragen.p">Das Wichtigste vor dem Start — Status, Preis, Verlässlichkeit.</p>
       </div>
       <div class="fragen" data-zeige>
@@ -687,10 +508,11 @@ html:not(.js) #teilen{display:none}
 
   <section class="schluss" id="schluss" aria-labelledby="schluss-titel">
     <div class="innen">
-      <h2 class="display" id="schluss-titel" data-zeige data-t="schluss.h2">Kommt bald.</h2>
-      <p data-zeige data-t="schluss.p">CrankScore ist in der Testphase. Diese Seite wächst mit der App.</p>
-      <div data-zeige><button class="knopf" type="button" id="teilen"><span data-t="schluss.knopf">Seite teilen</span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13"/></svg></button></div>
+      <div class="karte k-lila" data-zeige>
+        <h2 id="schluss-titel" data-t="schluss.h2">Kommt bald.</h2>
+        <p class="lead" data-t="schluss.p">CrankScore ist in der Testphase. Diese Seite wächst mit der App.</p>
+        <button type="button" class="teilen" id="teilen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg><span data-t="schluss.knopf">Seite teilen</span></button>
+      </div>
     </div>
   </section>
 </main>
@@ -704,7 +526,7 @@ html:not(.js) #teilen{display:none}
       </div>
       <div>
         <h4 data-t="fuss.h1">Seite</h4>
-        <ul><li><a href="#prinzip" data-t="nav.prinzip">Prinzip</a></li><li><a href="#modi" data-t="nav.modi">Modi</a></li><li><a href="#guide" data-t="nav.guide">Guide</a></li><li><a href="#federung" data-t="nav.fed">Federung</a></li><li><a href="#mehr" data-t="nav.mehr">Mehr</a></li><li><a href="#fragen" data-t="nav.fragen">Fragen</a></li></ul>
+        <ul><li><a href="#prinzip" data-t="nav.prinzip">Prinzip</a></li><li><a href="#modi" data-t="nav.modi">Modi</a></li><li><a href="#guide" data-t="nav.guide">Guide</a></li><li><a href="#funktionen" data-t="nav.fed">Fit &amp; Federung</a></li><li><a href="#mehr" data-t="nav.mehr">Mehr</a></li><li><a href="#fragen" data-t="nav.fragen">Fragen</a></li></ul>
       </div>
       <div>
         <h4 data-t="fuss.h2">Rechtliches</h4>
@@ -731,13 +553,10 @@ html:not(.js) #teilen{display:none}
   var doc = document.documentElement;
   doc.classList.add("js");
   var ruhig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var pc = function(){ return window.matchMedia && window.matchMedia("(min-width: 961px)").matches; };
-  var breit = function(){ return window.matchMedia && window.matchMedia("(min-width: 700px)").matches; };
   var hatIO = "IntersectionObserver" in window;
   function alle(sel, wo){ return [].slice.call((wo || document).querySelectorAll(sel)); }
-  var pauseKnoepfe = [];
 
-  /* ── Sprache: Deutsch steht im Markup, Englisch hier. ── */
+  /* ── Sprache: Deutsch steht im Markup, Englisch hier. Die App-Aufnahmen gibt es in beiden Sprachen (img/s/de, img/s/en). ── */
   var EN = {
     "weg":"Skip to content", "marke.aria":"CrankScore, to the start page", "nav.aria":"Page", "sprache.aria":"Language",
     "nav.prinzip":"How it works", "nav.modi":"Modes", "nav.guide":"Guide", "nav.fed":"Suspension", "nav.mehr":"More", "nav.fragen":"FAQ",
@@ -817,7 +636,34 @@ html:not(.js) #teilen{display:none}
     "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
     "fuss.claim":"Plan, check and rate your bike — part by part.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language",
     "fuss.imp":"Legal notice (German)", "fuss.ds":"Privacy (German)",
-    "fuss.marken":"Brand names belong to their owners. They are mentioned only to identify the parts in the catalogue."
+    "fuss.marken":"Brand names belong to their owners. They are mentioned only to identify the parts in the catalogue.",
+    "beispiel":"Real app · sample screen",
+    "ausschnitt":"Real app · excerpts",
+    "nav.fed":"Fit & suspension",
+    "weg1.beleg":"Trail · €6,247 · score 99",
+    "alt.start":"The app shows the parts list of a mountain bike; frame, fork and brakes stand in front as cards with price and weight.",
+    "score.h3":"Your score",
+    "score.p":"See at a glance whether every part fits together and pulls in the same direction.",
+    "alt.score":"Score 99 out of 100: spot on, everything pulls towards trail. Fit 100, purpose 98, €6,247, 14.27 kg.",
+    "pruef.h3":"Compatibility",
+    "pruef.p":"Over twenty rules based on real standards check that every part fits the next.",
+    "alt.pruef":"The check reports: no conflicts, all dimensions fit.",
+    "funk.etikett":"Tuned to you",
+    "funk.h2":"Your body, your riding",
+    "funk.p":"CrankScore doesn’t only work with parts, but with you too: your measurements, your weight and how you ride.",
+    "fit.h3":"Your fit",
+    "fit.p":"Frame size, bar width and stem — calculated from your body measurements.",
+    "alt.fit":"At 182 cm: frame size L, bar width 800 mm, stem 40 to 50 mm.",
+    "fed.h3":"Suspension",
+    "fed.kurz":"Air pressure and sag for your weight and riding style — based on the tables from Fox, RockShox and others.",
+    "alt.fed":"Riding profile 78 kg, rough trails, brisk; result for the fork: 75 psi, 5.2 bar, 18 percent sag.",
+    "up.h3":"Upgrades & shopping list",
+    "up.p":"First what you can adjust for free, then real improvements and cheaper parts with the same dimensions. At the end there’s the shopping list with shop links — or as text for your workshop.",
+    "alt.m1":"App button: dream bike assistant\u00a0— budget, brands, rider weight, finished build.",
+    "alt.m2":"Hint in the app: enter what’s on your bike\u00a0— start with the frame.",
+    "alt.m3":"Rating a used offer in the app: model year 2023, condition well kept, normal wear.",
+    "alt.guide":"The guide in the app. Asked “Does a Fox 38 fit?”, it answers: Fox 38 Factory, €1,549, built for enduro and downhill\u00a0— doesn’t fit your bike like this, too much travel for the frame rating.",
+    "alt.up":"Two app screens: upgrades with the Maxxis Minion DHR II tyre for one more point, next to it the shopping list with 19 parts for €6,247."
   };
   var SPRACHE_KEY = "cs.sprache", DE_TITEL = document.title;
   var metaDesc = document.querySelector('meta[name="description"]'), DE_DESC = metaDesc ? metaDesc.content : "";
@@ -828,11 +674,11 @@ html:not(.js) #teilen{display:none}
     alle("[data-th]").forEach(function(e){ var de = merken(e, "h", e.innerHTML), k = e.getAttribute("data-th"); e.innerHTML = en && EN[k] != null ? EN[k] : de; });
     alle("[data-t-aria]").forEach(function(e){ var de = merken(e, "aria", e.getAttribute("aria-label") || ""), k = e.getAttribute("data-t-aria");
       e.setAttribute("aria-label", en && EN[k] != null ? EN[k] : de); });
+    alle("img[data-bild]").forEach(function(e){ var de = merken(e, "src", e.getAttribute("src")); e.setAttribute("src", en ? de.replace("/de/", "/en/") : de); });
     doc.lang = en ? "en" : "de";
     document.title = en ? EN["titel.seite"] : DE_TITEL;
     if(metaDesc) metaDesc.content = en ? EN["meta.desc"] : DE_DESC;
     alle("button[data-sprache]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-sprache") === sp)); });
-    pauseKnoepfe.forEach(function(f){ f(); });
   }
   function startSprache(){
     try{ var g = localStorage.getItem(SPRACHE_KEY); if(g === "de" || g === "en") return g; }catch(e){}
@@ -840,7 +686,7 @@ html:not(.js) #teilen{display:none}
     return nl.indexOf("de") === 0 ? "de" : "en";
   }
   var aktuelleSprache = startSprache();
-  setzeSprache(aktuelleSprache);
+  if(aktuelleSprache === "en") setzeSprache("en");
   doc.classList.remove("en-lade");
   alle("[data-sprache]").forEach(function(b){ b.addEventListener("click", function(){
     aktuelleSprache = b.getAttribute("data-sprache"); setzeSprache(aktuelleSprache);
@@ -855,7 +701,7 @@ html:not(.js) #teilen{display:none}
     if(navigator.clipboard) navigator.clipboard.writeText(url).then(function(){
       var span = teilen.querySelector("span"), vorher = span.textContent; teilen.style.minWidth = teilen.offsetWidth + "px";
       span.textContent = aktuelleSprache === "en" ? EN["schluss.kopiert"] : "Link kopiert";
-      setTimeout(function(){ span.textContent = aktuelleSprache === "en" ? EN["schluss.knopf"] : merken(span, "t", vorher); teilen.style.minWidth = ""; }, 2200);
+      setTimeout(function(){ span.textContent = vorher; teilen.style.minWidth = ""; }, 2200);
     }).catch(function(){});
   });
 
@@ -863,11 +709,9 @@ html:not(.js) #teilen{display:none}
   var bald = document.getElementById("bald"), f1 = document.getElementById("f1");
   if(bald && f1) bald.addEventListener("click", function(){ f1.open = true; });
 
-  /* ── Kopfzeile: Kante beim Scrollen; aktiver Abschnitt in der Navigation (auch "keiner") ── */
+  /* ── Kopfzeile: Kante beim Scrollen; aktiver Abschnitt in der Navigation ── */
   var kopf = document.getElementById("kopf");
-  var himmelLaeuft = false;
-  function himmelSetzen(){ himmelLaeuft = false; doc.style.setProperty("--sky", (-window.scrollY * .12).toFixed(1) + "px"); }
-  var kante = function(){ kopf.classList.toggle("unten", window.scrollY > 8); if(!ruhig && !himmelLaeuft){ himmelLaeuft = true; requestAnimationFrame(himmelSetzen); } };
+  var kante = function(){ kopf.classList.toggle("unten", window.scrollY > 8); };
   window.addEventListener("scroll", kante, {passive:true}); kante();
   var navLinks = alle(".nav a");
   if(hatIO){
@@ -879,9 +723,7 @@ html:not(.js) #teilen{display:none}
     alle("main > section[id]").forEach(function(s){ nio.observe(s); });
   }
 
-  /* Marken-Laufband: steht komplett im Markup (zwei Haelften des Katalogs, je doppelt fuer die Schleife) */
-
-  /* ── Abschnitte erscheinen einmal, leise, wenn sie ins Bild kommen; Geschwister leicht versetzt ── */
+  /* ── Karten erscheinen einmal, leise, wenn sie ins Bild kommen; Geschwister leicht versetzt ── */
   var teile = alle("[data-zeige]");
   if(ruhig || !hatIO){ teile.forEach(function(e){ e.classList.add("da"); }); }
   else {
@@ -889,185 +731,12 @@ html:not(.js) #teilen{display:none}
       eintraege.forEach(function(e){
         if(!e.isIntersecting) return;
         var nachbarn = [].slice.call(e.target.parentNode.children).filter(function(x){ return x.hasAttribute("data-zeige"); });
-        var i = Math.max(0, nachbarn.indexOf(e.target));
-        e.target.style.animationDelay = Math.min(i, 6) * 70 + "ms";
+        e.target.style.animationDelay = Math.min(Math.max(0, nachbarn.indexOf(e.target)), 6) * 80 + "ms";
         e.target.classList.add("da");
         io.unobserve(e.target);
       });
-    }, {rootMargin:"0px 0px -8% 0px", threshold:.1});
+    }, {rootMargin:"0px 0px -6% 0px", threshold:.08});
     teile.forEach(function(e){ io.observe(e); });
-  }
-
-  /* ── Videos: erst laden, wenn sie ins Bild kommen; ohne WebM das animierte WebP ── */
-  var kannWebm = !!document.createElement("video").canPlayType('video/webm; codecs="vp9"');
-  function videoLaden(v){
-    if(v.__da) return v; v.__da = true;
-    if(ruhig) return v;                       /* bei "weniger Bewegung": nur das Standbild */
-    if(kannWebm){ v.src = v.getAttribute("data-src"); v.load(); var h = v.closest(".handy"); if(h) pauseKnopf(h); }
-    else { var img = document.createElement("img"); img.src = v.getAttribute("data-webp"); img.alt = v.getAttribute("aria-label") || ""; img.className = v.className;
-      img.setAttribute("data-webp", v.getAttribute("data-webp")); img.setAttribute("data-poster", v.getAttribute("poster"));
-      if(v.hasAttribute("data-modus")) img.setAttribute("data-modus", v.getAttribute("data-modus")); v.parentNode.replaceChild(img, v);
-      var h2 = img.closest(".handy"); if(h2) pauseKnopf(h2); return img; }
-    return v;
-  }
-  function spielen(v){ if(v && v.tagName === "VIDEO" && v.src && !ruhig && !v.__manuell){ v.__auto = false; v.play().catch(function(){}); } }
-  /* Pausenknopf je Handy (WCAG 2.2.2): sitzt neben der Bildunterschrift bzw. bei den Punkten, nie ueber der App;
-     sein Zustand kommt aus den play/pause-Ereignissen des gerade sichtbaren Videos */
-  function pauseKnopf(handy){
-    if(ruhig || handy.__pause) return;
-    var b = document.createElement("button"); b.type = "button"; b.className = "pause"; handy.__pause = b;
-    b.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5"/><rect x="14" y="4" width="5" height="16" rx="1.5"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
-    var aktiv = function(){ return handy.querySelector(".schirm > .an") || handy.querySelector(".schirm > video, .schirm > img"); };
-    var sync = function(){ var v = aktiv(), steht = !v || (v.tagName === "VIDEO" ? (v.paused && !v.__auto) : v.getAttribute("src") === v.getAttribute("data-poster"));
-      b.classList.toggle("laeuft", !steht);
-      b.setAttribute("aria-label", aktuelleSprache === "en" ? (steht ? "Play video" : "Pause video") : (steht ? "Video abspielen" : "Video anhalten")); };
-    alle("video", handy).forEach(function(v){ v.addEventListener("play", sync); v.addEventListener("pause", sync); });
-    b.addEventListener("click", function(){
-      var v = aktiv(); if(!v) return;
-      if(v.tagName !== "VIDEO"){ v.src = v.getAttribute("src") === v.getAttribute("data-poster") ? v.getAttribute("data-webp") : v.getAttribute("data-poster"); sync(); return; }
-      if(v.paused){ v.__manuell = false; v.__auto = false; v.play().catch(function(){}); } else { v.__manuell = true; v.__auto = false; v.pause(); }
-    });
-    pauseKnoepfe.push(sync); sync();
-    var ziel = handy.parentNode.querySelector(".legende");
-    if(ziel) ziel.appendChild(b); else handy.insertAdjacentElement("afterend", b);
-  }
-  function pausieren(v){ if(v && v.tagName === "VIDEO" && v.src && !v.paused){ v.__auto = true; v.pause(); } }
-  var videos = alle("video[data-src]").filter(function(v){ return !v.closest(".modi-buehne"); });
-  if(hatIO){
-    var vio = new IntersectionObserver(function(eintraege){
-      eintraege.forEach(function(e){
-        var v = e.target;
-        if(e.isIntersecting){ v = videoLaden(v); spielen(v); }
-        else pausieren(v);
-      });
-    }, {rootMargin:"120px 0px", threshold:.15});
-    videos.forEach(function(v){ vio.observe(v); });
-  } else videos.forEach(function(v){ spielen(videoLaden(v)); });
-
-  /* ── Funktionen: am PC scrollt der Text, das Handy bleibt stehen und wechselt das Video;
-        am Handy laeuft ein Karussell, die Punkte zeigen die Karte ── */
-  var wege = alle(".weg"), buehne = document.getElementById("modi-buehne"), punkte = alle(".modi-punkte button"), liste = document.getElementById("modi-liste");
-  var aktiverModus = 0, buehneImBild = false;
-  function modusSetzen(i){
-    aktiverModus = i;
-    wege.forEach(function(w){ w.classList.toggle("an", w.getAttribute("data-modus") === String(i)); });
-    punkte.forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-modus") === String(i))); });
-    alle("#modi-buehne .schirm > *").forEach(function(v){
-      var an = v.getAttribute("data-modus") === String(i);
-      v.classList.toggle("an", an); v.setAttribute("aria-hidden", an ? "false" : "true");
-      if(an && buehneImBild){ v = videoLaden(v); spielen(v); } else pausieren(v);
-    });
-  }
-  if(buehne && hatIO){
-    /* Buehne im Bild: Videos laden und das aktive spielen; ausserhalb: alle anhalten */
-    var bio = new IntersectionObserver(function(e){
-      buehneImBild = e[0].isIntersecting;
-      if(!buehneImBild){ alle("#modi-buehne video").forEach(pausieren); return; }
-      modusSetzen(aktiverModus);
-    }, {threshold:.2});
-    bio.observe(buehne.querySelector(".handy"));
-    /* PC: die Karte in der Bildmitte bestimmt den Modus */
-    var wio = new IntersectionObserver(function(eintraege){
-      if(!pc()) return;
-      eintraege.forEach(function(e){ if(e.isIntersecting) modusSetzen(parseInt(e.target.getAttribute("data-modus"), 10)); });
-    }, {rootMargin:"-45% 0px -45% 0px"});
-    wege.forEach(function(w){ wio.observe(w); });
-  }
-  /* Handy: die Karte, deren Mitte der Listenmitte am naechsten liegt, bestimmt Punkt und Video */
-  var karussellLaeuft = false;
-  function karussellLesen(){
-    karussellLaeuft = false; if(pc()) return;
-    var lr = liste.getBoundingClientRect(), mitte = lr.left + lr.width / 2, best = 0, abstand = Infinity;
-    wege.forEach(function(w, i){ var r = w.getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - mitte); if(d < abstand){ abstand = d; best = i; } });
-    if(best !== aktiverModus) modusSetzen(best);
-  }
-  if(liste) liste.addEventListener("scroll", function(){ if(!karussellLaeuft){ karussellLaeuft = true; requestAnimationFrame(karussellLesen); } }, {passive:true});
-  /* Klick auf eine Karte wechselt am PC das Video; die Punkte sind die Tastatur-Bedienung (echte Buttons) */
-  wege.forEach(function(w){ w.addEventListener("click", function(){ if(pc()) modusSetzen(parseInt(w.getAttribute("data-modus"), 10)); }); });
-  punkte.forEach(function(b){ b.addEventListener("click", function(){
-    var i = parseInt(b.getAttribute("data-modus"), 10), ziel = wege[i]; modusSetzen(i);
-    if(!ziel) return;
-    if(pc()) ziel.scrollIntoView({behavior: ruhig ? "auto" : "smooth", block:"center"});
-    else { var lr = liste.getBoundingClientRect(), zr = ziel.getBoundingClientRect(); liste.scrollTo({left: liste.scrollLeft + (zr.left + zr.width / 2) - (lr.left + lr.width / 2), behavior: ruhig ? "auto" : "smooth"}); }
-  }); });
-
-  /* ── Handy im Start: leicht gedreht, richtet sich beim Scrollen auf; am Rechner folgt es der Maus (nur solange es im Bild ist) ── */
-  var hero = document.getElementById("hero-handy"), mausX = 0, mausY = 0, laufend = false;
-  function heroSetzen(){
-    laufend = false;
-    var p = Math.max(0, Math.min(1, window.scrollY / 480));
-    if(breit()){
-      hero.style.setProperty("--rx", (6 * (1 - p) + mausY * -4).toFixed(2) + "deg");
-      hero.style.setProperty("--ry", (-12 * (1 - p) + mausX * 6).toFixed(2) + "deg");
-      hero.style.setProperty("--s", "1");
-    } else {
-      /* am Handy richtet sich das Geraet auf, waehrend es ins Bild kommt -- nicht nach Scrollweg, sondern nach Lage */
-      var r = hero.getBoundingClientRect(); p = Math.max(0, Math.min(1, (window.innerHeight - r.top) / (window.innerHeight * .9)));
-      hero.style.setProperty("--rx", (16 - 16 * p).toFixed(2) + "deg");
-      hero.style.setProperty("--ry", "0deg");
-      hero.style.setProperty("--s", (0.96 + 0.04 * p).toFixed(3));
-    }
-  }
-  function heroPlanen(){ if(window.scrollY > 1600 || laufend) return; laufend = true; requestAnimationFrame(heroSetzen); }
-  if(!ruhig && hero){
-    window.addEventListener("scroll", heroPlanen, {passive:true});
-    window.addEventListener("resize", heroPlanen, {passive:true});
-    if(window.matchMedia && window.matchMedia("(pointer:fine)").matches)
-      window.addEventListener("mousemove", function(e){ if(window.scrollY > 1000) return; mausX = (e.clientX / window.innerWidth - .5) * 2; mausY = (e.clientY / window.innerHeight - .5) * 2; heroPlanen(); }, {passive:true});
-    heroSetzen();
-  }
-
-  /* ── Zahlen zaehlen hoch, wenn sie ins Bild kommen ── */
-  var zaehler = alle("[data-zaehl]");
-  function zaehlen(el){
-    var ziel = parseInt(el.getAttribute("data-zaehl"), 10), start = performance.now(), dauer = 1300;
-    (function schritt(t){
-      var p = Math.min(1, (t - start) / dauer), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = String(Math.round(ziel * e));
-      if(p < 1) requestAnimationFrame(schritt);
-    })(start);
-  }
-  if(!ruhig && hatIO){
-    zaehler.forEach(function(el){ el.textContent = "0"; });
-    var zio = new IntersectionObserver(function(eintraege){ eintraege.forEach(function(e){ if(e.isIntersecting){ zaehlen(e.target); zio.unobserve(e.target); } }); }, {threshold:.5});
-    zaehler.forEach(function(el){ zio.observe(el); });
-  }
-
-  /* ── Pruefstand: Zeile fuer Zeile pruefen, dann den Score hochzaehlen ── */
-  var pruef = document.getElementById("pruef"), zahl = document.getElementById("zahl"), nochmal = document.getElementById("nochmal");
-  var zeilen = alle("#pruef .zeile"), uhren = [], bild = 0;
-  function stopp(){ uhren.forEach(clearTimeout); uhren = []; cancelAnimationFrame(bild); }
-  function spaeter(f, ms){ uhren.push(setTimeout(f, ms)); }
-  function lauf(){
-    stopp();
-    pruef.classList.add("laeuft"); pruef.classList.remove("fertig");
-    zeilen.forEach(function(z){ z.classList.remove("an", "ok"); });
-    zahl.textContent = "0";
-    var t = 250;
-    zeilen.forEach(function(z){
-      spaeter(function(){ z.classList.add("an"); }, t);
-      spaeter(function(){ z.classList.add("ok"); }, t + 260);
-      t += 330;
-    });
-    spaeter(function(){
-      pruef.classList.add("fertig");
-      var start = performance.now(), dauer = 700;
-      (function schritt(jetzt){
-        var p = Math.min(1, (jetzt - start) / dauer), e = 1 - Math.pow(1 - p, 3);
-        zahl.textContent = String(Math.round(99 * e));
-        if(p < 1) bild = requestAnimationFrame(schritt);
-      })(start);
-      nochmal.hidden = false;
-    }, t + 150);
-  }
-  if(ruhig){ nochmal.hidden = true; }
-  else if(hatIO){
-    pruef.classList.add("laeuft");
-    zeilen.forEach(function(z){ z.classList.remove("an", "ok"); });
-    zahl.textContent = "0";
-    var io2 = new IntersectionObserver(function(e){ if(e[0].isIntersecting){ io2.disconnect(); lauf(); } }, {threshold:.35});
-    io2.observe(pruef);
-    nochmal.addEventListener("click", lauf);
   }
 })();
 </script>
