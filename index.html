@@ -68,7 +68,7 @@ body{margin:0;background:transparent;color:var(--nebel);font-family:var(--text);
 img,video{display:block;max-width:100%;height:auto}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--lila);outline-offset:3px;border-radius:6px}
-.weg-link{position:absolute;left:12px;top:-60px;z-index:100;padding:10px 14px;border-radius:10px;background:var(--titan);color:var(--nacht);font-weight:700;text-decoration:none}
+.weg-link{position:absolute;left:12px;top:-60px;z-index:100;padding:10px 14px;border-radius:var(--r1);background:var(--titan);color:var(--nacht);font-weight:700;text-decoration:none}
 .weg-link:focus{top:12px}
 .innen{max-width:var(--breite);margin:0 auto;padding:0 var(--rand)}
 main > section[id]{scroll-margin-top:80px}
@@ -103,7 +103,6 @@ p{margin:0;text-wrap:pretty}
 .vorspann{display:grid;gap:14px;max-width:44em;margin-bottom:clamp(28px,4vw,48px)}
 .vorspann .lead{font-size:var(--lead)}
 .start .nur-klein{display:none}
-.etikett span{white-space:nowrap}
 
 /* Knoepfe */
 .knopf{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:0;font-family:var(--text);cursor:pointer;
@@ -153,7 +152,8 @@ p{margin:0;text-wrap:pretty}
   background:radial-gradient(closest-side,rgba(91,91,255,.4),rgba(138,77,255,.16) 45%,transparent 72%);animation:atem 7s ease-in-out infinite alternate}
 @keyframes atem{to{transform:translate(-50%,-50%) scale(1.08);opacity:.75}}
 .hero-handy{transform:rotateX(var(--rx,6deg)) rotateY(var(--ry,-12deg)) scale(var(--s,1));transform-origin:50% 40%;transition:transform .15s linear;will-change:transform}
-.legende{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin-top:16px;text-align:center}
+.legende{display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:12px;margin-top:16px;text-align:center}
+.legende .beispiel{flex:0 1 auto;min-width:0}
 .legende .beispiel{color:var(--nebel)}
 @media (max-width:960px){
   :root{--h1:clamp(44px,7vw,64px)}
@@ -165,7 +165,6 @@ p{margin:0;text-wrap:pretty}
   .aktionen .knopf{flex:1 1 100%}
   .fakten{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:8px 22px}
   .buehne{width:min(300px,38vw);justify-self:center;margin-right:0}
-  .hero-handy{transform:rotateX(var(--rx,10deg)) rotateY(var(--ry,-8deg)) scale(var(--s,1));transform-origin:50% 40%}
 }
 @media (max-width:699px){
   /* Handy: eine Spalte, linksbuendig; das Geraet steht direkt unter den Knoepfen, die Fakten darunter */
@@ -289,7 +288,7 @@ p{margin:0;text-wrap:pretty}
 .modi-punkte button[aria-pressed="true"]{width:60px}
 .modi-punkte button[aria-pressed="true"]::before{background:var(--eloxal)}
 @media (max-width:960px){
-  :root{--karte:min(78vw,330px)}
+  :root{--karte:min(74vw,330px)}
   .modi-raster{display:flex;flex-direction:column;align-items:stretch;gap:0}   /* stretch: sonst wird die Liste so breit wie ihr Inhalt und scrollt nicht */
   .modi-raster > div:first-child{display:contents}
   .modi-raster .vorspann{order:1;margin-bottom:24px}
@@ -344,7 +343,7 @@ p{margin:0;text-wrap:pretty}
 @media (max-width:700px){.raster{grid-template-columns:minmax(0,1fr)}}
 
 /* ── Der Katalog in Zahlen: ein Band, keine eigene Buehne ── */
-.zahlen-band{padding:clamp(36px,5vw,56px) 0;background:linear-gradient(180deg,rgba(21,18,38,.45),rgba(21,18,38,.2))}
+.zahlen-band{padding:clamp(36px,5vw,56px) 0;background:linear-gradient(180deg,transparent,rgba(21,18,38,.45) 30%,rgba(21,18,38,.3) 70%,transparent)}
 .zahlen-band .innen{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px clamp(28px,5vw,72px);align-items:center}
 .zahlen{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
 .zahlen div{flex:1 1 calc(20% - 12px);min-width:0;padding:18px 8px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas)}
@@ -391,7 +390,7 @@ html:not(.js) #teilen{display:none}
 .fuss ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;justify-items:start}
 .fuss ul a,.fuss ul button{text-decoration:none;color:var(--nebel);background:none;border:0;padding:0;font:inherit;cursor:pointer;text-align:left}
 .fuss ul a:hover,.fuss ul button:hover{color:var(--titan)}
-.fuss button[aria-pressed="true"]{color:var(--titan);font-weight:600}
+.fuss button[aria-pressed="true"]{color:var(--titan);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--lila)}
 .fuss .klein{margin-top:32px;padding-top:20px;border-top:1px solid var(--linie-2);font-size:var(--s1);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 @media (max-width:860px){.fuss-raster{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 20px}.fuss-raster > div:first-child{grid-column:1 / -1}}
 @media (max-width:520px){.fuss-raster{grid-template-columns:repeat(2,minmax(0,1fr))}.fuss-raster > div:last-child{grid-column:1 / -1}.fuss-raster > div:last-child ul{display:flex;gap:18px}.fuss h4{letter-spacing:.08em}}
@@ -464,7 +463,7 @@ html:not(.js) #teilen{display:none}
   </section>
 
   <section class="abschnitt" id="prinzip" aria-labelledby="prinzip-titel">
-    <div class="innen zweispaltig">
+    <div class="innen zweispaltig umgekehrt">
       <div class="text" data-zeige>
         <p class="etikett" data-t="prinzip.etikett">Das Prinzip</p>
         <h2 class="display" id="prinzip-titel" data-t="prinzip.h2">Jedes Teil gegen jedes</h2>
@@ -746,10 +745,10 @@ html:not(.js) #teilen{display:none}
     "titel.seite":"CrankScore — Does your mountain bike fit together?",
     "meta.desc":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. Plan a new bike, check your own, rate a used listing. Coming soon.",
     "start.etikett":"Web app for mountain bikers", "start.bald":"Coming soon", "start.h1":"Does it all fit?",
-    "start.sub":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. If something doesn’t fit, the app names the part that does.",
+    "start.sub":"CrankScore checks whether your bike’s parts fit together: axles, freehub, dimensions, clamps. If something doesn’t fit, the app names the part that does.",
     "start.knopf":"How the check works", "start.knopf2":"The three modes",
     "start.fakten":"<span><b>738</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>€0</b> · no account</span>",
-    "beispiel":"Real app · sample screen · German UI",
+    "beispiel":"Real app · German UI",
     "v.aufbau":"Screen recording of the app: the build view of an enduro bike with score 99, price and weight; the parts list scrolls through.",
     "band.aria":"Brands in the catalogue", "band.etikett":"In the catalogue · 125 brands",
     "prinzip.etikett":"How it works", "prinzip.h2":"Every part, cross‑checked",
@@ -766,7 +765,7 @@ html:not(.js) #teilen{display:none}
     "pruef.cap":"Values from the app, laid out by this page: enduro from the assistant, €4,500 budget. Part on the left, its counterpart on the right.",
     "modi.etikett":"Three modes", "modi.h2":"Plan, check, rate",
     "modi.p":"Three modes for three questions that keep coming up with mountain bikes — and the same check behind each one.",
-    "modi.beispiel":"Real app · sample screen · German UI", "modi.punkte":"Choose mode",
+    "modi.beispiel":"Real app · German UI", "modi.punkte":"Choose mode",
     "v.weg1":"Screen recording: the assistant puts an enduro bike together and takes it into the build.",
     "weg1.etikett":"Dream bike", "weg1.h3":"Plan a new bike",
     "weg1.p":"Say what you ride and how much you want to spend. The assistant puts together a bike where every part fits — then you swap whatever you’d do differently.",
@@ -814,7 +813,7 @@ html:not(.js) #teilen{display:none}
     "f3.q":"How is CrankScore funded?", "f3.a":"Through partner links: some shop links will be marked “Ad”. If you buy through them, CrankScore gets a small commission — your price stays the same. Which part fits is decided by the check, not by the commission.",
     "f4.q":"Is CrankScore in the app stores?", "f4.a":"No, by design: CrankScore runs in the browser. On your phone you add it to the home screen — then it starts like an app.",
     "f5.q":"How reliable are the values?", "f5.a":"Dimensions and standards are researched from manufacturer data. Air pressure and clicks are starting values for fine-tuning. When in doubt, the manufacturer’s data sheet applies.",
-    "f6.q":"Are there e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
+    "f6.q":"Does it cover e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
     "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
     "fuss.claim":"Plan, check and rate your bike — part by part.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language",
     "fuss.imp":"Legal notice (German)", "fuss.ds":"Privacy (German)",
