@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Datenschutz — CrankScore</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#000000">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<script src="design.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/img/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
@@ -14,7 +16,12 @@
 <link rel="stylesheet" href="recht.css">
 </head>
 <body>
-<header class="kopf"><div class="innen"><a class="marke" href="./">Crank<i>Score</i></a><a class="zurueck" href="./">Zur Startseite</a></div></header>
+<header class="kopf"><div class="innen"><a class="marke" href="./">Crank<i>Score</i></a><a class="zurueck" href="./">Zur Startseite</a>
+  <button type="button" class="design" id="design" aria-pressed="false" aria-label="Dunkles Design">
+    <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
+    <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+  </button>
+</div></header>
 <main class="innen text">
   <p class="etikett">Rechtliches</p>
   <h1>Datenschutz</h1>
@@ -36,16 +43,22 @@
   <p>Schriftarten und Bilder liegen auf demselben Server wie die Webseite. Es gibt keine Verbindung zu Google Fonts oder
     anderen Schriftdiensten.</p>
 
-  <h2>4. Kontakt</h2>
+  <h2>4. Sprache und Design</h2>
+  <p>Wählst du auf der Webseite eine Sprache (Deutsch/Englisch) oder ein Design (hell/dunkel), merkt sich dein Browser diese
+    Wahl im lokalen Speicher (localStorage) auf deinem Gerät. Die Angabe wird nicht an uns oder an Dritte übertragen und dient
+    nur dazu, die Seite so anzuzeigen, wie du es eingestellt hast (§ 25 Abs. 2 Nr. 2 TDDDG). Du kannst sie jederzeit über die
+    Einstellungen deines Browsers löschen.</p>
+
+  <h2>5. Kontakt</h2>
   <p>Schreibst du uns eine E-Mail, verarbeiten wir deine Angaben, um deine Anfrage zu beantworten
     (Art. 6 Abs. 1 lit. b oder f DSGVO), und löschen sie, wenn sie nicht mehr gebraucht werden.</p>
 
-  <h2>5. Deine Rechte</h2>
+  <h2>6. Deine Rechte</h2>
   <p>Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der
     Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen Verarbeitungen auf Grundlage
     berechtigter Interessen (Art. 21). Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren
     (Art. 77 DSGVO), etwa bei der Behörde deines Bundeslands.</p>
-  <p class="stand">Stand: 29.09.2026</p>
+  <p class="stand">Stand: 30.09.2026</p>
 </main>
 <footer class="fuss"><div class="innen"><a href="./">Startseite</a><a href="impressum.html">Impressum</a></div></footer>
 </body>

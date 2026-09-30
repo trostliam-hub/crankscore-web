@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Impressum — CrankScore</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#000000">
-<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<script src="design.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/img/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
@@ -14,7 +16,12 @@
 <link rel="stylesheet" href="recht.css">
 </head>
 <body>
-<header class="kopf"><div class="innen"><a class="marke" href="./">Crank<i>Score</i></a><a class="zurueck" href="./">Zur Startseite</a></div></header>
+<header class="kopf"><div class="innen"><a class="marke" href="./">Crank<i>Score</i></a><a class="zurueck" href="./">Zur Startseite</a>
+  <button type="button" class="design" id="design" aria-pressed="false" aria-label="Dunkles Design">
+    <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
+    <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+  </button>
+</div></header>
 <main class="innen text">
   <p class="etikett">Rechtliches</p>
   <h1>Impressum</h1>

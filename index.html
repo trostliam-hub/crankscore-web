@@ -27,6 +27,8 @@
 <meta property="og:image:height" content="630">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CrankScore","alternateName":"crankscore.de","url":"https://crankscore.de/","inLanguage":["de","en"]},{"@type":"Organization","name":"CrankScore","url":"https://crankscore.de/","logo":"https://crankscore.de/img/icon-512.png"}]}</script>
 <meta name="twitter:card" content="summary_large_image">
+<script>/* Design vor dem ersten Bild: gespeicherte Wahl (cs.design), sonst die Einstellung des Geraets */
+(function(){try{var w=null;try{w=localStorage.getItem("cs.design");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";document.documentElement.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);}catch(e){}})();</script>
 <script>/* Sprache vor dem ersten Bild: Englisch -> Seite bleibt bis zum Umschalten unsichtbar (Millisekunden) */
 (function(){try{if(/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||""))return;var g=localStorage.getItem("cs.sprache");var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(g==="en"||(g!=="de"&&n.indexOf("de")!==0))document.documentElement.className+=" en-lade";setTimeout(function(){document.documentElement.classList.remove("en-lade");},1500);}catch(e){}})();</script>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -51,6 +53,8 @@
   --schatten:0 30px 60px -20px rgba(23,22,30,.25);
 }
 @media (min-width:1600px){ :root{ --innen:1400px; } }
+:root{color-scheme:light}
+:root[data-design="dunkel"]{color-scheme:dark}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
@@ -80,10 +84,19 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 .sprache{display:flex;background:rgba(23,22,30,.06);border-radius:999px;padding:3px}
 .sprache button{font:600 13px "Inter",sans-serif;border:0;background:none;color:var(--grau);padding:6px 11px;border-radius:999px;cursor:pointer;min-height:32px}
 .sprache button[aria-pressed="true"]{background:#fff;color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+/* Design-Schalter: Mond im hellen, Sonne im dunklen Design; ohne JavaScript unsichtbar */
+.design{display:none;place-items:center;width:38px;height:38px;flex:none;padding:0;border:0;border-radius:50%;background:rgba(23,22,30,.06);color:var(--tinte);cursor:pointer}
+[data-design] .design{display:grid}
+.design:hover{background:rgba(23,22,30,.11)}
+.design svg{width:18px;height:18px}
+.design .sonne,[data-design="dunkel"] .design .mond{display:none}
+[data-design="dunkel"] .design .sonne{display:block}
+[data-design="dunkel"] .design{background:rgba(255,255,255,.07)}
+[data-design="dunkel"] .design:hover{background:rgba(255,255,255,.13)}
 .bald{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--tinte);padding:9px 16px;border-radius:999px;white-space:nowrap}
 .bald i{width:8px;height:8px;border-radius:50%;background:#2ef29a;box-shadow:0 0 0 3px rgba(46,242,154,.25)}
 @media (max-width:959px){ .nav{display:none} .sprache{margin-left:auto} }
-@media (max-width:420px){ .bald span{display:none} .bald{padding:9px 11px} }
+@media (max-width:420px){ .bald span{display:none} .bald{padding:9px 11px} .kopf .innen{gap:10px} }
 
 /* Karten mit Farbverlauf */
 .karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate}
@@ -202,7 +215,8 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 .s-bild .ring b{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--tinte)}
 .s-txt{font-size:15px;color:var(--grau);line-height:1.35}.s-txt b{color:var(--tinte)}
 @media (max-width:899px){ .schritte{grid-template-columns:1fr} }
-@media (prefers-color-scheme:dark){ .s-bild>span{background:rgba(255,255,255,.07)} .s-bild.score>.ring{background:radial-gradient(closest-side,#15122a 78%,transparent 80% 100%),conic-gradient(#3ddc84 0 99%,rgba(255,255,255,.1) 99% 100%)} }
+:where([data-design="dunkel"]) .s-bild>span{background:rgba(255,255,255,.07)}
+:where([data-design="dunkel"]) .s-bild.score>.ring{background:radial-gradient(closest-side,#15122a 78%,transparent 80% 100%),conic-gradient(#3ddc84 0 99%,rgba(255,255,255,.1) 99% 100%)}
 
 /* Pro-Pille */
 .pro-pille{display:inline-block;vertical-align:middle;margin-left:10px;font:600 12px/1 "Inter",sans-serif;letter-spacing:.02em;color:#fff;
@@ -239,7 +253,9 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 
 /* Fuss */
 .fuss{margin-top:clamp(56px,8vw,120px);background:#fff;border-top:1px solid var(--linie);padding:56px 0 32px;font-size:15px}
-.fuss-raster{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+.fuss-raster{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:32px}
+.fuss .design-wahl{display:none}
+[data-design] .fuss .design-wahl{display:block}
 .fuss p{margin-top:10px;color:var(--grau);max-width:22em}
 .fuss h4{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:12px}
 .fuss ul{list-style:none;padding:0}
@@ -274,48 +290,48 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 .daten-liste p{margin-top:4px;color:var(--grau);font-size:15.5px}
 @media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
 
-/* ── Dunkelmodus (Stand 2026-10-01): folgt der Einstellung des Geraets. Helles Design bleibt der
-   Standard; im Dunkelmodus gilt die Markenpalette der App (Nacht, Carbon, Titan, Lila) wie in der
+/* ── Dunkelmodus (Stand 2026-10-01): Schalter in der Kopfzeile (Mond/Sonne) und im Fuss; die Wahl
+   bleibt im Browser gespeichert (cs.design). Ohne Wahl folgt die Seite dem Geraet, ohne JavaScript
+   bleibt sie hell. Das Skript im Kopf setzt data-design="hell|dunkel" vor dem ersten Bild; :where() haelt die
+   Spezifitaet der Regeln wie bei der frueheren Media Query. Im Dunkelmodus gilt die Markenpalette der App (Nacht, Carbon, Titan, Lila) wie in der
    Design-Loop-Checkliste B: Farbverlaeufe statt flaechigem Schwarz, Glas-Karten mit feiner Linie,
    die Farbkarten als dunkle Varianten mit Farbschein am Boden. Kontraste per WCAG-Formel geprueft:
    Grautext auf den Kartenkoepfen >= 6,7:1. ── */
-@media (prefers-color-scheme:dark){
-  :root{--seite:#07060d; --weiss:#141126; --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36; --akzent:#b49bff;
-    --glas:rgba(22,19,40,.62); --glas-linie:rgba(255,255,255,.08); --schatten:0 30px 80px -30px rgba(0,0,0,.8)}
-  body{background:
-    radial-gradient(1100px 720px at 12% -8%,rgba(138,77,255,.20),transparent 62%),
-    radial-gradient(900px 640px at 105% 18%,rgba(47,140,255,.12),transparent 60%),
-    radial-gradient(1000px 800px at 50% 110%,rgba(91,91,255,.10),transparent 60%),#07060d;background-attachment:fixed}
-  .kopf{background:rgba(7,6,13,.62)}
-  .nav a:hover,.nav a.an{background:rgba(255,255,255,.08)}
-  .sprache{background:rgba(255,255,255,.07)}
-  .sprache button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
-  .bald,.weg{color:#0b0a12}
-  /* Glas statt weisser Flaechen */
-  .punkte div,.kachel,.zahlen div,.fragen details,.schritt{background:var(--glas);box-shadow:inset 0 0 0 1px var(--glas-linie);
-    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-  .kachel .icon{background:rgba(180,155,255,.14)}
-  .knopf.leer{color:var(--tinte);background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
-  .modus .beleg{background:rgba(255,255,255,.08)}
-  .daten-liste div{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--glas-linie)}
-  .echt{background:rgba(255,255,255,.08)}
-  .lauf li{color:#6f6a92}
-  /* Farbkarten dunkel: Kopf fast schwarz, Farbschein nach unten, feine Kante wie Glas */
-  .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
-  .k-lila{background:radial-gradient(90% 55% at 50% 100%,rgba(138,77,255,.55),transparent 70%),linear-gradient(180deg,#110e20 0%,#17122e 55%,#2a1c5e 100%)}
-  .k-nacht{background:radial-gradient(90% 60% at 50% 80%,#34257a 0%,#16122c 50%,#0b0a14 100%)}
-  .k-gruen{background:radial-gradient(90% 55% at 50% 100%,rgba(46,242,154,.22),transparent 70%),linear-gradient(180deg,#0c1512 0%,#0f1f18 60%,#123526 100%)}
-  .k-mint{background:radial-gradient(90% 55% at 70% 100%,rgba(64,220,170,.22),transparent 70%),linear-gradient(160deg,#0c1413 0%,#0f1e1b 60%,#12352e 100%)}
-  .k-blau{background:radial-gradient(90% 55% at 50% 100%,rgba(47,140,255,.35),transparent 70%),linear-gradient(180deg,#0c1020 0%,#0f172e 60%,#142551 100%)}
-  .k-pfirsich{background:radial-gradient(90% 55% at 50% 100%,rgba(255,140,90,.26),transparent 70%),linear-gradient(180deg,#140e0c 0%,#1f1411 60%,#3a1d14 100%)}
-  .k-weiss{background:var(--glas)}
-  .k-gruen .buehne{--blende:#123526 !important}
-  /* Bevel-Leuchten unter dem Start */
-  .start .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 60px 140px -70px rgba(138,77,255,.7)}
-  .geraet{box-shadow:0 30px 70px -10px rgba(0,0,0,.7),0 0 60px -20px rgba(138,77,255,.35)}
-  .fuss{background:rgba(7,6,13,.7);border-top-color:var(--linie)}
-  .fuss li button[aria-pressed="true"]{color:#fff}
-}
+:root[data-design="dunkel"]{--seite:#07060d; --weiss:#141126; --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36; --akzent:#b49bff;
+  --glas:rgba(22,19,40,.62); --glas-linie:rgba(255,255,255,.08); --schatten:0 30px 80px -30px rgba(0,0,0,.8)}
+:where(:root[data-design="dunkel"]) body{background:
+  radial-gradient(1100px 720px at 12% -8%,rgba(138,77,255,.20),transparent 62%),
+  radial-gradient(900px 640px at 105% 18%,rgba(47,140,255,.12),transparent 60%),
+  radial-gradient(1000px 800px at 50% 110%,rgba(91,91,255,.10),transparent 60%),#07060d;background-attachment:fixed}
+:where([data-design="dunkel"]) .kopf{background:rgba(7,6,13,.62)}
+:where([data-design="dunkel"]) .nav a:hover,:where([data-design="dunkel"]) .nav a.an{background:rgba(255,255,255,.08)}
+:where([data-design="dunkel"]) .sprache{background:rgba(255,255,255,.07)}
+:where([data-design="dunkel"]) .sprache button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
+:where([data-design="dunkel"]) .bald,:where([data-design="dunkel"]) .weg{color:#0b0a12}
+/* Glas statt weisser Flaechen */
+:where([data-design="dunkel"]) .punkte div,:where([data-design="dunkel"]) .kachel,:where([data-design="dunkel"]) .zahlen div,:where([data-design="dunkel"]) .fragen details,:where([data-design="dunkel"]) .schritt{background:var(--glas);box-shadow:inset 0 0 0 1px var(--glas-linie);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+:where([data-design="dunkel"]) .kachel .icon{background:rgba(180,155,255,.14)}
+:where([data-design="dunkel"]) .knopf.leer{color:var(--tinte);background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+:where([data-design="dunkel"]) .modus .beleg{background:rgba(255,255,255,.08)}
+:where([data-design="dunkel"]) .daten-liste div{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--glas-linie)}
+:where([data-design="dunkel"]) .echt{background:rgba(255,255,255,.08)}
+:where([data-design="dunkel"]) .lauf li{color:#6f6a92}
+/* Farbkarten dunkel: Kopf fast schwarz, Farbschein nach unten, feine Kante wie Glas */
+:where([data-design="dunkel"]) .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+:where([data-design="dunkel"]) .k-lila{background:radial-gradient(90% 55% at 50% 100%,rgba(138,77,255,.55),transparent 70%),linear-gradient(180deg,#110e20 0%,#17122e 55%,#2a1c5e 100%)}
+:where([data-design="dunkel"]) .k-nacht{background:radial-gradient(90% 60% at 50% 80%,#34257a 0%,#16122c 50%,#0b0a14 100%)}
+:where([data-design="dunkel"]) .k-gruen{background:radial-gradient(90% 55% at 50% 100%,rgba(46,242,154,.22),transparent 70%),linear-gradient(180deg,#0c1512 0%,#0f1f18 60%,#123526 100%)}
+:where([data-design="dunkel"]) .k-mint{background:radial-gradient(90% 55% at 70% 100%,rgba(64,220,170,.22),transparent 70%),linear-gradient(160deg,#0c1413 0%,#0f1e1b 60%,#12352e 100%)}
+:where([data-design="dunkel"]) .k-blau{background:radial-gradient(90% 55% at 50% 100%,rgba(47,140,255,.35),transparent 70%),linear-gradient(180deg,#0c1020 0%,#0f172e 60%,#142551 100%)}
+:where([data-design="dunkel"]) .k-pfirsich{background:radial-gradient(90% 55% at 50% 100%,rgba(255,140,90,.26),transparent 70%),linear-gradient(180deg,#140e0c 0%,#1f1411 60%,#3a1d14 100%)}
+:where([data-design="dunkel"]) .k-weiss{background:var(--glas)}
+:where([data-design="dunkel"]) .k-gruen .buehne{--blende:#123526 !important}
+/* Bevel-Leuchten unter dem Start */
+:where([data-design="dunkel"]) .start .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 60px 140px -70px rgba(138,77,255,.7)}
+:where([data-design="dunkel"]) .geraet{box-shadow:0 30px 70px -10px rgba(0,0,0,.7),0 0 60px -20px rgba(138,77,255,.35)}
+:where([data-design="dunkel"]) .fuss{background:rgba(7,6,13,.7);border-top-color:var(--linie)}
+:where([data-design="dunkel"]) .fuss li button[aria-pressed="true"]{color:#fff}
 </style>
 </head>
 <body>
@@ -335,6 +351,10 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
       <button type="button" data-sprache="de" aria-pressed="true" lang="de">DE</button>
       <button type="button" data-sprache="en" aria-pressed="false" lang="en">EN</button>
     </div>
+    <button type="button" class="design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
+      <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
+      <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
     <a class="bald" href="#fragen" id="bald" aria-label="Kommt bald&nbsp;— Stand der Testphase bei den Fragen" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
   </div>
 </header>
@@ -644,6 +664,10 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
         <h4 data-t="fuss.h3">Sprache</h4>
         <ul><li><button type="button" data-sprache="de" aria-pressed="true" lang="de">Deutsch</button></li><li><button type="button" data-sprache="en" aria-pressed="false" lang="en">English</button></li></ul>
       </div>
+      <div class="design-wahl">
+        <h4 data-t="fuss.h4">Design</h4>
+        <ul><li><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Hell</button></li><li><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dunkel</button></li><li><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Wie Gerät</button></li></ul>
+      </div>
     </div>
     <div class="klein">
       <span data-t="fuss.marken">Markennamen gehören ihren Inhabern. Sie werden nur genannt, um die Teile im Katalog zu bezeichnen.</span>
@@ -742,7 +766,8 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     "f5.q":"How reliable are the values?", "f5.a":"Dimensions and standards are researched from manufacturer data. Air pressure and clicks are starting values for fine-tuning. When in doubt, the manufacturer’s data sheet applies.",
     "f6.q":"Does it cover e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
     "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
-    "fuss.claim":"Plan, check and rate your bike — part by part.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language",
+    "fuss.claim":"Plan, check and rate your bike — part by part.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language", "fuss.h4":"Theme",
+    "design.aria":"Dark mode", "design.hell":"Light", "design.dunkel":"Dark", "design.auto":"Match device",
     "fuss.imp":"Legal notice (German)", "fuss.ds":"Privacy (German)",
     "fuss.marken":"Brand names belong to their owners. They are mentioned only to identify the parts in the catalogue.",
     "beispiel":"Real app · sample screen",
@@ -811,6 +836,34 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     aktuelleSprache = b.getAttribute("data-sprache"); setzeSprache(aktuelleSprache);
     try{ localStorage.setItem(SPRACHE_KEY, aktuelleSprache); }catch(e){}
   }); });
+
+  /* ── Design hell/dunkel: Kopf-Schalter wechselt, der Fuss bietet dazu "Wie Geraet". Die Wahl bleibt
+     gespeichert (cs.design); ohne Wahl folgt die Seite dem Geraet, auch wenn es spaeter umschaltet. ── */
+  var DESIGN_KEY = "cs.design", systemDunkel = window.matchMedia ? window.matchMedia("(prefers-color-scheme: dark)") : null;
+  var designKnopf = document.getElementById("design");
+  function gespeichertesDesign(){ try{ var w = localStorage.getItem(DESIGN_KEY); if(w === "hell" || w === "dunkel") return w; }catch(e){} return "auto"; }
+  var designWahl = gespeichertesDesign();
+  function zeigeDesign(){
+    var d = designWahl !== "auto" ? designWahl : (systemDunkel && systemDunkel.matches ? "dunkel" : "hell");
+    doc.setAttribute("data-design", d);
+    alle('meta[name="theme-color"]').forEach(function(m){ m.setAttribute("content", d === "dunkel" ? "#07060d" : "#f4f4f8"); });
+    if(designKnopf) designKnopf.setAttribute("aria-pressed", String(d === "dunkel"));
+    alle("button[data-design-wahl]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-design-wahl") === designWahl)); });
+  }
+  function waehleDesign(w){
+    designWahl = w;
+    try{ if(w === "auto") localStorage.removeItem(DESIGN_KEY); else localStorage.setItem(DESIGN_KEY, w); }catch(e){}
+    zeigeDesign();
+  }
+  zeigeDesign();
+  if(designKnopf) designKnopf.addEventListener("click", function(){ waehleDesign(doc.getAttribute("data-design") === "dunkel" ? "hell" : "dunkel"); });
+  alle("button[data-design-wahl]").forEach(function(b){ b.addEventListener("click", function(){ waehleDesign(b.getAttribute("data-design-wahl")); }); });
+  if(systemDunkel){
+    var systemWechsel = function(){ if(designWahl === "auto") zeigeDesign(); };
+    if(systemDunkel.addEventListener) systemDunkel.addEventListener("change", systemWechsel); else if(systemDunkel.addListener) systemDunkel.addListener(systemWechsel);
+  }
+  /* andere offene Tabs ziehen mit */
+  window.addEventListener("storage", function(e){ if(e.key === DESIGN_KEY || e.key === null){ designWahl = gespeichertesDesign(); zeigeDesign(); } });
 
   /* ── Seite teilen: Web Share, sonst Link in die Zwischenablage ── */
   var teilen = document.getElementById("teilen");
