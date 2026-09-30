@@ -128,7 +128,7 @@ p{margin:0;text-wrap:pretty}
 .nav a.an{color:var(--titan)}
 .nav a.an::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;border-radius:2px;background:var(--eloxal)}
 .sprache{display:flex;gap:2px;padding:3px;border-radius:999px;border:1px solid var(--linie);background:var(--glas);flex:none}
-.sprache button{min-width:40px;height:30px;padding:0 9px;border:0;border-radius:999px;background:none;cursor:pointer;
+.sprache button{min-width:44px;height:36px;padding:0 10px;border:0;border-radius:999px;background:none;cursor:pointer;
   font-family:var(--mono);font-weight:500;font-size:var(--s1);letter-spacing:.08em;color:var(--grau);transition:color .2s,background .2s}
 .sprache button:hover{color:var(--titan)}
 .sprache button[aria-pressed="true"]{color:var(--titan);background:rgba(138,77,255,.28)}
@@ -138,21 +138,23 @@ p{margin:0;text-wrap:pretty}
 
 /* ── Start: am PC zwei Spalten, Text links, Handy rechts im Licht ── */
 .start{position:relative;padding:clamp(24px,3.5vw,48px) 0 clamp(36px,5vw,64px);overflow:hidden}
-.start-raster{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center}
+.start-raster{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:center;justify-items:end}
 .start h1{font-size:var(--h1);margin:18px 0 22px}
 .start .sub{font-size:var(--lead);line-height:1.55;max-width:32em;color:var(--nebel)}
 .aktionen{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-top:32px}
 .fakten{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;font-family:var(--mono);font-weight:500;font-size:var(--s2);letter-spacing:.04em;color:var(--grau)}
 .fakten b{color:var(--titan);font-weight:500}
-.buehne{position:relative;justify-self:center;width:min(100%,var(--handy-gross,420px),calc((100vh - 170px) * .4623));perspective:1600px}
+.buehne{position:relative;justify-self:end;margin-right:clamp(0px,4vw,60px);width:min(100%,var(--handy-gross,420px),calc((100vh - 170px) * .4623));perspective:1600px}
 .buehne::before{content:"";position:absolute;left:50%;top:50%;width:150%;height:110%;transform:translate(-50%,-50%);border-radius:50%;z-index:-1;
   background:radial-gradient(closest-side,rgba(91,91,255,.4),rgba(138,77,255,.16) 45%,transparent 72%);animation:atem 7s ease-in-out infinite alternate}
 @keyframes atem{to{transform:translate(-50%,-50%) scale(1.08);opacity:.75}}
 .hero-handy{transform:rotateX(var(--rx,6deg)) rotateY(var(--ry,-12deg)) scale(var(--s,1));transform-origin:50% 40%;transition:transform .15s linear;will-change:transform}
-.buehne .beispiel,.geraet .beispiel{text-align:center;margin-top:16px;display:block;color:var(--nebel)}
+.legende{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.legende .beispiel{color:var(--nebel)}
 @media (max-width:960px){
   .start{text-align:center}
-  .start-raster{grid-template-columns:minmax(0,1fr);gap:24px}
+  .start-raster{grid-template-columns:minmax(0,1fr);gap:24px;justify-items:stretch}
+  .buehne{justify-self:center;margin-right:0}
   .start .sub{margin:0 auto}
   .aktionen,.fakten{justify-content:center}
   .buehne{width:min(280px,66vw);margin-top:8px}
@@ -166,9 +168,8 @@ p{margin:0;text-wrap:pretty}
   box-shadow:0 50px 100px -40px rgba(91,91,255,.7),0 0 0 1px rgba(247,245,255,.05) inset,0 1px 0 rgba(247,245,255,.08) inset}
 .handy .schirm{border-radius:calc(var(--r5) - 11px);overflow:hidden;background:var(--carbon);aspect-ratio:600/1298}
 .handy video,.handy img{width:100%;height:100%;object-fit:cover}
-.pause{display:inline-grid;place-items:center;vertical-align:middle;width:28px;height:28px;margin-left:12px;border-radius:50%;border:1px solid var(--linie);background:var(--glas);color:var(--titan);cursor:pointer;padding:0;transition:border-color .2s}
+.pause{display:inline-grid;place-items:center;flex:none;width:28px;height:28px;margin:0;border-radius:50%;border:1px solid var(--linie);background:var(--glas);color:var(--titan);cursor:pointer;padding:0;transition:border-color .2s}
 .pause:hover,.pause:focus-visible{border-color:var(--rand-hell)}
-.modi-punkte .pause{margin-left:8px}
 .pause svg:last-child{display:none}
 .pause:not(.laeuft) svg:first-child{display:none}
 .pause:not(.laeuft) svg:last-child{display:block}
@@ -260,7 +261,7 @@ p{margin:0;text-wrap:pretty}
 .modi-buehne .handy .schirm{position:relative}
 .modi-buehne .schirm > *{position:absolute;inset:0;opacity:0;transition:opacity .6s var(--weich)}
 .modi-buehne .schirm > .an{opacity:1}
-.modi-punkte{display:flex;justify-content:center;gap:2px;margin-top:8px}
+.modi-punkte{display:flex;justify-content:center;gap:2px;margin-top:6px}
 .modi-punkte button{position:relative;width:44px;height:28px;border:0;background:none;cursor:pointer;padding:0;transition:width .3s}
 .modi-punkte button::before{content:"";position:absolute;left:6px;right:6px;top:11px;height:6px;border-radius:99px;background:rgba(247,245,255,.32);transition:background .3s}
 .modi-punkte button:hover::before{background:rgba(247,245,255,.55)}
@@ -272,7 +273,7 @@ p{margin:0;text-wrap:pretty}
   .modi-raster .vorspann{order:1;margin-bottom:24px}
   .modi-buehne{order:2;position:static;width:min(300px,72vw);margin:0 auto}
   .modi-liste{order:3}
-  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 var(--rand) 8px;scrollbar-width:none}
+  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 calc((100vw - min(78vw,330px)) / 2) 8px;scroll-padding:0 calc((100vw - min(78vw,330px)) / 2);scrollbar-width:none}
   .modi-liste::-webkit-scrollbar{display:none}
   .modi-liste .weg + .weg{margin-top:0}
   .weg{flex:0 0 min(78vw,330px);scroll-snap-align:center;padding:16px;cursor:default}
@@ -291,7 +292,7 @@ p{margin:0;text-wrap:pretty}
 @keyframes dreh{to{--wink:360deg}}
 .guide-innen .geraet{width:min(var(--handy-klein,360px),100%,calc((100vh - 240px) * .4623));margin:0 auto}
 .guide-punkte{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin-top:30px}
-.guide-punkte div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;align-items:start}
+.guide-punkte div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;align-items:start;align-content:start}
 .guide-punkte .ic{width:44px;height:44px;border-radius:var(--r1);display:grid;place-items:center;background:rgba(138,77,255,.16);color:var(--lila);grid-row:span 2}
 .guide-punkte h3{font-size:var(--s4)}
 .guide-punkte p{font-size:var(--s3);color:var(--nebel)}
@@ -314,8 +315,8 @@ p{margin:0;text-wrap:pretty}
 .karte .ic{width:44px;height:44px;border-radius:var(--r1);display:grid;place-items:center;background:rgba(138,77,255,.16);color:var(--lila);margin-bottom:4px}
 .karte h3{font-size:var(--s4)}
 .karte p{font-size:var(--s3)}
-@media (max-width:960px){.raster{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.raster{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:960px){.raster{gap:12px}.karte{padding:20px 18px 22px}}
+@media (max-width:700px){.raster{grid-template-columns:minmax(0,1fr)}}
 
 /* ── Der Katalog in Zahlen: ein Band, keine eigene Buehne ── */
 .zahlen-band{padding:clamp(36px,5vw,56px) 0;background:linear-gradient(180deg,rgba(21,18,38,.45),rgba(21,18,38,.2))}
@@ -341,6 +342,7 @@ p{margin:0;text-wrap:pretty}
 .fragen details{border-top:1px solid var(--linie-2)}
 .fragen details:last-child{border-bottom:1px solid var(--linie-2)}
 .fragen summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;cursor:pointer;font-weight:600;font-size:var(--s4);color:var(--titan)}
+.fragen summary:hover{color:var(--lila)}
 .fragen summary::-webkit-details-marker{display:none}
 .fragen summary::after{content:"";width:12px;height:12px;flex:none;border-right:2px solid var(--grau);border-bottom:2px solid var(--grau);
   transform:rotate(45deg) translate(-3px,-3px);transition:transform .35s var(--weich),border-color .2s}
@@ -411,7 +413,7 @@ html:not(.js) #teilen{display:none}
       <div class="text">
         <p class="etikett" data-zeige><span data-t="start.etikett">Web-App für Mountainbiker</span><span class="nur-klein bald"><i aria-hidden="true"></i><span data-t="start.bald">Kommt bald</span></span></p>
         <h1 class="display" id="titel" data-zeige data-t="start.h1">Passt das zusammen?</h1>
-        <p class="sub" data-zeige data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Passt etwas nicht, nennt es dir das Teil, das stattdessen passt.</p>
+        <p class="sub" data-zeige data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Passt etwas nicht, bekommst du das Teil genannt, das stattdessen passt.</p>
         <div class="aktionen" data-zeige>
           <a class="knopf" href="#prinzip"><span data-t="start.knopf">So prüft CrankScore</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></a>
@@ -421,18 +423,18 @@ html:not(.js) #teilen{display:none}
       </div>
       <div class="buehne" data-zeige>
         <div class="handy hero-handy" id="hero-handy"><div class="schirm">
-          <video muted playsinline loop preload="metadata" poster="img/v/assistent-poster.webp" data-src="img/v/assistent.webm" data-webp="img/v/assistent.webp"
+          <video muted playsinline loop poster="img/v/assistent-poster.webp" data-src="img/v/assistent.webm" data-webp="img/v/assistent.webp"
             aria-label="Bildschirmaufnahme der App: Der Assistent stellt ein Enduro-Rad zusammen, zeigt Score 99 und übernimmt es in den Aufbau." data-t-aria="v.assistent"></video>
         </div></div>
-        <span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span>
+        <p class="legende"><span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></p>
       </div>
     </div>
   </section>
 
   <section class="band" aria-label="Marken im Katalog" data-t-aria="band.aria">
     <p class="etikett" data-t="band.etikett">Im Katalog · 125 Marken</p>
-    <div class="lauf"><ul><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li></ul></div>
-    <div class="lauf zurueck"><ul><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li></ul></div>
+    <div class="lauf"><ul><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li><li aria-hidden="true">Fox</li><li aria-hidden="true">RockShox</li><li aria-hidden="true">Shimano</li><li aria-hidden="true">SRAM</li><li aria-hidden="true">Maxxis</li><li aria-hidden="true">Schwalbe</li><li aria-hidden="true">DT Swiss</li><li aria-hidden="true">Race Face</li><li aria-hidden="true">Hope</li><li aria-hidden="true">Magura</li><li aria-hidden="true">Continental</li><li aria-hidden="true">Öhlins</li><li aria-hidden="true">Marzocchi</li><li aria-hidden="true">OneUp</li><li aria-hidden="true">Specialized</li><li aria-hidden="true">Canyon</li><li aria-hidden="true">Santa Cruz</li><li aria-hidden="true">Trek</li><li aria-hidden="true">Commencal</li><li aria-hidden="true">Propain</li><li aria-hidden="true">YT</li><li aria-hidden="true">Radon</li><li aria-hidden="true">Nukeproof</li><li aria-hidden="true">Crankbrothers</li></ul></div>
+    <div class="lauf zurueck"><ul><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li><li aria-hidden="true">Ergon</li><li aria-hidden="true">WTB</li><li aria-hidden="true">e*thirteen</li><li aria-hidden="true">Cane Creek</li><li aria-hidden="true">Chromag</li><li aria-hidden="true">Spank</li><li aria-hidden="true">Hunt</li><li aria-hidden="true">Newmen</li><li aria-hidden="true">Michelin</li><li aria-hidden="true">Vittoria</li><li aria-hidden="true">Pirelli</li><li aria-hidden="true">TRP</li><li aria-hidden="true">Trickstuff</li><li aria-hidden="true">SQlab</li><li aria-hidden="true">Fizik</li><li aria-hidden="true">KMC</li><li aria-hidden="true">X-Fusion</li><li aria-hidden="true">Manitou</li><li aria-hidden="true">Formula</li><li aria-hidden="true">Sixpack</li><li aria-hidden="true">Orbea</li><li aria-hidden="true">Giant</li><li aria-hidden="true">Scott</li><li aria-hidden="true">Roval</li></ul></div>
   </section>
 
   <section class="abschnitt" id="prinzip" aria-labelledby="prinzip-titel">
@@ -482,22 +484,21 @@ html:not(.js) #teilen{display:none}
         <p class="etikett" data-zeige data-t="modi.etikett">Drei Modi</p>
         <h2 class="display" id="modi-titel" data-zeige data-t="modi.h2">Planen, prüfen, bewerten</h2>
         <p class="lead" data-zeige data-t="modi.p">Drei Modi für drei Fragen, die sich beim Mountainbike immer wieder stellen — hinter jedem steckt dieselbe Prüfung.</p>
-        <p class="beispiel" data-zeige data-t="modi.beispiel">Echte App · Beispielanzeige</p>
       </div>
         <div class="modi-liste" id="modi-liste">
-          <article class="weg an" data-modus="0" data-zeige>
+          <article class="weg an" data-modus="0">
             <p class="etikett" data-t="weg1.etikett">Traumrad</p>
             <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
             <p class="txt" data-t="weg1.p">Sag, wofür du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt — danach tauschst du, was du anders willst.</p>
             <p class="beleg" data-t="weg1.beleg">Enduro · 4.372&nbsp;€ · Score 99</p>
           </article>
-          <article class="weg" data-modus="1" data-zeige>
+          <article class="weg" data-modus="1">
             <p class="etikett" data-t="weg2.etikett">Mein Rad</p>
             <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
             <p class="txt" data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
             <p class="beleg" data-t="weg2.beleg">Freilauf Micro Spline ≠ Kassette XD</p>
           </article>
-          <article class="weg" data-modus="2" data-zeige>
+          <article class="weg" data-modus="2">
             <p class="etikett" data-t="weg3.etikett">Gebraucht</p>
             <h3 data-t="weg3.h3">Ein Angebot bewerten</h3>
             <p class="txt" data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Alter, Zustand und Preis. Die App rechnet den Gebrauchtwert aus — bevor du zu viel bezahlst.</p>
@@ -511,6 +512,7 @@ html:not(.js) #teilen{display:none}
             <video muted playsinline loop preload="none" poster="img/v/pruefen-poster.webp" data-src="img/v/pruefen.webm" data-webp="img/v/pruefen.webp" data-modus="1" aria-label="Bildschirmaufnahme: Die Prüfung meldet, dass der Freilauf nicht zur Kassette passt, und öffnet die passenden Laufräder." data-t-aria="v.weg2"></video>
             <video muted playsinline loop preload="none" poster="img/v/gebraucht-poster.webp" data-src="img/v/gebraucht.webm" data-webp="img/v/gebraucht.webp" data-modus="2" aria-label="Bildschirmaufnahme: Das Urteil zu einem Gebrauchtangebot wechselt mit dem Preis von zu teuer zu marktüblich." data-t-aria="v.weg3"></video>
           </div></div>
+          <p class="legende"><span class="beispiel" data-t="modi.beispiel">Echte App · Beispielanzeige</span></p>
           <div class="modi-punkte" role="group" aria-label="Modus wählen" data-t-aria="modi.punkte">
             <button type="button" data-modus="0" aria-pressed="true" aria-label="Traumrad" data-t-aria="weg1.etikett"></button>
             <button type="button" data-modus="1" aria-pressed="false" aria-label="Mein Rad" data-t-aria="weg2.etikett"></button>
@@ -526,7 +528,7 @@ html:not(.js) #teilen{display:none}
         <div class="guide-innen">
           <div class="geraet"><div class="handy"><div class="schirm"><video muted playsinline loop preload="none" poster="img/v/guide-poster.webp" data-src="img/v/guide.webm" data-webp="img/v/guide.webp"
             aria-label="Bildschirmaufnahme: Im Guide wird gefragt, ob eine Fox 38 zum Rad passt; die Antwort nennt Preis, Gewicht und bestätigt, dass sie passt." data-t-aria="v.guide"></video></div></div>
-            <span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></div>
+            <p class="legende"><span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></p></div>
           <div class="text">
             <p class="etikett" data-t="guide.etikett">Der Guide</p>
             <h2 class="display" id="guide-titel" data-t="guide.h2">Etwas unklar? Frag.</h2>
@@ -564,7 +566,7 @@ html:not(.js) #teilen{display:none}
       </div>
       <div class="geraet" data-zeige><div class="handy"><div class="schirm"><video muted playsinline loop preload="none" poster="img/v/federung-poster.webp" data-src="img/v/federung.webm" data-webp="img/v/federung.webp"
         aria-label="Bildschirmaufnahme des Federungsrechners: Beim Wechsel zwischen Pur Downhill, Allround und Pur Sprünge ändern sich Luftdruck, Sag und Klicks." data-t-aria="v.fed"></video></div></div>
-        <span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></div>
+        <p class="legende"><span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></p></div>
     </div>
   </section>
 
@@ -661,7 +663,7 @@ html:not(.js) #teilen{display:none}
   <section class="schluss" id="schluss" aria-labelledby="schluss-titel">
     <div class="innen">
       <h2 class="display" id="schluss-titel" data-zeige data-t="schluss.h2">Kommt bald.</h2>
-      <p data-zeige data-t="schluss.p">CrankScore ist in der Testphase. Diese Seite wächst mit der App — schau wieder vorbei.</p>
+      <p data-zeige data-t="schluss.p">CrankScore ist in der Testphase. Diese Seite wächst mit der App.</p>
       <div data-zeige><button class="knopf" type="button" id="teilen"><span data-t="schluss.knopf">Seite teilen</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4"/><path d="m7.5 8.5 4.5-4.5 4.5 4.5"/><path d="M5 13v5.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V13"/></svg></button></div>
     </div>
@@ -723,7 +725,7 @@ html:not(.js) #teilen{display:none}
     "beispiel":"Real app · sample screen (German)",
     "v.assistent":"Screen recording of the app: the assistant works out an enduro bike, shows a score of 99 and takes it into the build.",
     "band.aria":"Brands in the catalogue", "band.etikett":"In the catalogue · 125 brands",
-    "prinzip.etikett":"How it works", "prinzip.h2":"All parts, cross-checked",
+    "prinzip.etikett":"How it works", "prinzip.h2":"Every part, cross‑checked",
     "prinzip.p":"Once a part is in the build, CrankScore checks it against every other part and gives you one number. Every conflict comes with the part that resolves it.",
     "pp1.b":"Dimensions", "pp1.s":"Travel, shock length, clamp, diameter",
     "pp2.b":"Standards", "pp2.s":"Axles, freehub, bottom bracket, headset, UDH",
@@ -757,7 +759,7 @@ html:not(.js) #teilen{display:none}
     "g3.h3":"Terms explained", "g3.p":"Boost, freehub, sag, HSC — in one sentence, no jargon.",
     "g4.h3":"Takes you there", "g4.p":"Tap the answer and the app opens the part or the setting.",
     "fed.etikett":"Suspension calculator", "fed.h2":"Air pressure and clicks for your weight",
-    "fed.p":"From weight and riding profile: air pressure, sag and every adjuster in clicks — from the tables by Fox, RockShox and others; where no table exists, from a typical value for its class. Three riding profiles, one tap.",
+    "fed.p":"From weight and riding profile: air pressure, sag and every adjuster in clicks — from the tables by Fox, RockShox and others; where no table exists, from a typical value for its class. One tap switches the riding profile.",
     "fed.profile":"Example Fox 36 Factory, 78 kg, per manufacturer table", "fed.m1":"Pure downhill", "fed.m2":"All-round", "fed.m3":"Pure jumps",
     "fed.beispiel":"Example: 78 kg, enduro, Fox 36 Factory · per manufacturer table",
     "v.fed":"Screen recording of the suspension calculator: switching between pure downhill, all-round and pure jumps changes air pressure, sag and clicks.",
@@ -770,7 +772,7 @@ html:not(.js) #teilen{display:none}
     "k6.h3":"Several bikes", "k6.p":"Every bike keeps its own build, in every mode. Switch without losing anything.",
     "k7.h3":"Your top-cap photo", "k7.p":"Photograph the dials on your fork — the app writes the clicks straight into the picture.",
     "k8.h3":"German and English", "k8.p":"The whole app in both languages — switchable with one tap.",
-    "k9.h3":"Works offline", "k9.p":"Once opened, the app runs without a connection — on the trail as in the workshop.",
+    "k9.h3":"Works offline", "k9.p":"Once opened, the app runs without a connection — on the trail and in the workshop.",
     "zahlen.aria":"The catalogue in numbers", "zahlen.etikett":"The catalogue in numbers",
     "z1":"parts", "z2":"brands", "z3":"disciplines", "z4":"suspension tables", "z5":"guide topics",
     "daten.etikett":"Privacy", "daten.h2":"Your data stays yours",
@@ -785,7 +787,7 @@ html:not(.js) #teilen{display:none}
     "f4.q":"Do I need an app store?", "f4.a":"No. CrankScore runs in the browser. On your phone you add it to the home screen — then it starts like an app.",
     "f5.q":"How reliable are the values?", "f5.a":"Dimensions and standards are researched from manufacturer data. Air pressure and clicks are starting values for fine-tuning. When in doubt, the manufacturer's data sheet applies.",
     "f6.q":"Are there e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
-    "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app — check back soon.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
+    "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
     "fuss.claim":"Mountain bikes that fit together.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language",
     "fuss.imp":"Legal notice (German)", "fuss.ds":"Privacy (German)",
     "fuss.marken":"Brand names belong to their owners. They are mentioned only to identify the parts in the catalogue."
@@ -874,7 +876,9 @@ html:not(.js) #teilen{display:none}
     if(ruhig) return v;                       /* bei "weniger Bewegung": nur das Standbild */
     if(kannWebm){ v.src = v.getAttribute("data-src"); v.load(); var h = v.closest(".handy"); if(h) pauseKnopf(h); }
     else { var img = document.createElement("img"); img.src = v.getAttribute("data-webp"); img.alt = v.getAttribute("aria-label") || ""; img.className = v.className;
-      if(v.hasAttribute("data-modus")) img.setAttribute("data-modus", v.getAttribute("data-modus")); v.parentNode.replaceChild(img, v); return img; }
+      img.setAttribute("data-webp", v.getAttribute("data-webp")); img.setAttribute("data-poster", v.getAttribute("poster"));
+      if(v.hasAttribute("data-modus")) img.setAttribute("data-modus", v.getAttribute("data-modus")); v.parentNode.replaceChild(img, v);
+      var h2 = img.closest(".handy"); if(h2) pauseKnopf(h2); return img; }
     return v;
   }
   function spielen(v){ if(v && v.tagName === "VIDEO" && v.src && !ruhig && !v.__manuell) v.play().catch(function(){}); }
@@ -885,16 +889,17 @@ html:not(.js) #teilen{display:none}
     var b = document.createElement("button"); b.type = "button"; b.className = "pause"; handy.__pause = b;
     b.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5"/><rect x="14" y="4" width="5" height="16" rx="1.5"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
     var aktiv = function(){ return handy.querySelector(".schirm > .an") || handy.querySelector("video"); };
-    var sync = function(){ var v = aktiv(), steht = !v || v.tagName !== "VIDEO" || v.paused;
+    var sync = function(){ var v = aktiv(), steht = !v || (v.tagName === "VIDEO" ? v.paused : v.getAttribute("src") === v.getAttribute("data-poster"));
       b.classList.toggle("laeuft", !steht);
       b.setAttribute("aria-label", aktuelleSprache === "en" ? (steht ? "Play video" : "Pause video") : (steht ? "Video abspielen" : "Video anhalten")); };
     alle("video", handy).forEach(function(v){ v.addEventListener("play", sync); v.addEventListener("pause", sync); });
     b.addEventListener("click", function(){
-      var v = aktiv(); if(!v || v.tagName !== "VIDEO") return;
+      var v = aktiv(); if(!v) return;
+      if(v.tagName !== "VIDEO"){ v.src = v.getAttribute("src") === v.getAttribute("data-poster") ? v.getAttribute("data-webp") : v.getAttribute("data-poster"); sync(); return; }
       if(v.paused){ v.__manuell = false; v.play().catch(function(){}); } else { v.__manuell = true; v.pause(); }
     });
     pauseKnoepfe.push(sync); sync();
-    var ziel = handy.parentNode.querySelector(".modi-punkte") || handy.parentNode.querySelector(".beispiel");
+    var ziel = handy.parentNode.querySelector(".legende");
     if(ziel) ziel.appendChild(b); else handy.insertAdjacentElement("afterend", b);
   }
   function pausieren(v){ if(v && v.tagName === "VIDEO" && v.src) v.pause(); }
