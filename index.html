@@ -12,6 +12,7 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:site_name" content="CrankScore">
 <meta property="og:title" content="CrankScore — Passt dein Mountainbike zusammen?">
 <meta property="og:description" content="Mountainbikes planen, prüfen und bewerten — Teil für Teil. Kommt bald.">
@@ -21,7 +22,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script>/* Sprache vor dem ersten Bild: Englisch -> Seite bleibt bis zum Umschalten unsichtbar (Millisekunden) */
-(function(){try{var g=localStorage.getItem("cs.sprache");var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(g==="en"||(g!=="de"&&n.indexOf("de")!==0))document.documentElement.className+=" en-lade";}catch(e){}})();</script>
+(function(){try{var g=localStorage.getItem("cs.sprache");var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(g==="en"||(g!=="de"&&n.indexOf("de")!==0))document.documentElement.className+=" en-lade";setTimeout(function(){document.documentElement.classList.remove("en-lade");},1500);}catch(e){}})();</script>
 <link rel="preload" href="fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ibmplexmono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -187,6 +188,7 @@ p{margin:0;text-wrap:pretty}
 .handy video,.handy img{width:100%;height:100%;object-fit:cover}
 .pause{display:inline-grid;place-items:center;flex:none;width:28px;height:28px;margin:0;border-radius:50%;border:1px solid var(--linie);background:var(--glas);color:var(--titan);cursor:pointer;padding:0;transition:border-color .2s}
 .pause:hover,.pause:focus-visible{border-color:var(--rand-hell)}
+@media (max-width:960px){.pause{width:36px;height:36px}}
 .pause svg:last-child{display:none}
 .pause:not(.laeuft) svg:first-child{display:none}
 .pause:not(.laeuft) svg:last-child{display:block}
@@ -293,7 +295,7 @@ p{margin:0;text-wrap:pretty}
   .modi-raster .vorspann{order:1;margin-bottom:24px}
   .modi-buehne{order:2;position:static;width:min(340px,72vw);margin:0 auto}
   .modi-liste{order:3}
-  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 calc((100vw - var(--karte)) / 2) 8px;scroll-padding:0 calc((100vw - var(--karte)) / 2);scrollbar-width:none}
+  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 calc((100% + 2 * var(--rand) - var(--karte)) / 2) 8px;scroll-padding:0 calc((100% + 2 * var(--rand) - var(--karte)) / 2);scrollbar-width:none}
   .modi-liste::-webkit-scrollbar{display:none}
   .modi-liste .weg + .weg{margin-top:0}
   .weg{flex:0 0 var(--karte);scroll-snap-align:center;padding:16px;cursor:default}
@@ -338,17 +340,19 @@ p{margin:0;text-wrap:pretty}
 .karte h3{font-size:var(--s4)}
 .karte p{font-size:var(--s3)}
 @media (max-width:960px){.raster{gap:12px}.karte{padding:20px 18px 22px}}
+@media (min-width:701px) and (max-width:960px){.raster{grid-template-columns:repeat(2,minmax(0,1fr))}.karte:last-child{grid-column:1 / -1}}
 @media (max-width:700px){.raster{grid-template-columns:minmax(0,1fr)}}
 
 /* ── Der Katalog in Zahlen: ein Band, keine eigene Buehne ── */
 .zahlen-band{padding:clamp(36px,5vw,56px) 0;background:linear-gradient(180deg,rgba(21,18,38,.45),rgba(21,18,38,.2))}
 .zahlen-band .innen{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px clamp(28px,5vw,72px);align-items:center}
 .zahlen{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;text-align:center}
-.zahlen div{flex:1 1 calc(20% - 12px);padding:18px 8px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas)}
+.zahlen div{flex:1 1 calc(20% - 12px);min-width:0;padding:18px 8px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas)}
 .zahlen b{display:block;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:var(--zahlen);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
   background:linear-gradient(120deg,#f7f5ff,#a47bff);-webkit-background-clip:text;background-clip:text;color:transparent}
 .zahlen span{display:block;margin-top:8px;font-family:var(--mono);font-size:var(--s1);letter-spacing:.08em;text-transform:uppercase;color:var(--grau)}
-@media (max-width:960px){.zahlen-band .innen{grid-template-columns:minmax(0,1fr)}.zahlen{gap:18px 34px}.zahlen div{flex:0 0 auto;padding:0;border:0;background:none}.zahlen span{margin-top:6px}}
+@media (max-width:1100px){.zahlen-band .innen{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:960px){.zahlen{gap:18px 34px}.zahlen div{flex:0 0 auto;padding:0;border:0;background:none}.zahlen span{margin-top:6px}}
 
 /* ── Datenschutz: Text links, drei Zusagen rechts ── */
 .daten{display:grid;gap:12px}
@@ -435,7 +439,7 @@ html:not(.js) #teilen{display:none}
         <a class="bald nur-klein" href="#fragen" data-zeige aria-label="Kommt bald — Stand der Testphase bei den Fragen" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="start.bald">Kommt bald</span></a>
         <p class="etikett" data-zeige data-t="start.etikett">Web-App für Mountainbiker</p>
         <h1 class="display" id="titel" data-zeige data-t="start.h1">Passt das zusammen?</h1>
-        <p class="sub" data-zeige data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Passt etwas nicht, bekommst du das Teil genannt, das stattdessen passt.</p>
+        <p class="sub" data-zeige data-t="start.sub">CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Passt etwas nicht, nennt dir die App das Teil, das stattdessen passt.</p>
         <div class="aktionen" data-zeige>
           <a class="knopf" href="#prinzip"><span data-t="start.knopf">So prüft CrankScore</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg></a>
@@ -482,7 +486,7 @@ html:not(.js) #teilen{display:none}
         <ul class="pruef-liste">
           <li class="zeile"><span class="was" data-t="pruef.was1">Federweg</span><span class="wert" data-th="pruef.wert1"><i>Gabel</i> 160 mm <em>/</em> <i>Rahmen</i> bis 170 mm</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
           <li class="zeile"><span class="was" data-t="pruef.was2">Steuerrohr</span><span class="wert" data-th="pruef.wert2"><i>Gabel</i> tapered <em>/</em> <i>Rahmen</i> tapered</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was3">Dämpfer</span><span class="wert" data-th="pruef.wert3"><i>Dämpfer</i> 216×63 <em>/</em> <i>Rahmen</i> 216×63 Standard</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
+          <li class="zeile"><span class="was" data-t="pruef.was3">Dämpfermaß</span><span class="wert" data-th="pruef.wert3"><i>Dämpfer</i> 216×63 <em>/</em> <i>Rahmen</i> 216×63 Standard</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
           <li class="zeile"><span class="was" data-t="pruef.was4">Hinterachse</span><span class="wert" data-th="pruef.wert4"><i>Laufrad</i> 148×12 Boost <em>/</em> <i>Rahmen</i> 148×12</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
           <li class="zeile"><span class="was" data-t="pruef.was5">Freilauf</span><span class="wert" data-th="pruef.wert5"><i>Kassette</i> Micro Spline <em>/</em> <i>Laufrad</i> Micro Spline</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
           <li class="zeile"><span class="was" data-t="pruef.was6">Innenlager</span><span class="wert" data-th="pruef.wert6"><i>Kurbel</i> Hollowtech II <em>/</em> <i>Lager</i> BB-MT800 BSA 73</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
@@ -553,7 +557,7 @@ html:not(.js) #teilen{display:none}
             <p class="legende"><span class="beispiel" data-t="beispiel">Echte App · Beispielanzeige</span></p></div>
           <div class="text">
             <p class="etikett" data-t="guide.etikett">Der Guide</p>
-            <h2 class="display" id="guide-titel" data-t="guide.h2">Etwas unklar? Frag.</h2>
+            <h2 class="display" id="guide-titel" data-t="guide.h2">Etwas unklar? Frag den Guide.</h2>
             <p class="lead" data-t="guide.p">Der Guide kennt dein Rad. Er antwortet aus deinem Aufbau, nicht aus einem Lexikon — und öffnet dir die passende Stelle in der App.</p>
             <div class="guide-punkte">
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg></span>
@@ -742,7 +746,7 @@ html:not(.js) #teilen{display:none}
     "titel.seite":"CrankScore — Does your mountain bike fit together?",
     "meta.desc":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. Plan a new bike, check your own, rate a used listing. Coming soon.",
     "start.etikett":"Web app for mountain bikers", "start.bald":"Coming soon", "start.h1":"Does it all fit?",
-    "start.sub":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. If something doesn’t fit, it names the part that does.",
+    "start.sub":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. If something doesn’t fit, the app names the part that does.",
     "start.knopf":"How the check works", "start.knopf2":"The three modes",
     "start.fakten":"<span><b>738</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>€0</b> · no account</span>",
     "beispiel":"Real app · sample screen · German UI",
@@ -754,9 +758,9 @@ html:not(.js) #teilen{display:none}
     "pp2.b":"Standards", "pp2.s":"Axles, freehub, bottom bracket, headset, UDH",
     "pp3.b":"Purpose", "pp3.s":"Does the part suit trail, enduro or downhill?",
     "pruef.etikett":"Compatibility check", "pruef.nochmal":"Run the check again",
-    "pruef.was1":"Travel", "pruef.was2":"Head tube", "pruef.was3":"Shock", "pruef.was4":"Rear axle", "pruef.was5":"Freehub", "pruef.was6":"Bottom bracket",
+    "pruef.was1":"Travel", "pruef.was2":"Head tube", "pruef.was3":"Shock size", "pruef.was4":"Rear axle", "pruef.was5":"Freehub", "pruef.was6":"Bottom bracket",
     "pruef.wert1":"<i>Fork</i> 160 mm <em>/</em> <i>frame</i> up to 170 mm", "pruef.wert2":"<i>Fork</i> tapered <em>/</em> <i>frame</i> tapered", "pruef.wert3":"<i>Shock</i> 216×63 <em>/</em> <i>frame</i> 216×63 standard",
-    "pruef.wert4":"<i>Wheel</i> 148×12 Boost <em>/</em> <i>frame</i> 148×12", "pruef.wert5":"<i>Cassette</i> Micro Spline <em>/</em> <i>wheel</i> Micro Spline", "pruef.wert6":"<i>Cranks</i> Hollowtech II <em>/</em> <i>Bottom bracket</i> BB-MT800 BSA 73",
+    "pruef.wert4":"<i>Wheel</i> 148×12 Boost <em>/</em> <i>frame</i> 148×12", "pruef.wert5":"<i>Cassette</i> Micro Spline <em>/</em> <i>wheel</i> Micro Spline", "pruef.wert6":"<i>Cranks</i> Hollowtech II <em>/</em> <i>bearing</i> BB-MT800 BSA 73",
     "pruef.status":"fits", "pruef.zahl":"Score 99 out of 100",
     "pruef.urteil":"<b>Solid.</b> No conflicts.<br>€4,343 · 15.26 kg",
     "pruef.cap":"Values from the app, laid out by this page: enduro from the assistant, €4,500 budget. Part on the left, its counterpart on the right.",
@@ -776,7 +780,7 @@ html:not(.js) #teilen{display:none}
     "weg3.p":"Enter the parts from the listing, plus age, condition and price. The app works out the used value — before you pay too much.",
     "weg3.beleg":"Asking €1,450 · worth about €1,219",
     "v.guide":"Screen recording: the guide is asked whether a Fox 38 fits the bike; the answer gives price and weight and confirms that it fits.",
-    "guide.etikett":"The guide", "guide.h2":"Not sure? Ask.",
+    "guide.etikett":"The guide", "guide.h2":"Not sure? Ask the guide.",
     "guide.p":"The guide knows your bike. It answers from your build, not from a glossary — and opens the right place in the app for you.",
     "g1.h3":"Knows your bike", "g1.p":"What’s missing for 100? Is the bike right for enduro? The guide works with your build.",
     "g2.h3":"Check parts", "g2.p":"“Does a Fox 38 fit?” — the guide searches the catalogue and checks the version against your frame.",
@@ -852,7 +856,7 @@ html:not(.js) #teilen{display:none}
     if(navigator.clipboard) navigator.clipboard.writeText(url).then(function(){
       var span = teilen.querySelector("span"), vorher = span.textContent; teilen.style.minWidth = teilen.offsetWidth + "px";
       span.textContent = aktuelleSprache === "en" ? EN["schluss.kopiert"] : "Link kopiert";
-      setTimeout(function(){ span.textContent = aktuelleSprache === "en" ? EN["schluss.knopf"] : merken(span, "t", vorher); }, 2200);
+      setTimeout(function(){ span.textContent = aktuelleSprache === "en" ? EN["schluss.knopf"] : merken(span, "t", vorher); teilen.style.minWidth = ""; }, 2200);
     }).catch(function(){});
   });
 
@@ -928,7 +932,7 @@ html:not(.js) #teilen{display:none}
     var ziel = handy.parentNode.querySelector(".legende");
     if(ziel) ziel.appendChild(b); else handy.insertAdjacentElement("afterend", b);
   }
-  function pausieren(v){ if(v && v.tagName === "VIDEO" && v.src){ v.__auto = true; v.pause(); } }
+  function pausieren(v){ if(v && v.tagName === "VIDEO" && v.src && !v.paused){ v.__auto = true; v.pause(); } }
   var videos = alle("video[data-src]").filter(function(v){ return !v.closest(".modi-buehne"); });
   if(hatIO){
     var vio = new IntersectionObserver(function(eintraege){
@@ -951,7 +955,7 @@ html:not(.js) #teilen{display:none}
     punkte.forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-modus") === String(i))); });
     alle("#modi-buehne .schirm > *").forEach(function(v){
       var an = v.getAttribute("data-modus") === String(i);
-      v.classList.toggle("an", an);
+      v.classList.toggle("an", an); v.setAttribute("aria-hidden", an ? "false" : "true");
       if(an && buehneImBild){ v = videoLaden(v); spielen(v); } else pausieren(v);
     });
   }
@@ -974,8 +978,8 @@ html:not(.js) #teilen{display:none}
   var karussellLaeuft = false;
   function karussellLesen(){
     karussellLaeuft = false; if(pc()) return;
-    var mitte = liste.scrollLeft + liste.clientWidth / 2, best = 0, abstand = Infinity;
-    wege.forEach(function(w, i){ var d = Math.abs(w.offsetLeft + w.offsetWidth / 2 - mitte); if(d < abstand){ abstand = d; best = i; } });
+    var lr = liste.getBoundingClientRect(), mitte = lr.left + lr.width / 2, best = 0, abstand = Infinity;
+    wege.forEach(function(w, i){ var r = w.getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - mitte); if(d < abstand){ abstand = d; best = i; } });
     if(best !== aktiverModus) modusSetzen(best);
   }
   if(liste) liste.addEventListener("scroll", function(){ if(!karussellLaeuft){ karussellLaeuft = true; requestAnimationFrame(karussellLesen); } }, {passive:true});
@@ -985,7 +989,7 @@ html:not(.js) #teilen{display:none}
     var i = parseInt(b.getAttribute("data-modus"), 10), ziel = wege[i]; modusSetzen(i);
     if(!ziel) return;
     if(pc()) ziel.scrollIntoView({behavior: ruhig ? "auto" : "smooth", block:"center"});
-    else liste.scrollTo({left: ziel.offsetLeft - (liste.clientWidth - ziel.offsetWidth) / 2, behavior: ruhig ? "auto" : "smooth"});
+    else { var lr = liste.getBoundingClientRect(), zr = ziel.getBoundingClientRect(); liste.scrollTo({left: liste.scrollLeft + (zr.left + zr.width / 2) - (lr.left + lr.width / 2), behavior: ruhig ? "auto" : "smooth"}); }
   }); });
 
   /* ── Handy im Start: leicht gedreht, richtet sich beim Scrollen auf; am Rechner folgt es der Maus (nur solange es im Bild ist) ── */

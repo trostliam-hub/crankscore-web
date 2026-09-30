@@ -17,9 +17,9 @@ Webseite sein. Design hat oberste Priorität. Nicht aufhören, bis es perfekt is
 
 ## B. Designsystem CrankScore (die App ist die Referenz)
 - Farben: Nacht `#05040c`, Carbon `#0d0b18`/`#151226`, Linien `#2a2544`/`#1c1930`, Text `#f7f5ff`/`#c6c1e4`/`#8f89b3`,
-  Akzent `#a47bff`, Eloxal-Verlauf `#8a4dff → #5b5bff → #2f8cff`, Erfolg `#2ef29a`, Warnung `#ffbe2e`, Fehler `#ff4f7b`. Keine fremden Akzentfarben.
+  Akzent `#a47bff`, Eloxal-Verlauf `#8a4dff → #5b5bff → #2f8cff`, Erfolg `#2ef29a`, Warnung `#ffbe2e`, Fehler `#ff4f7b`. Keine fremden Akzentfarben. Systemfarben dürfen als `rgba(...)` mit Transparenz stehen (Schatten, Wolken, Glanzkanten, Kopfzeile = Nacht mit Alpha hinter Blur) — das sind keine Fremdfarben.
 - Schrift: **Archivo** (breit, 800) nur für Überschriften und große Zahlen; **Inter** für Text; **IBM Plex Mono** für Etiketten/Messwerte (Versalien, gesperrt). Alle lokal in `fonts/`.
-- Stufen am PC: h1 ≥ 72 px (zweispaltiger Hero, Archivo 125 % — „zusammen?" muss in die Spalte passen), h2 48–64 px; am Handy h1 ≥ 44 px, h2 ≥ 34 px. Fließtext 16–20 px, Etiketten 12–13 px. Nichts unter 12 px. Display-Stufen als Variablen: `--h1`, `--h2`, `--schluss` (40–64 px, zwischen h2 und h1), `--zahl` 64 px (Score), `--zahlen` 28–44 px (Katalogzahlen).
+- Stufen am PC (bis 1599 px): h1 ≥ 72 px (zweispaltiger Hero, Archivo 125 % — „zusammen?" muss in die Spalte passen), h2 48–64 px; am Handy h1 ≥ 44 px, h2 ≥ 34 px. Fließtext 16–20 px, Etiketten 12–13 px. Nichts unter 12 px. Display-Stufen als Variablen: `--h1`, `--h2`, `--schluss` (40–64 px, zwischen h2 und h1), `--zahl` 64 px (Score), `--zahlen` 28–44 px (Katalogzahlen). **Ab 1600 px** gilt die große Stufe: h1 86 px, h2 60 px, Container 1400 px, Geräte 470/430/400 px.
 - Formen: Radien 22–46 px bei Karten, Kacheln und Geräten (Icon-Kacheln 12–13 px), 999 px bei Pillen/Knöpfen; Hauptknopf im Eloxal-Verlauf mit Leuchten; Glas-Karten (`rgba(21,18,38,.62)`) mit feiner Linie.
 - Stimme: Deutsch, Du-Form, kurze Sätze, keine Werbesprache, keine Ausrufezeichen-Häufung.
 
@@ -44,3 +44,4 @@ Webseite sein. Design hat oberste Priorität. Nicht aufhören, bis es perfekt is
 - (Runde 7) Der Prüfstand ist bewusst eine **Darstellung der Webseite** (Werte aus der App, Bildschirmaufnahme wäre für sechs Prüfzeilen unlesbar) und ist so beschriftet: „Werte aus der App, dargestellt von dieser Seite." Nicht „Echte App".
 - (Runde 7) Hero-Aufnahme = Aufbau-Ansicht (`aufbau.webm`), Bühne startet mit dem Assistenten — zwei verschiedene Bildschirme derselben App, kein Doppel.
 - (Runde 8) Häkchen im Prüfstand als Inline-SVG (Plex-Mono-Subset hat kein U+2713); Vergleich im Mein-Rad-Beleg ohne „≠“ (U+2260 ebenso nicht im Subset).
+- (Runde 9) **Abgelehnt, System-Kritiker:** h1 86/h2 60 ab 1600 px (steht seit Runde 2 in D und jetzt in B); Wolken-rgba (erlaubte Alpha-Varianten); Kopfzeile `rgba(5,4,12,.55)` = Nacht mit Alpha hinter `backdrop-filter`, absichtlich dunkler als Glas-Karten; `figure[aria-labelledby]` auf das Etikett ist gültiges ARIA (die `figcaption` beschreibt, das Etikett benennt); `.status` trägt den Text „passt“ neben einem `aria-hidden`-SVG — Screenreader lesen „passt“.
