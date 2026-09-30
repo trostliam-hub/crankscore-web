@@ -6,12 +6,15 @@
 <title>CrankScore — Passt dein Mountainbike zusammen?</title>
 <meta name="description" content="CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot bewerten. Kommt bald.">
 <link rel="canonical" href="https://crankscore.de/">
-<meta name="theme-color" content="#f4f4f8">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
 <link rel="icon" href="/img/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
-<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:locale:alternate" content="en_US">
@@ -25,7 +28,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CrankScore","alternateName":"crankscore.de","url":"https://crankscore.de/","inLanguage":["de","en"]},{"@type":"Organization","name":"CrankScore","url":"https://crankscore.de/","logo":"https://crankscore.de/img/icon-512.png"}]}</script>
 <meta name="twitter:card" content="summary_large_image">
 <script>/* Sprache vor dem ersten Bild: Englisch -> Seite bleibt bis zum Umschalten unsichtbar (Millisekunden) */
-(function(){try{var g=localStorage.getItem("cs.sprache");var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(g==="en"||(g!=="de"&&n.indexOf("de")!==0))document.documentElement.className+=" en-lade";setTimeout(function(){document.documentElement.classList.remove("en-lade");},1500);}catch(e){}})();</script>
+(function(){try{if(/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||""))return;var g=localStorage.getItem("cs.sprache");var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(g==="en"||(g!=="de"&&n.indexOf("de")!==0))document.documentElement.className+=" en-lade";setTimeout(function(){document.documentElement.classList.remove("en-lade");},1500);}catch(e){}})();</script>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO) */
@@ -176,6 +179,35 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 .breit .text{align-self:center;padding-bottom:clamp(28px,4vw,56px)}
 @media (max-width:899px){ .breit{grid-template-columns:1fr} .breit .text{padding-bottom:0} }
 
+/* So funktioniert's: drei Schritte */
+.schritte{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
+.schritt{background:#fff;border-radius:var(--r-klein);padding:28px 26px 26px;display:flex;flex-direction:column}
+.s-nr{font:500 13px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;color:#fff;background:var(--eloxal);align-self:flex-start;padding:8px 11px;border-radius:999px}
+.schritt h3{font-size:clamp(22px,1.9vw,26px);letter-spacing:-.025em;line-height:1.15;margin-top:18px}
+.schritt p{margin-top:8px;font-size:16px;color:var(--grau)}
+.s-bild{margin-top:auto;padding-top:22px;display:flex;flex-wrap:wrap;gap:6px}
+.s-bild>span{font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:999px;background:rgba(23,22,30,.06);color:var(--grau)}
+.s-bild>span.an{background:var(--tinte);color:var(--seite)}
+.s-bild.liste{flex-direction:column;gap:6px}
+.s-bild.liste>span{display:flex;align-items:center;gap:10px;border-radius:14px;padding:10px 12px}
+.s-bild.liste b{font-weight:600;color:var(--tinte)}
+.s-bild i{width:18px;height:18px;border-radius:50%;flex:none;position:relative}
+.s-bild i.ok{background:#12a86a}.s-bild i.nein{background:#e0344f}
+.s-bild i.ok::after{content:"";position:absolute;left:6px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.s-bild i.nein::after{content:"";position:absolute;left:4px;top:8px;width:10px;height:2px;background:#fff}
+.s-bild.score{align-items:center;gap:14px;flex-wrap:nowrap}
+.s-bild.score>.s-txt{background:none;padding:0;border-radius:0;font-weight:400}
+.s-bild.score>.ring{width:64px;height:64px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:radial-gradient(closest-side,#fff 78%,transparent 80% 100%),conic-gradient(#2fb86b 0 99%,rgba(23,22,30,.08) 99% 100%)}
+.s-bild .ring b{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--tinte)}
+.s-txt{font-size:15px;color:var(--grau);line-height:1.35}.s-txt b{color:var(--tinte)}
+@media (max-width:899px){ .schritte{grid-template-columns:1fr} }
+@media (prefers-color-scheme:dark){ .s-bild>span{background:rgba(255,255,255,.07)} .s-bild.score>.ring{background:radial-gradient(closest-side,#15122a 78%,transparent 80% 100%),conic-gradient(#3ddc84 0 99%,rgba(255,255,255,.1) 99% 100%)} }
+
+/* Pro-Pille */
+.pro-pille{display:inline-block;vertical-align:middle;margin-left:10px;font:600 12px/1 "Inter",sans-serif;letter-spacing:.02em;color:#fff;
+  background:linear-gradient(135deg,#ff7a45,#e0508a 50%,#7b5cff);padding:6px 10px;border-radius:999px}
+
 /* Kacheln */
 .kachel{background:#fff;border-radius:var(--r-klein);padding:26px}
 .kachel .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#f0ecff;color:var(--akzent)}
@@ -241,6 +273,49 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 .daten-liste div{background:rgba(255,255,255,.65);border-radius:var(--r-klein);padding:20px 22px}
 .daten-liste p{margin-top:4px;color:var(--grau);font-size:15.5px}
 @media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
+
+/* ── Dunkelmodus (Stand 2026-10-01): folgt der Einstellung des Geraets. Helles Design bleibt der
+   Standard; im Dunkelmodus gilt die Markenpalette der App (Nacht, Carbon, Titan, Lila) wie in der
+   Design-Loop-Checkliste B: Farbverlaeufe statt flaechigem Schwarz, Glas-Karten mit feiner Linie,
+   die Farbkarten als dunkle Varianten mit Farbschein am Boden. Kontraste per WCAG-Formel geprueft:
+   Grautext auf den Kartenkoepfen >= 6,7:1. ── */
+@media (prefers-color-scheme:dark){
+  :root{--seite:#07060d; --weiss:#141126; --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36; --akzent:#b49bff;
+    --glas:rgba(22,19,40,.62); --glas-linie:rgba(255,255,255,.08); --schatten:0 30px 80px -30px rgba(0,0,0,.8)}
+  body{background:
+    radial-gradient(1100px 720px at 12% -8%,rgba(138,77,255,.20),transparent 62%),
+    radial-gradient(900px 640px at 105% 18%,rgba(47,140,255,.12),transparent 60%),
+    radial-gradient(1000px 800px at 50% 110%,rgba(91,91,255,.10),transparent 60%),#07060d;background-attachment:fixed}
+  .kopf{background:rgba(7,6,13,.62)}
+  .nav a:hover,.nav a.an{background:rgba(255,255,255,.08)}
+  .sprache{background:rgba(255,255,255,.07)}
+  .sprache button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
+  .bald,.weg{color:#0b0a12}
+  /* Glas statt weisser Flaechen */
+  .punkte div,.kachel,.zahlen div,.fragen details,.schritt{background:var(--glas);box-shadow:inset 0 0 0 1px var(--glas-linie);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .kachel .icon{background:rgba(180,155,255,.14)}
+  .knopf.leer{color:var(--tinte);background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+  .modus .beleg{background:rgba(255,255,255,.08)}
+  .daten-liste div{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--glas-linie)}
+  .echt{background:rgba(255,255,255,.08)}
+  .lauf li{color:#6f6a92}
+  /* Farbkarten dunkel: Kopf fast schwarz, Farbschein nach unten, feine Kante wie Glas */
+  .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+  .k-lila{background:radial-gradient(90% 55% at 50% 100%,rgba(138,77,255,.55),transparent 70%),linear-gradient(180deg,#110e20 0%,#17122e 55%,#2a1c5e 100%)}
+  .k-nacht{background:radial-gradient(90% 60% at 50% 80%,#34257a 0%,#16122c 50%,#0b0a14 100%)}
+  .k-gruen{background:radial-gradient(90% 55% at 50% 100%,rgba(46,242,154,.22),transparent 70%),linear-gradient(180deg,#0c1512 0%,#0f1f18 60%,#123526 100%)}
+  .k-mint{background:radial-gradient(90% 55% at 70% 100%,rgba(64,220,170,.22),transparent 70%),linear-gradient(160deg,#0c1413 0%,#0f1e1b 60%,#12352e 100%)}
+  .k-blau{background:radial-gradient(90% 55% at 50% 100%,rgba(47,140,255,.35),transparent 70%),linear-gradient(180deg,#0c1020 0%,#0f172e 60%,#142551 100%)}
+  .k-pfirsich{background:radial-gradient(90% 55% at 50% 100%,rgba(255,140,90,.26),transparent 70%),linear-gradient(180deg,#140e0c 0%,#1f1411 60%,#3a1d14 100%)}
+  .k-weiss{background:var(--glas)}
+  .k-gruen .buehne{--blende:#123526 !important}
+  /* Bevel-Leuchten unter dem Start */
+  .start .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 60px 140px -70px rgba(138,77,255,.7)}
+  .geraet{box-shadow:0 30px 70px -10px rgba(0,0,0,.7),0 0 60px -20px rgba(138,77,255,.35)}
+  .fuss{background:rgba(7,6,13,.7);border-top-color:var(--linie)}
+  .fuss li button[aria-pressed="true"]{color:#fff}
+}
 </style>
 </head>
 <body>
@@ -369,6 +444,36 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     </div>
   </section>
 
+  <section id="ablauf" aria-labelledby="ablauf-titel">
+    <div class="innen">
+      <div class="kopfzeile" data-zeige>
+        <p class="etikett" data-t="ablauf.etikett">So funktioniert’s</p>
+        <h2 id="ablauf-titel" data-t="ablauf.h2">In drei Schritten zum Score</h2>
+        <p class="lead" data-t="ablauf.p">Kein Konto, kein Formular: Du fängst mit dem Rahmen an, die App führt dich durch den Rest.</p>
+      </div>
+      <ol class="schritte">
+        <li class="schritt" data-zeige>
+          <span class="s-nr">01</span>
+          <h3 data-t="s1.h3">Rad wählen</h3>
+          <p data-t="s1.p">Neues Rad planen, dein eigenes eintragen oder ein Gebrauchtangebot prüfen. Mit dem Rahmen stehen Laufradgröße, Achsen und Tretlager fest.</p>
+          <div class="s-bild" aria-hidden="true"><span class="an" data-t="s1.a">Traumrad</span><span data-t="s1.b">Mein Rad</span><span data-t="s1.c">Gebraucht</span></div>
+        </li>
+        <li class="schritt" data-zeige>
+          <span class="s-nr">02</span>
+          <h3 data-t="s2.h3">Teile und Fahrwerk eintragen</h3>
+          <p data-t="s2.p">Gabel, Dämpfer, Laufräder, Antrieb: Bei jedem Teil zeigt die App zuerst, was passt. Dazu dein Gewicht und wie du fährst.</p>
+          <div class="s-bild liste" aria-hidden="true"><span><i class="ok"></i><b data-t="s2.a">Rahmen</b></span><span><i class="ok"></i><b data-t="s2.b">Federgabel</b></span><span><i class="nein"></i><b data-t="s2.c">Dämpfer · 190×45</b></span></div>
+        </li>
+        <li class="schritt" data-zeige>
+          <span class="s-nr">03</span>
+          <h3 data-t="s3.h3">Score und Setup bekommen</h3>
+          <p data-t="s3.p">Eine Zahl von 0 bis 100, zu jedem Konflikt das passende Teil&nbsp;— und mit Pro Luftdruck, Tokens und Klicks für Gabel und Dämpfer.</p>
+          <div class="s-bild score" aria-hidden="true"><span class="ring"><b>99</b></span><span class="s-txt"><b data-t="s3.a">Stimmig.</b> <span data-t="s3.b">Keine Konflikte.</span></span></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <section id="funktionen" aria-labelledby="funk-titel">
     <div class="innen">
       <div class="kopfzeile" data-zeige>
@@ -391,8 +496,8 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
         </article>
         <article class="karte k-blau" id="federung" data-zeige>
           <div class="text">
-            <h3 data-t="fed.h3">Fahrwerk</h3>
-            <p data-t="fed.kurz">Luftdruck und Sag für dein Gewicht und deinen Fahrstil&nbsp;— nach den Tabellen von Fox, RockShox und anderen.</p>
+            <h3><span data-t="fed.h3">Fahrwerk</span><span class="pro-pille">Pro</span></h3>
+            <p data-t="fed.kurz">Luftdruck, Sag, Tokens und Klicks für Druck- und Zugstufe&nbsp;— für dein Gewicht und deinen Fahrstil, nach den Tabellen von Fox, RockShox und anderen.</p>
             <span class="echt" data-t="ausschnitt">Echte App · Ausschnitte</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Fahrprofil 78 Kilogramm, ruppige Trails, zügig; Ergebnis für die Federgabel: 75 psi, 5,2 bar, Sag 18 Prozent." data-t-aria="alt.fed">
@@ -496,9 +601,9 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
         <details id="f1"><summary data-t="f1.q">Wann kommt CrankScore?</summary>
           <p data-t="f1.a">Die App ist in der Testphase. Wir veröffentlichen sie, sobald Katalog und Prüfung so weit sind, dass du dich darauf verlassen kannst.</p></details>
         <details><summary data-t="f2.q">Was wird CrankScore kosten?</summary>
-          <p data-t="f2.a">Nichts. Kein Abo, keine Anmeldung.</p></details>
+          <p data-t="f2.a">Die App ist kostenlos und braucht kein Konto. Wer mehr will, nimmt Pro für 1,99&nbsp;€ im Monat: unbegrenzt Räder, der Federungsrechner und der Guide ohne Tageslimit&nbsp;— jederzeit kündbar.</p></details>
         <details><summary data-t="f3.q">Wie finanziert sich CrankScore?</summary>
-          <p data-t="f3.a">Über Partnerlinks: Manche Shop-Links werden mit „Anzeige“ markiert sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision — dein Preis bleibt gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
+          <p data-t="f3.a">Über Pro und über Partnerlinks: Manche Shop-Links werden mit „Anzeige“ markiert sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision — dein Preis bleibt gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
         <details><summary data-t="f4.q">Gibt es CrankScore im App Store?</summary>
           <p data-t="f4.a">Nein, und das ist Absicht: CrankScore läuft im Browser. Auf dem Handy legst du sie auf den Startbildschirm — dann startet sie wie eine App.</p></details>
         <details><summary data-t="f5.q">Wie verlässlich sind die Werte?</summary>
@@ -631,8 +736,8 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     "d3.h3":"No tracking", "d3.p":"No analytics, no cookies, no sharing.",
     "fragen.etikett":"FAQ", "fragen.h2":"Quick answers", "fragen.p":"The essentials before launch — status, price, reliability.",
     "f1.q":"When is CrankScore coming?", "f1.a":"The app is in testing. We’ll release it as soon as the catalogue and the checks are solid enough for you to rely on.",
-    "f2.q":"What will CrankScore cost?", "f2.a":"Nothing. No subscription, no sign-up.",
-    "f3.q":"How is CrankScore funded?", "f3.a":"Through partner links: some shop links will be marked “Ad”. If you buy through them, CrankScore gets a small commission — your price stays the same. Which part fits is decided by the check, not by the commission.",
+    "f2.q":"What will CrankScore cost?", "f2.a":"The app is free and needs no account. If you want more, Pro is €1.99 a month: unlimited bikes, the suspension calculator and the guide without a daily limit — cancel anytime.",
+    "f3.q":"How is CrankScore funded?", "f3.a":"Through Pro and through partner links: some shop links will be marked “Ad”. If you buy through them, CrankScore gets a small commission — your price stays the same. Which part fits is decided by the check, not by the commission.",
     "f4.q":"Is CrankScore in the app stores?", "f4.a":"No, by design: CrankScore runs in the browser. On your phone you add it to the home screen — then it starts like an app.",
     "f5.q":"How reliable are the values?", "f5.a":"Dimensions and standards are researched from manufacturer data. Air pressure and clicks are starting values for fine-tuning. When in doubt, the manufacturer’s data sheet applies.",
     "f6.q":"Does it cover e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
@@ -658,7 +763,7 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     "fit.p":"Frame size, bar width and stem — calculated from your body measurements.",
     "alt.fit":"At 182 cm: frame size L, bar width 800 mm, stem 40 to 50 mm.",
     "fed.h3":"Suspension",
-    "fed.kurz":"Air pressure and sag for your weight and riding style — based on the tables from Fox, RockShox and others.",
+    "fed.kurz":"Air pressure, sag, tokens and clicks for compression and rebound — for your weight and riding style, based on the tables from Fox, RockShox and others.",
     "alt.fed":"Riding profile 78 kg, rough trails, brisk; result for the fork: 75 psi, 5.2 bar, 18 percent sag.",
     "up.h3":"Upgrades & shopping list",
     "up.p":"First what you can adjust for free, then real improvements and cheaper parts with the same dimensions. At the end there’s the shopping list with shop links — or as text for your workshop.",
@@ -666,6 +771,14 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     "alt.m2":"Hint in the app: enter what’s on your bike\u00a0— start with the frame.",
     "alt.m3":"Rating a used offer in the app: model year 2023, condition well kept, normal wear.",
     "alt.guide":"The guide in the app. Asked “Does a Fox 38 fit?”, it answers: Fox 38 Factory, €1,549, built for enduro and downhill\u00a0— doesn’t fit your bike like this, too much travel for the frame rating.",
+    "ablauf.etikett":"How it works", "ablauf.h2":"Three steps to your score",
+    "ablauf.p":"No account, no form: you start with the frame and the app takes you through the rest.",
+    "s1.h3":"Pick a bike", "s1.p":"Plan a new bike, enter your own or check a used listing. The frame sets wheel size, axles and bottom bracket.",
+    "s1.a":"Dream bike", "s1.b":"My bike", "s1.c":"Used",
+    "s2.h3":"Add parts and suspension", "s2.p":"Fork, shock, wheels, drivetrain: for every part the app shows what fits first. Plus your weight and how you ride.",
+    "s2.a":"Frame", "s2.b":"Fork", "s2.c":"Shock · 190×45",
+    "s3.h3":"Get your score and setup", "s3.p":"One number from 0 to 100, the right part for every conflict — and with Pro, air pressure, tokens and clicks for fork and shock.",
+    "s3.a":"Spot on.", "s3.b":"No conflicts.",
     "alt.up":"Two app screens: upgrades with the Maxxis Minion DHR II tyre for one more point, next to it the shopping list with 19 parts for €6,247."
   };
   var SPRACHE_KEY = "cs.sprache", DE_TITEL = document.title;
@@ -685,6 +798,9 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
   }
   function startSprache(){
     try{ var g = localStorage.getItem(SPRACHE_KEY); if(g === "de" || g === "en") return g; }catch(e){}
+    /* Suchmaschinen bekommen die deutsche Fassung, wie sie im Markup steht: Googlebot meldet sich
+       als en-US, und Google zeigte die Seite deutschen Nutzern deshalb auf Englisch an. */
+    if(/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent || "")) return "de";
     var nl = ((navigator.languages && navigator.languages[0]) || navigator.language || "de").toLowerCase();
     return nl.indexOf("de") === 0 ? "de" : "en";
   }
