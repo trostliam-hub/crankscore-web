@@ -19,7 +19,7 @@ Webseite sein. Design hat oberste Priorität. Nicht aufhören, bis es perfekt is
 - Farben: Nacht `#05040c`, Carbon `#0d0b18`/`#151226`, Linien `#2a2544`/`#1c1930`, Text `#f7f5ff`/`#c6c1e4`/`#8f89b3`,
   Akzent `#a47bff`, Eloxal-Verlauf `#8a4dff → #5b5bff → #2f8cff`, Erfolg `#2ef29a`, Warnung `#ffbe2e`, Fehler `#ff4f7b`. Keine fremden Akzentfarben.
 - Schrift: **Archivo** (breit, 800) nur für Überschriften und große Zahlen; **Inter** für Text; **IBM Plex Mono** für Etiketten/Messwerte (Versalien, gesperrt). Alle lokal in `fonts/`.
-- Stufen am PC: h1 ≥ 72 px (zweispaltiger Hero, Archivo 125 % — „zusammen?" muss in die Spalte passen), h2 48–64 px; am Handy h1 ≥ 44 px, h2 ≥ 34 px. Fließtext 16–20 px, Etiketten 12–13 px. Nichts unter 12 px.
+- Stufen am PC: h1 ≥ 72 px (zweispaltiger Hero, Archivo 125 % — „zusammen?" muss in die Spalte passen), h2 48–64 px; am Handy h1 ≥ 44 px, h2 ≥ 34 px. Fließtext 16–20 px, Etiketten 12–13 px. Nichts unter 12 px. Display-Stufen als Variablen: `--h1`, `--h2`, `--schluss` (40–64 px, zwischen h2 und h1), `--zahl` 64 px (Score), `--zahlen` 28–44 px (Katalogzahlen).
 - Formen: Radien 22–46 px bei Karten, Kacheln und Geräten (Icon-Kacheln 12–13 px), 999 px bei Pillen/Knöpfen; Hauptknopf im Eloxal-Verlauf mit Leuchten; Glas-Karten (`rgba(21,18,38,.62)`) mit feiner Linie.
 - Stimme: Deutsch, Du-Form, kurze Sätze, keine Werbesprache, keine Ausrufezeichen-Häufung.
 
@@ -39,3 +39,7 @@ Webseite sein. Design hat oberste Priorität. Nicht aufhören, bis es perfekt is
 - (Runde 4) „Pure jumps / Pure downhill / All-round" sind die englischen Bezeichnungen der App selbst — die Webseite übernimmt die Produktbegriffe.
 - (Runde 4) Unter der letzten Modus-Karte bleibt links Luft (≈ 37 vh): sie ist der Laufweg, in dem das klebende Handy rechts noch ganz im Bild steht, bis Karte 3 die Bildmitte verlässt. Kein Loch ohne Inhalt — rechts läuft das Video.
 - (Runde 4) Vorzeige-Aufbau mit Shimano-SLX-Hebel/-Schaltwerk/-Kette zur XT-Kassette (statt SRAM GX × Shimano): Score 99, 4.372 €, 15,26 kg. Dass der Assistent von sich aus SRAM-Hebel mit Shimano-Kassette mischt, ist ein Befund für die **App** (Offene Punkte), nicht für die Seite.
+- (Runde 6) **Abgelehnt, Brief-Kritiker:** „1920 ist nur ein skaliertes 1440." Gemessen: ab 1600 px Container 1400 statt 1240 px, h1 86 statt 76 px, h2 60 statt 56 px, Geräte 470/430/400 statt 420/380/360 px (Hero-Gerät bei 1920×1080 = 420 px statt 337 px bei 1440×900). Dass zwischen 1440 und 1599 px dieselbe Stufe gilt, ist die Stufenlogik von Breakpoints, kein Mangel. Derselbe Kritiker hatte diese Stufe in Runde 3, 4 und 5 als erfüllt bewertet.
+- (Runde 7) Hero: Text mittig neben einem hohen Gerät ist das Bevel-Muster; Luft über und unter dem Text ist gewollt. Geräte hängen an der Bildschirmhöhe, mit Untergrenze 300/280 px, damit Laptops (1366×768) keine Zwerggeräte bekommen — dort ragt das Gerät dann unter die Falz, was bei Bevel/Linear ebenso ist.
+- (Runde 7) Der Prüfstand ist bewusst eine **Darstellung der Webseite** (Werte aus der App, Bildschirmaufnahme wäre für sechs Prüfzeilen unlesbar) und ist so beschriftet: „Werte aus der App, dargestellt von dieser Seite." Nicht „Echte App".
+- (Runde 7) Hero-Aufnahme = Aufbau-Ansicht (`aufbau.webm`), Bühne startet mit dem Assistenten — zwei verschiedene Bildschirme derselben App, kein Doppel.
