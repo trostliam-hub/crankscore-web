@@ -150,9 +150,10 @@ p{margin:0;text-wrap:pretty}
   background:radial-gradient(closest-side,rgba(91,91,255,.4),rgba(138,77,255,.16) 45%,transparent 72%);animation:atem 7s ease-in-out infinite alternate}
 @keyframes atem{to{transform:translate(-50%,-50%) scale(1.08);opacity:.75}}
 .hero-handy{transform:rotateX(var(--rx,6deg)) rotateY(var(--ry,-12deg)) scale(var(--s,1));transform-origin:50% 40%;transition:transform .15s linear;will-change:transform}
-.legende{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:16px}
+.legende{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px;margin-top:16px;text-align:center}
 .legende .beispiel{color:var(--nebel)}
 @media (max-width:960px){
+  :root{--h1:clamp(44px,7vw,64px)}
   /* Handy: eine Spalte, linksbuendig; das Geraet steht direkt unter den Knoepfen, die Fakten darunter */
   .start .text{display:contents}
   .start-raster{grid-template-columns:minmax(0,1fr);gap:0;justify-items:stretch}
@@ -163,7 +164,6 @@ p{margin:0;text-wrap:pretty}
   .buehne::before{width:120%}
   .fakten{order:6;margin-top:28px;justify-content:center}
   .hero-handy{transform:rotateX(var(--rx,16deg)) rotateY(0deg) scale(var(--s,.96));transform-origin:50% 20%}
-}
 }
 @media (max-width:520px){.fakten{display:grid;grid-template-columns:repeat(2,auto);justify-content:center;gap:8px 22px}.aktionen .knopf{flex-basis:100%}}
 
@@ -240,7 +240,7 @@ p{margin:0;text-wrap:pretty}
 .js .pruef.laeuft .zeile.ok .status{opacity:1}
 .js .pruef.laeuft .zeile.an:not(.ok) .wert::after{content:"";display:inline-block;width:.55em;height:1em;margin-left:4px;vertical-align:-2px;background:var(--lila);animation:blink .7s steps(2) infinite}
 @keyframes blink{50%{opacity:0}}
-.js .pruef.laeuft .ergebnis{opacity:.28;transition:opacity .4s}
+.js .pruef.laeuft .ergebnis{opacity:0;transition:opacity .5s}
 .js .pruef.laeuft.fertig .ergebnis{opacity:1}
 .js .pruef.laeuft .balken i{transform:scaleX(0);transition:transform 1.1s var(--weich)}
 .js .pruef.laeuft.fertig .balken i{transform:scaleX(1)}
@@ -464,12 +464,12 @@ html:not(.js) #teilen{display:none}
           </button>
         </div>
         <ul class="pruef-liste">
-          <li class="zeile"><span class="was" data-t="pruef.was1">Federweg</span><span class="wert" data-th="pruef.wert1"><i>Gabel</i> 160 mm <em>/</em> <i>Rahmen</i> bis 170 mm</span><span class="status" data-t="pruef.status">✓ passt</span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was2">Steuerrohr</span><span class="wert" data-th="pruef.wert2"><i>Gabel</i> tapered <em>/</em> <i>Rahmen</i> tapered</span><span class="status" data-t="pruef.status">✓ passt</span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was3">Dämpfer</span><span class="wert" data-th="pruef.wert3"><i>Dämpfer</i> 216×63 <em>/</em> <i>Rahmen</i> 216×63 Standard</span><span class="status" data-t="pruef.status">✓ passt</span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was4">Hinterachse</span><span class="wert" data-th="pruef.wert4"><i>Laufrad</i> 148×12 Boost <em>/</em> <i>Rahmen</i> 148×12</span><span class="status" data-t="pruef.status">✓ passt</span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was5">Freilauf</span><span class="wert" data-th="pruef.wert5"><i>Kassette</i> Micro Spline <em>/</em> <i>Laufrad</i> Micro Spline</span><span class="status" data-t="pruef.status">✓ passt</span></li>
-          <li class="zeile"><span class="was" data-t="pruef.was6">Innenlager</span><span class="wert" data-th="pruef.wert6"><i>Kurbel</i> Hollowtech II <em>/</em> <i>Lager</i> BB-MT800 BSA 73</span><span class="status" data-t="pruef.status">✓ passt</span></li>
+          <li class="zeile"><span class="was" data-t="pruef.was1">Federweg</span><span class="wert" data-th="pruef.wert1"><i>Gabel</i> 160 mm <em>/</em> <i>Rahmen</i> bis 170 mm</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
+          <li class="zeile"><span class="was" data-t="pruef.was2">Steuerrohr</span><span class="wert" data-th="pruef.wert2"><i>Gabel</i> tapered <em>/</em> <i>Rahmen</i> tapered</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
+          <li class="zeile"><span class="was" data-t="pruef.was3">Dämpfer</span><span class="wert" data-th="pruef.wert3"><i>Dämpfer</i> 216×63 <em>/</em> <i>Rahmen</i> 216×63 Standard</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
+          <li class="zeile"><span class="was" data-t="pruef.was4">Hinterachse</span><span class="wert" data-th="pruef.wert4"><i>Laufrad</i> 148×12 Boost <em>/</em> <i>Rahmen</i> 148×12</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
+          <li class="zeile"><span class="was" data-t="pruef.was5">Freilauf</span><span class="wert" data-th="pruef.wert5"><i>Kassette</i> Micro Spline <em>/</em> <i>Laufrad</i> Micro Spline</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
+          <li class="zeile"><span class="was" data-t="pruef.was6">Innenlager</span><span class="wert" data-th="pruef.wert6"><i>Kurbel</i> Hollowtech II <em>/</em> <i>Lager</i> BB-MT800 BSA 73</span><span class="status"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg><span data-t="pruef.status">passt</span></span></li>
         </ul>
         <div class="ergebnis">
           <div class="zahl" role="img" aria-label="Score 99 von 100" data-t-aria="pruef.zahl"><span id="zahl">99</span><small>/100</small></div>
@@ -502,7 +502,7 @@ html:not(.js) #teilen{display:none}
             <p class="etikett" data-t="weg2.etikett">Mein Rad</p>
             <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
             <p class="txt" data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
-            <p class="beleg" data-t="weg2.beleg">Freilauf Micro Spline ≠ Kassette XD</p>
+            <p class="beleg" data-t="weg2.beleg">Freilauf Micro Spline, Kassette XD: passt nicht</p>
           </article>
           <article class="weg" data-modus="2">
             <p class="etikett" data-t="weg3.etikett">Gebraucht</p>
@@ -541,7 +541,7 @@ html:not(.js) #teilen{display:none}
             <p class="lead" data-t="guide.p">Der Guide kennt dein Rad. Er antwortet aus deinem Aufbau, nicht aus einem Lexikon — und öffnet dir die passende Stelle in der App.</p>
             <div class="guide-punkte">
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg></span>
-                <h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">Warum ist der Score 81? Was fehlt noch? Der Guide rechnet mit deinem Aufbau.</p></div>
+                <h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">Was fehlt zur 100? Taugt das Rad für Enduro? Der Guide rechnet mit deinem Aufbau.</p></div>
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21.5s7.5-3.6 7.5-9.5V5.3L12 2.5 4.5 5.3V12c0 5.9 7.5 9.5 7.5 9.5z"/><path d="m8.8 12 2.2 2.2 4.2-4.4"/></svg></span>
                 <h3 data-t="g2.h3">Teile prüfen</h3><p data-t="g2.p">„Passt eine Fox 38?“ — der Guide sucht im Katalog und prüft die Ausführung an deinem Rahmen.</p></div>
               <div><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H19v15H6.5A1.5 1.5 0 0 0 5 19.5z"/><path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H19M9 7h6"/></svg></span>
@@ -728,7 +728,7 @@ html:not(.js) #teilen{display:none}
     "start.sub":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. If something doesn’t fit, it names the part that does.",
     "start.knopf":"How the check works", "start.knopf2":"The three modes",
     "start.fakten":"<span><b>738</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>€0</b> · no account</span>",
-    "beispiel":"Real app · sample screen (German interface)",
+    "beispiel":"Real app · sample screen · German UI",
     "v.aufbau":"Screen recording of the app: the build view of an enduro bike with score 99, price and weight; the parts list scrolls through.",
     "band.aria":"Brands in the catalogue", "band.etikett":"In the catalogue · 125 brands",
     "prinzip.etikett":"How it works", "prinzip.h2":"Every part, cross‑checked",
@@ -739,13 +739,13 @@ html:not(.js) #teilen{display:none}
     "pruef.etikett":"Compatibility check", "pruef.nochmal":"Run the check again",
     "pruef.was1":"Travel", "pruef.was2":"Head tube", "pruef.was3":"Shock", "pruef.was4":"Rear axle", "pruef.was5":"Freehub", "pruef.was6":"Bottom bracket",
     "pruef.wert1":"<i>Fork</i> 160 mm <em>/</em> <i>frame</i> up to 170 mm", "pruef.wert2":"<i>Fork</i> tapered <em>/</em> <i>frame</i> tapered", "pruef.wert3":"<i>Shock</i> 216×63 <em>/</em> <i>frame</i> 216×63 standard",
-    "pruef.wert4":"<i>Wheel</i> 148×12 Boost <em>/</em> <i>frame</i> 148×12", "pruef.wert5":"<i>Cassette</i> Micro Spline <em>/</em> <i>wheel</i> Micro Spline", "pruef.wert6":"<i>Cranks</i> Hollowtech II <em>/</em> <i>BB</i> BB-MT800 BSA 73",
-    "pruef.status":"✓ fits", "pruef.zahl":"Score 99 out of 100",
+    "pruef.wert4":"<i>Wheel</i> 148×12 Boost <em>/</em> <i>frame</i> 148×12", "pruef.wert5":"<i>Cassette</i> Micro Spline <em>/</em> <i>wheel</i> Micro Spline", "pruef.wert6":"<i>Cranks</i> Hollowtech II <em>/</em> <i>Bottom bracket</i> BB-MT800 BSA 73",
+    "pruef.status":"fits", "pruef.zahl":"Score 99 out of 100",
     "pruef.urteil":"<b>Solid.</b> No conflicts.<br>€4,343 · 15.26 kg",
     "pruef.cap":"Values from the app, laid out by this page: enduro from the assistant, €4,500 budget. Part on the left, its counterpart on the right.",
     "modi.etikett":"Three modes", "modi.h2":"Plan, check, rate",
     "modi.p":"Three modes for three questions that keep coming up with mountain bikes — and the same check behind each one.",
-    "modi.beispiel":"Real app · sample screen (German interface)", "modi.punkte":"Choose mode",
+    "modi.beispiel":"Real app · sample screen · German UI", "modi.punkte":"Choose mode",
     "v.weg1":"Screen recording: the assistant puts an enduro bike together and takes it into the build.",
     "weg1.etikett":"Dream bike", "weg1.h3":"Plan a new bike",
     "weg1.p":"Say what you ride and how much you want to spend. The assistant puts together a bike where every part fits — then you swap whatever you’d do differently.",
@@ -753,7 +753,7 @@ html:not(.js) #teilen{display:none}
     "v.weg2":"Screen recording: the check reports that the freehub doesn’t match the cassette and opens the wheels that fit.",
     "weg2.etikett":"My bike", "weg2.h3":"Check your bike",
     "weg2.p":"Enter what’s fitted. The app finds what doesn’t fit together and names the part that fixes it.",
-    "weg2.beleg":"Micro Spline freehub ≠ XD cassette",
+    "weg2.beleg":"Micro Spline freehub, XD cassette: no fit",
     "v.weg3":"Screen recording: the verdict on a used listing changes with the price from overpriced to fair.",
     "weg3.etikett":"Used", "weg3.h3":"Rate a used listing",
     "weg3.p":"Enter the parts from the listing, plus age, condition and price. The app works out the used value — before you pay too much.",
@@ -761,12 +761,12 @@ html:not(.js) #teilen{display:none}
     "v.guide":"Screen recording: the guide is asked whether a Fox 38 fits the bike; the answer gives price and weight and confirms that it fits.",
     "guide.etikett":"The guide", "guide.h2":"Not sure? Ask.",
     "guide.p":"The guide knows your bike. It answers from your build, not from a glossary — and opens the right place in the app for you.",
-    "g1.h3":"Knows your bike", "g1.p":"Why is the score 81? What’s still missing? The guide works with your build.",
+    "g1.h3":"Knows your bike", "g1.p":"What’s missing for 100? Is the bike right for enduro? The guide works with your build.",
     "g2.h3":"Check parts", "g2.p":"“Does a Fox 38 fit?” — the guide searches the catalogue and checks the version against your frame.",
     "g3.h3":"Terms explained", "g3.p":"Boost, freehub, sag, HSC — in one sentence, no jargon.",
     "g4.h3":"Takes you there", "g4.p":"Tap the answer and the app opens the part or the setting.",
     "fed.etikett":"Suspension calculator", "fed.h2":"Air pressure and clicks for your weight",
-    "fed.p":"From your weight and riding profile, CrankScore works out air pressure, sag and every adjuster in clicks. The basis are the tables from Fox, RockShox and others; where no table exists, a typical value for the class applies. One tap switches the riding profile.",
+    "fed.p":"From your weight and riding profile, CrankScore works out air pressure, sag and every adjuster in clicks. It uses the tables from Fox, RockShox and others; where no table exists, a typical value for the class applies. One tap switches the riding profile.",
     "fed.profile":"Example Fox 36 Factory, 78 kg, per manufacturer table", "fed.m1":"Pure downhill", "fed.m2":"All-round", "fed.m3":"Pure jumps",
     "fed.beispiel":"Example: 78 kg, enduro, Fox 36 Factory · per manufacturer table",
     "v.fed":"Screen recording of the suspension calculator: switching between pure downhill, all-round and pure jumps changes air pressure, sag and clicks.",
@@ -795,7 +795,7 @@ html:not(.js) #teilen{display:none}
     "f5.q":"How reliable are the values?", "f5.a":"Dimensions and standards are researched from manufacturer data. Air pressure and clicks are starting values for fine-tuning. When in doubt, the manufacturer’s data sheet applies.",
     "f6.q":"Are there e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
     "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
-    "fuss.claim":"Mountain bikes that fit together.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language",
+    "fuss.claim":"Plan, check and rate your bike — part by part.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language",
     "fuss.imp":"Legal notice (German)", "fuss.ds":"Privacy (German)",
     "fuss.marken":"Brand names belong to their owners. They are mentioned only to identify the parts in the catalogue."
   };
@@ -896,7 +896,7 @@ html:not(.js) #teilen{display:none}
     if(ruhig || handy.__pause) return;
     var b = document.createElement("button"); b.type = "button"; b.className = "pause"; handy.__pause = b;
     b.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5"/><rect x="14" y="4" width="5" height="16" rx="1.5"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
-    var aktiv = function(){ return handy.querySelector(".schirm > .an") || handy.querySelector("video"); };
+    var aktiv = function(){ return handy.querySelector(".schirm > .an") || handy.querySelector(".schirm > video, .schirm > img"); };
     var sync = function(){ var v = aktiv(), steht = !v || (v.tagName === "VIDEO" ? v.paused : v.getAttribute("src") === v.getAttribute("data-poster"));
       b.classList.toggle("laeuft", !steht);
       b.setAttribute("aria-label", aktuelleSprache === "en" ? (steht ? "Play video" : "Pause video") : (steht ? "Video abspielen" : "Video anhalten")); };
