@@ -20,6 +20,8 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script>/* Sprache vor dem ersten Bild: Englisch -> Seite bleibt bis zum Umschalten unsichtbar (Millisekunden) */
+(function(){try{var g=localStorage.getItem("cs.sprache");var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(g==="en"||(g!=="de"&&n.indexOf("de")!==0))document.documentElement.className+=" en-lade";}catch(e){}})();</script>
 <link rel="preload" href="fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/ibmplexmono-500-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -58,6 +60,7 @@
 @media (min-width:1600px){:root{--breite:1400px; --h1:86px; --h2:60px; --handy-gross:470px; --handy-mittel:430px; --handy-klein:400px}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--nacht)}
+html.en-lade body{visibility:hidden}
 /* body bleibt durchsichtig: sein Hintergrund wuerde sonst ueber dem Himmel (z-index -1) liegen */
 body{margin:0;background:transparent;color:var(--nebel);font-family:var(--text);font-size:var(--s4);line-height:1.6;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;position:relative}
@@ -100,7 +103,6 @@ p{margin:0;text-wrap:pretty}
 .vorspann .lead{font-size:var(--lead)}
 .start .nur-klein{display:none}
 .etikett span{white-space:nowrap}
-@media (max-width:960px){.start .nur-klein{display:inline-flex;justify-self:start;margin-bottom:18px}}
 
 /* Knoepfe */
 .knopf{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:999px;border:0;font-family:var(--text);cursor:pointer;
@@ -125,7 +127,7 @@ p{margin:0;text-wrap:pretty}
 .marke{font-family:var(--text);font-weight:800;font-size:var(--s6);letter-spacing:-.035em;color:var(--titan);text-decoration:none;margin-right:auto}
 .marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
 .nav{display:flex;gap:6px}
-.nav a{position:relative;padding:8px 12px;border-radius:999px;color:var(--nebel);text-decoration:none;font-size:var(--s3);font-weight:500;transition:color .2s,background .2s}
+.nav a{position:relative;padding:8px 12px;border-radius:999px;color:var(--nebel);text-decoration:none;font-size:var(--s3);font-weight:500;white-space:nowrap;transition:color .2s,background .2s}
 .nav a:hover{color:var(--titan);background:rgba(247,245,255,.05)}
 .nav a.an{color:var(--titan);background:rgba(247,245,255,.07)}
 .sprache{display:flex;gap:2px;padding:3px;border-radius:999px;border:1px solid var(--linie);background:var(--glas);flex:none}
@@ -135,7 +137,7 @@ p{margin:0;text-wrap:pretty}
 .sprache button[aria-pressed="true"]{color:var(--titan);background:rgba(138,77,255,.28)}
 @media (max-width:960px){.kopf .bald{display:none}}
 @media (max-width:760px){.nav{display:none}.kopf .innen{gap:14px}}
-@media (min-width:761px) and (max-width:960px){.nav a{padding:8px 9px;font-size:var(--s2)}.kopf .innen{gap:14px}}
+@media (min-width:761px) and (max-width:1100px){.nav{gap:2px}.nav a{padding:8px 8px;font-size:var(--s2)}.kopf .innen{gap:12px}}
 
 /* ── Start: am PC zwei Spalten, Text links, Handy rechts im Licht ── */
 .start{position:relative;padding:clamp(24px,3.5vw,48px) 0 clamp(36px,5vw,64px);overflow:hidden}
@@ -154,6 +156,17 @@ p{margin:0;text-wrap:pretty}
 .legende .beispiel{color:var(--nebel)}
 @media (max-width:960px){
   :root{--h1:clamp(44px,7vw,64px)}
+  .start .nur-klein{display:inline-flex;justify-self:start;margin-bottom:18px}
+}
+@media (min-width:700px) and (max-width:960px){
+  .start-raster{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px}
+  .start .etikett{display:flex}
+  .aktionen .knopf{flex:1 1 100%}
+  .fakten{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:8px 22px}
+  .buehne{width:min(300px,38vw);justify-self:center;margin-right:0}
+  .hero-handy{transform:rotateX(var(--rx,10deg)) rotateY(var(--ry,-8deg)) scale(var(--s,1));transform-origin:50% 40%}
+}
+@media (max-width:699px){
   /* Handy: eine Spalte, linksbuendig; das Geraet steht direkt unter den Knoepfen, die Fakten darunter */
   .start .text{display:contents}
   .start-raster{grid-template-columns:minmax(0,1fr);gap:0;justify-items:stretch}
@@ -254,7 +267,7 @@ p{margin:0;text-wrap:pretty}
 #modi.abschnitt{padding-bottom:0}
 #guide.abschnitt{padding-top:clamp(32px,4vw,56px)}
 @media (max-width:960px){#modi.abschnitt{padding-bottom:clamp(64px,8vw,112px)}#guide.abschnitt{padding-top:clamp(64px,8vw,112px)}}
-.modi-liste .weg + .weg{margin-top:clamp(96px,22vh,220px)}
+.modi-liste .weg + .weg{margin-top:clamp(80px,18vh,180px)}
 .weg{position:relative;display:grid;gap:12px;text-align:left;padding:24px 26px;border-radius:var(--r3);border:1px solid var(--linie-2);background:var(--glas);
   transition:border-color .35s,transform .45s var(--weich),background .35s;cursor:pointer}
 .weg::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:3px;background:var(--eloxal);opacity:0;transition:opacity .35s}
@@ -274,15 +287,16 @@ p{margin:0;text-wrap:pretty}
 .modi-punkte button[aria-pressed="true"]{width:60px}
 .modi-punkte button[aria-pressed="true"]::before{background:var(--eloxal)}
 @media (max-width:960px){
+  :root{--karte:min(78vw,330px)}
   .modi-raster{display:flex;flex-direction:column;align-items:stretch;gap:0}   /* stretch: sonst wird die Liste so breit wie ihr Inhalt und scrollt nicht */
   .modi-raster > div:first-child{display:contents}
   .modi-raster .vorspann{order:1;margin-bottom:24px}
-  .modi-buehne{order:2;position:static;width:min(300px,72vw);margin:0 auto}
+  .modi-buehne{order:2;position:static;width:min(340px,72vw);margin:0 auto}
   .modi-liste{order:3}
-  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 calc((100vw - min(78vw,330px)) / 2) 8px;scroll-padding:0 calc((100vw - min(78vw,330px)) / 2);scrollbar-width:none}
+  .modi-liste{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:18px;margin:24px calc(var(--rand) * -1) 0;padding:0 calc((100vw - var(--karte)) / 2) 8px;scroll-padding:0 calc((100vw - var(--karte)) / 2);scrollbar-width:none}
   .modi-liste::-webkit-scrollbar{display:none}
   .modi-liste .weg + .weg{margin-top:0}
-  .weg{flex:0 0 min(78vw,330px);scroll-snap-align:center;padding:16px;cursor:default}
+  .weg{flex:0 0 var(--karte);scroll-snap-align:center;padding:16px;cursor:default}
   .weg::before{display:none}
   .weg.an{border-color:var(--linie-2);background:var(--glas)}
   .weg:hover{transform:none;border-color:var(--linie-2)}
@@ -297,23 +311,25 @@ p{margin:0;text-wrap:pretty}
   display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,80px);align-items:center;text-align:left}
 @keyframes dreh{to{--wink:360deg}}
 .guide-innen .geraet{width:min(var(--handy-klein,360px),100%,max(280px,calc((100vh - 240px) * .4623)));margin:0 auto}
-.guide-punkte{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px;margin-top:30px}
+.guide-punkte{display:grid;grid-template-columns:minmax(0,1fr);gap:18px 28px;margin-top:28px}
+@media (min-width:1600px){.guide-punkte{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:700px) and (max-width:960px){:root{--karte:min(60vw,440px)}}
 .guide-punkte div{display:grid;grid-template-columns:44px minmax(0,1fr);gap:0 14px;align-items:start;align-content:start}
 .guide-punkte .ic{width:44px;height:44px;border-radius:var(--r1);display:grid;place-items:center;background:rgba(138,77,255,.16);color:var(--lila);grid-row:span 2}
 .guide-punkte h3{font-size:var(--s4)}
 .guide-punkte p{font-size:var(--s3);color:var(--nebel)}
-@media (max-width:960px){.guide-innen{grid-template-columns:minmax(0,1fr)}.guide-punkte{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:960px){.guide-innen{grid-template-columns:minmax(0,1fr)}}
 
 /* ── Federung: Handy und Text nebeneinander, drei Fahrprofile als Kacheln ── */
 .zweier{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,100px);align-items:center;text-align:left}
 .zweier .geraet{width:min(var(--handy-mittel,380px),100%,max(280px,calc((100vh - 200px) * .4623)));margin:0 auto}
-.profile{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.profile span{display:grid;gap:2px;align-content:end;padding:14px 18px;border-radius:var(--r2);border:1px solid var(--linie-2);background:var(--glas);min-width:120px}
+.profile{display:flex;flex-wrap:wrap;gap:14px 36px;margin-top:26px}
+.profile span{display:grid;gap:4px;align-content:end;padding:2px 0 2px 14px;border-left:2px solid var(--linie)}
 .profile b{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:var(--s6);color:var(--titan);letter-spacing:-.02em}
 .profile small{font-family:var(--mono);font-size:var(--s1);letter-spacing:.06em;text-transform:uppercase;color:var(--grau)}
 .profile + .beispiel{display:block;margin-top:14px}
 @media (max-width:960px){.zweier{grid-template-columns:minmax(0,1fr)}.zweier .geraet{order:-1}}
-@media (max-width:520px){.profile span{flex:1 1 0;min-width:0;padding:12px 10px}.profile b{font-size:var(--s5)}}
+@media (max-width:520px){.profile{gap:12px 22px}.profile span{padding-left:10px}.profile b{font-size:var(--s5)}}
 
 /* ── Weitere Funktionen: Raster, Ueberschrift links ── */
 .raster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;text-align:left}
@@ -713,6 +729,7 @@ html:not(.js) #teilen{display:none}
   doc.classList.add("js");
   var ruhig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var pc = function(){ return window.matchMedia && window.matchMedia("(min-width: 961px)").matches; };
+  var breit = function(){ return window.matchMedia && window.matchMedia("(min-width: 700px)").matches; };
   var hatIO = "IntersectionObserver" in window;
   function alle(sel, wo){ return [].slice.call((wo || document).querySelectorAll(sel)); }
   var pauseKnoepfe = [];
@@ -753,7 +770,7 @@ html:not(.js) #teilen{display:none}
     "v.weg2":"Screen recording: the check reports that the freehub doesn’t match the cassette and opens the wheels that fit.",
     "weg2.etikett":"My bike", "weg2.h3":"Check your bike",
     "weg2.p":"Enter what’s fitted. The app finds what doesn’t fit together and names the part that fixes it.",
-    "weg2.beleg":"Micro Spline freehub, XD cassette: no fit",
+    "weg2.beleg":"Micro Spline freehub, XD cassette: doesn’t fit",
     "v.weg3":"Screen recording: the verdict on a used listing changes with the price from overpriced to fair.",
     "weg3.etikett":"Used", "weg3.h3":"Rate a used listing",
     "weg3.p":"Enter the parts from the listing, plus age, condition and price. The app works out the used value — before you pay too much.",
@@ -821,6 +838,7 @@ html:not(.js) #teilen{display:none}
   }
   var aktuelleSprache = startSprache();
   setzeSprache(aktuelleSprache);
+  doc.classList.remove("en-lade");
   alle("[data-sprache]").forEach(function(b){ b.addEventListener("click", function(){
     aktuelleSprache = b.getAttribute("data-sprache"); setzeSprache(aktuelleSprache);
     try{ localStorage.setItem(SPRACHE_KEY, aktuelleSprache); }catch(e){}
@@ -832,7 +850,7 @@ html:not(.js) #teilen{display:none}
     var url = "https://crankscore.de/";
     if(navigator.share){ navigator.share({title:"CrankScore", url:url}).catch(function(){}); return; }
     if(navigator.clipboard) navigator.clipboard.writeText(url).then(function(){
-      var span = teilen.querySelector("span"), vorher = span.textContent;
+      var span = teilen.querySelector("span"), vorher = span.textContent; teilen.style.minWidth = teilen.offsetWidth + "px";
       span.textContent = aktuelleSprache === "en" ? EN["schluss.kopiert"] : "Link kopiert";
       setTimeout(function(){ span.textContent = aktuelleSprache === "en" ? EN["schluss.knopf"] : merken(span, "t", vorher); }, 2200);
     }).catch(function(){});
@@ -889,7 +907,7 @@ html:not(.js) #teilen{display:none}
       var h2 = img.closest(".handy"); if(h2) pauseKnopf(h2); return img; }
     return v;
   }
-  function spielen(v){ if(v && v.tagName === "VIDEO" && v.src && !ruhig && !v.__manuell) v.play().catch(function(){}); }
+  function spielen(v){ if(v && v.tagName === "VIDEO" && v.src && !ruhig && !v.__manuell){ v.__auto = false; v.play().catch(function(){}); } }
   /* Pausenknopf je Handy (WCAG 2.2.2): sitzt neben der Bildunterschrift bzw. bei den Punkten, nie ueber der App;
      sein Zustand kommt aus den play/pause-Ereignissen des gerade sichtbaren Videos */
   function pauseKnopf(handy){
@@ -897,20 +915,20 @@ html:not(.js) #teilen{display:none}
     var b = document.createElement("button"); b.type = "button"; b.className = "pause"; handy.__pause = b;
     b.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5"/><rect x="14" y="4" width="5" height="16" rx="1.5"/></svg><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>';
     var aktiv = function(){ return handy.querySelector(".schirm > .an") || handy.querySelector(".schirm > video, .schirm > img"); };
-    var sync = function(){ var v = aktiv(), steht = !v || (v.tagName === "VIDEO" ? v.paused : v.getAttribute("src") === v.getAttribute("data-poster"));
+    var sync = function(){ var v = aktiv(), steht = !v || (v.tagName === "VIDEO" ? (v.paused && !v.__auto) : v.getAttribute("src") === v.getAttribute("data-poster"));
       b.classList.toggle("laeuft", !steht);
       b.setAttribute("aria-label", aktuelleSprache === "en" ? (steht ? "Play video" : "Pause video") : (steht ? "Video abspielen" : "Video anhalten")); };
     alle("video", handy).forEach(function(v){ v.addEventListener("play", sync); v.addEventListener("pause", sync); });
     b.addEventListener("click", function(){
       var v = aktiv(); if(!v) return;
       if(v.tagName !== "VIDEO"){ v.src = v.getAttribute("src") === v.getAttribute("data-poster") ? v.getAttribute("data-webp") : v.getAttribute("data-poster"); sync(); return; }
-      if(v.paused){ v.__manuell = false; v.play().catch(function(){}); } else { v.__manuell = true; v.pause(); }
+      if(v.paused){ v.__manuell = false; v.__auto = false; v.play().catch(function(){}); } else { v.__manuell = true; v.__auto = false; v.pause(); }
     });
     pauseKnoepfe.push(sync); sync();
     var ziel = handy.parentNode.querySelector(".legende");
     if(ziel) ziel.appendChild(b); else handy.insertAdjacentElement("afterend", b);
   }
-  function pausieren(v){ if(v && v.tagName === "VIDEO" && v.src) v.pause(); }
+  function pausieren(v){ if(v && v.tagName === "VIDEO" && v.src){ v.__auto = true; v.pause(); } }
   var videos = alle("video[data-src]").filter(function(v){ return !v.closest(".modi-buehne"); });
   if(hatIO){
     var vio = new IntersectionObserver(function(eintraege){
@@ -975,7 +993,7 @@ html:not(.js) #teilen{display:none}
   function heroSetzen(){
     laufend = false;
     var p = Math.max(0, Math.min(1, window.scrollY / 480));
-    if(pc()){
+    if(breit()){
       hero.style.setProperty("--rx", (6 * (1 - p) + mausY * -4).toFixed(2) + "deg");
       hero.style.setProperty("--ry", (-12 * (1 - p) + mausX * 6).toFixed(2) + "deg");
       hero.style.setProperty("--s", "1");
@@ -1025,12 +1043,12 @@ html:not(.js) #teilen{display:none}
     var t = 250;
     zeilen.forEach(function(z){
       spaeter(function(){ z.classList.add("an"); }, t);
-      spaeter(function(){ z.classList.add("ok"); }, t + 420);
-      t += 520;
+      spaeter(function(){ z.classList.add("ok"); }, t + 260);
+      t += 330;
     });
     spaeter(function(){
       pruef.classList.add("fertig");
-      var start = performance.now(), dauer = 1000;
+      var start = performance.now(), dauer = 700;
       (function schritt(jetzt){
         var p = Math.min(1, (jetzt - start) / dauer), e = 1 - Math.pow(1 - p, 3);
         zahl.textContent = String(Math.round(99 * e));
