@@ -46,17 +46,24 @@
    Farben der Karten: Lila (Marke), Nacht, Gruen (Pruefung), Mint (Fit), Blau (Federung), Pfirsich (Upgrades).
    Masse in den Buehnen in cqw: alles skaliert mit der Kartenbreite. ── */
 :root{
-  --seite:#f4f4f8; --weiss:#fff; --tinte:#17161e; --text:#3c3d48; --grau:#6c6e7b; --linie:#e3e3ec;
+  --seite:#f4f4f8; --weiss:#fff; --tinte:#17161e; --text:#3c3d48; --grau:#5c5e6b; --linie:#e3e3ec;
   --akzent:#6d45f0; --eloxal:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff); --ok:#12a86a;
+  /* kleine Etiketten: dunkleres Lila, Kontrast >= 6,5:1 auf Seite und Karten (vorher 4,9:1) */
+  --etikett:#5a33d6;
+  /* Knoepfe und Nummern: Indigo -> Violett, weisse Schrift >= 5,6:1 an jeder Stelle des Verlaufs */
+  --verlauf:linear-gradient(135deg,#4f46e5 0%,#6d45f0 50%,#7c3aed 100%);
+  /* Karten und Kacheln im hellen Design: sehr leiser, weicher Schatten statt Kante */
+  --schatten-weich:0 10px 30px rgba(23,22,30,.05),0 1px 2px rgba(23,22,30,.03);
   --r:40px; --r-klein:24px; --innen:1240px;
   --h1:clamp(44px,6.2vw,84px); --h2:clamp(34px,4.4vw,60px); --h3:clamp(28px,2.6vw,40px);
   --schatten:0 30px 60px -20px rgba(23,22,30,.25);
 }
 @media (min-width:1600px){ :root{ --innen:1400px; } }
+@media (max-width:520px){ :root{ --r:32px; --r-klein:22px; } }
 :root{color-scheme:light}
 :root[data-design="dunkel"]{color-scheme:dark}
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
 .en-lade body{visibility:hidden}
 body{background:var(--seite);color:var(--text);font:400 17px/1.55 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -69,12 +76,12 @@ a{color:inherit}
 @media (max-width:520px){ .innen{padding:0 12px} }
 h1,h2,h3{color:var(--tinte);font-weight:700;letter-spacing:-.035em;line-height:1.03}
 h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-spacing:-.03em}
-.etikett{font:500 12px/1.3 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent)}
+.etikett{font:500 12px/1.3 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--etikett)}
 .lead{font-size:clamp(18px,1.6vw,22px);color:var(--grau);line-height:1.45;letter-spacing:-.01em}
 
 /* Kopfzeile: weisses Glas */
-.kopf{position:sticky;top:0;z-index:50;background:rgba(244,244,248,.78);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom:1px solid transparent;transition:border-color .2s}
-.kopf.unten{border-bottom-color:var(--linie)}
+.kopf{position:sticky;top:0;z-index:50;background:rgba(244,244,248,.97);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom:1px solid transparent;transition:border-color .2s}
+.kopf.unten{border-bottom-color:var(--linie);box-shadow:0 8px 24px -12px rgba(23,22,30,.12)}
 .kopf .innen{display:flex;align-items:center;gap:20px;height:64px}
 .marke{font-weight:800;font-size:22px;letter-spacing:-.04em;text-decoration:none;color:var(--tinte)}
 .marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -99,21 +106,23 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 @media (max-width:420px){ .bald span{display:none} .bald{padding:9px 11px} .kopf .innen{gap:10px} }
 
 /* Karten mit Farbverlauf */
-.karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate}
+.karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate;
+  box-shadow:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.6)}
+.karte.dunkel{box-shadow:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.06)}
 .karte .text{padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
 .karte .text p{margin-top:14px;font-size:clamp(17px,1.5vw,21px);color:var(--grau);line-height:1.42;max-width:34em}
-.karte .text p.etikett{margin-top:0;font-size:12px;line-height:1.3;color:var(--akzent)}
+.karte .text p.etikett{margin-top:0;font-size:12px;line-height:1.3;color:var(--etikett)}
 .karte.dunkel .text p.etikett{color:#b9a4ff}
 .fragen-raster h2{margin-top:12px}.fragen-raster .lead{margin-top:16px}
 .karte.dunkel h1,.karte.dunkel h2,.karte.dunkel h3{color:#fff}
 .karte.dunkel .text p{color:#b3afcf}
 .karte.dunkel .echt{color:#b3afcf;background:rgba(255,255,255,.08)}
-.k-lila{background:linear-gradient(180deg,#eef0f8 0%,#e7e3fb 45%,#c3b6ff 100%)}
+.k-lila{background:linear-gradient(180deg,#f1f1fa 0%,#ebe7fc 45%,#d6ccff 100%)}
 .k-nacht{background:radial-gradient(90% 60% at 50% 78%,#3b2a8a 0%,#1a1433 48%,#0b0a12 100%)}
 .k-gruen{background:linear-gradient(180deg,#c9ecc3 0%,#e7f5e3 60%,#f3f6f1 100%)}
-.k-mint{background:linear-gradient(160deg,#eef4f1 0%,#d6f0e3 55%,#9fdcbf 100%)}
-.k-blau{background:linear-gradient(180deg,#eef3ff 0%,#cfe0ff 60%,#9fc2ff 100%)}
-.k-pfirsich{background:linear-gradient(180deg,#fff1ea 0%,#ffd9c7 60%,#ffb99a 100%)}
+.k-mint{background:linear-gradient(160deg,#f0f6f3 0%,#dcf2e7 55%,#b6e6cf 100%)}
+.k-blau{background:linear-gradient(180deg,#f0f5ff 0%,#dbe7ff 60%,#bcd4ff 100%)}
+.k-pfirsich{background:linear-gradient(180deg,#fff4ee 0%,#ffe2d4 60%,#ffc9b0 100%)}
 .k-weiss{background:#fff}
 .echt{display:inline-block;margin-top:18px;font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--grau);background:rgba(23,22,30,.06);padding:8px 12px;border-radius:999px}
 
@@ -130,7 +139,8 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 .geraet .insel{position:absolute;top:calc(var(--p)*.036cqw);left:50%;transform:translateX(-50%);width:calc(var(--p)*.28cqw);height:calc(var(--p)*.078cqw);border-radius:999px;background:#000;z-index:2}
 .geraet img{width:100%;height:auto}
 .pop{border-radius:calc(var(--w,60)*.045cqw);overflow:hidden;background:#15141f;width:calc(var(--w,60)*1cqw);
-  box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
+  box-shadow:0 24px 48px -18px rgba(28,22,64,.38),0 2px 8px -2px rgba(28,22,64,.12)}
+.karte.dunkel .pop{box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
 .pop img{width:100%;height:auto}
 .pop.kappe{max-height:calc(var(--w)*var(--k)*1cqw)}
 .blende{left:0;right:0;bottom:0;height:14cqw;background:linear-gradient(180deg,transparent,var(--blende))}
@@ -138,6 +148,9 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 /* Seitenbau */
 main>section{padding:clamp(56px,8vw,120px) 0 0}
 main>section.start{padding-top:clamp(16px,2vw,28px)}
+/* Sprung zu einem Abschnitt (#modi usw.): die Ueberschrift landet 88 px unter dem Seitenrand, also unter der
+   Kopfzeile -- der Innenabstand des Abschnitts wird dafuer herausgerechnet. */
+main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .kopfzeile{max-width:780px;margin:0 0 clamp(28px,4vw,48px)}
 .kopfzeile h2{margin-top:12px}
 .kopfzeile .lead{margin-top:18px}
@@ -171,21 +184,37 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 
 /* Prinzip-Punkte */
 .punkte{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 clamp(24px,3vw,32px)}
-.punkte div{background:#fff;border-radius:var(--r-klein);padding:22px 24px}
+.punkte div{background:#fff;border-radius:var(--r-klein);padding:22px 24px;box-shadow:var(--schatten-weich)}
 .punkte b{display:block;color:var(--tinte);font-size:18px;letter-spacing:-.02em}
 .punkte span{display:block;margin-top:4px;font-size:15px;color:var(--grau)}
 @media (max-width:899px){ .punkte{grid-template-columns:1fr} }
 
 /* Modi */
 .modus{padding:clamp(28px,3vw,40px);min-height:100%}
-.modus .etikett{color:var(--grau)}
-.modus h3{margin-top:10px;font-size:clamp(26px,2.2vw,34px)}
-.modus p{margin-top:12px;color:var(--grau);font-size:17px}
-.modus .beleg{margin-top:22px;font:500 13px/1.3 "IBM Plex Mono",monospace;color:var(--tinte);background:rgba(255,255,255,.7);padding:10px 14px;border-radius:14px;display:inline-block}
+@media (max-width:520px){ .modus{padding:24px 22px} }
+.modus .kicker{display:flex;align-items:center;gap:10px;margin-top:0}
+.modus .kicker .etikett{color:var(--text)}
+.modus h3{margin-top:16px;font-size:clamp(26px,2.2vw,34px)}
+.modus p{margin-top:12px;color:var(--text);font-size:17px}
+.modus .beleg{margin-top:22px;font:500 13px/1.3 "IBM Plex Mono",monospace;color:var(--tinte);background:rgba(255,255,255,.75);padding:10px 14px;border-radius:14px;display:inline-block;box-shadow:0 4px 14px rgba(23,22,30,.04)}
 .modus{display:flex;flex-direction:column}
 .buehne.mini{margin-top:auto;padding-top:24px;box-sizing:content-box}
 .modus .beleg{align-self:flex-start}
-.modus .zahl{font-size:15px;font-weight:700;color:var(--akzent);letter-spacing:.02em}
+.modus .zahl{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;color:#fff;background:var(--verlauf);padding:6px 9px;border-radius:999px}
+
+/* App-Elemente in den Modus-Karten, als HTML nachgebaut (vorher Bildschirmfotos mit schwarzen Ecken) */
+.app-demo{margin-top:auto;padding-top:24px}
+.app-knopf{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;color:#fff;background:var(--verlauf);
+  box-shadow:0 16px 34px -12px rgba(91,60,230,.55),0 4px 12px -6px rgba(79,70,229,.4),inset 0 1px 0 rgba(255,255,255,.2)}
+.app-knopf .ico{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.24)}
+.app-knopf svg{display:block;width:20px;height:20px;color:#fff}
+.app-knopf .was{min-width:0}
+.app-knopf b{display:block;font-size:17px;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:#fff}
+.app-knopf small{display:block;margin-top:3px;font-size:13px;line-height:1.35;color:#fff;text-wrap:pretty}
+.app-knopf .pfeil{flex:none;width:16px;height:16px;margin-left:auto}
+.app-hinweis{padding:18px 20px;border-radius:20px;background:rgba(255,255,255,.82);box-shadow:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.7)}
+.app-hinweis b{display:block;font-size:16.5px;font-weight:700;letter-spacing:-.015em;line-height:1.3;color:var(--tinte)}
+.app-hinweis span{display:block;margin-top:6px;font-size:14.5px;line-height:1.45;color:var(--text)}
 
 /* Breite Karte mit Text links und Buehne rechts */
 .breit{display:grid;grid-template-columns:1fr 1.1fr;align-items:end}
@@ -194,8 +223,8 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 
 /* So funktioniert's: drei Schritte */
 .schritte{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
-.schritt{background:#fff;border-radius:var(--r-klein);padding:28px 26px 26px;display:flex;flex-direction:column}
-.s-nr{font:500 13px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;color:#fff;background:var(--eloxal);align-self:flex-start;padding:8px 11px;border-radius:999px}
+.schritt{background:#fff;border-radius:var(--r-klein);padding:28px 26px 26px;display:flex;flex-direction:column;box-shadow:var(--schatten-weich)}
+.s-nr{font:500 13px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;color:#fff;background:var(--verlauf);align-self:flex-start;padding:8px 11px;border-radius:999px}
 .schritt h3{font-size:clamp(22px,1.9vw,26px);letter-spacing:-.025em;line-height:1.15;margin-top:18px}
 .schritt p{margin-top:8px;font-size:16px;color:var(--grau)}
 .s-bild{margin-top:auto;padding-top:22px;display:flex;flex-wrap:wrap;gap:6px}
@@ -223,14 +252,14 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
   background:linear-gradient(135deg,#ff7a45,#e0508a 50%,#7b5cff);padding:6px 10px;border-radius:999px}
 
 /* Kacheln */
-.kachel{background:#fff;border-radius:var(--r-klein);padding:26px}
+.kachel{background:#fff;border-radius:var(--r-klein);padding:26px;box-shadow:var(--schatten-weich)}
 .kachel .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#f0ecff;color:var(--akzent)}
 .kachel h3{font-size:20px;letter-spacing:-.02em;margin-top:16px;line-height:1.2}
 .kachel p{margin-top:6px;font-size:15.5px;color:var(--grau)}
 
 /* Zahlen */
 .zahlen{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:clamp(56px,8vw,120px)}
-.zahlen div{background:#fff;border-radius:var(--r-klein);padding:24px;text-align:center}
+.zahlen div{background:#fff;border-radius:var(--r-klein);padding:24px;text-align:center;box-shadow:var(--schatten-weich)}
 .zahlen b{display:block;font-size:clamp(34px,3.4vw,48px);font-weight:700;letter-spacing:-.04em;color:var(--tinte);line-height:1}
 .zahlen span{display:block;margin-top:8px;font-size:14px;color:var(--grau)}
 @media (max-width:899px){ .zahlen{grid-template-columns:repeat(2,1fr)} .zahlen div:last-child{grid-column:1/-1} }
@@ -238,7 +267,7 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 /* Fragen */
 .fragen-raster{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,64px);align-items:start}
 @media (max-width:899px){ .fragen-raster{grid-template-columns:1fr} }
-.fragen details{background:#fff;border-radius:20px;padding:0 24px;margin-bottom:10px}
+.fragen details{background:#fff;border-radius:20px;padding:0 24px;margin-bottom:10px;box-shadow:var(--schatten-weich)}
 .fragen summary{list-style:none;cursor:pointer;padding:20px 32px 20px 0;font-weight:600;color:var(--tinte);font-size:17.5px;position:relative}
 .fragen summary::-webkit-details-marker{display:none}
 .fragen summary::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border:solid var(--grau);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
@@ -286,7 +315,7 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
 .guide-liste p{margin-top:6px;color:#b3afcf;font-size:15.5px}
 .daten{padding-bottom:clamp(28px,4vw,56px)}
 .daten-liste{grid-template-columns:1fr}
-.daten-liste div{background:rgba(255,255,255,.65);border-radius:var(--r-klein);padding:20px 22px}
+.daten-liste div{background:rgba(255,255,255,.7);border-radius:var(--r-klein);padding:20px 22px;box-shadow:var(--schatten-weich)}
 .daten-liste p{margin-top:4px;color:var(--grau);font-size:15.5px}
 @media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
 
@@ -297,13 +326,20 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
    Design-Loop-Checkliste B: Farbverlaeufe statt flaechigem Schwarz, Glas-Karten mit feiner Linie,
    die Farbkarten als dunkle Varianten mit Farbschein am Boden. Kontraste per WCAG-Formel geprueft:
    Grautext auf den Kartenkoepfen >= 6,7:1. ── */
-:root[data-design="dunkel"]{--seite:#07060d; --weiss:#141126; --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36; --akzent:#b49bff;
+:root[data-design="dunkel"]{--seite:#07060d; --weiss:#141126; --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36; --akzent:#b49bff; --etikett:#b49bff;
   --glas:rgba(22,19,40,.62); --glas-linie:rgba(255,255,255,.08); --schatten:0 30px 80px -30px rgba(0,0,0,.8)}
 :where(:root[data-design="dunkel"]) body{background:
   radial-gradient(1100px 720px at 12% -8%,rgba(138,77,255,.20),transparent 62%),
   radial-gradient(900px 640px at 105% 18%,rgba(47,140,255,.12),transparent 60%),
   radial-gradient(1000px 800px at 50% 110%,rgba(91,91,255,.10),transparent 60%),#07060d;background-attachment:fixed}
-:where([data-design="dunkel"]) .kopf{background:rgba(7,6,13,.62)}
+:where([data-design="dunkel"]) .kopf{background:rgba(7,6,13,.95)}
+:where([data-design="dunkel"]) .kopf.unten{box-shadow:0 8px 24px -12px rgba(0,0,0,.6)}
+:where([data-design="dunkel"]) .pop{box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
+:where([data-design="dunkel"]) .modus p{color:var(--grau)}
+:where([data-design="dunkel"]) .modus .kicker .etikett{color:var(--grau)}
+:where([data-design="dunkel"]) .app-knopf{box-shadow:0 18px 40px -14px rgba(124,58,237,.65),inset 0 1px 0 rgba(255,255,255,.18)}
+:where([data-design="dunkel"]) .app-hinweis{background:var(--glas);box-shadow:inset 0 0 0 1px var(--glas-linie)}
+:where([data-design="dunkel"]) .modus .beleg{box-shadow:none}
 :where([data-design="dunkel"]) .nav a:hover,:where([data-design="dunkel"]) .nav a.an{background:rgba(255,255,255,.08)}
 :where([data-design="dunkel"]) .sprache{background:rgba(255,255,255,.07)}
 :where([data-design="dunkel"]) .sprache button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
@@ -439,23 +475,31 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
       </div>
       <div class="drei">
         <article class="karte k-lila modus" data-zeige>
-          <p class="zahl">01</p>
-          <p class="etikett" data-t="weg1.etikett">Traumrad</p>
+          <p class="kicker"><span class="zahl">01</span><span class="etikett" data-t="weg1.etikett">Traumrad</span></p>
           <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
           <p data-t="weg1.p">Sag, was du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt&nbsp;— danach tauschst du, was du anders willst.</p>
           <p class="beleg" data-t="weg1.beleg">Trail · 6.247 € · Score 99</p>
-          <div class="buehne mini" style="aspect-ratio:1/.34" role="img" aria-label="Knopf in der App: Traumrad-Assistent – Budget, Marken, Fahrergewicht, fertiger Aufbau." data-t-aria="alt.m1"><div class="pop" style="--w:100;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-assistent.webp" width="900" height="212" alt="" loading="lazy"></div></div>
+          <div class="app-demo" role="img" aria-label="Knopf in der App: Traumrad-Assistent – Budget, Marken, Fahrergewicht, fertiger Aufbau." data-t-aria="alt.m1">
+            <div class="app-knopf" aria-hidden="true">
+              <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 2.8l1.55 4.65a3 3 0 0 0 1.9 1.9L18.1 10.9l-4.65 1.55a3 3 0 0 0-1.9 1.9L10 19l-1.55-4.65a3 3 0 0 0-1.9-1.9L1.9 10.9l4.65-1.55a3 3 0 0 0 1.9-1.9z"/><path d="M18.5 14.5l.75 2.25 2.25.75-2.25.75-.75 2.25-.75-2.25-2.25-.75 2.25-.75z"/></svg></span>
+              <span class="was"><b data-t="m1.titel">Traumrad-Assistent</b><small data-t="m1.sub">Budget, Marken, Fahrergewicht → fertiger Aufbau</small></span>
+              <svg class="pfeil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+            </div>
+          </div>
         </article>
         <article class="karte k-blau modus" data-zeige>
-          <p class="zahl">02</p>
-          <p class="etikett" data-t="weg2.etikett">Mein Rad</p>
+          <p class="kicker"><span class="zahl">02</span><span class="etikett" data-t="weg2.etikett">Mein Rad</span></p>
           <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
           <p data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
-          <div class="buehne mini" style="aspect-ratio:1/.5" role="img" aria-label="Hinweis in der App: Trag ein, was an deinem Rad ist – fang beim Rahmen an." data-t-aria="alt.m2"><div class="pop" style="--w:100;left:0;top:4cqw;rotate:1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-meinrad.webp" width="900" height="334" alt="" loading="lazy"></div></div>
+          <div class="app-demo" role="img" aria-label="Hinweis in der App: Trag ein, was an deinem Rad ist – fang beim Rahmen an." data-t-aria="alt.m2">
+            <div class="app-hinweis" aria-hidden="true">
+              <b data-t="m2.titel">Trag ein, was an deinem Rad ist</b>
+              <span data-t="m2.text">Fang beim Rahmen an&nbsp;— der legt Laufradgröße, Achsmaße und Tretlager fest und grenzt damit alles andere ein. Was du nicht weißt, lässt du offen; bewertet wird nur, was drin steht.</span>
+            </div>
+          </div>
         </article>
         <article class="karte k-pfirsich modus" data-zeige>
-          <p class="zahl">03</p>
-          <p class="etikett" data-t="weg3.etikett">Gebraucht</p>
+          <p class="kicker"><span class="zahl">03</span><span class="etikett" data-t="weg3.etikett">Gebraucht</span></p>
           <h3 data-t="weg3.h3">Ein Angebot bewerten</h3>
           <p data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Alter, Zustand und Preis. Die App rechnet den Gebrauchtwert aus&nbsp;— bevor du zu viel bezahlst.</p>
           <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Angebot bewerten in der App: Modelljahr 2023, Zustand gepflegt, normale Spuren." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-gebraucht.webp" width="900" height="1862" alt="" loading="lazy"></div></div>
@@ -793,6 +837,8 @@ main>section.start{padding-top:clamp(16px,2vw,28px)}
     "up.h3":"Upgrades & shopping list",
     "up.p":"First what you can adjust for free, then real improvements and cheaper parts with the same dimensions. At the end there’s the shopping list with shop links — or as text for your workshop.",
     "alt.m1":"App button: dream bike assistant\u00a0— budget, brands, rider weight, finished build.",
+    "m1.titel":"Dream bike assistant", "m1.sub":"Budget, brands, rider weight → finished build",
+    "m2.titel":"Enter what’s on your bike", "m2.text":"Start with the frame\u00a0— it sets wheel size, axle dimensions and bottom bracket and so narrows down everything else. Leave open what you don’t know; only what’s entered gets rated.",
     "alt.m2":"Hint in the app: enter what’s on your bike\u00a0— start with the frame.",
     "alt.m3":"Rating a used offer in the app: model year 2023, condition well kept, normal wear.",
     "alt.guide":"The guide in the app. Asked “Does a Fox 38 fit?”, it answers: Fox 38 Factory, €1,549, built for enduro and downhill\u00a0— doesn’t fit your bike like this, too much travel for the frame rating.",
