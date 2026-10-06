@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CrankScore — Passt dein Mountainbike zusammen?</title>
-<meta name="description" content="CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: Achsen, Freilauf, Einbaumaße, Klemmungen. Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot bewerten. Kommt bald.">
+<meta name="description" content="CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen: neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot bewerten. Kommt bald.">
 <link rel="canonical" href="https://crankscore.de/">
 <meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
@@ -103,7 +103,9 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 .bald{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--tinte);padding:9px 16px;border-radius:999px;white-space:nowrap}
 .bald i{width:8px;height:8px;border-radius:50%;background:#2ef29a;box-shadow:0 0 0 3px rgba(46,242,154,.25)}
 @media (max-width:959px){ .nav{display:none} .sprache{margin-left:auto} }
-@media (max-width:420px){ .bald span{display:none} .bald{padding:9px 11px} .kopf .innen{gap:10px} }
+/* Unter 480 px nur der gruene Punkt: mit DE/EN und Design-Knopf passt "Kommt bald"/"Coming soon" sonst
+   zwischen 421 und 455 px nicht in die Zeile (iPhone Plus/Pro Max mit 430 px) */
+@media (max-width:479px){ .bald span{display:none} .bald{padding:9px 11px} .kopf .innen{gap:10px} }
 
 /* Karten mit Farbverlauf */
 .karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate;
@@ -124,7 +126,7 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 .k-blau{background:linear-gradient(180deg,#f0f5ff 0%,#dbe7ff 60%,#bcd4ff 100%)}
 .k-pfirsich{background:linear-gradient(180deg,#fff4ee 0%,#ffe2d4 60%,#ffc9b0 100%)}
 .k-weiss{background:#fff}
-.echt{display:inline-block;margin-top:18px;font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--grau);background:rgba(23,22,30,.06);padding:8px 12px;border-radius:999px}
+.echt{display:inline-block;margin-top:18px;font:500 12px/1.3 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--grau);background:rgba(23,22,30,.06);padding:8px 12px;border-radius:999px}
 
 /* Buehne: Handy + herausspringende Karten, Masse in cqw */
 .buehne{position:relative;container-type:inline-size;width:100%;margin-top:auto;flex:none}
@@ -178,7 +180,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .lauf{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
 .lauf ul{display:flex;gap:44px;list-style:none;padding:8px 0;width:max-content;animation:lauf 60s linear infinite}
 .lauf.zurueck ul{animation-direction:reverse;animation-duration:70s}
-.lauf li{font-weight:700;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:#a3a4b2;white-space:nowrap}
+.lauf li{font-weight:700;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:#6a6c7b;white-space:nowrap}
 @keyframes lauf{to{transform:translateX(-50%)}}
 .band:hover .lauf ul{animation-play-state:paused}
 
@@ -247,6 +249,11 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 :where([data-design="dunkel"]) .s-bild>span{background:rgba(255,255,255,.07)}
 :where([data-design="dunkel"]) .s-bild.score>.ring{background:radial-gradient(closest-side,#15122a 78%,transparent 80% 100%),conic-gradient(#3ddc84 0 99%,rgba(255,255,255,.1) 99% 100%)}
 
+/* Herkunft und Stand: kleine graue Zeile unter Abschnitten */
+.quelle{margin-top:16px;font-size:14px;line-height:1.45;color:var(--grau);max-width:46em}
+.quelle.mitte{text-align:center;margin-left:auto;margin-right:auto}
+.schluss .quelle{margin-top:10px;max-width:none}
+
 /* Pro-Pille */
 .pro-pille{display:inline-block;vertical-align:middle;margin-left:10px;font:600 12px/1 "Inter",sans-serif;letter-spacing:.02em;color:#fff;
   background:linear-gradient(135deg,#ff7a45,#e0508a 50%,#7b5cff);padding:6px 10px;border-radius:999px}
@@ -286,7 +293,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .fuss .design-wahl{display:none}
 [data-design] .fuss .design-wahl{display:block}
 .fuss p{margin-top:10px;color:var(--grau);max-width:22em}
-.fuss h4{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:12px}
+.fuss h2{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:12px}
 .fuss ul{list-style:none;padding:0}
 .fuss li{margin:6px 0}
 .fuss li a,.fuss li button{color:var(--text);text-decoration:none;background:none;border:0;font:inherit;padding:0;cursor:pointer}
@@ -352,7 +359,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 :where([data-design="dunkel"]) .modus .beleg{background:rgba(255,255,255,.08)}
 :where([data-design="dunkel"]) .daten-liste div{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--glas-linie)}
 :where([data-design="dunkel"]) .echt{background:rgba(255,255,255,.08)}
-:where([data-design="dunkel"]) .lauf li{color:#6f6a92}
+:where([data-design="dunkel"]) .lauf li{color:#8a85ad}
 /* Farbkarten dunkel: Kopf fast schwarz, Farbschein nach unten, feine Kante wie Glas */
 :where([data-design="dunkel"]) .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
 :where([data-design="dunkel"]) .k-lila{background:radial-gradient(90% 55% at 50% 100%,rgba(138,77,255,.55),transparent 70%),linear-gradient(180deg,#110e20 0%,#17122e 55%,#2a1c5e 100%)}
@@ -407,8 +414,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <a class="knopf voll" href="#prinzip" data-t="start.knopf">So prüft CrankScore</a>
             <a class="knopf leer" href="#modi" data-t="start.knopf2">Die drei Modi</a>
           </div>
-          <p class="fakten" data-th="start.fakten"><span><b>738</b> Teile</span><span><b>125</b> Marken</span><span><b>7</b> Disziplinen</span><span><b>0&nbsp;€</b> · kein Konto</span></p>
-          <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+          <p class="fakten" data-th="start.fakten"><span><b>766</b> Teile</span><span><b>125</b> Marken</span><span><b>7</b> Disziplinen</span><span><b>Free</b> kostenlos</span><span><b>Pro</b> 6,99&nbsp;€/Monat</span></p>
+          <span class="echt" data-t="beispiel">App-Aufnahme 30.09.2026</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/1.02" role="img" aria-label="Die App zeigt die Teileliste eines Mountainbikes; Rahmen, Federgabel und Bremsen stehen als Karten mit Preis und Gewicht davor." data-t-aria="alt.start">
           <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/auf.webp" width="720" height="1561" alt="" loading="eager"></div></div>
@@ -443,7 +450,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <div class="text">
             <h3 data-t="score.h3">Dein Score</h3>
             <p data-t="score.p">Sieh auf einen Blick, ob alle Teile zusammenpassen und in dieselbe Richtung ziehen.</p>
-            <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+            <span class="echt" data-t="beispiel">App-Aufnahme 30.09.2026</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.87" role="img" aria-label="Score 99 von 100: Stimmig, alles zieht in Richtung Trail. Passform 100, Einsatz 98, 6.247 Euro, 14,27 Kilogramm." data-t-aria="alt.score">
             <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/bremsen.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
@@ -454,7 +461,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <div class="text">
             <h3 data-t="pruef.h3">Prüfung</h3>
             <p data-t="pruef.p">Über zwanzig Regeln auf echten Standards prüfen, ob jedes Teil zum anderen passt.</p>
-            <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+            <span class="echt" data-t="beispiel">App-Aufnahme 30.09.2026</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.8;--blende:#eef8eb" role="img" aria-label="Die Prüfung meldet: Keine Konflikte. Alle Maße passen." data-t-aria="alt.pruef">
             <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/pr.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
@@ -479,7 +486,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
           <p data-t="weg1.p">Sag, was du fährst und wie viel du ausgeben willst. Der Assistent stellt ein Rad zusammen, bei dem jedes Teil passt&nbsp;— danach tauschst du, was du anders willst.</p>
           <p class="beleg" data-t="weg1.beleg">Trail · 6.247 € · Score 99</p>
-          <div class="app-demo" role="img" aria-label="Knopf in der App: Traumrad-Assistent – Budget, Marken, Fahrergewicht, fertiger Aufbau." data-t-aria="alt.m1">
+          <div class="app-demo" role="img" aria-label="Nachbau eines App-Knopfs: Traumrad-Assistent – Budget, Marken, Fahrergewicht, fertiger Aufbau." data-t-aria="alt.m1">
             <div class="app-knopf" aria-hidden="true">
               <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 2.8l1.55 4.65a3 3 0 0 0 1.9 1.9L18.1 10.9l-4.65 1.55a3 3 0 0 0-1.9 1.9L10 19l-1.55-4.65a3 3 0 0 0-1.9-1.9L1.9 10.9l4.65-1.55a3 3 0 0 0 1.9-1.9z"/><path d="M18.5 14.5l.75 2.25 2.25.75-2.25.75-.75 2.25-.75-2.25-2.25-.75 2.25-.75z"/></svg></span>
               <span class="was"><b data-t="m1.titel">Traumrad-Assistent</b><small data-t="m1.sub">Budget, Marken, Fahrergewicht → fertiger Aufbau</small></span>
@@ -491,7 +498,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <p class="kicker"><span class="zahl">02</span><span class="etikett" data-t="weg2.etikett">Mein Rad</span></p>
           <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
           <p data-t="weg2.p">Trag ein, was verbaut ist. Die App findet, was nicht zusammenpasst, und nennt das Teil, das es löst.</p>
-          <div class="app-demo" role="img" aria-label="Hinweis in der App: Trag ein, was an deinem Rad ist – fang beim Rahmen an." data-t-aria="alt.m2">
+          <div class="app-demo" role="img" aria-label="Nachbau eines App-Hinweises: Trag ein, was an deinem Rad ist – fang beim Rahmen an." data-t-aria="alt.m2">
             <div class="app-hinweis" aria-hidden="true">
               <b data-t="m2.titel">Trag ein, was an deinem Rad ist</b>
               <span data-t="m2.text">Fang beim Rahmen an&nbsp;— der legt Laufradgröße, Achsmaße und Tretlager fest und grenzt damit alles andere ein. Was du nicht weißt, lässt du offen; bewertet wird nur, was drin steht.</span>
@@ -505,6 +512,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Angebot bewerten in der App: Modelljahr 2023, Zustand gepflegt, normale Spuren." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-gebraucht.webp" width="900" height="1862" alt="" loading="lazy"></div></div>
         </article>
       </div>
+      <p class="quelle" data-t="modi.quelle">Knopf und Hinweis in den ersten beiden Karten sind nach der App nachgebaut; die dritte Karte zeigt eine Aufnahme der App vom 30.09.2026.</p>
     </div>
   </section>
 
@@ -550,7 +558,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <div class="text">
             <h3 data-t="fit.h3">Dein Fit</h3>
             <p data-t="fit.p">Rahmengröße, Lenkerbreite und Vorbau&nbsp;— berechnet aus deinen Körpermaßen.</p>
-            <span class="echt" data-t="ausschnitt">Echte App · Ausschnitte</span>
+            <span class="echt" data-t="ausschnitt">App-Ausschnitte 30.09.2026</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.84" role="img" aria-label="Bei 182 Zentimetern: Rahmengröße L, Lenkerbreite 800 Millimeter, Vorbau 40 bis 50 Millimeter." data-t-aria="alt.fit">
             <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><img data-bild src="img/s/de/k-groesse.webp" width="900" height="332" alt="" loading="lazy"></div>
@@ -562,7 +570,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <div class="text">
             <h3><span data-t="fed.h3">Fahrwerk</span><span class="pro-pille">Pro</span></h3>
             <p data-t="fed.kurz">Luftdruck, Sag, Tokens und Klicks für Druck- und Zugstufe&nbsp;— für dein Gewicht und deinen Fahrstil, nach den Tabellen von Fox, RockShox und anderen.</p>
-            <span class="echt" data-t="ausschnitt">Echte App · Ausschnitte</span>
+            <span class="echt" data-t="ausschnitt">App-Ausschnitte 30.09.2026</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Fahrprofil 78 Kilogramm, ruppige Trails, zügig; Ergebnis für die Federgabel: 75 psi, 5,2 bar, Sag 18 Prozent." data-t-aria="alt.fed">
             <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><img data-bild src="img/s/de/k-profil.webp" width="900" height="606" alt="" loading="lazy"></div>
@@ -573,8 +581,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
       <article class="karte k-pfirsich breit" style="margin-top:clamp(16px,2vw,24px)" data-zeige>
         <div class="text">
           <h3 data-t="up.h3">Upgrades &amp; Einkaufsliste</h3>
-          <p data-t="up.p">Erst, was du kostenlos umstellen kannst, dann echte Verbesserungen und günstigere Teile mit gleichen Maßen. Am Ende steht die Einkaufsliste mit Shop-Links&nbsp;— oder als Text für deine Werkstatt.</p>
-          <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+          <p data-t="up.p">Erst, was du kostenlos umstellen kannst, dann echte Verbesserungen und günstigere Teile, die passen&nbsp;— was sich dabei ändert, etwa der Federweg, zeigt die App dazu an. Am Ende steht die Einkaufsliste mit Shop-Links&nbsp;— oder als Text für deine Werkstatt.</p>
+          <span class="echt" data-t="beispiel">App-Aufnahme 30.09.2026</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/.78" role="img" aria-label="Zwei Ansichten der App: Upgrades mit dem Reifen Maxxis Minion DHR II für einen Punkt mehr, daneben die Einkaufsliste mit 19 Teilen für 6.247 Euro." data-t-aria="alt.up">
           <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/up.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
@@ -597,7 +605,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <div><h3 data-t="g3.h3">Begriffe erklärt</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC&nbsp;— in einem Satz, ohne Fachchinesisch.</p></div>
             <div><h3 data-t="g4.h3">Bringt dich hin</h3><p data-t="g4.p">Ein Tipp auf die Antwort, und die App öffnet das Teil oder die Einstellung.</p></div>
           </div>
-          <span class="echt" data-t="beispiel">Echte App · Beispielanzeige</span>
+          <span class="echt" data-t="beispiel">App-Aufnahme 30.09.2026</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Der Guide in der App. Auf die Frage „Passt eine Fox 38?“ antwortet er: Fox 38 Factory, 1.549 Euro, gebaut für Enduro und Downhill&nbsp;– passt so nicht zu deinem Rad, zu viel Federweg für die Rahmenfreigabe." data-t-aria="alt.guide">
           <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/guide.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
@@ -619,21 +627,22 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span>
           <h3 data-t="k5.h3">Modelljahr</h3><p data-t="k5.p">Ältere Jahrgänge kosten weniger. Der Assistent nutzt das bei knappem Budget.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
-          <h3 data-t="k6.h3">Mehrere Räder</h3><p data-t="k6.p">Jedes Rad behält seinen eigenen Aufbau, in jedem Modus. Umschalten, ohne etwas zu verlieren.</p></div>
+          <h3><span data-t="k6.h3">Mehrere Räder</span><span class="pro-pille">Pro</span></h3><p data-t="k6.p">Jedes Rad behält seinen eigenen Aufbau, in jedem Modus. Free hat ein Rad je Modus, Pro beliebig viele.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H8l1.5-2h5L16 6h1.5A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
-          <h3 data-t="k7.h3">Dein Top-Cap-Foto</h3><p data-t="k7.p">Fotografier die Rädchen deiner Gabel — die App schreibt die Klicks direkt ins Bild.</p></div>
+          <h3><span data-t="k7.h3">Dein Top-Cap-Foto</span><span class="pro-pille">Pro</span></h3><p data-t="k7.p">Fotografier die Rädchen deiner Gabel — die App schreibt die Klicks direkt ins Bild.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
           <h3 data-t="k8.h3">Deutsch und Englisch</h3><p data-t="k8.p">Die ganze App in beiden Sprachen — umschaltbar mit einem Tipp.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/><path d="m3 3 18 18"/></svg></span>
-          <h3 data-t="k9.h3">Läuft offline</h3><p data-t="k9.p">Einmal geöffnet, läuft die App auch ohne Netz — auf dem Trail wie in der Werkstatt.</p></div>
+          <h3 data-t="k9.h3">Läuft offline</h3><p data-t="k9.p">Nach dem ersten vollständigen Laden läuft die App ohne Netz&nbsp;— auf dem Trail wie in der Werkstatt. Aktuelle Preise brauchen Netz; Pro bleibt offline 14 Tage aktiv.</p></div>
       </div>
-      <div class="zahlen" aria-label="Der Katalog in Zahlen" data-t-aria="zahlen.aria" data-zeige>
-        <div><b>738</b><span data-t="z1">Teile</span></div>
+      <div class="zahlen" role="group" aria-label="Der Katalog in Zahlen" data-t-aria="zahlen.aria" data-zeige>
+        <div><b>766</b><span data-t="z1">Teile</span></div>
         <div><b>125</b><span data-t="z2">Marken</span></div>
         <div><b>7</b><span data-t="z3">Disziplinen</span></div>
         <div><b>15</b><span data-t="z4">Federtabellen</span></div>
         <div><b>106</b><span data-t="z5">Guide-Themen</span></div>
       </div>
+      <p class="quelle mitte" data-t="zahlen.quelle">Gezählt in der App: Katalog vom 01.10.2026, App-Version 20261005-1544.</p>
     </div>
   </section>
 
@@ -643,12 +652,12 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
         <div class="text" data-zeige>
           <p class="etikett" data-t="daten.etikett">Datenschutz</p>
           <h2 id="daten-titel" style="margin-top:12px" data-t="daten.h2">Deine Daten bleiben bei dir</h2>
-          <p data-t="daten.p">Kein Server, kein Konto: Was du einträgst, bleibt im Browser auf deinem Gerät.</p>
+          <p data-t="daten.p">Was du einträgst, bleibt im Browser auf deinem Gerät. Vom Webserver kommen nur die App selbst und die aktuellen Preise.</p>
         </div>
         <div class="daten-liste" data-zeige>
-          <div><h3 data-t="d1.h3">Kein Konto</h3><p data-t="d1.p">Keine Anmeldung, keine E-Mail, kein Passwort.</p></div>
+          <div><h3 data-t="d1.h3">Kein Konto</h3><p data-t="d1.p">Keine Anmeldung, kein Passwort. Für Pro gibst du beim Kauf deine E-Mail beim Zahlungsanbieter Lemon Squeezy an; die App merkt sich nur den Lizenzcode.</p></div>
           <div><h3 data-t="d2.h3">Alles auf deinem Gerät</h3><p data-t="d2.p">Räder, Maße und Fotos liegen im Speicher deines Browsers&nbsp;— nie auf einem Server.</p></div>
-          <div><h3 data-t="d3.h3">Kein Tracking</h3><p data-t="d3.p">Keine Analyse-Werkzeuge, keine Cookies, keine Weitergabe.</p></div>
+          <div><h3 data-t="d3.h3">Kein Tracking</h3><p data-t="d3.p">Keine Analyse-Werkzeuge, keine Cookies. Deine Einträge schickt die App nirgendwohin; nur Pro prüft den Lizenzcode höchstens einmal am Tag bei Lemon Squeezy.</p></div>
         </div>
       </div>
     </div>
@@ -663,9 +672,9 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
       </div>
       <div class="fragen" data-zeige>
         <details id="f1"><summary data-t="f1.q">Wann kommt CrankScore?</summary>
-          <p data-t="f1.a">Die App ist in der Testphase. Wir veröffentlichen sie, sobald Katalog und Prüfung so weit sind, dass du dich darauf verlassen kannst.</p></details>
+          <p data-t="f1.a">Die App ist in der Testphase, einen Starttermin gibt es noch nicht. Wir veröffentlichen sie, sobald Katalog und Prüfung so weit sind, dass du dich darauf verlassen kannst&nbsp;— Neuigkeiten stehen zuerst hier.</p></details>
         <details><summary data-t="f2.q">Was wird CrankScore kosten?</summary>
-          <p data-t="f2.a">Die App ist kostenlos und braucht kein Konto. Wer mehr will, nimmt Pro für 1,99&nbsp;€ im Monat: unbegrenzt Räder, der Federungsrechner und der Guide ohne Tageslimit&nbsp;— jederzeit kündbar.</p></details>
+          <p data-t="f2.a">Die Grundversion Free ist kostenlos und braucht kein Konto. Pro kostet 6,99&nbsp;€ im Monat oder 47,88&nbsp;€ im Jahr (3,99&nbsp;€ im Monat) und bringt beliebig viele Räder je Modus (Free: eines), das Fahrwerk-Setup und den Guide ohne Tageslimit (Free: 10 Fragen am Tag)&nbsp;— jederzeit kündbar.</p></details>
         <details><summary data-t="f3.q">Wie finanziert sich CrankScore?</summary>
           <p data-t="f3.a">Über Pro und über Partnerlinks: Manche Shop-Links werden mit „Anzeige“ markiert sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision — dein Preis bleibt gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
         <details><summary data-t="f4.q">Gibt es CrankScore im App Store?</summary>
@@ -673,7 +682,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
         <details><summary data-t="f5.q">Wie verlässlich sind die Werte?</summary>
           <p data-t="f5.a">Maße und Standards sind aus Herstellerangaben recherchiert. Luftdruck und Klicks sind Startwerte zum Feinstellen. Im Zweifel gilt das Datenblatt des Herstellers.</p></details>
         <details><summary data-t="f6.q">Gibt es E-Bikes?</summary>
-          <p data-t="f6.a">Nein. CrankScore plant Mountainbikes ohne Motor — XC, Trail, Enduro, Downhill, Dirt, Slopestyle und Trial.</p></details>
+          <p data-t="f6.a">Ja, aber die Auswahl ist noch klein: Im Katalog stehen 7 E-MTB-Rahmen, fünf mit Full-Power-Motor (Bosch, Shimano, Specialized) und zwei Light-E (TQ, Shimano), dazu passende Kurbeln und Laufräder. Die App prüft, ob die Kurbel zur Motorwelle passt und ob Bremsen und Laufräder fürs Mehrgewicht reichen; das Fahrwerk-Setup rechnet Motor und Akku mit ein. Ohne Motor deckt CrankScore XC, Trail, Enduro, Downhill, Dirt, Slopestyle und Trial ab.</p></details>
       </div>
     </div>
   </section>
@@ -682,7 +691,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
     <div class="innen">
       <div class="karte k-lila" data-zeige>
         <h2 id="schluss-titel" data-t="schluss.h2">Kommt bald.</h2>
-        <p class="lead" data-t="schluss.p">CrankScore ist in der Testphase. Diese Seite wächst mit der App.</p>
+        <p class="lead" data-t="schluss.p">CrankScore ist in der Testphase, einen Starttermin gibt es noch nicht. Neuigkeiten stehen zuerst hier auf crankscore.de.</p>
+        <p class="quelle" data-t="schluss.stand">Stand: 6. Oktober 2026</p>
         <button type="button" class="teilen" id="teilen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg><span data-t="schluss.knopf">Seite teilen</span></button>
       </div>
     </div>
@@ -697,19 +707,19 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
         <p data-t="fuss.claim">Rad planen, prüfen, bewerten — Teil für Teil.</p>
       </div>
       <div>
-        <h4 data-t="fuss.h1">Seite</h4>
+        <h2 data-t="fuss.h1">Seite</h2>
         <ul><li><a href="#prinzip" data-t="nav.prinzip">Prinzip</a></li><li><a href="#modi" data-t="nav.modi">Modi</a></li><li><a href="#guide" data-t="nav.guide">Guide</a></li><li><a href="#funktionen" data-t="nav.fed">Fit &amp; Federung</a></li><li><a href="#mehr" data-t="nav.mehr">Mehr</a></li><li><a href="#fragen" data-t="nav.fragen">Fragen</a></li></ul>
       </div>
       <div>
-        <h4 data-t="fuss.h2">Rechtliches</h4>
+        <h2 data-t="fuss.h2">Rechtliches</h2>
         <ul><li><a href="impressum.html" data-t="fuss.imp" hreflang="de">Impressum</a></li><li><a href="datenschutz.html" data-t="fuss.ds" hreflang="de">Datenschutz</a></li></ul>
       </div>
       <div>
-        <h4 data-t="fuss.h3">Sprache</h4>
+        <h2 data-t="fuss.h3">Sprache</h2>
         <ul><li><button type="button" data-sprache="de" aria-pressed="true" lang="de">Deutsch</button></li><li><button type="button" data-sprache="en" aria-pressed="false" lang="en">English</button></li></ul>
       </div>
       <div class="design-wahl">
-        <h4 data-t="fuss.h4">Design</h4>
+        <h2 data-t="fuss.h4">Design</h2>
         <ul><li><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Hell</button></li><li><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dunkel</button></li><li><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Wie Gerät</button></li></ul>
       </div>
     </div>
@@ -738,12 +748,11 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
     "nav.prinzip":"How it works", "nav.modi":"Modes", "nav.guide":"Guide", "nav.fed":"Suspension", "nav.mehr":"More", "nav.fragen":"FAQ",
     "bald":"Coming soon", "bald.aria":"Coming soon — status of the test phase in the FAQ",
     "titel.seite":"CrankScore — Does your mountain bike fit together?",
-    "meta.desc":"CrankScore checks whether the parts of your mountain bike fit together: axles, freehub, dimensions, clamps. Plan a new bike, check your own, rate a used listing. Coming soon.",
+    "meta.desc":"CrankScore checks whether the parts of your mountain bike fit together: plan a new bike, check your own, rate a used listing. Coming soon.",
     "start.etikett":"Web app for mountain bikers", "start.bald":"Coming soon", "start.h1":"Does it all fit?",
     "start.sub":"CrankScore checks whether your bike’s parts fit together: axles, freehub, dimensions, clamps. If something doesn’t fit, the app names the part that does.",
     "start.knopf":"How the check works", "start.knopf2":"The three modes",
-    "start.fakten":"<span><b>738</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>€0</b> · no account</span>",
-    "beispiel":"Real app · German UI",
+    "start.fakten":"<span><b>766</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>Free</b> at no cost</span><span><b>Pro</b> €6.99/month</span>",
     "v.aufbau":"Screen recording of the app: the build view of an enduro bike with score 99, price and weight; the parts list scrolls through.",
     "band.aria":"Brands in the catalogue", "band.etikett":"In the catalogue · 125 brands",
     "prinzip.etikett":"How it works", "prinzip.h2":"Every part, cross‑checked",
@@ -791,31 +800,32 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
     "k3.h3":"Shopping list", "k3.p":"Every part with price and shop link — or as text for your workshop.",
     "k4.h3":"Used value", "k4.p":"Age, condition, worn parts that are due — and a clear verdict on the price.",
     "k5.h3":"Model year", "k5.p":"Older model years cost less. The assistant uses that when money is tight.",
-    "k6.h3":"Several bikes", "k6.p":"Every bike keeps its own build, in every mode. Switch without losing anything.",
+    "k6.h3":"Several bikes", "k6.p":"Every bike keeps its own build, in every mode. Free has one bike per mode, Pro as many as you like.",
     "k7.h3":"Your top-cap photo", "k7.p":"Photograph the dials on your fork — the app writes the clicks straight into the picture.",
     "k8.h3":"German and English", "k8.p":"The whole app in both languages — switchable with one tap.",
-    "k9.h3":"Works offline", "k9.p":"Once opened, the app runs without a connection — on the trail and in the workshop.",
-    "zahlen.aria":"The catalogue in numbers", "zahlen.etikett":"The catalogue in numbers",
+    "k9.h3":"Works offline", "k9.p":"After the first full load the app runs without a connection\u00a0— on the trail and in the workshop. Current prices need a connection; Pro stays active offline for 14 days.",
+    "zahlen.aria":"The catalogue in numbers", "zahlen.quelle":"Counted in the app: catalogue of 1 Oct 2026, app version 20261005-1544.",
+    "modi.quelle":"The button and hint in the first two cards are recreated from the app; the third card shows an app screenshot from 30 Sep 2026.", "zahlen.etikett":"The catalogue in numbers",
     "z1":"parts", "z2":"brands", "z3":"disciplines", "z4":"suspension tables", "z5":"guide topics",
     "daten.etikett":"Privacy", "daten.h2":"Your data stays yours",
-    "daten.p":"No server, no account: whatever you enter stays in the browser on your device.",
-    "d1.h3":"No account", "d1.p":"No sign-up, no email, no password.",
+    "daten.p":"Whatever you enter stays in the browser on your device. The web server only delivers the app itself and current prices.",
+    "d1.h3":"No account", "d1.p":"No sign-up, no password. For Pro you give your email to the payment provider Lemon Squeezy when you buy; the app only keeps the licence code.",
     "d2.h3":"Everything on your device", "d2.p":"Bikes, measurements and photos live in your browser’s storage — never on a server.",
-    "d3.h3":"No tracking", "d3.p":"No analytics, no cookies, no sharing.",
+    "d3.h3":"No tracking", "d3.p":"No analytics, no cookies. The app sends your entries nowhere; only Pro checks the licence code with Lemon Squeezy, at most once a day.",
     "fragen.etikett":"FAQ", "fragen.h2":"Quick answers", "fragen.p":"The essentials before launch — status, price, reliability.",
-    "f1.q":"When is CrankScore coming?", "f1.a":"The app is in testing. We’ll release it as soon as the catalogue and the checks are solid enough for you to rely on.",
-    "f2.q":"What will CrankScore cost?", "f2.a":"The app is free and needs no account. If you want more, Pro is €1.99 a month: unlimited bikes, the suspension calculator and the guide without a daily limit — cancel anytime.",
+    "f1.q":"When is CrankScore coming?", "f1.a":"The app is in testing and there is no launch date yet. We’ll release it as soon as the catalogue and the checks are solid enough for you to rely on\u00a0— news appears here first.",
+    "f2.q":"What will CrankScore cost?", "f2.a":"The basic version, Free, costs nothing and needs no account. Pro is €6.99 a month or €47.88 a year (€3.99 a month) and adds as many bikes per mode as you like (Free: one), the suspension setup and the guide without a daily limit (Free: 10 questions a day)\u00a0— cancel anytime.",
     "f3.q":"How is CrankScore funded?", "f3.a":"Through Pro and through partner links: some shop links will be marked “Ad”. If you buy through them, CrankScore gets a small commission — your price stays the same. Which part fits is decided by the check, not by the commission.",
     "f4.q":"Is CrankScore in the app stores?", "f4.a":"No, by design: CrankScore runs in the browser. On your phone you add it to the home screen — then it starts like an app.",
     "f5.q":"How reliable are the values?", "f5.a":"Dimensions and standards are researched from manufacturer data. Air pressure and clicks are starting values for fine-tuning. When in doubt, the manufacturer’s data sheet applies.",
-    "f6.q":"Does it cover e-bikes?", "f6.a":"No. CrankScore plans mountain bikes without a motor — XC, trail, enduro, downhill, dirt, slopestyle and trials.",
-    "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing. This page grows with the app.", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
+    "f6.q":"Does it cover e-bikes?", "f6.a":"Yes, but the selection is still small: the catalogue has 7 e-MTB frames, five full-power (Bosch, Shimano, Specialized) and two light-e (TQ, Shimano), plus matching cranks and wheels. The app checks whether the crank fits the motor spindle and whether brakes and wheels handle the extra weight; the suspension setup accounts for motor and battery. Without a motor, CrankScore covers XC, trail, enduro, downhill, dirt, slopestyle and trials.",
+    "schluss.h2":"Coming soon.", "schluss.p":"CrankScore is in testing and there is no launch date yet. News appears here on crankscore.de first.", "schluss.stand":"As of 6 October 2026", "schluss.knopf":"Share this page", "schluss.kopiert":"Link copied",
     "fuss.claim":"Plan, check and rate your bike — part by part.", "fuss.h1":"Site", "fuss.h2":"Legal", "fuss.h3":"Language", "fuss.h4":"Theme",
     "design.aria":"Dark mode", "design.hell":"Light", "design.dunkel":"Dark", "design.auto":"Match device",
     "fuss.imp":"Legal notice (German)", "fuss.ds":"Privacy (German)",
     "fuss.marken":"Brand names belong to their owners. They are mentioned only to identify the parts in the catalogue.",
-    "beispiel":"Real app · sample screen",
-    "ausschnitt":"Real app · excerpts",
+    "beispiel":"App screenshot 30 Sep 2026",
+    "ausschnitt":"App crops 30 Sep 2026",
     "nav.fed":"Fit & suspension",
     "weg1.beleg":"Trail · €6,247 · score 99",
     "alt.start":"The app shows the parts list of a mountain bike; frame, fork and brakes stand in front as cards with price and weight.",
@@ -835,11 +845,11 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
     "fed.kurz":"Air pressure, sag, tokens and clicks for compression and rebound — for your weight and riding style, based on the tables from Fox, RockShox and others.",
     "alt.fed":"Riding profile 78 kg, rough trails, brisk; result for the fork: 75 psi, 5.2 bar, 18 percent sag.",
     "up.h3":"Upgrades & shopping list",
-    "up.p":"First what you can adjust for free, then real improvements and cheaper parts with the same dimensions. At the end there’s the shopping list with shop links — or as text for your workshop.",
-    "alt.m1":"App button: dream bike assistant\u00a0— budget, brands, rider weight, finished build.",
+    "up.p":"First what you can adjust for free, then real improvements and cheaper parts that fit\u00a0— anything that changes, such as travel, is shown alongside. At the end there’s the shopping list with shop links\u00a0— or as text for your workshop.",
+    "alt.m1":"Recreation of an app button: dream bike assistant\u00a0— budget, brands, rider weight, finished build.",
     "m1.titel":"Dream bike assistant", "m1.sub":"Budget, brands, rider weight → finished build",
     "m2.titel":"Enter what’s on your bike", "m2.text":"Start with the frame\u00a0— it sets wheel size, axle dimensions and bottom bracket and so narrows down everything else. Leave open what you don’t know; only what’s entered gets rated.",
-    "alt.m2":"Hint in the app: enter what’s on your bike\u00a0— start with the frame.",
+    "alt.m2":"Recreation of an app hint: enter what’s on your bike\u00a0— start with the frame.",
     "alt.m3":"Rating a used offer in the app: model year 2023, condition well kept, normal wear.",
     "alt.guide":"The guide in the app. Asked “Does a Fox 38 fit?”, it answers: Fox 38 Factory, €1,549, built for enduro and downhill\u00a0— doesn’t fit your bike like this, too much travel for the frame rating.",
     "ablauf.etikett":"How it works", "ablauf.h2":"Three steps to your score",

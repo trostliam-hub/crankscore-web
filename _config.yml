@@ -1,0 +1,10 @@
+# GitHub Pages baut crankscore.de mit Jekyll aus diesem Repo. Alles, was hier unter
+# exclude steht, wird NICHT veroeffentlicht: interne Arbeitsunterlagen bleiben im Repo,
+# landen aber nicht unter crankscore.de/... (Pruefbericht 06.10.2026, Befund 02).
+# Neue interne Dateien hier eintragen. Markdown-Dateien wuerde GitHub Pages sonst
+# sogar als HTML-Seite ausliefern.
+exclude:
+  - "*.md"
+  - Design-Loop
+  - Gemfile
+  - Gemfile.lock

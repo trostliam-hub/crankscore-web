@@ -11,7 +11,7 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
   (die Seite tauscht sie mit der Sprache, `img[data-bild]`). Keine gezeichneten Illustrationen als
   Ersatz, keine fremden Produktfotos (Liams Regeln). Die gezeichnete Fahrerfigur der App bleibt
   draußen, bis Liam über die Figuren entschieden hat — die Fit-Karte zeigt deshalb nur Ausschnitte.
-  Die alten Videos in `img/v/` nutzt die Seite seit dem hellen Design nicht mehr.
+  Die alten Videos (`img/v/`) und ungenutzte Bilder sind seit 2026-10-06 entfernt.
 - **Helles Design (2026-09-30, Liam: „mit dem Design und solche Bilder die Website designen“):**
   Stil der Werbebilder nach bevel.health — weiße Seite, große Karten mit Farbverlauf (Lila, Nacht,
   Grün, Mint, Blau, Pfirsich), darin ein silbernes Handy mit App-Aufnahme und herausspringende
@@ -35,11 +35,22 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 - Schriften liegen in `fonts/` (Archivo, Inter, IBM Plex Mono, alle OFL) — nie von Google laden.
 - Impressum ist statisch und noch unvollständig (Anbieterangaben fehlen — Liams Entscheidung).
   Wenn Liam die Angaben liefert: hier UND in der App (`links.json`, Feld `betreiber`) eintragen.
-- Aufnahmen sind als „Echte App · Beispielanzeige“ gekennzeichnet (EN: „Real app · sample screen“), reine Ausschnitte als „Echte App · Ausschnitte“.
+- Aufnahmen sind mit Datum gekennzeichnet: „App-Aufnahme 30.09.2026“ (EN „App screenshot 30 Sep 2026“),
+  Ausschnitte „App-Ausschnitte 30.09.2026“ (EN „App crops 30 Sep 2026“) — kurz, damit sie auf 320 px einzeilig bleiben. Neue Aufnahmen = neues Datum. HTML-Nachbauten (Assistent-Knopf,
+  Mein-Rad-Hinweis in den Modi) heißen „Nachbau“ und stehen so unter den Modus-Karten — nie als echte Aufnahme ausgeben.
 - Die Datei `CNAME` darf nicht weg (Domain crankscore.de).
-- Zahlen auf der Seite (738 Teile, 125 Marken, 7 Disziplinen, 15 Federtabellen, 106 Guide-Themen) stammen aus dem Katalog der App,
-  Stand 2026-09-29 — bei großen Katalogänderungen nachziehen.
-- Veröffentlichen: auf `main` pushen, GitHub Pages baut neu. Kein Stempel nötig.
+- Zahlen auf der Seite (766 Teile, 125 Marken, 7 Disziplinen, 15 Federtabellen, 106 Guide-Einträge) am 2026-10-06 selbst
+  nachgezählt: `docs/katalog.json` der App (Export 20261001-1533), `FED_TAB` und `GUIDE` in der App-Version 20261005-1544.
+  Die Zeile unter dem Zahlenband nennt diesen Stand — bei Katalogänderungen Zahlen UND Zeile nachziehen.
+- Preis und Free/Pro-Grenzen kommen aus der App (`PRO_MONAT`, `PRO_JAHR_MONAT`, `PRO_GUIDE_FREI`, `PRO_KULANZ`):
+  Stand 2026-10-06 Pro 6,99 € im Monat oder 47,88 € im Jahr, Free ein Rad je Modus und 10 Guide-Fragen am Tag,
+  Pro offline 14 Tage. E-MTBs gibt es im Katalog (7 Rahmen). Ändert sich etwas davon, Startbereich, Funktionen,
+  Fragen und Datenschutz-Abschnitt in DE und EN anpassen.
+- Veröffentlichen: auf `main` pushen, GitHub Pages baut neu (mit Jekyll). Kein Stempel nötig.
+- **Nicht veröffentlichen, was intern ist:** `_config.yml` schließt alle `*.md` und `Design-Loop/` aus
+  (Prüfbericht 06.10.2026, Befund 02: `CLAUDE.md`, `README.md` und die Checkliste waren unter crankscore.de abrufbar).
+  Keine `.nojekyll` anlegen — dann gilt der Ausschluss nicht mehr. Neue interne Dateien dort eintragen.
+  Das Repo selbst ist öffentlich: was hier steht, ist auf GitHub lesbar, auch wenn es nicht auf der Seite liegt.
 - `mtb-sw.js` ist ein Aufräum-Service-Worker für Browser, die am 29.09. kurz die App auf
   crankscore.de geöffnet hatten. Nicht löschen, nicht als echten Service Worker umbauen.
 - Zweisprachig: Deutsch steht im Markup, Englisch im Wörterbuch `EN` im Skript. Texte tragen

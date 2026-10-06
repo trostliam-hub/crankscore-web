@@ -1,6 +1,6 @@
 # CrankScore — Webseite
 
-Startseite für [CrankScore](https://app.crankscore.de), die App zum Planen, Prüfen und
+Startseite für CrankScore, die App zum Planen, Prüfen und
 Bewerten von Mountainbikes. Live unter **https://crankscore.de**.
 
 Eine einzige HTML-Datei (`index.html`) mit eingebettetem CSS und JavaScript, dazu
