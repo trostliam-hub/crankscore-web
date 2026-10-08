@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-t="imp.titel">Impressum – CrankScore</title>
+<title data-t="imp.titel">Legal notice – CrankScore</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f4f8">
 <meta name="color-scheme" content="light dark">
-<script src="/seite.js?v=77fa77de" data-texte="/texte.js?v=77fa77de" defer></script>
-<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet). Englische Besucher sehen die Seite
-   erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s); texte.js laedt fuer sie schon jetzt.
-   Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
-(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
+<script src="/seite.js?v=8368c059" data-texte="/texte.js?v=8368c059" defer></script>
+<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet), dazu theme-color fuer Status- und
+   Browserleiste. Standardsprache ist Englisch (steht im HTML). Wer Deutsch gewaehlt hat (cs.sprache), sieht die Seite
+   erst, wenn seite.js die deutschen Texte eingesetzt hat (Klasse sprache-lade, hoechstens 2,5 s); texte.js laedt dafuer
+   schon jetzt. Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
+(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);if(s==="de"){d.className+=" sprache-lade";setTimeout(function(){d.classList.remove("sprache-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/img/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
@@ -21,33 +21,33 @@
 </head>
 <body>
 <header class="kopf"><div class="innen">
-  <a class="marke" href="./" aria-label="CrankScore – Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
-  <a class="zurueck" href="./" data-t="recht.zurueck">Zur Startseite</a>
-  <div class="sprache" role="group" aria-label="Sprache" data-t-aria="sprache.aria">
+  <a class="marke" href="./" aria-label="CrankScore – home" data-t-aria="marke.aria">Crank<i>Score</i></a>
+  <a class="zurueck" href="./" data-t="recht.zurueck">Back to home</a>
+  <div class="sprache" role="group" aria-label="Language" data-t-aria="sprache.aria">
     <button type="button" data-sprache="de" aria-pressed="true" lang="de" aria-label="Deutsch">DE</button>
     <button type="button" data-sprache="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
   </div>
-  <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
+  <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dark mode" data-t-aria="design.aria">
     <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
     <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
   </button>
 </div></header>
 <main class="innen text">
-  <p class="etikett" data-t="recht.etikett">Rechtliches</p>
-  <h1 data-t="imp.h1">Impressum</h1>
-  <p class="recht-hinweis" data-t="recht.hinweis"></p>
+  <p class="etikett" data-t="recht.etikett">Legal</p>
+  <h1 data-t="imp.h1">Legal notice</h1>
+  <p class="recht-hinweis" data-t="recht.hinweis">This English version is provided for convenience. The German version is legally binding.</p>
 
-  <div class="fehlt" data-t="imp.fehlt">Die Angaben zum Anbieter werden derzeit ergänzt.</div>
-  <h2 data-t="imp.ddg">Angaben gemäß § 5 DDG</h2>
+  <div class="fehlt" data-t="imp.fehlt">The provider details are currently being added.</div>
+  <h2 data-t="imp.ddg">Information pursuant to Section 5 DDG (German Digital Services Act)</h2>
   <p>—</p>
-  <h2 data-t="imp.kontakt">Kontakt</h2>
+  <h2 data-t="imp.kontakt">Contact</h2>
   <p>—</p>
 
-  <h2 data-t="imp.aff.h">Affiliate-Links</h2>
-  <p data-t="imp.aff.p">CrankScore wird sich unter anderem über Provisionen finanzieren. Shop-Links in der App, die mit „Anzeige“ gekennzeichnet sind, werden Affiliate-Links sein: Kaufst du nach einem Klick etwas, erhält CrankScore vom Shop eine Provision. Dein Preis ändert sich dadurch nicht. Diese Website selbst enthält keine Affiliate-Links.</p>
-  <h2 data-t="imp.preise.h">Preise und Angaben</h2>
-  <p data-t="imp.preise.p">Preise stammen aus den Produktdaten der Partnershops und werden mit Zeitstempel angezeigt; maßgeblich ist der Preis im Shop. Technische Daten und Kompatibilitätsprüfungen sind sorgfältig recherchiert, ersetzen aber nicht das Datenblatt des Herstellers.</p>
+  <h2 data-t="imp.aff.h">Affiliate links</h2>
+  <p data-t="imp.aff.p">CrankScore will be funded in part through commissions. Shop links in the app that are marked “Ad” will be affiliate links: if you buy something after clicking one, CrankScore receives a commission from the shop. This does not change your price. This website itself contains no affiliate links.</p>
+  <h2 data-t="imp.preise.h">Prices and information</h2>
+  <p data-t="imp.preise.p">Prices come from the partner shops’ product data and are shown with a timestamp; the price in the shop is what counts. Technical data and compatibility checks are carefully researched but do not replace the manufacturer’s spec sheet.</p>
 </main>
-<footer class="fuss"><div class="innen"><a href="./" data-t="recht.start">Startseite</a><a href="datenschutz.html" data-t="fuss.ds">Datenschutz</a></div></footer>
+<footer class="fuss"><div class="innen"><a href="./" data-t="recht.start">Home</a><a href="datenschutz.html" data-t="fuss.ds">Privacy policy</a></div></footer>
 </body>
 </html>

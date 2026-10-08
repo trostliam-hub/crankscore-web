@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Abgleich der Website-Texte mit texte.js.
 
-   node werkzeuge/texte.mjs            schreibt die deutsche Fassung in index.html, impressum.html, 404.html und
+   node werkzeuge/texte.mjs            schreibt die Standardsprache (Englisch, seit 2026-10-08) in index.html, impressum.html, 404.html und
                                        datenschutz.html (fuer Suchmaschinen und Besucher ohne
                                        JavaScript) und setzt die Versionsnummer von texte.js/seite.js
    node werkzeuge/texte.mjs --pruefen  schreibt nichts; Exit 1, wenn das HTML nicht zu texte.js passt
@@ -32,7 +32,9 @@ const NUR_DEUTSCH_LEER = new Set(["recht.hinweis"]);
 const nbsp = (s) => s.replace(/ /g, "&nbsp;");
 const escText = (s) => nbsp(s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
 const escAttr = (s) => nbsp(s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;"));
-const deutsch = (k) => fuelle(T[k][0], "de");
+/* Standardsprache: steht im HTML (Suchmaschinen, Besucher ohne JavaScript, erster Besuch); die andere laedt seite.js nach */
+const STANDARD = "en";
+const standard = (k) => fuelle(T[k][STANDARD === "en" ? 1 : 0], STANDARD);
 
 /* Inhalt aller Elemente mit data-t / data-th ersetzen (passendes Schluss-Tag mit Verschachtelung) */
 function ersetzeInhalte(html, attr, neu, benutzt) {
@@ -66,7 +68,7 @@ function ersetzeAttribute(html, benutzt) {
       const key = m[1];
       benutzt.add(key);
       if (!T[key]) { fehler.push(`Schluessel fehlt in texte.js: ${key}`); continue; }
-      const wert = escAttr(deutsch(key));
+      const wert = escAttr(standard(key));
       const vorhanden = new RegExp(`(\\s${ziel}=")[^"]*(")`);
       tag = vorhanden.test(tag) ? tag.replace(vorhanden, `$1${wert}$2`) : tag.replace(/^<([a-zA-Z0-9]+)/, `<$1 ${ziel}="${wert}"`);
     }
@@ -81,10 +83,11 @@ let geaendert = 0;
 
 for (const seite of SEITEN) {
   const alt = lies(seite);
-  let html = ersetzeInhalte(alt, "data-t", (k) => escText(deutsch(k)), benutzt);
-  html = ersetzeInhalte(html, "data-th", (k) => nbsp(deutsch(k)), benutzt);
+  let html = ersetzeInhalte(alt, "data-t", (k) => escText(standard(k)), benutzt);
+  html = ersetzeInhalte(html, "data-th", (k) => nbsp(standard(k)), benutzt);
   html = ersetzeAttribute(html, benutzt);
   html = html.replace(/(texte|seite)\.js\?v=[0-9a-z]*/g, `$1.js?v=${version}`);
+  html = html.replace(/<html lang="[a-z]+">/, `<html lang="${STANDARD}">`);
   for (const m of html.matchAll(/CS\.t\("([^"]+)"\)/g)) benutzt.add(m[1]);
   const kopf = html.match(/<script>\/\* Vor dem ersten Bild[\s\S]*?<\/script>/);
   kopfSkripte.set(seite, kopf ? kopf[0] : "");

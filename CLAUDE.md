@@ -52,11 +52,17 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
   Platzhalter, Sprachmischung, Geviertstriche, gleiches Kopf-Skript auf allen Seiten), dann beide
   Sprachen auf 320–1920 px ansehen (Kopfzeile, Menü, Umbrüche, Fuß, Rechtsseiten, 404, Texte nach Klicks),
   hell und dunkel, mit „weniger Bewegung“ und mit Tastatur.
-- Designsystem-Regeln, die schon zugeschlagen haben: im Dunkelmodus trägt `html` die Grundfarbe und `body` ist
-  `transparent` (sonst überdeckt er den festen Himmel `body::before` mit `z-index:-1`); Einblenden als **Animation mit
+- Designsystem-Regeln, die schon zugeschlagen haben: im Dunkelmodus trägt `body` die Grundfarbe (`var(--seite)`, sie
+  geht auf die Leinwand über) und der feste Himmel `body::before` liegt mit `z-index:-1` darüber -- `html` bekommt
+  keinen eigenen Hintergrund, sonst verdeckt der Body den Himmel; unter „weniger Bewegung“ Dauer `0s`, nicht `.01ms`
+  (sonst hinkt die Seitenfarbe der Statusleiste ein Bild hinterher); Einblenden als **Animation mit
   `backwards`**, nicht als Transition (die überschreibt Hover-Transforms); vor jedem
   Gedankenstrich steht ein `&nbsp;`; Plex-Mono-Subset hat kein ✓/≠ (SVG bzw. Wort); im
   Handy-Block der Modi `align-items:stretch`, sonst scrollt das Karussell nicht.
+- **Prüfungs-Kachel** (grün, „Prüfung“/„Compatibility check“): Bühne `aspect-ratio:1/.86`, der Ausschnitt mit
+  Überschrift und Ergebnis liegt bei `top:62cqw` genau über derselben Zeile im Handy und endet 9 cqw über dem
+  Kartenrand; darunter blendet `.blende` (13 cqw) das Handy aus. Gemessen 320–1440 px, DE/EN: Abstand zum Rand
+  24–54 px, nichts abgeschnitten. Bei neuer Aufnahme oder anderem Text neu messen.
 - Beispielaufbau aller Aufnahmen: Traumrad Trail, Specialized Stumpjumper Alloy, Score 99 ·
   6.247 € · 14,27 kg, Fahrer 182 cm / 78 kg. Bei neuen Aufnahmen alle Zahlen auf der Seite prüfen.
 - Schriften liegen in `fonts/` (Inter 4.1, IBM Plex Mono 2.3, beide OFL) — nie von Google laden. Archivo ist seit
@@ -91,16 +97,29 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 - **Texte zentral in `texte.js`** (seit 2026-10-08, alle Seiten einschließlich 404): je Schlüssel `["Deutsch", "English"]`.
   Im HTML tragen Elemente nur den Schlüssel: `data-t` (Text), `data-th` (mit HTML), `data-t-aria` / `data-t-alt` /
   `data-t-title` / `data-t-content` (Attribute, auch Titel und Meta-Beschreibungen). Neuer Text = Eintrag in
-  `texte.js` + Schlüssel im HTML, danach `node werkzeuge/texte.mjs`: schreibt die deutsche Fassung ins HTML
+  `texte.js` + Schlüssel im HTML, danach `node werkzeuge/texte.mjs`: schreibt die englische Fassung ins HTML
   (Suchmaschinen und Besucher ohne JavaScript) und setzt die Skript-Version `?v=` neu. Nie Text nur im HTML ändern.
-- `seite.js` (alle Seiten) setzt Sprache und Design: Schalter DE/EN in Kopfzeile, Menü und Fuß, Wahl in
-  `localStorage["cs.sprache"]`, ohne Wahl die Browsersprache, Suchmaschinen immer Deutsch; Design in `cs.design`.
-  Beides gilt seitenübergreifend und in allen offenen Tabs. **`texte.js` lädt nur, wenn Englisch gebraucht wird**
-  (deutsche Besucher laden es nie); die Adresse steht am Skript-Tag `<script src="/seite.js?v=…" data-texte="/texte.js?v=…">`,
-  das deshalb VOR dem kleinen Kopf-Skript stehen muss. Das Kopf-Skript ist auf allen Seiten gleich (setzt das Design
-  vor dem ersten Bild, blendet die Seite für englische Besucher bis zum Umschalten aus, höchstens 2,5 s, und lädt
-  `texte.js` für sie vorab). Lässt sich Englisch nicht laden, meldet `seite.js` das (Meldung unten, `CS.melde`) und
-  bleibt deutsch. Ohne JavaScript sind Sprach- und Designschalter, Menü und „Seite teilen“ ausgeblendet (`[data-design]`).
+- **Standardsprache Englisch** (seit 2026-10-08, Liam: „beim ersten Besuch immer auf Englisch, unabhängig von Geräte-
+  oder Browsersprache“). `node werkzeuge/texte.mjs` schreibt die englische Fassung ins HTML (`<html lang="en">`, Bilder
+  aus `img/s/en/`, `og:locale` `en_GB`); Suchmaschinen, Besucher ohne JavaScript und jeder erste Besuch sehen Englisch.
+  Keine Ausnahme für Browsersprache oder Bots.
+- `seite.js` (alle Seiten) setzt Sprache und Design: Schalter DE/EN in Kopfzeile, Menü und Fuß. Nur eine bewusst
+  gewählte Sprache wird gespeichert (`localStorage["cs.sprache"]`), ohne Wahl gilt immer Englisch; Design in `cs.design`.
+  Beides gilt seitenübergreifend und in allen offenen Tabs. **`texte.js` lädt nur, wenn Deutsch gebraucht wird**
+  (Erstbesucher laden es nie); die Adresse steht am Skript-Tag `<script src="/seite.js?v=…" data-texte="/texte.js?v=…">`,
+  das deshalb VOR dem kleinen Kopf-Skript stehen muss. Das Kopf-Skript ist auf allen Seiten gleich: setzt Design und
+  `theme-color` vor dem ersten Bild, blendet die Seite für Besucher mit gespeichertem Deutsch aus (Klasse `sprache-lade`,
+  höchstens 2,5 s, damit nichts erst englisch und dann deutsch erscheint) und lädt `texte.js` für sie vorab. Lässt sich
+  Deutsch nicht laden, meldet `seite.js` das auf Deutsch (Meldung unten, `CS.melde`) und bleibt englisch, ohne etwas zu
+  speichern. Ohne JavaScript sind Sprach- und Designschalter, Menü und „Seite teilen“ ausgeblendet (`[data-design]`).
+- **Statusleiste und oberster Rand:** genau ein `<meta name="theme-color">` ohne `media`; Kopf-Skript und `seite.js`
+  setzen es auf die Seitenfarbe des aktiven Designs (hell `#f4f4f8` = Kopfzeile, dunkel `#07060d`), auch beim Umschalten.
+  `body` trägt `var(--seite)` (färbt auch die Leinwand hinter Safari-Leisten und beim Überscrollen), die Kopfzeile ist
+  deckend und reicht mit `padding-top:env(safe-area-inset-top)` unter die Statusleiste (`viewport-fit=cover`). Safari 26
+  wertet `theme-color` nach unserem Stand nicht mehr aus und nimmt die Farbe der Kopfzeile bzw. Seite; ist in Safari
+  die Website-Tönung („Allow Website Tinting“) aus, folgt die Leiste dem System -- das lässt sich von der Seite aus nicht
+  ändern. Auf einem echten iPhone noch nicht geprüft (hier nur Chromium mit nachgestellter Safe Area). Hell ist bewusst `#f4f4f8`, nicht Reinweiß,
+  damit Leiste und Kopfzeile eine Fläche bilden.
 - `404.html`: eigene Fehlerseite in beiden Sprachen (GitHub Pages zeigt sie für jede unbekannte Adresse). Alle Pfade
   darin absolut (`/recht.css`, `/seite.js`), weil sie unter beliebigen Adressen erscheint.
 - Rechtsseiten gibt es auf Deutsch und Englisch; die englische Fassung trägt den Hinweis, dass die deutsche

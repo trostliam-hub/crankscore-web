@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-t="seite.titel">CrankScore – Passen die Teile deines Mountainbikes zusammen?</title>
-<meta name="description" content="CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen. Plane ein neues Rad, prüfe dein eigenes oder schätze ein Gebrauchtangebot ein." data-t-content="seite.desc">
+<title data-t="seite.titel">CrankScore – Will your mountain bike parts fit together?</title>
+<meta name="description" content="CrankScore checks whether the parts on your mountain bike work together. Plan a new bike, check your own or size up a used one." data-t-content="seite.desc">
 <link rel="canonical" href="https://crankscore.de/">
-<meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f4f8">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -16,23 +15,24 @@
 <link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="de_DE">
-<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_DE">
 <meta property="og:site_name" content="CrankScore">
-<meta property="og:title" content="CrankScore – Passen die Teile deines Mountainbikes zusammen?" data-t-content="seite.ogtitel">
-<meta property="og:description" content="Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot einschätzen. Die Web-App fürs Mountainbike ist in der Testphase." data-t-content="seite.ogdesc">
+<meta property="og:title" content="CrankScore – Will your mountain bike parts fit together?" data-t-content="seite.ogtitel">
+<meta property="og:description" content="Plan a new bike, check your own, size up a used one. The web app for your mountain bike is in testing." data-t-content="seite.ogdesc">
 <meta property="og:url" content="https://crankscore.de/">
 <meta property="og:image" content="https://crankscore.de/img/vorschau.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Vorschaubild von CrankScore: die Überschrift „Passt das zusammen?“ neben einer Beispielansicht der App mit Score 99 und ohne Konflikte." data-t-content="seite.ogbild">
+<meta property="og:image:alt" content="CrankScore preview image: the headline “Does it all fit?” next to a sample view of the app with a score of 99 and no conflicts." data-t-content="seite.ogbild">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CrankScore","alternateName":"crankscore.de","url":"https://crankscore.de/","inLanguage":["de","en"]},{"@type":"Organization","name":"CrankScore","url":"https://crankscore.de/","logo":"https://crankscore.de/img/icon-512.png"}]}</script>
 <meta name="twitter:card" content="summary_large_image">
-<script src="/seite.js?v=77fa77de" data-texte="/texte.js?v=77fa77de" defer></script>
-<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet). Englische Besucher sehen die Seite
-   erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s); texte.js laedt fuer sie schon jetzt.
-   Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
-(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
+<script src="/seite.js?v=8368c059" data-texte="/texte.js?v=8368c059" defer></script>
+<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet), dazu theme-color fuer Status- und
+   Browserleiste. Standardsprache ist Englisch (steht im HTML). Wer Deutsch gewaehlt hat (cs.sprache), sieht die Seite
+   erst, wenn seite.js die deutschen Texte eingesetzt hat (Klasse sprache-lade, hoechstens 2,5 s); texte.js laedt dafuer
+   schon jetzt. Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
+(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);if(s==="de"){d.className+=" sprache-lade";setTimeout(function(){d.classList.remove("sprache-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO) */
@@ -90,10 +90,10 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
-.en-lade body{visibility:hidden}
-/* waehrenddessen keine nachladbaren Bilder holen: sie kaemen sonst erst deutsch, dann englisch */
-.en-lade img[loading="lazy"]{display:none}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(80px + env(safe-area-inset-top))}
+.sprache-lade body{visibility:hidden}
+/* waehrenddessen keine nachladbaren Bilder holen: sie kaemen sonst erst englisch, dann deutsch */
+.sprache-lade img[loading="lazy"]{display:none}
 body{background:var(--seite);color:var(--text);font:400 17px/1.55 var(--schrift);-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 img{display:block;max-width:100%}
 picture{display:contents}
@@ -108,8 +108,11 @@ p,li,summary{text-wrap:pretty}
 .etikett{font:500 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--etikett)}
 .lead{font-size:clamp(18px,1.6vw,22px);color:var(--grau);line-height:1.45;letter-spacing:-.01em}
 
-/* ── Kopfzeile: deckend (kein Weichzeichner -- der kostete beim Scrollen auf Handys Bilder pro Sekunde) ── */
-.kopf{position:sticky;top:0;z-index:50;background:var(--seite);border-bottom:1px solid transparent;transition:border-color var(--mittel),box-shadow var(--mittel)}
+/* ── Kopfzeile: deckend (kein Weichzeichner -- der kostete beim Scrollen auf Handys Bilder pro Sekunde) und in der
+   Farbe der Seite; sie reicht in die Safe Area (Statusleiste bei Web-App/Querformat). Zusammen mit theme-color (Skript im
+   Kopf, seite.js) und dem Seitenhintergrund (body, wird zum Hintergrund des ganzen Fensters) traegt so auch der Bereich
+   ueber der Kopfzeile die Farbe des gewaehlten Designs: hell #f4f4f8, dunkel #07060d. ── */
+.kopf{position:sticky;top:0;z-index:50;background:var(--seite);padding-top:env(safe-area-inset-top);border-bottom:1px solid transparent;transition:border-color var(--mittel),box-shadow var(--mittel)}
 .kopf.unten{border-bottom-color:var(--linie);box-shadow:0 8px 24px -12px rgba(23,22,30,.12)}
 .kopf .innen{display:flex;align-items:center;gap:20px;height:var(--kopf)}
 .marke{flex:none;font-weight:800;font-size:22px;letter-spacing:-.04em;text-decoration:none;color:var(--tinte)}
@@ -152,7 +155,7 @@ button.laedt{animation:puls 1s ease-in-out infinite}
 
 /* ── Menue (Handy und Tablet): ganze Flaeche, als <dialog> -- Tastatur bleibt darin, Esc schliesst, die Seite
    dahinter ruht. Oeffnet in 200 ms (Einblenden, 8 px Weg), die Eintraege folgen leicht versetzt. ── */
-.menue{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;padding:0 0 env(safe-area-inset-bottom);border:0;
+.menue{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);border:0;
   background:var(--seite);color:var(--text);overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateY(-8px);
   transition:opacity var(--mittel) var(--raus),transform var(--mittel) var(--raus),overlay var(--mittel) allow-discrete,display var(--mittel) allow-discrete}
 .menue[open]{opacity:1;transform:none}
@@ -232,7 +235,9 @@ html:has(.menue[open]){overflow:hidden}
 .karte.dunkel .pop{box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
 .pop img{width:100%;height:auto}
 .pop.kappe{max-height:calc(var(--w)*var(--k)*1cqw)}
-.blende{left:0;right:0;bottom:0;height:14cqw;background:linear-gradient(180deg,transparent,var(--blende))}
+/* Pruefungs-Kachel: Ausschnitt mit Ueberschrift und Ergebnis (20 % der Bildbreite) liegt genau ueber derselben Stelle im
+   Handy und endet 9 cqw ueber dem Kartenrand; darunter blendet das Handy aus, damit nichts doppelt zu sehen ist */
+.blende{left:0;right:0;bottom:0;height:13cqw;background:linear-gradient(180deg,transparent,var(--blende) 50%)}
 /* sehr alte Browser ohne Container-Einheiten: lieber keine Buehne als eine verrutschte (der Text traegt alles) */
 @supports not (container-type:inline-size){ .buehne{display:none} }
 
@@ -449,13 +454,13 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
 /* ── Weniger Bewegung: keine Einblend-, Lauf- und Uebergangsbewegungen ── */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important}
+  *,*::before,*::after{animation-duration:0s!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}
   .js [data-zeige]{opacity:1}
+  button.laedt{opacity:.55}
 }
 
 /* ── Dunkelmodus: nur was die Variablen nicht abdecken ── */
-:root[data-design="dunkel"]{background:#07060d}
-:where(:root[data-design="dunkel"]) body{background:transparent}
+:root[data-design="dunkel"] body{background-color:var(--seite)}
 /* Himmel als feste Ebene hinter der Seite (statt background-attachment:fixed, das beim Scrollen jedes Bild neu malt) */
 :root[data-design="dunkel"] body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
   radial-gradient(1100px 720px at 12% -8%,rgba(138,77,255,.20),transparent 62%),
@@ -490,54 +495,54 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
 </style>
 </head>
 <body>
-<a class="weg" href="#inhalt" data-t="weg">Zum Inhalt springen</a>
+<a class="weg" href="#inhalt" data-t="weg">Skip to content</a>
 <header class="kopf" id="kopf">
   <div class="innen">
-    <a class="marke" href="./" aria-label="CrankScore – Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
-    <nav class="nav" aria-label="Abschnitte" data-t-aria="nav.aria">
-      <a href="#prinzip" data-t="nav.prinzip">Prüfung</a>
-      <a href="#modi" data-t="nav.modi">Modi</a>
-      <a href="#funktionen" data-t="nav.fed">Größe &amp; Fahrwerk</a>
+    <a class="marke" href="./" aria-label="CrankScore – home" data-t-aria="marke.aria">Crank<i>Score</i></a>
+    <nav class="nav" aria-label="Sections" data-t-aria="nav.aria">
+      <a href="#prinzip" data-t="nav.prinzip">The check</a>
+      <a href="#modi" data-t="nav.modi">Modes</a>
+      <a href="#funktionen" data-t="nav.fed">Sizing &amp; suspension</a>
       <a href="#guide" data-t="nav.guide">Guide</a>
-      <a href="#mehr" data-t="nav.mehr">Funktionen</a>
-      <a href="#fragen" data-t="nav.fragen">Fragen</a>
+      <a href="#mehr" data-t="nav.mehr">Features</a>
+      <a href="#fragen" data-t="nav.fragen">FAQ</a>
     </nav>
-    <div class="sprache" role="group" aria-label="Sprache" data-t-aria="sprache.aria">
+    <div class="sprache" role="group" aria-label="Language" data-t-aria="sprache.aria">
       <button type="button" data-sprache="de" aria-pressed="true" lang="de" aria-label="Deutsch">DE</button>
       <button type="button" data-sprache="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
     </div>
-    <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
+    <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dark mode" data-t-aria="design.aria">
       <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
       <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
     </button>
-    <a class="bald" href="#fragen" id="bald" data-frage="f1" aria-label="Kommt bald – zum aktuellen Stand" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
-    <button type="button" class="rund menue-knopf" id="menue-knopf" aria-controls="menue" aria-expanded="false" aria-label="Menü öffnen" data-t-aria="menue.oeffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8.5h16M4 15.5h16"/></svg></button>
+    <a class="bald" href="#fragen" id="bald" data-frage="f1" aria-label="Coming soon – see the current status" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Coming soon</span></a>
+    <button type="button" class="rund menue-knopf" id="menue-knopf" aria-controls="menue" aria-expanded="false" aria-label="Open menu" data-t-aria="menue.oeffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8.5h16M4 15.5h16"/></svg></button>
   </div>
 </header>
-<dialog class="menue" id="menue" aria-label="Menü" data-t-aria="menue.aria">
+<dialog class="menue" id="menue" aria-label="Menu" data-t-aria="menue.aria">
   <div class="menue-kopf">
-    <a class="marke" href="./" aria-label="CrankScore – Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
-    <button type="button" class="rund menue-zu" aria-label="Menü schließen" data-t-aria="menue.schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+    <a class="marke" href="./" aria-label="CrankScore – home" data-t-aria="marke.aria">Crank<i>Score</i></a>
+    <button type="button" class="rund menue-zu" aria-label="Close menu" data-t-aria="menue.schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
   </div>
   <div class="menue-inhalt">
-    <nav aria-label="Abschnitte der Seite" data-t-aria="menue.nav">
+    <nav aria-label="Page sections" data-t-aria="menue.nav">
       <ul class="menue-liste">
-        <li><a href="#prinzip" data-t="nav.prinzip">Prüfung</a></li>
-        <li><a href="#modi" data-t="nav.modi">Modi</a></li>
-        <li><a href="#ablauf" data-t="nav.ablauf">So funktioniert’s</a></li>
-        <li><a href="#funktionen" data-t="nav.fed">Größe &amp; Fahrwerk</a></li>
+        <li><a href="#prinzip" data-t="nav.prinzip">The check</a></li>
+        <li><a href="#modi" data-t="nav.modi">Modes</a></li>
+        <li><a href="#ablauf" data-t="nav.ablauf">How it works</a></li>
+        <li><a href="#funktionen" data-t="nav.fed">Sizing &amp; suspension</a></li>
         <li><a href="#guide" data-t="nav.guide">Guide</a></li>
-        <li><a href="#mehr" data-t="nav.mehr">Funktionen</a></li>
-        <li><a href="#fragen" data-t="nav.fragen">Fragen</a></li>
+        <li><a href="#mehr" data-t="nav.mehr">Features</a></li>
+        <li><a href="#fragen" data-t="nav.fragen">FAQ</a></li>
       </ul>
     </nav>
     <div class="menue-einst">
-      <div><span class="etikett" id="menue-sprache" data-t="fuss.h3">Sprache</span>
+      <div><span class="etikett" id="menue-sprache" data-t="fuss.h3">Language</span>
         <div class="segment" role="group" aria-labelledby="menue-sprache"><button type="button" data-sprache="de" aria-pressed="true" lang="de">Deutsch</button><button type="button" data-sprache="en" aria-pressed="false" lang="en">English</button></div></div>
-      <div><span class="etikett" id="menue-design" data-t="fuss.h4">Design</span>
-        <div class="segment" role="group" aria-labelledby="menue-design"><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Hell</button><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dunkel</button><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Wie Gerät</button></div></div>
+      <div><span class="etikett" id="menue-design" data-t="fuss.h4">Appearance</span>
+        <div class="segment" role="group" aria-labelledby="menue-design"><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Light</button><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dark</button><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Match device</button></div></div>
     </div>
-    <a class="menue-status" href="#fragen" data-frage="f1"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span><small data-t="bald.stand">Zum aktuellen Stand</small></a>
+    <a class="menue-status" href="#fragen" data-frage="f1"><i aria-hidden="true"></i><span data-t="bald">Coming soon</span><small data-t="bald.stand">See the current status</small></a>
   </div>
 </dialog>
 
@@ -546,65 +551,65 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
     <div class="innen">
       <div class="karte k-lila">
         <div class="text">
-          <p class="etikett" data-t="start.etikett">Die Web-App fürs Mountainbike</p>
-          <h1 id="titel" data-t="start.h1">Passt das zusammen?</h1>
-          <p class="lead" data-t="start.sub">Passt die neue Gabel zu deinem Rahmen? Läuft die Kassette auf deinem Freilauf? CrankScore prüft die Maße und Standards deiner Teile und zeigt dir mögliche Konflikte, bevor du etwas kaufst.</p>
+          <p class="etikett" data-t="start.etikett">The web app for your mountain bike</p>
+          <h1 id="titel" data-t="start.h1">Does it all fit?</h1>
+          <p class="lead" data-t="start.sub">Will the new fork fit your frame? Will that cassette work with your freehub? CrankScore checks the dimensions and standards of your parts and flags potential conflicts before you buy anything.</p>
           <div class="knoepfe">
-            <a class="knopf voll" href="#prinzip" data-t="start.knopf">So prüft CrankScore</a>
-            <a class="knopf leer" href="#modi" data-t="start.knopf2">Die drei Modi</a>
+            <a class="knopf voll" href="#prinzip" data-t="start.knopf">How the check works</a>
+            <a class="knopf leer" href="#modi" data-t="start.knopf2">The three modes</a>
           </div>
-          <p class="fakten" data-th="start.fakten"><span><b>766</b> Teile</span><span><b>125</b> Marken</span><span><b>7</b> Disziplinen</span><span><b>Free</b> kostenlos</span><span><b>Pro</b> 6,99&nbsp;€ im Monat</span></p>
-          <span class="echt" data-t="beispiel">Beispielansicht</span>
+          <p class="fakten" data-th="start.fakten"><span><b>766</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>Free</b> to use</span><span><b>Pro</b> €6.99 a month</span></p>
+          <span class="echt" data-t="beispiel">Sample view</span>
         </div>
-        <div class="buehne" style="aspect-ratio:1/1.02" role="img" aria-label="Beispielansicht der App: die Teileliste eines Trailbikes, davor Rahmen, Federgabel und Bremsen als Karten mit Preis und Gewicht." data-t-aria="alt.start">
-          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/auf-480.avif 480w, img/s/de/auf.avif 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw"><img data-bild src="img/s/de/auf.webp" srcset="img/s/de/auf-480.webp 480w, img/s/de/auf.webp 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="eager" fetchpriority="high"></picture></div></div>
-          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/t-rahmen-600.avif 600w, img/s/de/t-rahmen.avif 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/de/t-rahmen.webp" srcset="img/s/de/t-rahmen-600.webp 600w, img/s/de/t-rahmen.webp 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="900" height="381" alt="" loading="lazy" decoding="async"></picture></div>
-          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/t-gabel-600.avif 600w, img/s/de/t-gabel.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/de/t-gabel.webp" srcset="img/s/de/t-gabel-600.webp 600w, img/s/de/t-gabel.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="246" alt="" loading="lazy" decoding="async"></picture></div>
-          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/t-bremsen-600.avif 600w, img/s/de/t-bremsen.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/de/t-bremsen.webp" srcset="img/s/de/t-bremsen-600.webp 600w, img/s/de/t-bremsen.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="248" alt="" loading="lazy" decoding="async"></picture></div>
+        <div class="buehne" style="aspect-ratio:1/1.02" role="img" aria-label="Sample app view: the parts list of a trail bike, with the frame, fork and brakes shown as cards with price and weight." data-t-aria="alt.start">
+          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/auf-480.avif 480w, img/s/en/auf.avif 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw"><img data-bild src="img/s/en/auf.webp" srcset="img/s/en/auf-480.webp 480w, img/s/en/auf.webp 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="eager" fetchpriority="high"></picture></div></div>
+          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/t-rahmen-600.avif 600w, img/s/en/t-rahmen.avif 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/en/t-rahmen.webp" srcset="img/s/en/t-rahmen-600.webp 600w, img/s/en/t-rahmen.webp 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="900" height="381" alt="" loading="lazy" decoding="async"></picture></div>
+          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/t-gabel-600.avif 600w, img/s/en/t-gabel.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/en/t-gabel.webp" srcset="img/s/en/t-gabel-600.webp 600w, img/s/en/t-gabel.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="246" alt="" loading="lazy" decoding="async"></picture></div>
+          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/t-bremsen-600.avif 600w, img/s/en/t-bremsen.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/en/t-bremsen.webp" srcset="img/s/en/t-bremsen-600.webp 600w, img/s/en/t-bremsen.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="248" alt="" loading="lazy" decoding="async"></picture></div>
         </div>
       </div>
     </div>
   </section>
 
-<section class="band" aria-label="Marken im Katalog" data-t-aria="band.aria">
-    <div class="band-kopf"><p class="etikett" id="band-titel" data-t="band.etikett">125 Marken im Katalog</p><button type="button" class="rund lauf-knopf" aria-pressed="false" aria-label="Laufband anhalten" data-t-aria="lauf.pause"><svg class="pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg><svg class="spielen" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></div>
+<section class="band" aria-label="Brands in the catalogue" data-t-aria="band.aria">
+    <div class="band-kopf"><p class="etikett" id="band-titel" data-t="band.etikett">125 brands in the catalogue</p><button type="button" class="rund lauf-knopf" aria-pressed="false" aria-label="Pause the ticker" data-t-aria="lauf.pause"><svg class="pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg><svg class="spielen" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></div>
     <div class="lauf"><ul><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li></ul></div>
   </section>
 
   <section id="prinzip" aria-labelledby="prinzip-titel">
     <div class="innen">
       <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="prinzip.etikett">Die Prüfung</p>
-        <h2 id="prinzip-titel" data-t="prinzip.h2">Geprüft, wo Teile aufeinandertreffen</h2>
-        <p class="lead" data-t="prinzip.p">Kommt ein Teil in deinen Aufbau, prüft CrankScore die Stellen, an denen es auf andere Teile trifft. Gibt es einen Konflikt, siehst du, woran es liegt, und bekommst Vorschläge aus dem Katalog, die ihn lösen können.</p>
+        <p class="etikett" data-t="prinzip.etikett">The check</p>
+        <h2 id="prinzip-titel" data-t="prinzip.h2">Checked wherever parts meet</h2>
+        <p class="lead" data-t="prinzip.p">When a part goes into your build, CrankScore checks the points where it meets other parts. If something clashes, you see why, along with suggestions from the catalogue that can fix it.</p>
       </div>
       <div class="punkte" data-zeige>
-        <div><b data-t="pp1.b">Maße</b><span data-t="pp1.s">Federweg-Freigabe, Dämpfermaß, Lenkerklemmung, Stützendurchmesser</span></div>
-        <div><b data-t="pp2.b">Standards</b><span data-t="pp2.s">Achsen, Freilauf, Innenlager, Steuersatz, Bremsaufnahme, UDH</span></div>
-        <div><b data-t="pp3.b">Einsatz</b><span data-t="pp3.s">Passt das Teil zu dem, was du fährst, ob Trail, Enduro oder Downhill?</span></div>
+        <div><b data-t="pp1.b">Dimensions</b><span data-t="pp1.s">Travel limit, shock size, bar clamp, seatpost diameter</span></div>
+        <div><b data-t="pp2.b">Standards</b><span data-t="pp2.s">Axles, freehub, bottom bracket, headset, brake mount, UDH</span></div>
+        <div><b data-t="pp3.b">Purpose</b><span data-t="pp3.s">Does the part suit what you ride, be it trail, enduro or downhill?</span></div>
       </div>
       <div class="zwei">
         <article class="karte k-nacht dunkel" data-zeige>
           <div class="text">
-            <h3 data-t="score.h3">Dein Score</h3>
-            <p data-t="score.p">Eine Zahl von 0 bis 100 für den ganzen Aufbau. Dahinter stehen zwei Werte: Passform zeigt, ob die Teile technisch zusammenpassen, Einsatz, ob sie zu deiner Disziplin passen.</p>
-            <span class="echt" data-t="beispiel">Beispielansicht</span>
+            <h3 data-t="score.h3">Your score</h3>
+            <p data-t="score.p">One number from 0 to 100 for your whole build, based on two ratings: fit shows whether the parts work together technically, purpose whether they suit your discipline.</p>
+            <span class="echt" data-t="beispiel">Sample view</span>
           </div>
-          <div class="buehne" style="aspect-ratio:1/.87" role="img" aria-label="Beispielansicht: Score 99 von 100, „Stimmig. Alles zieht in Richtung Trail.“ Passform 100, Einsatz 98, 6.247&nbsp;€, 14,27 kg." data-t-aria="alt.score">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/bremsen-480.avif 480w, img/s/de/bremsen.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/de/bremsen.webp" srcset="img/s/de/bremsen-480.webp 480w, img/s/de/bremsen.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-score-600.avif 600w, img/s/de/k-score.avif 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw"><img data-bild src="img/s/de/k-score.webp" srcset="img/s/de/k-score-600.webp 600w, img/s/de/k-score.webp 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw" width="900" height="369" alt="" decoding="async" loading="lazy"></picture></div>
+          <div class="buehne" style="aspect-ratio:1/.87" role="img" aria-label="Sample view: score 99 out of 100, “Spot on. Everything pulls towards trail.” Fit 100, purpose 98, €6,247, 14.27 kg." data-t-aria="alt.score">
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/bremsen-480.avif 480w, img/s/en/bremsen.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/en/bremsen.webp" srcset="img/s/en/bremsen-480.webp 480w, img/s/en/bremsen.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-score-600.avif 600w, img/s/en/k-score.avif 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw"><img data-bild src="img/s/en/k-score.webp" srcset="img/s/en/k-score-600.webp 600w, img/s/en/k-score.webp 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw" width="900" height="369" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
         <article class="karte k-gruen" data-zeige>
           <div class="text">
-            <h3 data-t="pruef.h3">Prüfung</h3>
-            <p data-t="pruef.p">Mehr als 20 Regeln auf Basis gängiger Standards. Rot heißt: So lässt sich das Rad nicht bauen. Gelb heißt: Es geht, aber mit Kompromiss oder Adapter.</p>
-            <span class="echt" data-t="beispiel">Beispielansicht</span>
+            <h3 data-t="pruef.h3">Compatibility check</h3>
+            <p data-t="pruef.p">More than 20 rules based on established standards. Red means the bike can’t be built this way. Yellow means it works, but with a compromise or an adapter.</p>
+            <span class="echt" data-t="beispiel">Sample view</span>
           </div>
-          <div class="buehne" style="aspect-ratio:1/.8;--blende:#eef8eb" role="img" aria-label="Beispielansicht: Die Prüfung meldet keine Konflikte, alle Maße passen." data-t-aria="alt.pruef">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/pr-480.avif 480w, img/s/de/pr.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/de/pr.webp" srcset="img/s/de/pr-480.webp 480w, img/s/de/pr.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+          <div class="buehne" style="aspect-ratio:1/.86;--blende:#eef8eb" role="img" aria-label="Sample view: the check finds no conflicts and every dimension matches." data-t-aria="alt.pruef">
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/pr-480.avif 480w, img/s/en/pr.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/en/pr.webp" srcset="img/s/en/pr-480.webp 480w, img/s/en/pr.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
             <div class="blende" aria-hidden="true"></div>
-            <div class="pop kappe" style="--w:74;--k:.163;left:13cqw;top:63cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-ok-600.avif 600w, img/s/de/k-ok.avif 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw"><img data-bild src="img/s/de/k-ok.webp" srcset="img/s/de/k-ok-600.webp 600w, img/s/de/k-ok.webp 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw" width="900" height="820" alt="" decoding="async" loading="lazy"></picture></div>
+            <div class="pop kappe" style="--w:74;--k:.2;left:13cqw;top:62cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-ok-600.avif 600w, img/s/en/k-ok.avif 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw"><img data-bild src="img/s/en/k-ok.webp" srcset="img/s/en/k-ok-600.webp 600w, img/s/en/k-ok.webp 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw" width="900" height="820" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
       </div>
@@ -614,71 +619,71 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
   <section id="modi" aria-labelledby="modi-titel">
     <div class="innen">
       <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="modi.etikett">Drei Modi</p>
-        <h2 id="modi-titel" data-t="modi.h2">Neues Rad, dein Rad oder ein gebrauchtes</h2>
-        <p class="lead" data-t="modi.p">Wähle, worum es geht. Die Prüfung ist in allen drei Modi dieselbe, nur der Ausgangspunkt ändert sich.</p>
+        <p class="etikett" data-t="modi.etikett">Three modes</p>
+        <h2 id="modi-titel" data-t="modi.h2">A new bike, your bike or a used one</h2>
+        <p class="lead" data-t="modi.p">Pick what you’re working on. The check is the same in all three modes; only the starting point changes.</p>
       </div>
       <div class="drei">
         <article class="karte k-lila modus" data-zeige>
-          <p class="kicker"><span class="zahl">01</span><span class="etikett" data-t="weg1.etikett">Traumrad</span></p>
-          <h3 data-t="weg1.h3">Ein neues Rad planen</h3>
-          <p data-t="weg1.p">Du legst Disziplin, Budget und Wunschmarken fest. Der Assistent stellt daraus einen kompletten Aufbau zusammen, der die Prüfung ohne Konflikt besteht. Danach tauschst du, was du anders haben willst.</p>
-          <p class="beleg" data-t="weg1.beleg">Beispiel: Score 99 · 6.247&nbsp;€</p>
-          <div class="app-demo" role="img" aria-label="Nachbau eines Knopfs aus der App: Traumrad-Assistent – Disziplin, Budget, Marken und ein fertiger Aufbau." data-t-aria="alt.m1">
+          <p class="kicker"><span class="zahl">01</span><span class="etikett" data-t="weg1.etikett">Dream bike</span></p>
+          <h3 data-t="weg1.h3">Plan a new bike</h3>
+          <p data-t="weg1.p">Set your discipline, budget and favourite brands. The assistant puts together a complete build that passes the check without any conflicts. Then you swap whatever you’d like to change.</p>
+          <p class="beleg" data-t="weg1.beleg">Example: score 99 · €6,247</p>
+          <div class="app-demo" role="img" aria-label="Recreated app button: Dream bike assistant – discipline, budget, brands and a finished build." data-t-aria="alt.m1">
             <div class="app-knopf" aria-hidden="true">
               <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 2.8l1.55 4.65a3 3 0 0 0 1.9 1.9L18.1 10.9l-4.65 1.55a3 3 0 0 0-1.9 1.9L10 19l-1.55-4.65a3 3 0 0 0-1.9-1.9L1.9 10.9l4.65-1.55a3 3 0 0 0 1.9-1.9z"/><path d="M18.5 14.5l.75 2.25 2.25.75-2.25.75-.75 2.25-.75-2.25-2.25-.75 2.25-.75z"/></svg></span>
-              <span class="was"><b data-t="m1.titel">Traumrad-Assistent</b><small data-t="m1.sub">Disziplin, Budget, Marken – und ein fertiger Aufbau.</small></span>
+              <span class="was"><b data-t="m1.titel">Dream bike assistant</b><small data-t="m1.sub">Discipline, budget, brands – and a finished build.</small></span>
               <svg class="pfeil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
             </div>
           </div>
         </article>
         <article class="karte k-blau modus" data-zeige>
-          <p class="kicker"><span class="zahl">02</span><span class="etikett" data-t="weg2.etikett">Mein Rad</span></p>
-          <h3 data-t="weg2.h3">Dein Rad prüfen</h3>
-          <p data-t="weg2.p">Wie stimmig ist dein Rad, und passt das Teil, das du im Auge hast? Die App zeigt dir, was nicht zusammenpasst, und schlägt Teile vor, die den Konflikt lösen können.</p>
-          <div class="app-demo" role="img" aria-label="Nachbau eines Hinweises aus der App: Trag ein, was an deinem Rad ist, und fang beim Rahmen an." data-t-aria="alt.m2">
+          <p class="kicker"><span class="zahl">02</span><span class="etikett" data-t="weg2.etikett">My bike</span></p>
+          <h3 data-t="weg2.h3">Check your bike</h3>
+          <p data-t="weg2.p">How well does your bike hang together, and will the part you’ve got your eye on fit? The app shows you what doesn’t work together and suggests parts that can resolve the conflict.</p>
+          <div class="app-demo" role="img" aria-label="Recreated app hint: enter what’s on your bike, starting with the frame." data-t-aria="alt.m2">
             <div class="app-hinweis" aria-hidden="true">
-              <b data-t="m2.titel">Trag ein, was an deinem Rad ist</b>
-              <span data-t="m2.text">Fang beim Rahmen an&nbsp;– der legt Laufradgröße, Achsmaße und Tretlager fest und grenzt damit alles andere ein. Was du nicht weißt, lässt du offen; bewertet wird nur, was drin steht.</span>
+              <b data-t="m2.titel">Enter what’s on your bike</b>
+              <span data-t="m2.text">Start with the frame&nbsp;– it sets wheel size, axle dimensions and bottom bracket and so narrows down everything else. Leave open what you don’t know; only what’s entered gets rated.</span>
             </div>
           </div>
         </article>
         <article class="karte k-pfirsich modus" data-zeige>
-          <p class="kicker"><span class="zahl">03</span><span class="etikett" data-t="weg3.etikett">Gebrauchtrad</span></p>
-          <h3 data-t="weg3.h3">Ein Angebot einschätzen</h3>
-          <p data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Modelljahr, Zustand und Preis. Die App schätzt den Gebrauchtwert und zeigt, ob der Preis fair wirkt und ob dir das Rad passt. Eine Besichtigung ersetzt das nicht.</p>
-          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Beispielansicht: ein Angebot einschätzen, Modelljahr 2023, Zustand „gepflegt, normale Spuren“." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/m-gebraucht-600.avif 600w, img/s/de/m-gebraucht.avif 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw"><img data-bild src="img/s/de/m-gebraucht.webp" srcset="img/s/de/m-gebraucht-600.webp 600w, img/s/de/m-gebraucht.webp 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw" width="900" height="1862" alt="" decoding="async" loading="lazy"></picture></div></div>
+          <p class="kicker"><span class="zahl">03</span><span class="etikett" data-t="weg3.etikett">Used bike</span></p>
+          <h3 data-t="weg3.h3">Check a used listing</h3>
+          <p data-t="weg3.p">Enter the parts from the listing, plus model year, condition and asking price. The app estimates the used value and shows whether the price looks fair and whether the bike fits you. It’s no substitute for seeing the bike in person.</p>
+          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Sample view: checking a listing, model year 2023, condition “well kept, normal wear”." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/m-gebraucht-600.avif 600w, img/s/en/m-gebraucht.avif 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw"><img data-bild src="img/s/en/m-gebraucht.webp" srcset="img/s/en/m-gebraucht-600.webp 600w, img/s/en/m-gebraucht.webp 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw" width="900" height="1862" alt="" decoding="async" loading="lazy"></picture></div></div>
         </article>
       </div>
-      <p class="quelle" data-t="modi.quelle">Knopf und Hinweis in den ersten beiden Karten sind der App nachgebaut. Die dritte Karte zeigt eine Beispielansicht vom 30.09.2026.</p>
+      <p class="quelle" data-t="modi.quelle">The button and hint in the first two cards are recreated from the app. The third card shows a sample view from 30 Sept 2026.</p>
     </div>
   </section>
 
   <section id="ablauf" aria-labelledby="ablauf-titel">
     <div class="innen">
       <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="ablauf.etikett">So funktioniert’s</p>
-        <h2 id="ablauf-titel" data-t="ablauf.h2">In drei Schritten zum Score</h2>
-        <p class="lead" data-t="ablauf.p">Kein Konto, keine Anmeldung. Maße und Standards musst du nicht im Kopf haben, die App kennt sie für die Teile im Katalog.</p>
+        <p class="etikett" data-t="ablauf.etikett">How it works</p>
+        <h2 id="ablauf-titel" data-t="ablauf.h2">Three steps to your score</h2>
+        <p class="lead" data-t="ablauf.p">No account, no sign-up. You don’t need to know dimensions and standards by heart; the app knows them for the parts in its catalogue.</p>
       </div>
       <ol class="schritte">
         <li class="schritt" data-zeige>
           <span class="s-nr">01</span>
-          <h3 data-t="s1.h3">Modus wählen</h3>
-          <p data-t="s1.p">Neues Rad, dein eigenes oder ein Gebrauchtangebot. Du brauchst nur eine Idee, was du fahren willst, die Teileliste deines Rads oder die Anzeige.</p>
-          <div class="s-bild" aria-hidden="true"><span class="an" data-t="s1.a">Traumrad</span><span data-t="s1.b">Mein Rad</span><span data-t="s1.c">Gebrauchtrad</span></div>
+          <h3 data-t="s1.h3">Choose a mode</h3>
+          <p data-t="s1.p">A new bike, your own or a used one. All you need is an idea of what you want to ride, your bike’s spec or the listing.</p>
+          <div class="s-bild" aria-hidden="true"><span class="an" data-t="s1.a">Dream bike</span><span data-t="s1.b">My bike</span><span data-t="s1.c">Used bike</span></div>
         </li>
         <li class="schritt" data-zeige>
           <span class="s-nr">02</span>
-          <h3 data-t="s2.h3">Teile eintragen</h3>
-          <p data-t="s2.p">Gabel, Dämpfer, Laufräder, Antrieb: Bei jeder Auswahl siehst du sofort, welche Teile zu deinem Aufbau passen und welche nicht.</p>
-          <div class="s-bild liste" aria-hidden="true"><span><i class="ok"></i><b data-t="s2.a">Rahmen</b></span><span><i class="ok"></i><b data-t="s2.b">Federgabel</b></span><span><i class="nein"></i><b data-t="s2.c">Dämpfer · 190×45</b></span></div>
+          <h3 data-t="s2.h3">Add your parts</h3>
+          <p data-t="s2.p">Fork, shock, wheels, drivetrain: each time you pick a part, you can see straight away which options suit your build and which don’t.</p>
+          <div class="s-bild liste" aria-hidden="true"><span><i class="ok"></i><b data-t="s2.a">Frame</b></span><span><i class="ok"></i><b data-t="s2.b">Fork</b></span><span><i class="nein"></i><b data-t="s2.c">Shock · 190×45</b></span></div>
         </li>
         <li class="schritt" data-zeige>
           <span class="s-nr">03</span>
-          <h3 data-t="s3.h3">Score und nächsten Schritt sehen</h3>
-          <p data-t="s3.p">Du bekommst den Score, die gefundenen Konflikte mit Lösungsvorschlägen und den einen Schritt, der dein Rad gerade am meisten weiterbringt. Mit Pro kommen Startwerte fürs Fahrwerk dazu.</p>
-          <div class="s-bild score" aria-hidden="true"><span class="ring"><b>99</b></span><span class="s-txt"><b data-t="s3.a">Stimmig.</b> <span data-t="s3.b">Keine Konflikte.</span></span></div>
+          <h3 data-t="s3.h3">See your score and next step</h3>
+          <p data-t="s3.p">You get the score, any conflicts with suggested fixes and the one step that would improve your bike most right now. Pro adds starting values for your suspension.</p>
+          <div class="s-bild score" aria-hidden="true"><span class="ring"><b>99</b></span><span class="s-txt"><b data-t="s3.a">Spot on.</b> <span data-t="s3.b">No conflicts.</span></span></div>
         </li>
       </ol>
     </div>
@@ -687,44 +692,44 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
   <section id="funktionen" aria-labelledby="funk-titel">
     <div class="innen">
       <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="funk.etikett">Auf dich abgestimmt</p>
-        <h2 id="funk-titel" data-t="funk.h2">Dein Körper, dein Fahrstil</h2>
-        <p class="lead" data-t="funk.p">Ob ein Rad wirklich passt, hängt nicht nur an den Teilen. CrankScore rechnet auch mit deinen Körpermaßen, deinem Gewicht und deiner Fahrweise.</p>
+        <p class="etikett" data-t="funk.etikett">Set up for you</p>
+        <h2 id="funk-titel" data-t="funk.h2">Your body, your riding style</h2>
+        <p class="lead" data-t="funk.p">Whether a bike really works for you isn’t only about the parts. CrankScore also takes your body measurements, your weight and your riding style into account.</p>
       </div>
       <div class="zwei">
         <article class="karte k-mint" id="fit" data-zeige>
           <div class="text">
-            <h3 data-t="fit.h3">Deine Größe</h3>
-            <p data-t="fit.p">Aus deiner Körpergröße und, wenn du willst, Schrittlänge, Schulterbreite und Spannweite schätzt die App Rahmengröße, Lenkerbreite, Vorbau, Kurbellänge und Hub der Variostütze. Das sind Richtwerte, kein Bikefitting.</p>
-            <span class="echt" data-t="ausschnitt">Beispielausschnitte</span>
+            <h3 data-t="fit.h3">Your sizing</h3>
+            <p data-t="fit.p">From your height, plus your inseam, shoulder width and arm span if you like, the app estimates frame size, bar width, stem length, crank length and dropper travel. These are guide values, not a professional bike fit.</p>
+            <span class="echt" data-t="ausschnitt">Sample crops</span>
           </div>
-          <div class="buehne" style="aspect-ratio:1/.84" role="img" aria-label="Beispielausschnitte bei 182 cm Körpergröße: Rahmengröße L, Lenkerbreite 800 mm, Vorbau 40 bis 50 mm." data-t-aria="alt.fit">
-            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-groesse-600.avif 600w, img/s/de/k-groesse.avif 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw"><img data-bild src="img/s/de/k-groesse.webp" srcset="img/s/de/k-groesse-600.webp 600w, img/s/de/k-groesse.webp 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw" width="900" height="332" alt="" decoding="async" loading="lazy"></picture></div>
-            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-lenker.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/de/k-lenker.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
-            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-vorbau.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/de/k-vorbau.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
+          <div class="buehne" style="aspect-ratio:1/.84" role="img" aria-label="Sample crops for a rider 182 cm tall: frame size L, bar width 800 mm, stem 40 to 50 mm." data-t-aria="alt.fit">
+            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-groesse-600.avif 600w, img/s/en/k-groesse.avif 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw"><img data-bild src="img/s/en/k-groesse.webp" srcset="img/s/en/k-groesse-600.webp 600w, img/s/en/k-groesse.webp 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw" width="900" height="332" alt="" decoding="async" loading="lazy"></picture></div>
+            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-lenker.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/en/k-lenker.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
+            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-vorbau.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/en/k-vorbau.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
         <article class="karte k-blau" id="federung" data-zeige>
           <div class="text">
-            <h3><span data-t="fed.h3">Fahrwerk</span><span class="pro-pille">Pro</span></h3>
-            <p data-t="fed.kurz">Startwerte für Gabel und Dämpfer: das Sag-Ziel, also wie tief das Fahrwerk unter dir einsinken soll, dazu Zug- und Druckstufe in Klicks, gezählt wie auf dem Knopf. Einen Luftdruck nennt die App nur, wenn er belegt ist, etwa durch die Herstellertabelle für Modell und Baujahr deiner Gabel. Sonst führt sie dich mit einer Sag-Messung zum passenden Wert.</p>
-            <span class="echt" data-t="ausschnitt">Beispielausschnitte</span>
+            <h3><span data-t="fed.h3">Suspension</span><span class="pro-pille">Pro</span></h3>
+            <p data-t="fed.kurz">Starting values for fork and shock: a sag target, meaning how far the suspension should settle under your weight, plus rebound and compression in clicks, counted the way your dial is marked. The app only gives an air pressure when it’s backed up, for example by the manufacturer’s table for your fork’s model and year. Otherwise it walks you through a sag measurement to find the right value.</p>
+            <span class="echt" data-t="ausschnitt">Sample crops</span>
           </div>
-          <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Beispielausschnitte: Fahrprofil mit 78 kg, ruppigen Trails und zügigem Tempo; Startwert für die Federgabel 75 psi (5,2 bar) bei 18 % Sag." data-t-aria="alt.fed">
-            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-profil-600.avif 600w, img/s/de/k-profil.avif 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/de/k-profil.webp" srcset="img/s/de/k-profil-600.webp 600w, img/s/de/k-profil.webp 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw" width="900" height="606" alt="" decoding="async" loading="lazy"></picture></div>
-            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-psi-600.avif 600w, img/s/de/k-psi.avif 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/de/k-psi.webp" srcset="img/s/de/k-psi-600.webp 600w, img/s/de/k-psi.webp 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw" width="900" height="212" alt="" decoding="async" loading="lazy"></picture></div>
+          <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Sample crops: riding profile with 78 kg, rough trails and a brisk pace; fork starting value 75 psi (5.2 bar) at 18% sag." data-t-aria="alt.fed">
+            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-profil-600.avif 600w, img/s/en/k-profil.avif 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/en/k-profil.webp" srcset="img/s/en/k-profil-600.webp 600w, img/s/en/k-profil.webp 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw" width="900" height="606" alt="" decoding="async" loading="lazy"></picture></div>
+            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-psi-600.avif 600w, img/s/en/k-psi.avif 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/en/k-psi.webp" srcset="img/s/en/k-psi-600.webp 600w, img/s/en/k-psi.webp 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw" width="900" height="212" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
       </div>
       <article class="karte k-pfirsich breit" style="margin-top:clamp(16px,2vw,24px)" data-zeige>
         <div class="text">
-          <h3 data-t="up.h3">Upgrades &amp; Einkaufsliste</h3>
-          <p data-t="up.p">Unter Upgrades stehen nur Teile, die mindestens gleichwertig sind und besser abschneiden. Beim Planen zeigt die App auch günstigere Alternativen und sagt dir, was sich dabei ändert, etwa weniger Federweg. Die Einkaufsliste sammelt alles, mit Shop-Links oder als Text für deine Werkstatt.</p>
-          <span class="echt" data-t="beispiel">Beispielansicht</span>
+          <h3 data-t="up.h3">Upgrades &amp; shopping list</h3>
+          <p data-t="up.p">Upgrades only lists parts that are at least as good and score higher. When you’re planning, the app also shows cheaper alternatives and tells you what changes, such as less travel. The shopping list gathers everything, with shop links or as text for your workshop.</p>
+          <span class="echt" data-t="beispiel">Sample view</span>
         </div>
-        <div class="buehne" style="aspect-ratio:1/.78" role="img" aria-label="Beispielansichten: Upgrade auf den Reifen Maxxis Minion DHR II für einen Punkt mehr, daneben die Einkaufsliste mit 19 Teilen für 6.247&nbsp;€." data-t-aria="alt.up">
-          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/up-480.avif 480w, img/s/de/up.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/de/up.webp" srcset="img/s/de/up-480.webp 480w, img/s/de/up.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/kauf-480.avif 480w, img/s/de/kauf.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/de/kauf.webp" srcset="img/s/de/kauf-480.webp 480w, img/s/de/kauf.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+        <div class="buehne" style="aspect-ratio:1/.78" role="img" aria-label="Sample views: an upgrade to the Maxxis Minion DHR II tyre for one more point, next to the shopping list with 19 parts for €6,247." data-t-aria="alt.up">
+          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/up-480.avif 480w, img/s/en/up.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/en/up.webp" srcset="img/s/en/up-480.webp 480w, img/s/en/up.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/kauf-480.avif 480w, img/s/en/kauf.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/en/kauf.webp" srcset="img/s/en/kauf-480.webp 480w, img/s/en/kauf.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
         </div>
       </article>
     </div>
@@ -734,20 +739,20 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
     <div class="innen">
       <div class="karte k-nacht dunkel breit guide">
         <div class="text" data-zeige>
-          <p class="etikett" data-t="guide.etikett">Der Guide</p>
-          <h2 id="guide-titel" style="margin-top:12px" data-t="guide.h2">Etwas unklar? Frag den Guide.</h2>
-          <p data-t="guide.p">Der Guide beantwortet Fragen zu deinem Rad und zur Technik dahinter, direkt in der App. Er funktioniert offline und schickt nichts an einen KI-Dienst.</p>
+          <p class="etikett" data-t="guide.etikett">The guide</p>
+          <h2 id="guide-titel" style="margin-top:12px" data-t="guide.h2">Not sure? Ask the guide.</h2>
+          <p data-t="guide.p">The guide answers questions about your bike and the tech behind it, right inside the app. It works offline and doesn’t send anything to an AI service.</p>
           <div class="guide-liste">
-            <div><h3 data-t="g1.h3">Kennt dein Rad</h3><p data-t="g1.p">„Was fehlt zur 100?“ oder „Taugt mein Rad für Enduro?“ Der Guide rechnet die Antwort mit deinem Aufbau aus.</p></div>
-            <div><h3 data-t="g2.h3">Prüft Teile</h3><p data-t="g2.p">„Passt eine Fox 38?“ Der Guide sucht das Teil im Katalog und prüft, ob es an deinem Rad neue Konflikte gäbe.</p></div>
-            <div><h3 data-t="g3.h3">Erklärt Begriffe</h3><p data-t="g3.p">Boost, Freilauf, Sag, HSC: in einfachen Worten, auch wenn du neu dabei bist.</p></div>
-            <div><h3 data-t="g4.h3">Bringt dich hin</h3><p data-t="g4.p">Unter den Antworten führen Knöpfe direkt zur passenden Stelle in der App.</p></div>
+            <div><h3 data-t="g1.h3">Knows your bike</h3><p data-t="g1.p">“What’s missing for 100?” or “Is my bike up to enduro?” The guide works out the answer from your build.</p></div>
+            <div><h3 data-t="g2.h3">Checks parts</h3><p data-t="g2.p">“Will a Fox 38 fit?” The guide finds the part in the catalogue and checks whether it would cause new conflicts on your bike.</p></div>
+            <div><h3 data-t="g3.h3">Explains the jargon</h3><p data-t="g3.p">Boost, freehub, sag, HSC: in plain words, even if you’re new to this.</p></div>
+            <div><h3 data-t="g4.h3">Takes you there</h3><p data-t="g4.p">Buttons under the answers take you straight to the right place in the app.</p></div>
           </div>
-          <span class="echt" data-t="beispiel">Beispielansicht</span>
+          <span class="echt" data-t="beispiel">Sample view</span>
         </div>
-        <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Beispielansicht des Guides: Auf „Passt eine Fox 38?“ nennt er die Fox 38 Factory für 1.549 €, gebaut für Enduro und Downhill, und meldet, dass ihr Federweg die Freigabe des Rahmens übersteigt." data-t-aria="alt.guide">
-          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/guide-480.avif 480w, img/s/de/guide.avif 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw"><img data-bild src="img/s/de/guide.webp" srcset="img/s/de/guide-480.webp 480w, img/s/de/guide.webp 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-antwort-600.avif 600w, img/s/de/k-antwort.avif 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw"><img data-bild src="img/s/de/k-antwort.webp" srcset="img/s/de/k-antwort-600.webp 600w, img/s/de/k-antwort.webp 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw" width="900" height="993" alt="" decoding="async" loading="lazy"></picture></div>
+        <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Sample view of the guide: asked “Will a Fox 38 fit?”, it names the Fox 38 Factory at €1,549, built for enduro and downhill, and reports that its travel exceeds the frame’s limit." data-t-aria="alt.guide">
+          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/guide-480.avif 480w, img/s/en/guide.avif 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw"><img data-bild src="img/s/en/guide.webp" srcset="img/s/en/guide-480.webp 480w, img/s/en/guide.webp 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-antwort-600.avif 600w, img/s/en/k-antwort.avif 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw"><img data-bild src="img/s/en/k-antwort.webp" srcset="img/s/en/k-antwort-600.webp 600w, img/s/en/k-antwort.webp 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw" width="900" height="993" alt="" decoding="async" loading="lazy"></picture></div>
         </div>
       </div>
     </div>
@@ -756,31 +761,31 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
   <section id="mehr" aria-labelledby="mehr-titel">
     <div class="innen">
       <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="mehr.etikett">Weitere Funktionen</p>
-        <h2 id="mehr-titel" data-t="mehr.h2">Was sonst noch drinsteckt</h2>
+        <p class="etikett" data-t="mehr.etikett">More features</p>
+        <h2 id="mehr-titel" data-t="mehr.h2">What else it can do</h2>
       </div>
       <div class="drei">
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="m7.5 10 4.5 4.5 4.5-4.5"/><path d="M4 15.5V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.5"/></svg></span>
-          <h3 data-t="k4.h3">Datensicherung</h3><p data-t="k4.p">Sichere Räder, Fahrerprofil, Setup und Notizen als Datei, auf Wunsch mit Fotos, und lade sie später wieder.</p></div>
+          <h3 data-t="k4.h3">Backup</h3><p data-t="k4.p">Save your bikes, rider profile, setup and notes to a file, photos included if you like, and load them again later.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span>
-          <h3 data-t="k5.h3">Modelljahr</h3><p data-t="k5.p">Ältere Jahrgänge kosten weniger, deshalb greift der Assistent bei knappem Budget auch zu einem älteren Rahmenjahrgang. Die Prüfung kennt außerdem Änderungen zwischen den Jahrgängen, etwa beim UDH.</p></div>
+          <h3 data-t="k5.h3">Model year</h3><p data-t="k5.p">Older model years cost less, so the assistant may fall back on an older frame year when the budget is tight. The check also knows about changes between model years, such as UDH.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
-          <h3><span data-t="k6.h3">Mehrere Räder</span><span class="pro-pille">Pro</span></h3><p data-t="k6.p">Jedes Rad behält seinen eigenen Aufbau. In Free hast du ein Rad pro Modus, mit Pro so viele, wie du willst.</p></div>
+          <h3><span data-t="k6.h3">Several bikes</span><span class="pro-pille">Pro</span></h3><p data-t="k6.p">Each bike keeps its own build. Free gives you one bike per mode, Pro as many as you like.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H8l1.5-2h5L16 6h1.5A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
-          <h3><span data-t="k7.h3">Dein Top-Cap-Foto</span><span class="pro-pille">Pro</span></h3><p data-t="k7.p">Fotografier die Einstellknöpfe deiner Gabel und tipp sie an. Die App schreibt die Einstellung direkt ins Foto, und das Foto bleibt auf deinem Gerät.</p></div>
+          <h3><span data-t="k7.h3">Your top-cap photo</span><span class="pro-pille">Pro</span></h3><p data-t="k7.p">Take a photo of your fork’s adjusters and tap each one. The app writes the setting straight onto the photo, which stays on your device.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
-          <h3 data-t="k8.h3">Deutsch und Englisch</h3><p data-t="k8.p">Die ganze App gibt es in beiden Sprachen, mit Preisen und Zahlen im passenden Format.</p></div>
+          <h3 data-t="k8.h3">German and English</h3><p data-t="k8.p">The whole app is available in both languages, with prices and numbers in the right format.</p></div>
         <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/><path d="m3 3 18 18"/></svg></span>
-          <h3 data-t="k9.h3">Funktioniert offline</h3><p data-t="k9.p">Nach dem ersten vollständigen Laden läuft die App ohne Netz, auf dem Trail wie in der Werkstatt. Nur aktuelle Preise brauchen eine Verbindung, und Pro bleibt offline 14 Tage aktiv.</p></div>
+          <h3 data-t="k9.h3">Works offline</h3><p data-t="k9.p">Once it has fully loaded, the app works without a connection, on the trail or in the workshop. Only current prices need a signal, and Pro stays active offline for 14 days.</p></div>
       </div>
-      <div class="zahlen" role="group" aria-label="Der Katalog in Zahlen" data-t-aria="zahlen.aria" data-zeige>
-        <div><b data-t="z1.zahl">766</b><span data-t="z1">Teile</span></div>
-        <div><b data-t="z2.zahl">125</b><span data-t="z2">Marken</span></div>
-        <div><b data-t="z3.zahl">7</b><span data-t="z3">Disziplinen</span></div>
-        <div><b data-t="z4.zahl">15</b><span data-t="z4">Federtabellen</span></div>
-        <div><b data-t="z5.zahl">100+</b><span data-t="z5">Guide-Themen</span></div>
+      <div class="zahlen" role="group" aria-label="The catalogue in numbers" data-t-aria="zahlen.aria" data-zeige>
+        <div><b data-t="z1.zahl">766</b><span data-t="z1">parts</span></div>
+        <div><b data-t="z2.zahl">125</b><span data-t="z2">brands</span></div>
+        <div><b data-t="z3.zahl">7</b><span data-t="z3">disciplines</span></div>
+        <div><b data-t="z4.zahl">15</b><span data-t="z4">suspension tables</span></div>
+        <div><b data-t="z5.zahl">100+</b><span data-t="z5">guide topics</span></div>
       </div>
-      <p class="quelle mitte" data-t="zahlen.quelle">Gezählt in der App: Katalog vom 01.10.2026, App-Version 20261008-0728.</p>
+      <p class="quelle mitte" data-t="zahlen.quelle">Counted in the app: catalogue from 1 Oct 2026, app version 20261008-0728.</p>
     </div>
   </section>
 
@@ -788,14 +793,14 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
     <div class="innen">
       <div class="karte k-gruen breit daten">
         <div class="text" data-zeige>
-          <p class="etikett" data-t="daten.etikett">Datenschutz</p>
-          <h2 id="daten-titel" style="margin-top:12px" data-t="daten.h2">Deine Räder bleiben auf deinem Gerät</h2>
-          <p data-t="daten.p">Die App braucht für deine Daten keinen Server: Prüfung, Score und die Antworten des Guides berechnet sie direkt auf deinem Gerät.</p>
+          <p class="etikett" data-t="daten.etikett">Privacy</p>
+          <h2 id="daten-titel" style="margin-top:12px" data-t="daten.h2">Your bikes stay on your device</h2>
+          <p data-t="daten.p">The app doesn’t need a server for your data: it works out the check, the score and the guide’s answers right on your device.</p>
         </div>
         <div class="daten-liste" data-zeige>
-          <div><h3 data-t="d1.h3">Kein Konto</h3><p data-t="d1.p">Keine Anmeldung, kein Passwort. Kaufst du Pro, gibst du deine E-Mail-Adresse bei Lemon Squeezy an, dem Anbieter, über den der Kauf läuft. Die App speichert nur den Lizenzcode.</p></div>
-          <div><h3 data-t="d2.h3">Alles auf deinem Gerät</h3><p data-t="d2.p">Räder, Maße, Setup und Fotos liegen im Speicher deines Browsers. Willst du die Browserdaten löschen oder das Gerät wechseln, sichere vorher alles als Datei.</p></div>
-          <div><h3 data-t="d3.h3">Kein Tracking</h3><p data-t="d3.p">Keine Analyse-Werkzeuge, keine Cookies. Deine Einträge verlassen dein Gerät nicht. Nur mit Pro prüft die App höchstens einmal am Tag den Lizenzcode bei Lemon Squeezy.</p></div>
+          <div><h3 data-t="d1.h3">No account</h3><p data-t="d1.p">No sign-up, no password. If you buy Pro, you give your email address to Lemon Squeezy, which handles the purchase. The app only stores the licence code.</p></div>
+          <div><h3 data-t="d2.h3">Everything on your device</h3><p data-t="d2.p">Bikes, measurements, setup and photos live in your browser’s storage. Before you clear your browser data or switch devices, back everything up to a file.</p></div>
+          <div><h3 data-t="d3.h3">No tracking</h3><p data-t="d3.p">No analytics, no cookies. Your entries never leave your device. Only with Pro does the app check the licence code with Lemon Squeezy, at most once a day.</p></div>
         </div>
       </div>
     </div>
@@ -804,25 +809,25 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
 <section id="fragen" aria-labelledby="fragen-titel">
     <div class="innen fragen-raster">
       <div class="text" data-zeige>
-        <p class="etikett" data-t="fragen.etikett">Fragen</p>
-        <h2 id="fragen-titel" data-t="fragen.h2">Kurz beantwortet</h2>
-        <p class="lead" data-t="fragen.p">Das Wichtigste vor dem Start: Stand, Preis und wie verlässlich die Ergebnisse sind.</p>
+        <p class="etikett" data-t="fragen.etikett">FAQ</p>
+        <h2 id="fragen-titel" data-t="fragen.h2">Quick answers</h2>
+        <p class="lead" data-t="fragen.p">The essentials before launch: status, price and how reliable the results are.</p>
       </div>
       <div class="fragen" data-zeige>
-        <details id="f1"><summary data-t="f1.q">Wann kommt CrankScore?</summary>
-          <p data-t="f1.a">CrankScore wird gerade getestet, einen Starttermin gibt es noch nicht. Wir veröffentlichen die App, sobald Katalog und Prüfung so ausgereift sind, dass du dich darauf verlassen kannst. Neuigkeiten findest du zuerst hier.</p></details>
-        <details><summary data-t="f2.q">Was wird CrankScore kosten?</summary>
-          <p data-t="f2.a">Die Grundversion Free ist kostenlos und kommt ohne Konto aus. Pro soll 6,99&nbsp;€ im Monat oder 47,88&nbsp;€ im Jahr kosten, also 3,99&nbsp;€ im Monat, und jederzeit kündbar sein. Dafür gibt es beliebig viele Räder pro Modus (Free: eines), das Fahrwerk-Setup und den Guide ohne Tageslimit (Free: 10 Fragen am Tag).</p></details>
-        <details><summary data-t="f3.q">Was sagt der Score aus?</summary>
-          <p data-t="f3.a">Der Score fasst deinen Aufbau in einer Zahl von 0 bis 100 zusammen. Passform zeigt, ob die Teile technisch zusammenpassen, Einsatz, ob sie zu deiner Disziplin passen. Ab 85 ist der Aufbau stimmig, ab 60 fahrbar mit Kompromissen, darunter stimmt etwas Grundsätzliches nicht. Bewertet wird nur, was du eingetragen hast.</p></details>
-        <details><summary data-t="f4.q">Wie verlässlich sind die Ergebnisse?</summary>
-          <p data-t="f4.a">Die Prüfung arbeitet mit Maßen und Standards aus Herstellerangaben. Sie kennt die gängigen Normen, aber nicht jede Besonderheit eines einzelnen Rahmenjahrgangs. Gebrauchtwerte sind Schätzungen, Fahrwerkswerte sind Startpunkte zum Feinstellen. Vor dem Kauf gilt das Datenblatt des Herstellers.</p></details>
-        <details><summary data-t="f5.q">Gibt es E-MTBs?</summary>
-          <p data-t="f5.a">Ja, aber die Auswahl ist noch klein: Im Katalog stehen 7 E-MTB-Rahmen, 5 mit Full-Power-Motor (Bosch, Shimano, Specialized) und 2 Light-E-Modelle mit kleinerem Motor (TQ, Shimano), dazu passende Kurbeln und Laufräder. Die App prüft, ob die Kurbel zur Motorwelle passt und ob Bremsen und Laufräder das Mehrgewicht aushalten. Das Fahrwerk-Setup rechnet Motor und Akku mit ein.</p></details>
-        <details><summary data-t="f6.q">Gibt es CrankScore im App Store?</summary>
-          <p data-t="f6.a">Nein, das ist Absicht: CrankScore läuft im Browser. Auf dem Handy legst du die App auf den Startbildschirm, dann öffnet sie sich wie jede andere App.</p></details>
-        <details><summary data-t="f7.q">Wie finanziert sich CrankScore?</summary>
-          <p data-t="f7.a">Über Pro und über Partnerlinks. Manche Shop-Links in der App werden mit „Anzeige“ gekennzeichnet sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision, für dich bleibt der Preis gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.</p></details>
+        <details id="f1"><summary data-t="f1.q">When will CrankScore launch?</summary>
+          <p data-t="f1.a">CrankScore is currently in testing and there’s no launch date yet. We’ll release the app once the catalogue and the checks are solid enough for you to rely on. You’ll find news here first.</p></details>
+        <details><summary data-t="f2.q">What will CrankScore cost?</summary>
+          <p data-t="f2.a">The basic version, Free, costs nothing and works without an account. Pro is set to cost €6.99 a month or €47.88 a year, which works out at €3.99 a month, and you’ll be able to cancel at any time. It gives you as many bikes per mode as you like (Free: one), the suspension setup and the guide without a daily limit (Free: 10 questions a day).</p></details>
+        <details><summary data-t="f3.q">What does the score tell me?</summary>
+          <p data-t="f3.a">The score sums up your build in one number from 0 to 100. Fit shows whether the parts work together technically, purpose whether they suit your discipline. From 85 the build is coherent, from 60 it’s rideable with compromises, and below that something fundamental is wrong. Only the parts you’ve entered are rated.</p></details>
+        <details><summary data-t="f4.q">How reliable are the results?</summary>
+          <p data-t="f4.a">The check works with dimensions and standards taken from manufacturer data. It knows the common standards, but not every quirk of a particular frame year. Used values are estimates, and suspension settings are starting points for fine-tuning. Before you buy, the manufacturer’s spec sheet has the final say.</p></details>
+        <details><summary data-t="f5.q">Does it cover e-MTBs?</summary>
+          <p data-t="f5.a">Yes, though the selection is still small: the catalogue has 7 e-MTB frames, 5 with full-power motors (Bosch, Shimano, Specialized) and 2 light e-MTBs with smaller motors (TQ, Shimano), plus matching cranks and wheels. The app checks whether the crank fits the motor spindle and whether brakes and wheels can handle the extra weight. The suspension setup accounts for the motor and battery.</p></details>
+        <details><summary data-t="f6.q">Is CrankScore in the app stores?</summary>
+          <p data-t="f6.a">No, and that’s deliberate: CrankScore runs in your browser. On your phone you can add it to your home screen, and it then opens like any other app.</p></details>
+        <details><summary data-t="f7.q">How is CrankScore funded?</summary>
+          <p data-t="f7.a">Through Pro and partner links. Some shop links in the app will be marked “Ad”. If you buy through one, CrankScore earns a small commission and your price stays the same. Which part fits is decided by the check, not by the commission.</p></details>
       </div>
     </div>
   </section>
@@ -830,11 +835,11 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
   <section class="schluss" id="schluss" aria-labelledby="schluss-titel">
     <div class="innen">
       <div class="karte k-lila" data-zeige>
-        <h2 id="schluss-titel" data-t="schluss.h2">Kommt bald.</h2>
-        <p class="lead" data-t="schluss.p">Bis zum Start feilen wir weiter an Katalog und Prüfung. Kennst du jemanden, der gerade ein Rad plant oder ein gebrauchtes sucht? Dann teil die Seite.</p>
-        <p class="quelle" data-t="schluss.stand">Stand: 8. Oktober 2026</p>
-        <button type="button" class="teilen" id="teilen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg><span data-t="schluss.knopf">Seite teilen</span></button>
-        <span hidden data-t="schluss.kopiert">Link kopiert</span><span hidden data-t="schluss.fehler">Kopieren hat nicht geklappt. Die Adresse lautet crankscore.de.</span>
+        <h2 id="schluss-titel" data-t="schluss.h2">Coming soon.</h2>
+        <p class="lead" data-t="schluss.p">Until launch, we’re still fine-tuning the catalogue and the checks. Know someone who’s planning a bike or looking for a used one? Share this page with them.</p>
+        <p class="quelle" data-t="schluss.stand">Last updated: 8 October 2026</p>
+        <button type="button" class="teilen" id="teilen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg><span data-t="schluss.knopf">Share this page</span></button>
+        <span hidden data-t="schluss.kopiert">Link copied</span><span hidden data-t="schluss.fehler">Couldn’t copy the link. The address is crankscore.de.</span>
       </div>
     </div>
   </section>
@@ -845,27 +850,27 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
     <div class="fuss-raster">
       <div>
         <a class="marke" href="./">Crank<i>Score</i></a>
-        <p data-t="fuss.claim">Mountainbikes planen, prüfen und einschätzen. Teil für Teil.</p>
+        <p data-t="fuss.claim">Plan, check and size up mountain bikes, part by part.</p>
       </div>
       <div>
-        <h2 data-t="fuss.h1">Inhalt</h2>
-        <ul><li><a href="#prinzip" data-t="nav.prinzip">Prüfung</a></li><li><a href="#modi" data-t="nav.modi">Modi</a></li><li><a href="#ablauf" data-t="nav.ablauf">So funktioniert’s</a></li><li><a href="#funktionen" data-t="nav.fed">Größe &amp; Fahrwerk</a></li><li><a href="#guide" data-t="nav.guide">Guide</a></li><li><a href="#mehr" data-t="nav.mehr">Funktionen</a></li><li><a href="#fragen" data-t="nav.fragen">Fragen</a></li></ul>
+        <h2 data-t="fuss.h1">On this page</h2>
+        <ul><li><a href="#prinzip" data-t="nav.prinzip">The check</a></li><li><a href="#modi" data-t="nav.modi">Modes</a></li><li><a href="#ablauf" data-t="nav.ablauf">How it works</a></li><li><a href="#funktionen" data-t="nav.fed">Sizing &amp; suspension</a></li><li><a href="#guide" data-t="nav.guide">Guide</a></li><li><a href="#mehr" data-t="nav.mehr">Features</a></li><li><a href="#fragen" data-t="nav.fragen">FAQ</a></li></ul>
       </div>
       <div>
-        <h2 data-t="fuss.h2">Rechtliches</h2>
-        <ul><li><a href="impressum.html" data-t="fuss.imp">Impressum</a></li><li><a href="datenschutz.html" data-t="fuss.ds">Datenschutz</a></li></ul>
+        <h2 data-t="fuss.h2">Legal</h2>
+        <ul><li><a href="impressum.html" data-t="fuss.imp">Legal notice</a></li><li><a href="datenschutz.html" data-t="fuss.ds">Privacy policy</a></li></ul>
       </div>
       <div class="sprach-wahl">
-        <h2 data-t="fuss.h3">Sprache</h2>
+        <h2 data-t="fuss.h3">Language</h2>
         <ul><li><button type="button" data-sprache="de" aria-pressed="true" lang="de">Deutsch</button></li><li><button type="button" data-sprache="en" aria-pressed="false" lang="en">English</button></li></ul>
       </div>
       <div class="design-wahl">
-        <h2 data-t="fuss.h4">Design</h2>
-        <ul><li><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Hell</button></li><li><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dunkel</button></li><li><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Wie Gerät</button></li></ul>
+        <h2 data-t="fuss.h4">Appearance</h2>
+        <ul><li><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Light</button></li><li><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dark</button></li><li><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Match device</button></li></ul>
       </div>
     </div>
     <div class="klein">
-      <div class="hinweise"><span data-t="fuss.bilder">Alle App-Bilder sind Beispielansichten aus der Testversion vom 30.09.2026.</span> <span data-t="fuss.marken">Markennamen gehören ihren Inhabern und dienen nur dazu, die Teile im Katalog zu bezeichnen.</span></div>
+      <div class="hinweise"><span data-t="fuss.bilder">All app images are sample views from the test version of 30 Sept 2026.</span> <span data-t="fuss.marken">Brand names belong to their owners and are only used to identify parts in the catalogue.</span></div>
       <span>© 2026 CrankScore</span>
     </div>
   </div>

@@ -1,11 +1,11 @@
 /* CrankScore – Sprache, Design und Meldungen fuer alle Seiten der Website (Start, Impressum, Datenschutz, 404).
-   Die Texte stehen in texte.js. Das Markup ist deutsch; texte.js wird erst geladen, wenn Englisch gebraucht wird
-   (englischer Browser, Klick auf EN) -- deutsche Besucher laden es nie. Das kleine Skript im <head> jeder Seite
-   setzt das Design vor dem ersten Bild, blendet die Seite fuer englische Besucher kurz aus (Klasse en-lade) und
-   laedt texte.js fuer sie schon vorab. Die Adresse von texte.js steht am Skript-Tag (data-texte, mit Version).
+   Die Texte stehen in texte.js. Das Markup ist englisch (Standardsprache seit 2026-10-08, geschrieben von
+   werkzeuge/texte.mjs); texte.js wird erst geladen, wenn Deutsch gebraucht wird (gespeicherte Wahl, Klick auf DE).
+   Das kleine Skript im <head> jeder Seite setzt das Design vor dem ersten Bild, blendet die Seite fuer Besucher mit
+   gespeichertem Deutsch kurz aus (Klasse sprache-lade) und laedt texte.js fuer sie vorab. Die Adresse von texte.js
+   steht am Skript-Tag (data-texte, mit Version).
 
-   Sprache: gespeicherte Wahl (cs.sprache), sonst die Sprache des Browsers; Suchmaschinen bekommen Deutsch
-   (Googlebot meldet sich als en-US, Google zeigte die Seite deshalb englisch an).
+   Sprache: gespeicherte Wahl (cs.sprache), sonst immer Englisch -- unabhaengig von Geraet und Browser.
    Design: gespeicherte Wahl (cs.design), ohne Wahl wie das Geraet. Beides gilt fuer alle Seiten und fuer alle
    offenen Tabs. Der Wechsel hell/dunkel blendet weich ueber (View Transitions, sonst Farbuebergang), ausser bei
    "weniger Bewegung". */
@@ -15,10 +15,13 @@
   var skript = document.currentScript;
   var TEXTE_URL = (skript && skript.getAttribute("data-texte")) || "/texte.js";
   var SPRACHE_KEY = "cs.sprache", DESIGN_KEY = "cs.design";
-  var BOT = /bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent || "");
   var ATTRIBUTE = {"data-t-aria": "aria-label", "data-t-alt": "alt", "data-t-title": "title", "data-t-content": "content"};
-  /* Die Meldung steht hier und auf Englisch: sie erscheint gerade dann, wenn texte.js nicht geladen werden konnte */
-  var EN_FEHLER = "English couldn’t be loaded. Please check your connection and try again.";
+  /* Die Meldungen stehen hier, in der Sprache, die geladen werden sollte: sie erscheinen gerade dann, wenn texte.js
+     nicht geladen werden konnte */
+  var LADEFEHLER = {
+    de: "Deutsch konnte gerade nicht geladen werden. Bitte prüf deine Verbindung und versuch es noch einmal.",
+    en: "English couldn’t be loaded. Please check your connection and try again."
+  };
   var ruhig = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
 
   function alle(sel, wo){ return [].slice.call((wo || document).querySelectorAll(sel)); }
@@ -50,9 +53,11 @@
     });
     return laden;
   }
+  /* Sprache, die gerade im Dokument steht: zu Beginn die des Markups (<html lang>) */
+  var angezeigt = (doc.getAttribute("lang") || "en").slice(0, 2) === "de" ? "de" : "en";
   var CS = window.CS = {
-    sprache: "de",
-    /* Text in der aktuellen Sprache; ohne geladenes Woerterbuch aus dem (deutschen) Markup */
+    sprache: angezeigt,
+    /* Text in der aktuellen Sprache; ohne geladenes Woerterbuch aus dem Markup (Standardsprache) */
     t: function(schluessel){
       var paar = TX && TX.texte[schluessel];
       if(paar) return TX.fuelle(paar[CS.sprache === "en" ? 1 : 0], CS.sprache);
@@ -61,7 +66,6 @@
     },
     melde: melde
   };
-  var angezeigt = "de";  /* Sprache, die gerade im Dokument steht -- das Markup ist deutsch */
   function tausche(wert, sp){ return sp === "en" ? wert.replace(/\/de\//g, "/en/") : wert.replace(/\/en\//g, "/de/"); }
   function einsetzen(sp){
     function text(k){ var paar = TX.texte[k]; return paar ? TX.fuelle(paar[sp === "en" ? 1 : 0], sp) : null; }
@@ -70,7 +74,7 @@
     Object.keys(ATTRIBUTE).forEach(function(a){
       alle("[" + a + "]").forEach(function(e){ var t = text(e.getAttribute(a)); if(t !== null) e.setAttribute(ATTRIBUTE[a], t); });
     });
-    /* App-Aufnahmen gibt es in beiden Sprachen (img/s/de, img/s/en), jeweils auch als AVIF und kleiner */
+    /* App-Aufnahmen gibt es in beiden Sprachen (img/s/en, img/s/de), jeweils auch als AVIF und kleiner */
     alle("img[data-bild]").forEach(function(e){
       ["src", "srcset"].forEach(function(a){ var v = e.getAttribute(a); if(v) e.setAttribute(a, tausche(v, sp)); });
       if(e.parentNode && e.parentNode.nodeName === "PICTURE"){
@@ -90,15 +94,13 @@
   }
   function startSprache(){
     var g = lesen(SPRACHE_KEY);
-    if(g === "de" || g === "en") return g;
-    if(BOT) return "de";
-    var nl = ((navigator.languages && navigator.languages[0]) || navigator.language || "de").toLowerCase();
-    return nl.indexOf("de") === 0 ? "de" : "en";
+    return g === "de" || g === "en" ? g : "en";
   }
-  function sprachFehler(){ markieren(angezeigt); melde(EN_FEHLER, "fehler"); }
-  function zeigen(){ doc.classList.remove("en-lade"); }
+  function sprachFehler(sp){ return function(){ markieren(angezeigt); melde(LADEFEHLER[sp], "fehler"); }; }
+  function zeigen(){ doc.classList.remove("sprache-lade"); }
+  var erste = startSprache();
   markieren(angezeigt);
-  if(startSprache() === "en") setzeSprache("en").catch(sprachFehler).then(zeigen); else zeigen();
+  if(erste !== angezeigt) setzeSprache(erste).catch(sprachFehler(erste)).then(zeigen); else zeigen();
 
   alle("button[data-sprache]").forEach(function(b){
     b.addEventListener("click", function(){
@@ -107,7 +109,7 @@
       /* dauert das Nachladen spuerbar (ab 150 ms), pulsiert der Knopf */
       var knoepfe = alle('button[data-sprache="' + sp + '"]');
       var anzeige = setTimeout(function(){ knoepfe.forEach(function(k){ k.classList.add("laedt"); k.setAttribute("aria-busy", "true"); }); }, 150);
-      setzeSprache(sp).then(function(){ schreiben(SPRACHE_KEY, sp); }, sprachFehler).then(function(){
+      setzeSprache(sp).then(function(){ schreiben(SPRACHE_KEY, sp); }, sprachFehler(sp)).then(function(){
         clearTimeout(anzeige);
         knoepfe.forEach(function(k){ k.classList.remove("laedt"); k.removeAttribute("aria-busy"); });
       });
@@ -151,7 +153,7 @@
 
   /* andere offene Tabs ziehen mit */
   window.addEventListener("storage", function(e){
-    if(e.key === SPRACHE_KEY || e.key === null){ var sp = startSprache(); if(sp !== CS.sprache) setzeSprache(sp).catch(sprachFehler); }
+    if(e.key === SPRACHE_KEY || e.key === null){ var sp = startSprache(); if(sp !== CS.sprache) setzeSprache(sp).catch(sprachFehler(sp)); }
     if(e.key === DESIGN_KEY || e.key === null){ designWahl = gespeichertesDesign(); weich(); }
   });
 })();

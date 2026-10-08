@@ -21,13 +21,13 @@ a{color:var(--tinte);text-decoration-color:var(--akzent);text-underline-offset:3
 a:hover{text-decoration-color:currentColor}
 :focus-visible{outline:3px solid var(--akzent);outline-offset:3px}
 .innen{max-width:760px;margin:0 auto;padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
-.kopf{border-bottom:1px solid var(--linie)}
+.kopf{border-bottom:1px solid var(--linie);padding-top:env(safe-area-inset-top)}
 .kopf .innen{display:flex;align-items:center;gap:16px;height:64px;max-width:1160px}
 .marke{flex:none;font-weight:800;font-size:20px;letter-spacing:-.035em;color:var(--tinte);text-decoration:none}
 .marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
 .zurueck{margin-left:auto;font-size:15px;color:var(--text);text-decoration:none;white-space:nowrap;padding:8px 12px;border-radius:999px;transition:color var(--kurz),background-color var(--kurz)}
 .zurueck:hover{color:var(--tinte);background:var(--zart)}
-/* Sprachwahl und Design-Knopf wie auf der Startseite; ohne JavaScript ausgeblendet (dann gilt Deutsch, hell) */
+/* Sprachwahl und Design-Knopf wie auf der Startseite; ohne JavaScript ausgeblendet (dann gilt Englisch, hell) */
 .sprache{display:none;flex:none;background:var(--zart);border-radius:999px;padding:3px}
 [data-design] .sprache{display:flex}
 .sprache button{font:600 13px var(--schrift);border:0;background:none;color:var(--text);padding:6px 10px;border-radius:999px;cursor:pointer;min-height:32px;
@@ -46,8 +46,8 @@ button.laedt{animation:puls 1s ease-in-out infinite}
 .design svg{transition:opacity var(--mittel) var(--raus),transform var(--lang) var(--raus)}
 .design .sonne,[data-design="dunkel"] .design .mond{opacity:0;transform:rotate(-90deg) scale(.5)}
 [data-design="dunkel"] .design .sonne{opacity:1;transform:none}
-/* Englische Besucher: Seite kurz aus, bis seite.js die Texte eingesetzt hat */
-.en-lade body{visibility:hidden}
+/* Besucher mit gespeichertem Deutsch: Seite kurz aus, bis seite.js die Texte eingesetzt hat */
+.sprache-lade body{visibility:hidden}
 /* Schmale Handys: das Logo fuehrt ebenfalls zur Startseite */
 @media (max-width:439px){ .zurueck{display:none} .kopf .sprache{margin-left:auto} .kopf .innen{gap:10px} }
 @media (pointer:coarse){ .sprache button{min-height:36px;padding:6px 12px} }
@@ -85,5 +85,6 @@ b{color:var(--tinte)}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:250ms;animation-timing-function:ease}
 .design-wechsel,.design-wechsel *,.design-wechsel *::before,.design-wechsel *::after{transition:background-color 250ms ease,color 250ms ease,border-color 250ms ease,box-shadow 250ms ease!important}
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  *,*::before,*::after{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;transition-delay:0s!important}
+  button.laedt{opacity:.55}
 }

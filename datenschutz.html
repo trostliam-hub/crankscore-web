@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-t="ds.titel">Datenschutz – CrankScore</title>
+<title data-t="ds.titel">Privacy policy – CrankScore</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f4f8">
 <meta name="color-scheme" content="light dark">
-<script src="/seite.js?v=77fa77de" data-texte="/texte.js?v=77fa77de" defer></script>
-<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet). Englische Besucher sehen die Seite
-   erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s); texte.js laedt fuer sie schon jetzt.
-   Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
-(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
+<script src="/seite.js?v=8368c059" data-texte="/texte.js?v=8368c059" defer></script>
+<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet), dazu theme-color fuer Status- und
+   Browserleiste. Standardsprache ist Englisch (steht im HTML). Wer Deutsch gewaehlt hat (cs.sprache), sieht die Seite
+   erst, wenn seite.js die deutschen Texte eingesetzt hat (Klasse sprache-lade, hoechstens 2,5 s); texte.js laedt dafuer
+   schon jetzt. Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
+(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);if(s==="de"){d.className+=" sprache-lade";setTimeout(function(){d.classList.remove("sprache-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/img/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
@@ -21,42 +21,42 @@
 </head>
 <body>
 <header class="kopf"><div class="innen">
-  <a class="marke" href="./" aria-label="CrankScore – Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
-  <a class="zurueck" href="./" data-t="recht.zurueck">Zur Startseite</a>
-  <div class="sprache" role="group" aria-label="Sprache" data-t-aria="sprache.aria">
+  <a class="marke" href="./" aria-label="CrankScore – home" data-t-aria="marke.aria">Crank<i>Score</i></a>
+  <a class="zurueck" href="./" data-t="recht.zurueck">Back to home</a>
+  <div class="sprache" role="group" aria-label="Language" data-t-aria="sprache.aria">
     <button type="button" data-sprache="de" aria-pressed="true" lang="de" aria-label="Deutsch">DE</button>
     <button type="button" data-sprache="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
   </div>
-  <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
+  <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dark mode" data-t-aria="design.aria">
     <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
     <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
   </button>
 </div></header>
 <main class="innen text">
-  <p class="etikett" data-t="recht.etikett">Rechtliches</p>
-  <h1 data-t="ds.h1">Datenschutz</h1>
-  <p class="recht-hinweis" data-t="recht.hinweis"></p>
-  <p data-th="ds.kurz"><b>Kurz gesagt:</b> Diese Website setzt keine Cookies, nutzt keine Analyse- oder Tracking-Werkzeuge und lädt keine Inhalte von fremden Servern. Diese Erklärung gilt für die Website crankscore.de.</p>
+  <p class="etikett" data-t="recht.etikett">Legal</p>
+  <h1 data-t="ds.h1">Privacy policy</h1>
+  <p class="recht-hinweis" data-t="recht.hinweis">This English version is provided for convenience. The German version is legally binding.</p>
+  <p data-th="ds.kurz"><b>In short:</b> This website sets no cookies, uses no analytics or tracking tools and loads no content from third-party servers. This policy applies to the website crankscore.de.</p>
 
-  <h2 data-t="ds.1.h">1. Verantwortlicher</h2>
-  <p data-th="ds.1.p">Siehe <a href="impressum.html">Impressum</a>.</p>
+  <h2 data-t="ds.1.h">1. Controller</h2>
+  <p data-th="ds.1.p">See the <a href="impressum.html">legal notice</a>.</p>
 
-  <h2 data-t="ds.2.h">2. Bereitstellung der Website (Hosting)</h2>
-  <p data-th="ds.2.p">Die Website wird über GitHub Pages ausgeliefert, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf verarbeitet GitHub die technisch nötigen Verbindungsdaten, insbesondere deine IP-Adresse, um die Seite auszuliefern und den Dienst abzusichern. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist die sichere und stabile Bereitstellung der Website. Für die Übermittlung in die USA stützt sich GitHub auf das EU-US Data Privacy Framework. Details: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+  <h2 data-t="ds.2.h">2. Hosting of the website</h2>
+  <p data-th="ds.2.p">The website is served via GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you visit the site, GitHub processes the connection data that is technically required, in particular your IP address, in order to deliver the site and keep the service secure. The legal basis is Art. 6(1)(f) GDPR; our legitimate interest is providing the website securely and reliably. For transfers to the USA, GitHub relies on the EU-US Data Privacy Framework. Details: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub’s privacy statement</a>.</p>
 
-  <h2 data-t="ds.3.h">3. Schriftarten und Bilder</h2>
-  <p data-t="ds.3.p">Schriftarten und Bilder liegen auf demselben Server wie die Website. Es gibt keine Verbindung zu Google Fonts oder anderen Schriftdiensten.</p>
+  <h2 data-t="ds.3.h">3. Fonts and images</h2>
+  <p data-t="ds.3.p">Fonts and images are stored on the same server as the website. There is no connection to Google Fonts or any other font service.</p>
 
-  <h2 data-t="ds.4.h">4. Sprache und Design</h2>
-  <p data-t="ds.4.p">Wählst du auf der Website eine Sprache (Deutsch oder Englisch) oder ein Design (hell oder dunkel), speichert dein Browser diese Wahl im lokalen Speicher (localStorage) auf deinem Gerät. Die Angabe wird weder an uns noch an Dritte übertragen und dient nur dazu, die Seite so anzuzeigen, wie du es eingestellt hast (§ 25 Abs. 2 Nr. 2 TDDDG). Du kannst sie jederzeit über die Einstellungen deines Browsers löschen.</p>
+  <h2 data-t="ds.4.h">4. Language and appearance</h2>
+  <p data-t="ds.4.p">If you choose a language (German or English) or an appearance (light or dark) on the website, your browser saves this choice in local storage (localStorage) on your device. It is not transmitted to us or to third parties and is used solely to display the site the way you set it (Section 25(2) no. 2 TDDDG). You can delete it at any time in your browser settings.</p>
 
-  <h2 data-t="ds.5.h">5. Kontakt</h2>
-  <p data-t="ds.5.p">Schreibst du uns eine E-Mail, verarbeiten wir deine Angaben, um deine Anfrage zu beantworten (Art. 6 Abs. 1 lit. b oder f DSGVO), und löschen sie, sobald sie nicht mehr gebraucht werden.</p>
+  <h2 data-t="ds.5.h">5. Contact</h2>
+  <p data-t="ds.5.p">If you send us an email, we process your details in order to answer your enquiry (Art. 6(1)(b) or (f) GDPR) and delete them once they are no longer needed.</p>
 
-  <h2 data-t="ds.6.h">6. Deine Rechte</h2>
-  <p data-t="ds.6.p">Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 21). Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren (Art. 77 DSGVO), etwa bei der Behörde deines Bundeslands.</p>
-  <p class="stand" data-t="ds.stand">Stand: 30.09.2026</p>
+  <h2 data-t="ds.6.h">6. Your rights</h2>
+  <p data-t="ds.6.p">You have the right of access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and to object to processing based on legitimate interests (Art. 21). You can also lodge a complaint with a data protection supervisory authority (Art. 77 GDPR), for example the authority of your federal state (Bundesland).</p>
+  <p class="stand" data-t="ds.stand">Last updated: 30 Sept 2026</p>
 </main>
-<footer class="fuss"><div class="innen"><a href="./" data-t="recht.start">Startseite</a><a href="impressum.html" data-t="fuss.imp">Impressum</a></div></footer>
+<footer class="fuss"><div class="innen"><a href="./" data-t="recht.start">Home</a><a href="impressum.html" data-t="fuss.imp">Legal notice</a></div></footer>
 </body>
 </html>

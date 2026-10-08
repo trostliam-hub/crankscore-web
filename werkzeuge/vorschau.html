@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Vorschaubild 1200×630</title>
 <!-- Vorlage fuer img/vorschau.png (das Bild, das Messenger und soziale Netzwerke beim Teilen von
-     crankscore.de zeigen, og:image). Die Texte kommen aus texte.js (deutsche Fassung, Schluessel in
-     data-t), das Handy zeigt eine echte App-Aufnahme aus img/s/de.
+     crankscore.de zeigen, og:image). Die Texte kommen aus texte.js (englische Fassung = Standardsprache,
+     Schluessel in data-t), das Handy zeigt eine echte App-Aufnahme aus img/s/en.
      Neu erzeugen: im Repo-Ordner python3 -m http.server 8766, dann
      http://127.0.0.1:8766/werkzeuge/vorschau.html bei genau 1200×630 Pixeln als PNG abfotografieren
      (z. B. Chrome-Entwicklertools, Geraet 1200×630, "Screenshot aufnehmen") und als img/vorschau.png
@@ -37,20 +37,20 @@ p{margin:26px 0 0;font-size:29px;line-height:1.36;color:#5c5e6b;max-width:20em}
 <body>
   <div class="text">
     <div class="marke">Crank<i>Score</i></div>
-    <p class="etikett" data-t="start.etikett">Die Web-App fürs Mountainbike</p>
-    <h1 data-t="start.h1">Passt das zusammen?</h1>
-    <p data-t="fuss.claim">Mountainbikes planen, prüfen und einschätzen. Teil für Teil.</p>
+    <p class="etikett" data-t="start.etikett">The web app for your mountain bike</p>
+    <h1 data-t="start.h1">Does it all fit?</h1>
+    <p data-t="fuss.claim">Plan, check and size up mountain bikes, part by part.</p>
     <div class="url">crankscore.de</div>
   </div>
-  <div class="geraet"><div class="glas"><span class="insel"></span><div class="leiste">9:41</div><img src="../img/s/de/pr.webp" alt=""></div></div>
-  <div class="beispiel" data-t="beispiel">Beispielansicht</div>
+  <div class="geraet"><div class="glas"><span class="insel"></span><div class="leiste">9:41</div><img src="../img/s/en/pr.webp" alt=""></div></div>
+  <div class="beispiel" data-t="beispiel">Sample view</div>
 <script src="../texte.js"></script>
 <script>
-  /* deutsche Texte aus texte.js einsetzen, damit das Bild zur Website passt */
+  /* englische Texte (Standardsprache) aus texte.js einsetzen, damit das Bild zur Website passt */
   (function(){
     var TX = window.CS_TEXTE; if(!TX) return;
     [].forEach.call(document.querySelectorAll("[data-t]"), function(e){
-      var paar = TX.texte[e.getAttribute("data-t")]; if(paar) e.textContent = TX.fuelle(paar[0], "de");
+      var paar = TX.texte[e.getAttribute("data-t")]; if(paar) e.textContent = TX.fuelle(paar[1], "en");
     });
   })();
 </script>

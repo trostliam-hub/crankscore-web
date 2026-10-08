@@ -1,14 +1,14 @@
-/* CrankScore – alle Texte der Website an einer Stelle: Startseite, Impressum, Datenschutz.
+/* CrankScore – alle Texte der Website an einer Stelle: Startseite, Impressum, Datenschutz, 404.
    Jede Zeile: "schluessel": ["Deutsch", "English"]. Im HTML tragen Elemente den Schluessel als
    data-t (Text), data-th (Text mit HTML), data-t-aria / data-t-alt / data-t-title / data-t-content
-   (Attribute). seite.js setzt beim Laden und beim Umschalten die gewaehlte Sprache ein.
+   (Attribute). Englisch ist Standard und steht im HTML; seite.js laedt diese Datei nur fuer Deutsch.
 
    Zahlen, Preise und Daten stehen nur in WERTE und kommen per Platzhalter in die Texte:
    {zahl:x} Zahl, {preis:x} Euro-Betrag, {datum:x} langes Datum, {datumk:x} kurzes Datum,
    {wert:x} unveraendert. Das Format folgt der Sprache (6,99 € / €6.99, 30.09.2026 / 30 Sept 2026).
 
    Nach jeder Aenderung: node werkzeuge/texte.mjs
-   Das schreibt die deutsche Fassung ins HTML (fuer Suchmaschinen und Besucher ohne JavaScript),
+   Das schreibt die englische Fassung ins HTML (erster Besuch, Suchmaschinen, ohne JavaScript),
    aktualisiert die Versionsnummer der Skripte und prueft, dass kein Schluessel und keine
    Uebersetzung fehlt. Englisch: britische Schreibweise (catalogue, tyre, licence). */
 (function(){
@@ -38,8 +38,8 @@
                       "CrankScore – Will your mountain bike parts fit together?"],
     "seite.ogdesc": ["Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot einschätzen. Die Web-App fürs Mountainbike ist in der Testphase.",
                      "Plan a new bike, check your own, size up a used one. The web app for your mountain bike is in testing."],
-    "seite.ogbild": ["Vorschaubild von CrankScore: die Überschrift „Passt das zusammen?“ neben einer Beispielansicht der App mit Score 99 und ohne Konflikte.",
-      "CrankScore preview image: the German headline asking whether it all fits, next to a sample view of the app with a score of 99 and no conflicts."],
+    "seite.ogbild": ["Vorschaubild von CrankScore: die englische Überschrift „Does it all fit?“ neben einer Beispielansicht der App mit Score 99 und ohne Konflikte.",
+      "CrankScore preview image: the headline “Does it all fit?” next to a sample view of the app with a score of 99 and no conflicts."],
 
     /* ── Kopfzeile und Navigation ── */
     "weg": ["Zum Inhalt springen", "Skip to content"],
