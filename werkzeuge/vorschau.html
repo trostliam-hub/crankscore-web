@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Vorschaubild 1200×630</title>
+<!-- Vorlage fuer img/vorschau.png (das Bild, das Messenger und soziale Netzwerke beim Teilen von
+     crankscore.de zeigen, og:image). Die Texte kommen aus texte.js (deutsche Fassung, Schluessel in
+     data-t), das Handy zeigt eine echte App-Aufnahme aus img/s/de.
+     Neu erzeugen: im Repo-Ordner python3 -m http.server 8766, dann
+     http://127.0.0.1:8766/werkzeuge/vorschau.html bei genau 1200×630 Pixeln als PNG abfotografieren
+     (z. B. Chrome-Entwicklertools, Geraet 1200×630, "Screenshot aufnehmen") und als img/vorschau.png
+     speichern. werkzeuge/ wird nicht veroeffentlicht (_config.yml). -->
+<style>
+@font-face{font-family:"Inter";src:url(../fonts/inter-400-800-latin.woff2) format("woff2");font-weight:400 800}
+@font-face{font-family:"IBM Plex Mono";src:url(../fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500}
+html,body{margin:0}
+body{width:1200px;height:630px;overflow:hidden;position:relative;font-family:"Inter",sans-serif;color:#17161e;
+  background:linear-gradient(180deg,#f1f1fa 0%,#ebe7fc 45%,#d6ccff 100%)}
+.text{position:absolute;left:84px;top:0;bottom:0;width:610px;display:flex;flex-direction:column;justify-content:center}
+.marke{font-weight:800;font-size:40px;letter-spacing:-.035em;line-height:1}
+.marke i{font-style:normal;background:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.etikett{max-width:none;margin:46px 0 0;font:500 17px/1.3 "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#5a33d6}
+h1{margin:14px 0 0;font-size:94px;line-height:.98;letter-spacing:-.045em;font-weight:800}
+p{margin:26px 0 0;font-size:29px;line-height:1.36;color:#5c5e6b;max-width:20em}
+.url{margin-top:28px;font-weight:600;font-size:26px;color:#6d45f0;letter-spacing:-.01em}
+.geraet{position:absolute;left:770px;top:78px;width:350px;padding:10px;border-radius:58px;
+  background:linear-gradient(135deg,#e3e7ee,#8f96a3 30%,#eceff3 55%,#7d8491 80%,#ccd1d8);box-shadow:0 30px 60px -10px rgba(23,22,30,.35)}
+.glas{position:relative;border-radius:49px;overflow:hidden;background:#000;border:3px solid #0a0a0c}
+.leiste{height:46px;background:#0b0b10;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:6px 32px 0 38px;font-weight:600;font-size:15px}
+.leiste::after{content:"";width:40px;height:11px;border-radius:3px;background:linear-gradient(90deg,#fff 0 72%,rgba(255,255,255,.35) 72%)}
+.insel{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:96px;height:27px;border-radius:999px;background:#000;z-index:2}
+.glas img{display:block;width:100%;height:auto}
+.beispiel{position:absolute;left:945px;top:24px;transform:translateX(-50%);font:500 14px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;
+  color:#3c3d48;background:rgba(255,255,255,.92);padding:10px 14px;border-radius:999px;box-shadow:0 8px 24px -8px rgba(28,22,64,.35)}
+</style>
+</head>
+<body>
+  <div class="text">
+    <div class="marke">Crank<i>Score</i></div>
+    <p class="etikett" data-t="start.etikett">Die Web-App fürs Mountainbike</p>
+    <h1 data-t="start.h1">Passt das zusammen?</h1>
+    <p data-t="fuss.claim">Mountainbikes planen, prüfen und einschätzen. Teil für Teil.</p>
+    <div class="url">crankscore.de</div>
+  </div>
+  <div class="geraet"><div class="glas"><span class="insel"></span><div class="leiste">9:41</div><img src="../img/s/de/pr.webp" alt=""></div></div>
+  <div class="beispiel" data-t="beispiel">Beispielansicht</div>
+<script src="../texte.js"></script>
+<script>
+  /* deutsche Texte aus texte.js einsetzen, damit das Bild zur Website passt */
+  (function(){
+    var TX = window.CS_TEXTE; if(!TX) return;
+    [].forEach.call(document.querySelectorAll("[data-t]"), function(e){
+      var paar = TX.texte[e.getAttribute("data-t")]; if(paar) e.textContent = TX.fuelle(paar[0], "de");
+    });
+  })();
+</script>
+</body>
+</html>

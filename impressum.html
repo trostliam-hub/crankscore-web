@@ -3,12 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Impressum — CrankScore</title>
+<title data-t="imp.titel">Impressum – CrankScore</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
-<script src="design.js"></script>
+<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet). Englische Besucher sehen die Seite
+   erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s). Gleich auf allen Seiten. */
+(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);}}catch(e){}})();</script>
+<script src="texte.js?v=6ea54c8a" defer></script>
+<script src="seite.js?v=6ea54c8a" defer></script>
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/img/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
@@ -16,30 +20,34 @@
 <link rel="stylesheet" href="recht.css">
 </head>
 <body>
-<header class="kopf"><div class="innen"><a class="marke" href="./">Crank<i>Score</i></a><a class="zurueck" href="./">Zur Startseite</a>
-  <button type="button" class="design" id="design" aria-pressed="false" aria-label="Dunkles Design">
+<header class="kopf"><div class="innen">
+  <a class="marke" href="./" aria-label="CrankScore – Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
+  <a class="zurueck" href="./" data-t="recht.zurueck">Zur Startseite</a>
+  <div class="sprache" role="group" aria-label="Sprache" data-t-aria="sprache.aria">
+    <button type="button" data-sprache="de" aria-pressed="true" lang="de" aria-label="Deutsch">DE</button>
+    <button type="button" data-sprache="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
+  </div>
+  <button type="button" class="design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
     <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
     <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
   </button>
 </div></header>
 <main class="innen text">
-  <p class="etikett">Rechtliches</p>
-  <h1>Impressum</h1>
+  <p class="etikett" data-t="recht.etikett">Rechtliches</p>
+  <h1 data-t="imp.h1">Impressum</h1>
+  <p class="recht-hinweis" data-t="recht.hinweis"></p>
 
-  <div class="fehlt">Die Angaben zum Anbieter werden gerade vervollständigt.</div>
-  <h2>Angaben gemäß § 5 DDG</h2>
+  <div class="fehlt" data-t="imp.fehlt">Die Angaben zum Anbieter werden derzeit ergänzt.</div>
+  <h2 data-t="imp.ddg">Angaben gemäß § 5 DDG</h2>
   <p>—</p>
-  <h2>Kontakt</h2>
+  <h2 data-t="imp.kontakt">Kontakt</h2>
   <p>—</p>
 
-  <h2>Affiliate-Links</h2>
-  <p>CrankScore wird sich über Provisionen finanzieren. Shop-Links in der App, die mit „Anzeige“ markiert sind, werden
-    Affiliate-Links sein: Kaufst du nach einem Klick etwas, bekommt CrankScore vom Shop eine Provision. Dein Preis ändert sich
-    dadurch nicht. Diese Webseite selbst enthält keine Affiliate-Links.</p>
-  <h2>Preise und Angaben</h2>
-  <p>Preise stammen aus den Produktdaten der Partnershops und stehen mit Zeitstempel; maßgeblich ist der Preis im Shop.
-    Technische Daten und Kompatibilitätsprüfungen sind sorgfältig recherchiert, ersetzen aber nicht das Datenblatt des Herstellers.</p>
+  <h2 data-t="imp.aff.h">Affiliate-Links</h2>
+  <p data-t="imp.aff.p">CrankScore wird sich unter anderem über Provisionen finanzieren. Shop-Links in der App, die mit „Anzeige“ gekennzeichnet sind, werden Affiliate-Links sein: Kaufst du nach einem Klick etwas, erhält CrankScore vom Shop eine Provision. Dein Preis ändert sich dadurch nicht. Diese Website selbst enthält keine Affiliate-Links.</p>
+  <h2 data-t="imp.preise.h">Preise und Angaben</h2>
+  <p data-t="imp.preise.p">Preise stammen aus den Produktdaten der Partnershops und werden mit Zeitstempel angezeigt; maßgeblich ist der Preis im Shop. Technische Daten und Kompatibilitätsprüfungen sind sorgfältig recherchiert, ersetzen aber nicht das Datenblatt des Herstellers.</p>
 </main>
-<footer class="fuss"><div class="innen"><a href="./">Startseite</a><a href="datenschutz.html">Datenschutz</a></div></footer>
+<footer class="fuss"><div class="innen"><a href="./" data-t="recht.start">Startseite</a><a href="datenschutz.html" data-t="fuss.ds">Datenschutz</a></div></footer>
 </body>
 </html>

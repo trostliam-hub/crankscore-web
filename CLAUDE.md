@@ -6,7 +6,11 @@ die Seite verlinkt die App nicht. Die App liegt im Repo `trostliam-hub/dreambuil
 zum Testen unter https://trostliam-hub.github.io/dreambuild/. Diese Adresse nie auf der
 Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 
-- Alles auf Deutsch, Texte im Du. Schlicht, keine Werbesprache.
+- Deutsch und Englisch gleichwertig, im Deutschen durchgehend Du. Schlicht, keine Werbesprache, keine
+  KI-Floskeln. Englisch eigenständig formuliert (britisch: catalogue, tyre, licence), nicht Wort für Wort.
+  Keine absoluten Aussagen, die die App nicht belegt („jedes Teil passt“, „alle Daten bleiben auf dem Gerät“):
+  genau sagen, was geprüft, was geschätzt und was nur ein Startwert ist (Textüberarbeitung 2026-10-08).
+  Halbgeviertstrich mit `&nbsp;` davor, typografische Anführungszeichen und Apostrophe.
 - Bilder sind echte Bildschirmaufnahmen der App, als Standbilder in `img/s/de/` und `img/s/en/`
   (die Seite tauscht sie mit der Sprache, `img[data-bild]`). Keine gezeichneten Illustrationen als
   Ersatz, keine fremden Produktfotos (Liams Regeln). Die gezeichnete Fahrerfigur der App bleibt
@@ -22,9 +26,9 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
   und bewusste Entscheidungen in `Design-Loop/checkliste.md` (Abschnitt D) — dort nachlesen,
   bevor etwas „verbessert“ wird, das absichtlich so ist. Rundenprotokoll in Obsidian
   „CrankScore Webseite“.
-- **Prüfen ohne Kritiker:** im Scratchpad liegen `web_check.py` (statisch: EN-Schlüssel,
-  Steuerzeichen, App-Links, Tag-Bilanz, fehlende Dateien, CSS-Klammern) und `web_test3.py`
-  (headless Chrome: Screenshots 390/768/1440/1920, Verhalten). Beide vor jedem Push.
+- **Prüfen vor jedem Push:** `node werkzeuge/texte.mjs --pruefen` (Schlüssel, Übersetzungen,
+  Platzhalter, Sprachmischung, Geviertstriche, gleiches Kopf-Skript auf allen Seiten), dann beide
+  Sprachen auf 320–1920 px ansehen (Kopfzeile, Umbrüche, Fuß, Rechtsseiten, Texte nach Klicks).
 - Designsystem-Regeln, die schon zugeschlagen haben: `body` braucht `background:transparent`
   (sonst überdeckt er den fixen Himmel mit `z-index:-1`); Einblenden als **Animation mit
   `backwards`**, nicht als Transition (die überschreibt Hover-Transforms); vor jedem
@@ -35,17 +39,23 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
 - Schriften liegen in `fonts/` (Archivo, Inter, IBM Plex Mono, alle OFL) — nie von Google laden.
 - Impressum ist statisch und noch unvollständig (Anbieterangaben fehlen — Liams Entscheidung).
   Wenn Liam die Angaben liefert: hier UND in der App (`links.json`, Feld `betreiber`) eintragen.
-- Aufnahmen sind mit Datum gekennzeichnet: „App-Aufnahme 30.09.2026“ (EN „App screenshot 30 Sep 2026“),
-  Ausschnitte „App-Ausschnitte 30.09.2026“ (EN „App crops 30 Sep 2026“) — kurz, damit sie auf 320 px einzeilig bleiben. Neue Aufnahmen = neues Datum. HTML-Nachbauten (Assistent-Knopf,
-  Mein-Rad-Hinweis in den Modi) heißen „Nachbau“ und stehen so unter den Modus-Karten — nie als echte Aufnahme ausgeben.
+- Aufnahmen sind als Beispiel gekennzeichnet: „Beispielansicht“ / „Beispielausschnitte“ (EN „Sample view“ /
+  „Sample crops“) — kurz, damit sie auf 320 px einzeilig bleiben. Das Aufnahmedatum steht im Fuß (`fuss.bilder`)
+  und unter den Modi (`modi.quelle`), der Wert in `WERTE.aufnahme` in `texte.js`. Neue Aufnahmen = neues Datum.
+  HTML-Nachbauten (Assistent-Knopf, Mein-Rad-Hinweis in den Modi) heißen „Nachbau“ — nie als echte Aufnahme ausgeben.
+- Vorschaubild für geteilte Links (`img/vorschau.png`, og:image): Vorlage `werkzeuge/vorschau.html` (Texte aus
+  `texte.js`, Aufnahme `img/s/de/pr.webp`), Anleitung im Kopf der Datei. Bei neuem Slogan oder neuen Aufnahmen neu erzeugen.
 - Die Datei `CNAME` darf nicht weg (Domain crankscore.de).
-- Zahlen auf der Seite (766 Teile, 125 Marken, 7 Disziplinen, 15 Federtabellen, 106 Guide-Einträge) am 2026-10-06 selbst
-  nachgezählt: `docs/katalog.json` der App (Export 20261001-1533), `FED_TAB` und `GUIDE` in der App-Version 20261005-1544.
-  Die Zeile unter dem Zahlenband nennt diesen Stand — bei Katalogänderungen Zahlen UND Zeile nachziehen.
-- Preis und Free/Pro-Grenzen kommen aus der App (`PRO_MONAT`, `PRO_JAHR_MONAT`, `PRO_GUIDE_FREI`, `PRO_KULANZ`):
-  Stand 2026-10-06 Pro 6,99 € im Monat oder 47,88 € im Jahr, Free ein Rad je Modus und 10 Guide-Fragen am Tag,
-  Pro offline 14 Tage. E-MTBs gibt es im Katalog (7 Rahmen). Ändert sich etwas davon, Startbereich, Funktionen,
-  Fragen und Datenschutz-Abschnitt in DE und EN anpassen.
+- Zahlen, Preise und Daten stehen nur in `WERTE` oben in `texte.js` und kommen per Platzhalter in die Texte
+  (`{zahl:teile}`, `{preis:proMonat}`, `{datum:seitenStand}` …), formatiert je Sprache (6,99 € / €6.99).
+  Stand 2026-10-08 selbst nachgezählt: `docs/katalog.json` der App (Export 20261001-1533: 766 Teile, 125 Marken,
+  7 Disziplinen), `FED_TAB` (15) und `GUIDE` (106, gezeigt als 100+) in der App-Version 20261008-0728.
+  Die Zeile unter dem Zahlenband nennt diesen Stand (`katalog`, `appVersion`) — bei Katalogänderungen mitziehen.
+- Preis und Free/Pro-Grenzen kommen aus der App (`PRO_MONAT`, `PRO_JAHR_MONAT`, `PRO_GUIDE_FREI`, `PRO_KULANZ`,
+  Kommentar „Preise (Liam 2026-10-01)“): Pro 6,99 € im Monat oder 47,88 € im Jahr, Free ein Rad je Modus und
+  10 Guide-Fragen am Tag, Pro offline 14 Tage. Die Fragen sagen „soll … kosten“, solange die App nicht veröffentlicht
+  ist; Liams Bestätigung des Preises steht noch aus. E-MTBs: 7 Rahmen (5 Full Power, 2 Light-E). Ändert sich etwas,
+  nur `WERTE` in `texte.js` anpassen und `node werkzeuge/texte.mjs` laufen lassen.
 - Veröffentlichen: auf `main` pushen, GitHub Pages baut neu (mit Jekyll). Kein Stempel nötig.
 - **Nicht veröffentlichen, was intern ist:** `_config.yml` schließt alle `*.md` und `Design-Loop/` aus
   (Prüfbericht 06.10.2026, Befund 02: `CLAUDE.md`, `README.md` und die Checkliste waren unter crankscore.de abrufbar).
@@ -53,7 +63,18 @@ Webseite nennen. App-Änderungen gehören ins App-Repo, nicht hierher.
   Das Repo selbst ist öffentlich: was hier steht, ist auf GitHub lesbar, auch wenn es nicht auf der Seite liegt.
 - `mtb-sw.js` ist ein Aufräum-Service-Worker für Browser, die am 29.09. kurz die App auf
   crankscore.de geöffnet hatten. Nicht löschen, nicht als echten Service Worker umbauen.
-- Zweisprachig: Deutsch steht im Markup, Englisch im Wörterbuch `EN` im Skript. Texte tragen
-  `data-t="schlüssel"` (Text), `data-th` (mit HTML), `data-t-alt` / `data-t-aria` (Attribute).
-  Neuer Text = Schlüssel im Markup UND Eintrag in `EN`. Schalter DE/EN in der Kopfzeile, Wahl in
-  `localStorage["cs.sprache"]`; ohne Wahl entscheidet die Browsersprache. Rechtsseiten bleiben deutsch.
+- **Texte zentral in `texte.js`** (seit 2026-10-08, alle drei Seiten): je Schlüssel `["Deutsch", "English"]`.
+  Im HTML tragen Elemente nur den Schlüssel: `data-t` (Text), `data-th` (mit HTML), `data-t-aria` / `data-t-alt` /
+  `data-t-title` / `data-t-content` (Attribute, auch Titel und Meta-Beschreibungen). Neuer Text = Eintrag in
+  `texte.js` + Schlüssel im HTML, danach `node werkzeuge/texte.mjs`: schreibt die deutsche Fassung ins HTML
+  (Suchmaschinen und Besucher ohne JavaScript) und setzt die Skript-Version `?v=` neu. Nie Text nur im HTML ändern.
+- `seite.js` (alle Seiten) setzt Sprache und Design: Schalter DE/EN in der Kopfzeile aller Seiten und im Fuß, Wahl in
+  `localStorage["cs.sprache"]`, ohne Wahl die Browsersprache, Suchmaschinen immer Deutsch; Design in `cs.design`.
+  Beides gilt seitenübergreifend und in allen offenen Tabs. Das kleine Skript im `<head>` ist auf allen Seiten gleich
+  (setzt das Design vor dem ersten Bild, blendet die Seite für englische Besucher bis zum Umschalten aus, höchstens 2,5 s).
+  Ohne JavaScript sind Sprach- und Designschalter und „Seite teilen“ ausgeblendet (`[data-design]`).
+- Rechtsseiten gibt es auf Deutsch und Englisch; die englische Fassung trägt den Hinweis, dass die deutsche
+  verbindlich ist (`recht.hinweis`). Bei rechtlichen Texten nur sprachlich glätten, die rechtliche Bedeutung nicht
+  ändern, nichts ergänzen, was Liam nicht geliefert hat. Datenschutz-„Stand“ nur bei inhaltlicher Änderung anheben.
+- Kopfnavigation ab 1024 px (darunter Hero-Knöpfe und Fuß), Fuß darunter zweispaltig — sonst brechen
+  „Größe & Fahrwerk“ / „Sizing & suspension“ um.

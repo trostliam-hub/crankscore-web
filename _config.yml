@@ -6,5 +6,6 @@
 exclude:
   - "*.md"
   - Design-Loop
+  - werkzeuge
   - Gemfile
   - Gemfile.lock
