@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Abgleich der Website-Texte mit texte.js.
 
-   node werkzeuge/texte.mjs            schreibt die deutsche Fassung in index.html, impressum.html und
+   node werkzeuge/texte.mjs            schreibt die deutsche Fassung in index.html, impressum.html, 404.html und
                                        datenschutz.html (fuer Suchmaschinen und Besucher ohne
                                        JavaScript) und setzt die Versionsnummer von texte.js/seite.js
    node werkzeuge/texte.mjs --pruefen  schreibt nichts; Exit 1, wenn das HTML nicht zu texte.js passt
@@ -17,7 +17,7 @@ import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const WURZEL = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const SEITEN = ["index.html", "impressum.html", "datenschutz.html"];
+const SEITEN = ["index.html", "impressum.html", "datenschutz.html", "404.html"];
 const PRUEFEN = process.argv.includes("--pruefen");
 const lies = (d) => fs.readFileSync(path.join(WURZEL, d), "utf8");
 

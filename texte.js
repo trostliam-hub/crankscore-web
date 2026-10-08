@@ -56,6 +56,11 @@
     "design.aria": ["Dunkles Design", "Dark mode"],
     "bald": ["Kommt bald", "Coming soon"],
     "bald.aria": ["Kommt bald – zum aktuellen Stand", "Coming soon – see the current status"],
+    "bald.stand": ["Zum aktuellen Stand", "See the current status"],
+    "menue.oeffnen": ["Menü öffnen", "Open menu"],
+    "menue.schliessen": ["Menü schließen", "Close menu"],
+    "menue.aria": ["Menü", "Menu"],
+    "menue.nav": ["Abschnitte der Seite", "Page sections"],
 
     /* ── Einstieg ── */
     "start.etikett": ["Die Web-App fürs Mountainbike", "The web app for your mountain bike"],
@@ -74,6 +79,7 @@
     /* ── Markenband ── */
     "band.aria": ["Marken im Katalog", "Brands in the catalogue"],
     "band.etikett": ["{zahl:marken} Marken im Katalog", "{zahl:marken} brands in the catalogue"],
+    "lauf.pause": ["Laufband anhalten", "Pause the ticker"],
 
     /* ── Prüfung und Score ── */
     "prinzip.etikett": ["Die Prüfung", "The check"],
@@ -277,6 +283,7 @@
     "schluss.stand": ["Stand: {datum:seitenStand}", "Last updated: {datum:seitenStand}"],
     "schluss.knopf": ["Seite teilen", "Share this page"],
     "schluss.kopiert": ["Link kopiert", "Link copied"],  /* erscheint nach dem Klick auf "Seite teilen" */
+    "schluss.fehler": ["Kopieren hat nicht geklappt. Die Adresse lautet crankscore.de.", "Couldn’t copy the link. The address is crankscore.de."],
 
     /* ── Fuß ── */
     "fuss.claim": ["Mountainbikes planen, prüfen und einschätzen. Teil für Teil.", "Plan, check and size up mountain bikes, part by part."],
@@ -298,6 +305,12 @@
     "recht.etikett": ["Rechtliches", "Legal"],
     "recht.zurueck": ["Zur Startseite", "Back to home"],
     "recht.start": ["Startseite", "Home"],
+    "fehler.titel": ["Seite nicht gefunden – CrankScore", "Page not found – CrankScore"],
+    "fehler.etikett": ["Fehler 404", "Error 404"],
+    "fehler.h1": ["Diese Seite gibt es nicht.", "This page doesn’t exist."],
+    "fehler.p": ["Vielleicht steckt ein Tippfehler in der Adresse, oder die Seite ist umgezogen. Auf der Startseite findest du alles über CrankScore.",
+      "There may be a typo in the address, or the page has moved. You’ll find everything about CrankScore on the home page."],
+    "fehler.knopf": ["Zur Startseite", "Go to the home page"],
     /* nur auf Englisch sichtbar (leeres Deutsch blendet den Absatz aus) */
     "recht.hinweis": ["", "This English version is provided for convenience. The German version is legally binding."],
 

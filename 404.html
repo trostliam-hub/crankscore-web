@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-t="fehler.titel">Seite nicht gefunden – CrankScore</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f4f4f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#07060d" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<script src="/seite.js?v=77fa77de" data-texte="/texte.js?v=77fa77de" defer></script>
+<script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet). Englische Besucher sehen die Seite
+   erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s); texte.js laedt fuer sie schon jetzt.
+   Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
+(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/img/favicon-96.png" sizes="96x96" type="image/png">
+<link rel="icon" href="/img/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/recht.css">
+</head>
+<body>
+<header class="kopf"><div class="innen">
+  <a class="marke" href="/" aria-label="CrankScore – Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
+  <a class="zurueck" href="/" data-t="recht.zurueck">Zur Startseite</a>
+  <div class="sprache" role="group" aria-label="Sprache" data-t-aria="sprache.aria">
+    <button type="button" data-sprache="de" aria-pressed="true" lang="de" aria-label="Deutsch">DE</button>
+    <button type="button" data-sprache="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
+  </div>
+  <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
+    <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
+    <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+  </button>
+</div></header>
+<main class="innen text">
+  <p class="etikett" data-t="fehler.etikett">Fehler 404</p>
+  <h1 data-t="fehler.h1">Diese Seite gibt es nicht.</h1>
+  <p class="lead" data-t="fehler.p">Vielleicht steckt ein Tippfehler in der Adresse, oder die Seite ist umgezogen. Auf der Startseite findest du alles über CrankScore.</p>
+  <a class="knopf" href="/" data-t="fehler.knopf">Zur Startseite</a>
+</main>
+<footer class="fuss"><div class="innen"><a href="/" data-t="recht.start">Startseite</a><a href="/impressum.html" data-t="fuss.imp">Impressum</a><a href="/datenschutz.html" data-t="fuss.ds">Datenschutz</a></div></footer>
+</body>
+</html>

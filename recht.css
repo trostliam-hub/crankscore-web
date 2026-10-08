@@ -1,52 +1,63 @@
-/* Impressum und Datenschutz: gleiche Farben und Schriften wie die Startseite, nur ruhiger; hell und dunkel wie dort */
+/* Impressum, Datenschutz und 404: gleiche Farben, Schriften und Bewegungen wie die Startseite, nur ruhiger;
+   hell und dunkel wie dort (Variablen gleich benannt). Ueberschriften in Inter wie auf der Startseite. */
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin-ext.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"IBM Plex Mono";src:url(fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-standard-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
-:root{--seite:#f4f4f8;--linie:#e3e3ec;--tinte:#17161e;--text:#3c3d48;--grau:#6c6e7b;--akzent:#6d45f0;
-  --eloxal:linear-gradient(120deg,#8a4dff 0%,#5b5bff 50%,#2f8cff 100%);--rand:clamp(18px,5vw,40px);color-scheme:light}
-/* Dunkel: gesetzt von design.js (Wahl auf der Startseite oder Einstellung des Geraets) */
-:root[data-design="dunkel"]{--seite:#07060d;--linie:#1a1729;--tinte:#f7f5ff;--text:#c6c1e4;--grau:#8a84ad;--akzent:#a47bff;color-scheme:dark}
+@font-face{font-family:"Inter Ersatz";src:local("Arial"),local("Helvetica"),local("Liberation Sans"),local("Arimo");
+  size-adjust:107.12%;ascent-override:90.44%;descent-override:22.52%;line-gap-override:0%}
+:root{--seite:#f4f4f8;--flaeche:#fff;--linie:#e3e3ec;--tinte:#17161e;--text:#3c3d48;--grau:#5c5e6b;--akzent:#6d45f0;--etikett:#5a33d6;
+  --zart:rgba(23,22,30,.06);--zart-2:rgba(23,22,30,.1);--eloxal:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff);
+  --rand:clamp(18px,5vw,40px);--kurz:150ms;--mittel:200ms;--lang:300ms;--raus:cubic-bezier(.2,.7,.2,1);
+  --schrift:"Inter","Inter Ersatz",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;color-scheme:light}
+/* Dunkel: gesetzt vom Skript im Kopf und von seite.js (Wahl auf irgendeiner Seite oder Einstellung des Geraets) */
+:root[data-design="dunkel"]{--seite:#07060d;--flaeche:rgba(22,19,40,.72);--linie:#211d36;--tinte:#f7f5ff;--text:#d9d5ee;--grau:#a8a3c8;--akzent:#b49bff;--etikett:#b49bff;
+  --zart:rgba(255,255,255,.07);--zart-2:rgba(255,255,255,.13);color-scheme:dark}
 *{box-sizing:border-box}
 html{background:var(--seite);-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--seite);color:var(--text);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:var(--tinte);text-decoration-color:var(--akzent);text-underline-offset:3px}
-:focus-visible{outline:2px solid var(--akzent);outline-offset:3px;border-radius:6px}
-.innen{max-width:760px;margin:0 auto;padding:0 var(--rand)}
+body{margin:0;background:var(--seite);color:var(--text);font:400 16.5px/1.65 var(--schrift);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:var(--tinte);text-decoration-color:var(--akzent);text-underline-offset:3px;transition:color var(--kurz),text-decoration-color var(--kurz)}
+a:hover{text-decoration-color:currentColor}
+:focus-visible{outline:3px solid var(--akzent);outline-offset:3px}
+.innen{max-width:760px;margin:0 auto;padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
 .kopf{border-bottom:1px solid var(--linie)}
 .kopf .innen{display:flex;align-items:center;gap:16px;height:64px;max-width:1160px}
-.marke{font-weight:800;font-size:20px;letter-spacing:-.035em;color:var(--tinte);text-decoration:none}
+.marke{flex:none;font-weight:800;font-size:20px;letter-spacing:-.035em;color:var(--tinte);text-decoration:none}
 .marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
-.zurueck{margin-left:auto;font-size:15px;color:var(--text);text-decoration:none;white-space:nowrap}
-.zurueck:hover{color:var(--tinte)}
-/* Sprachwahl wie auf der Startseite; ohne JavaScript ausgeblendet (dann gilt Deutsch) */
-.sprache{display:none;flex:none;background:rgba(23,22,30,.06);border-radius:999px;padding:3px}
+.zurueck{margin-left:auto;font-size:15px;color:var(--text);text-decoration:none;white-space:nowrap;padding:8px 12px;border-radius:999px;transition:color var(--kurz),background-color var(--kurz)}
+.zurueck:hover{color:var(--tinte);background:var(--zart)}
+/* Sprachwahl und Design-Knopf wie auf der Startseite; ohne JavaScript ausgeblendet (dann gilt Deutsch, hell) */
+.sprache{display:none;flex:none;background:var(--zart);border-radius:999px;padding:3px}
 [data-design] .sprache{display:flex}
-.sprache button{font:600 13px "Inter",system-ui,sans-serif;border:0;background:none;color:var(--text);padding:6px 10px;border-radius:999px;cursor:pointer;min-height:32px}
+.sprache button{font:600 13px var(--schrift);border:0;background:none;color:var(--text);padding:6px 10px;border-radius:999px;cursor:pointer;min-height:32px;
+  transition:background-color var(--mittel) var(--raus),color var(--kurz),box-shadow var(--mittel) var(--raus)}
+.sprache button:hover{color:var(--tinte)}
 .sprache button[aria-pressed="true"]{background:#fff;color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-[data-design="dunkel"] .sprache{background:rgba(255,255,255,.07)}
 [data-design="dunkel"] .sprache button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
+button.laedt{animation:puls 1s ease-in-out infinite}
+@keyframes puls{50%{opacity:.45}}
+.rund{display:none;place-items:center;width:40px;height:40px;flex:none;padding:0;border:0;border-radius:50%;background:var(--zart);color:var(--tinte);cursor:pointer;
+  transition:background-color var(--kurz),transform var(--kurz) var(--raus)}
+[data-design] .rund{display:grid}
+.rund:hover{background:var(--zart-2)}
+.rund:active{transform:scale(.92)}
+.rund svg{grid-area:1/1;width:18px;height:18px}
+.design svg{transition:opacity var(--mittel) var(--raus),transform var(--lang) var(--raus)}
+.design .sonne,[data-design="dunkel"] .design .mond{opacity:0;transform:rotate(-90deg) scale(.5)}
+[data-design="dunkel"] .design .sonne{opacity:1;transform:none}
 /* Englische Besucher: Seite kurz aus, bis seite.js die Texte eingesetzt hat */
 .en-lade body{visibility:hidden}
 /* Schmale Handys: das Logo fuehrt ebenfalls zur Startseite */
 @media (max-width:439px){ .zurueck{display:none} .kopf .sprache{margin-left:auto} .kopf .innen{gap:10px} }
-/* Design-Schalter wie auf der Startseite: Mond im hellen, Sonne im dunklen Design; ohne JavaScript unsichtbar */
-.design{display:none;place-items:center;width:38px;height:38px;flex:none;padding:0;border:0;border-radius:50%;background:rgba(23,22,30,.06);color:var(--tinte);cursor:pointer}
-[data-design] .design{display:grid}
-.design:hover{background:rgba(23,22,30,.11)}
-.design svg{width:18px;height:18px}
-.design .sonne,[data-design="dunkel"] .design .mond{display:none}
-[data-design="dunkel"] .design .sonne{display:block}
-[data-design="dunkel"] .design{background:rgba(255,255,255,.07)}
-[data-design="dunkel"] .design:hover{background:rgba(255,255,255,.13)}
+@media (pointer:coarse){ .sprache button{min-height:36px;padding:6px 12px} }
 .text{padding-top:clamp(40px,7vw,80px);padding-bottom:clamp(56px,8vw,100px)}
-.etikett{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--akzent);margin:0}
-h1{font-family:"Archivo","Inter",sans-serif;font-stretch:125%;font-weight:800;font-size:clamp(36px,7vw,56px);line-height:1;letter-spacing:-.015em;color:var(--tinte);margin:14px 0 30px}
+.etikett{font:500 12.5px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--etikett);margin:0}
+h1{font-weight:800;font-size:clamp(36px,7vw,56px);line-height:1.02;letter-spacing:-.04em;color:var(--tinte);margin:14px 0 30px;text-wrap:balance}
 h2{font-size:17px;font-weight:700;color:var(--tinte);margin:32px 0 6px}
-p{margin:0 0 10px}
+p{margin:0 0 10px;text-wrap:pretty}
 b{color:var(--tinte)}
+.lead{font-size:clamp(18px,2.4vw,21px);line-height:1.5;color:var(--grau);max-width:34em}
 .fehlt{padding:12px 16px;border-radius:14px;border:1px solid rgba(214,150,0,.4);background:rgba(255,190,46,.14);color:#7a4d00;margin-bottom:10px}
 [data-design="dunkel"] .fehlt{border-color:rgba(255,190,46,.35);background:rgba(255,190,46,.08);color:#ffd27a}
 /* Hinweis nur in der englischen Fassung (deutscher Text ist leer) */
@@ -54,7 +65,25 @@ b{color:var(--tinte)}
 .recht-hinweis:empty{display:none}
 [data-design="dunkel"] .recht-hinweis{background:rgba(164,123,255,.12)}
 .stand{margin-top:30px;color:var(--grau);font-size:14px}
+/* Knopf (404-Seite): wie der Hauptknopf der Startseite */
+.knopf{display:inline-flex;align-items:center;min-height:48px;margin-top:22px;padding:0 22px;border-radius:999px;font:600 16px var(--schrift);text-decoration:none;color:#fff;
+  background:var(--eloxal);box-shadow:0 10px 30px -8px rgba(91,91,255,.6);transition:transform var(--mittel) var(--raus),box-shadow var(--mittel) var(--raus)}
+.knopf:active{transform:scale(.97)}
+@media (hover:hover){ .knopf:hover{transform:translateY(-1px);box-shadow:0 14px 34px -8px rgba(91,91,255,.75)} }
 .fuss{border-top:1px solid var(--linie);padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px))}
 .fuss .innen{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;max-width:1160px}
 .fuss a{color:var(--text);text-decoration:none}
 .fuss a:hover{color:var(--tinte)}
+/* Meldungen (seite.js): unten mittig, kurz eingeblendet */
+.meldung{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));z-index:60;max-width:min(92vw,460px);padding:12px 18px;border-radius:14px;
+  background:var(--tinte);color:var(--seite);font-size:15px;line-height:1.4;box-shadow:0 16px 40px -12px rgba(0,0,0,.35);
+  opacity:0;transform:translate(-50%,8px);pointer-events:none;transition:opacity var(--mittel) var(--raus),transform var(--mittel) var(--raus)}
+.meldung.da{opacity:1;transform:translate(-50%,0)}
+.meldung.fehler{background:#b42339;color:#fff}
+[data-design="dunkel"] .meldung.fehler{background:#ff6b81;color:#14060a}
+/* Wechsel hell/dunkel wie auf der Startseite */
+::view-transition-old(root),::view-transition-new(root){animation-duration:250ms;animation-timing-function:ease}
+.design-wechsel,.design-wechsel *,.design-wechsel *::before,.design-wechsel *::after{transition:background-color 250ms ease,color 250ms ease,border-color 250ms ease,box-shadow 250ms ease!important}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

@@ -28,11 +28,11 @@
 <meta property="og:image:alt" content="Vorschaubild von CrankScore: die Überschrift „Passt das zusammen?“ neben einer Beispielansicht der App mit Score 99 und ohne Konflikte." data-t-content="seite.ogbild">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CrankScore","alternateName":"crankscore.de","url":"https://crankscore.de/","inLanguage":["de","en"]},{"@type":"Organization","name":"CrankScore","url":"https://crankscore.de/","logo":"https://crankscore.de/img/icon-512.png"}]}</script>
 <meta name="twitter:card" content="summary_large_image">
+<script src="/seite.js?v=77fa77de" data-texte="/texte.js?v=77fa77de" defer></script>
 <script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet). Englische Besucher sehen die Seite
-   erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s). Gleich auf allen Seiten. */
-(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);}}catch(e){}})();</script>
-<script src="texte.js?v=6ea54c8a" defer></script>
-<script src="seite.js?v=6ea54c8a" defer></script>
+   erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s); texte.js laedt fuer sie schon jetzt.
+   Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
+(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO) */
@@ -42,81 +42,162 @@
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"IBM Plex Mono";src:url(fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500;font-display:swap;
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* Ersatzschrift mit Inters Massen (Arial oder das massgleiche Liberation Sans, angepasst): bis Inter geladen ist,
+   bleiben Zeilen gleich lang und gleich hoch -- der Schriftwechsel verschiebt nichts (vorher CLS 0,07 auf dem Handy) */
+@font-face{font-family:"Inter Ersatz";src:local("Arial"),local("Helvetica"),local("Liberation Sans"),local("Arimo");
+  size-adjust:107.12%;ascent-override:90.44%;descent-override:22.52%;line-gap-override:0%}
 
-/* ── Designsystem hell (Stand 2026-09-30): weisse Seite, grosse Karten mit Farbverlauf wie in den
-   Werbebildern; darin ein silbernes Handy mit echter App-Aufnahme und herausspringende App-Karten.
-   Farben der Karten: Lila (Marke), Nacht, Gruen (Pruefung), Mint (Fit), Blau (Federung), Pfirsich (Upgrades).
-   Masse in den Buehnen in cqw: alles skaliert mit der Kartenbreite. ── */
+/* ── Designsystem (Stand 2026-10-08): helle Seite, grosse Karten mit Farbverlauf wie in den Werbebildern, darin ein
+   silbernes Handy mit echter App-Aufnahme und herausspringende App-Karten. Farben der Karten: Lila (Marke), Nacht,
+   Gruen (Pruefung), Mint (Fit), Blau (Federung), Pfirsich (Upgrades). Masse in den Buehnen in cqw.
+   Alle Farben, Flaechen, Radien und Bewegungen kommen aus den Variablen hier; das dunkle Design setzt nur die
+   Variablen neu (unten) und braucht so kaum eigene Regeln. Bewegung: 150/200/300 ms, auslaufende Kurve. ── */
 :root{
-  --seite:#f4f4f8; --weiss:#fff; --tinte:#17161e; --text:#3c3d48; --grau:#5c5e6b; --linie:#e3e3ec;
-  --akzent:#6d45f0; --eloxal:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff); --ok:#12a86a;
-  /* kleine Etiketten: dunkleres Lila, Kontrast >= 6,5:1 auf Seite und Karten (vorher 4,9:1) */
+  --seite:#f4f4f8; --flaeche:#fff; --tinte:#17161e; --text:#3c3d48; --grau:#5c5e6b; --linie:#e3e3ec;
+  --akzent:#6d45f0; --ok:#12a86a;
+  /* kleine Etiketten: dunkleres Lila, Kontrast >= 6,5:1 auf Seite und Karten */
   --etikett:#5a33d6;
+  --eloxal:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff);
   /* Knoepfe und Nummern: Indigo -> Violett, weisse Schrift >= 5,6:1 an jeder Stelle des Verlaufs */
   --verlauf:linear-gradient(135deg,#4f46e5 0%,#6d45f0 50%,#7c3aed 100%);
-  /* Karten und Kacheln im hellen Design: sehr leiser, weicher Schatten statt Kante */
+  /* leise Flaechen fuer Pillen und runde Knoepfe, beim Zeigen etwas kraeftiger */
+  --zart:rgba(23,22,30,.06); --zart-2:rgba(23,22,30,.1);
+  --icon-flaeche:#f0ecff; --fuss:#fff; --marken:#6a6c7b;
+  /* Karten und Kacheln: sehr leiser, weicher Schatten statt Kante */
   --schatten-weich:0 10px 30px rgba(23,22,30,.05),0 1px 2px rgba(23,22,30,.03);
-  --r:40px; --r-klein:24px; --innen:1240px;
+  --schatten-karte:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.6);
+  --schatten-knopf:0 10px 30px -8px rgba(91,91,255,.6);
+  --schatten-knopf-hover:0 14px 34px -8px rgba(91,91,255,.75);
+  --r:40px; --r-klein:24px; --r-mittel:20px; --innen:1240px; --rand:24px; --kopf:64px;
+  --abschnitt:clamp(56px,8vw,120px);
   --h1:clamp(44px,6.2vw,84px); --h2:clamp(34px,4.4vw,60px); --h3:clamp(28px,2.6vw,40px);
-  --schatten:0 30px 60px -20px rgba(23,22,30,.25);
+  --kurz:150ms; --mittel:200ms; --lang:300ms;
+  --raus:cubic-bezier(.2,.7,.2,1); --rein:cubic-bezier(.4,0,1,1);
+  --schrift:"Inter","Inter Ersatz",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
 }
 @media (min-width:1600px){ :root{ --innen:1400px; } }
-@media (max-width:520px){ :root{ --r:32px; --r-klein:22px; } }
-:root{color-scheme:light}
-:root[data-design="dunkel"]{color-scheme:dark}
+@media (max-width:520px){ :root{ --r:32px; --r-klein:22px; --rand:12px; } }
+/* ── Dunkelmodus: Markenpalette der App (Nacht, Carbon, Titan, Lila) wie in der Design-Loop-Checkliste B;
+   Farbverlaeufe statt flaechigem Schwarz, Glas-Karten mit feiner Linie. Kontraste per WCAG-Formel geprueft
+   (Grautext auf den Kartenkoepfen >= 6,7:1). Ohne Wahl folgt die Seite dem Geraet (Skript im Kopf). ── */
+:root[data-design="dunkel"]{
+  --seite:#07060d; --flaeche:rgba(22,19,40,.72); --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36;
+  --akzent:#b49bff; --etikett:#b49bff; --zart:rgba(255,255,255,.07); --zart-2:rgba(255,255,255,.13);
+  --icon-flaeche:rgba(180,155,255,.14); --fuss:rgba(7,6,13,.7); --marken:#8a85ad;
+  --schatten-weich:inset 0 0 0 1px rgba(255,255,255,.08); --schatten-karte:inset 0 0 0 1px rgba(255,255,255,.06);
+  --schatten-knopf:0 10px 30px -10px rgba(124,58,237,.7); --schatten-knopf-hover:0 14px 36px -10px rgba(124,58,237,.85);
+  color-scheme:dark;
+}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
-@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
 .en-lade body{visibility:hidden}
-body{background:var(--seite);color:var(--text);font:400 17px/1.55 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* waehrenddessen keine nachladbaren Bilder holen: sie kaemen sonst erst deutsch, dann englisch */
+.en-lade img[loading="lazy"]{display:none}
+body{background:var(--seite);color:var(--text);font:400 17px/1.55 var(--schrift);-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 img{display:block;max-width:100%}
+picture{display:contents}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--akzent);outline-offset:3px;border-radius:8px}
-.weg{position:absolute;left:12px;top:-60px;z-index:100;background:var(--tinte);color:#fff;padding:10px 16px;border-radius:999px;text-decoration:none}
+:focus-visible{outline:3px solid var(--akzent);outline-offset:3px}
+.weg{position:absolute;left:12px;top:-60px;z-index:100;background:var(--tinte);color:var(--seite);padding:10px 16px;border-radius:999px;text-decoration:none}
 .weg:focus{top:12px}
-.innen{max-width:var(--innen);margin:0 auto;padding:0 24px}
-@media (max-width:520px){ .innen{padding:0 12px} }
-h1,h2,h3{color:var(--tinte);font-weight:700;letter-spacing:-.035em;line-height:1.03}
+.innen{max-width:var(--innen);margin:0 auto;padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
+h1,h2,h3{color:var(--tinte);font-weight:700;letter-spacing:-.035em;line-height:1.03;text-wrap:balance}
 h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-spacing:-.03em}
-.etikett{font:500 12px/1.3 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--etikett)}
+p,li,summary{text-wrap:pretty}
+.etikett{font:500 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--etikett)}
 .lead{font-size:clamp(18px,1.6vw,22px);color:var(--grau);line-height:1.45;letter-spacing:-.01em}
 
-/* Kopfzeile: weisses Glas */
-.kopf{position:sticky;top:0;z-index:50;background:rgba(244,244,248,.97);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom:1px solid transparent;transition:border-color .2s}
+/* ── Kopfzeile: deckend (kein Weichzeichner -- der kostete beim Scrollen auf Handys Bilder pro Sekunde) ── */
+.kopf{position:sticky;top:0;z-index:50;background:var(--seite);border-bottom:1px solid transparent;transition:border-color var(--mittel),box-shadow var(--mittel)}
 .kopf.unten{border-bottom-color:var(--linie);box-shadow:0 8px 24px -12px rgba(23,22,30,.12)}
-.kopf .innen{display:flex;align-items:center;gap:20px;height:64px}
-.marke{font-weight:800;font-size:22px;letter-spacing:-.04em;text-decoration:none;color:var(--tinte)}
+.kopf .innen{display:flex;align-items:center;gap:20px;height:var(--kopf)}
+.marke{flex:none;font-weight:800;font-size:22px;letter-spacing:-.04em;text-decoration:none;color:var(--tinte)}
 .marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
 .nav{display:flex;gap:4px;margin-left:auto}
-.nav a{font-size:15px;text-decoration:none;color:var(--grau);padding:8px 12px;border-radius:999px;white-space:nowrap}
-.nav a:hover,.nav a.an{color:var(--tinte);background:rgba(23,22,30,.06)}
-/* Sprachwahl und "Seite teilen" brauchen JavaScript; ohne (kein data-design) bleiben sie weg */
-.sprache{display:none;background:rgba(23,22,30,.06);border-radius:999px;padding:3px}
-[data-design] .sprache{display:flex}
-.sprache button{font:600 13px "Inter",sans-serif;border:0;background:none;color:var(--grau);padding:6px 11px;border-radius:999px;cursor:pointer;min-height:32px}
-.sprache button[aria-pressed="true"]{background:#fff;color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-/* Design-Schalter: Mond im hellen, Sonne im dunklen Design; ohne JavaScript unsichtbar */
-.design{display:none;place-items:center;width:38px;height:38px;flex:none;padding:0;border:0;border-radius:50%;background:rgba(23,22,30,.06);color:var(--tinte);cursor:pointer}
-[data-design] .design{display:grid}
-.design:hover{background:rgba(23,22,30,.11)}
-.design svg{width:18px;height:18px}
-.design .sonne,[data-design="dunkel"] .design .mond{display:none}
-[data-design="dunkel"] .design .sonne{display:block}
-[data-design="dunkel"] .design{background:rgba(255,255,255,.07)}
-[data-design="dunkel"] .design:hover{background:rgba(255,255,255,.13)}
-.bald{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;color:#fff;background:var(--tinte);padding:9px 16px;border-radius:999px;white-space:nowrap}
+.nav a{font-size:15px;text-decoration:none;color:var(--grau);padding:8px 12px;border-radius:999px;white-space:nowrap;transition:color var(--kurz),background-color var(--kurz)}
+.nav a:hover,.nav a.an{color:var(--tinte);background:var(--zart)}
+/* Sprachwahl, Design-Knopf, Menue und "Seite teilen" brauchen JavaScript; ohne (kein data-design) bleiben sie weg */
+.sprache,.segment{display:none;flex:none;background:var(--zart);border-radius:999px;padding:3px}
+[data-design] .sprache,[data-design] .segment{display:flex}
+.sprache button,.segment button{flex:1;font:600 13px var(--schrift);border:0;background:none;color:var(--grau);padding:6px 11px;border-radius:999px;cursor:pointer;min-height:32px;white-space:nowrap;
+  transition:background-color var(--mittel) var(--raus),color var(--kurz),box-shadow var(--mittel) var(--raus)}
+.sprache button:hover,.segment button:hover{color:var(--tinte)}
+.sprache button[aria-pressed="true"],.segment button[aria-pressed="true"]{background:#fff;color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+/* Englische Texte werden beim ersten Umschalten nachgeladen: der Knopf pulsiert leise, bis sie da sind */
+button.laedt{animation:puls 1s ease-in-out infinite}
+@keyframes puls{50%{opacity:.45}}
+/* runde Knoepfe: Design, Menue, Menue schliessen, Laufband anhalten */
+.rund{display:none;place-items:center;width:40px;height:40px;flex:none;padding:0;border:0;border-radius:50%;background:var(--zart);color:var(--tinte);cursor:pointer;
+  transition:background-color var(--kurz),transform var(--kurz) var(--raus)}
+[data-design] .rund{display:grid}
+.rund:hover{background:var(--zart-2)}
+.rund:active{transform:scale(.92)}
+.rund svg{grid-area:1/1;width:18px;height:18px}
+/* Design-Knopf: Mond im hellen, Sonne im dunklen Design -- die Zeichen drehen sich weich ineinander */
+.design svg{transition:opacity var(--mittel) var(--raus),transform var(--lang) var(--raus)}
+.design .sonne,[data-design="dunkel"] .design .mond{opacity:0;transform:rotate(-90deg) scale(.5)}
+[data-design="dunkel"] .design .sonne{opacity:1;transform:none}
+.bald{flex:none;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;color:var(--seite);background:var(--tinte);padding:9px 16px;border-radius:999px;white-space:nowrap;
+  transition:transform var(--mittel) var(--raus),box-shadow var(--mittel) var(--raus)}
 .bald i{width:8px;height:8px;border-radius:50%;background:#2ef29a;box-shadow:0 0 0 3px rgba(46,242,154,.25)}
-/* Navigation erst ab 1024 px: darunter passt sie mit Sprachwahl, Design-Knopf und "Kommt bald" nicht
-   einzeilig in die Kopfzeile (geprueft 320-1600 px, DE und EN); bis 1180 px etwas enger */
+.bald:active{transform:scale(.97)}
+/* Navigation erst ab 1024 px; darunter oeffnet der Menue-Knopf alle Abschnitte. Unter 600 px wandern
+   Sprache und Design ins Menue, damit die Kopfzeile bis 320 px einzeilig bleibt (geprueft 320-1600 px, DE/EN). */
 @media (max-width:1023px){ .nav{display:none} .sprache{margin-left:auto} }
+@media (min-width:1024px){ [data-design] .menue-knopf{display:none} }
 @media (min-width:1024px) and (max-width:1179px){ .nav a{padding:8px 9px} .kopf .innen{gap:14px} }
-/* Unter 480 px nur der gruene Punkt: mit DE/EN und Design-Knopf passt "Kommt bald"/"Coming soon" sonst
-   zwischen 421 und 455 px nicht in die Zeile (iPhone Plus/Pro Max mit 430 px) */
-@media (max-width:479px){ .bald span{display:none} .bald{padding:9px 11px} .kopf .innen{gap:10px} }
+@media (max-width:599px){ [data-design] .kopf .sprache,[data-design] .kopf .design{display:none} .bald{margin-left:auto} .kopf .innen{gap:10px} }
+@media (max-width:359px){ .bald span{display:none} .bald{padding:9px 11px} }
 
-/* Karten mit Farbverlauf */
-.karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate;
-  box-shadow:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.6)}
+/* ── Menue (Handy und Tablet): ganze Flaeche, als <dialog> -- Tastatur bleibt darin, Esc schliesst, die Seite
+   dahinter ruht. Oeffnet in 200 ms (Einblenden, 8 px Weg), die Eintraege folgen leicht versetzt. ── */
+.menue{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;padding:0 0 env(safe-area-inset-bottom);border:0;
+  background:var(--seite);color:var(--text);overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateY(-8px);
+  transition:opacity var(--mittel) var(--raus),transform var(--mittel) var(--raus),overlay var(--mittel) allow-discrete,display var(--mittel) allow-discrete}
+.menue[open]{opacity:1;transform:none}
+@starting-style{ .menue[open]{opacity:0;transform:translateY(-8px)} }
+.menue::backdrop{background:transparent}
+html:has(.menue[open]){overflow:hidden}
+.menue-kopf{display:flex;align-items:center;justify-content:space-between;gap:12px;height:var(--kopf);padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
+.menue-inhalt{padding:8px max(var(--rand),env(safe-area-inset-right)) 32px max(var(--rand),env(safe-area-inset-left));max-width:640px}
+.menue-liste{list-style:none;padding:0}
+.menue-liste a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px;font-size:clamp(22px,6vw,28px);font-weight:600;letter-spacing:-.025em;
+  color:var(--tinte);text-decoration:none;border-bottom:1px solid var(--linie);transition:color var(--kurz)}
+.menue-liste a::after{content:"";flex:none;width:9px;height:9px;border:solid currentColor;border-width:2px 2px 0 0;transform:rotate(45deg);opacity:.35;transition:transform var(--mittel) var(--raus),opacity var(--kurz)}
+.menue-liste a:hover,.menue-liste a.an{color:var(--akzent)}
+.menue-liste a:hover::after{opacity:.8;transform:translateX(3px) rotate(45deg)}
+.menue[open] .menue-liste li,.menue[open] .menue-einst{animation:auf var(--mittel) var(--raus) backwards}
+.menue[open] .menue-liste li:nth-child(2){animation-delay:25ms} .menue[open] .menue-liste li:nth-child(3){animation-delay:50ms}
+.menue[open] .menue-liste li:nth-child(4){animation-delay:75ms} .menue[open] .menue-liste li:nth-child(5){animation-delay:100ms}
+.menue[open] .menue-liste li:nth-child(6){animation-delay:125ms} .menue[open] .menue-liste li:nth-child(7){animation-delay:150ms}
+.menue[open] .menue-einst{animation-delay:150ms}
+.menue-einst{display:grid;gap:18px;margin-top:28px}
+.menue-einst .etikett{display:block;color:var(--grau);margin-bottom:8px}
+.menue-einst .segment{display:flex;width:100%;max-width:420px}
+.menue-einst .segment button{font-size:15px;min-height:44px}
+.menue-status{display:flex;align-items:center;gap:10px;margin-top:28px;padding:16px 18px;border-radius:var(--r-mittel);background:var(--flaeche);box-shadow:var(--schatten-weich);
+  text-decoration:none;color:var(--tinte);font-weight:600;transition:transform var(--kurz) var(--raus)}
+.menue-status i{width:8px;height:8px;border-radius:50%;background:#2ef29a;box-shadow:0 0 0 3px rgba(46,242,154,.25)}
+.menue-status small{margin-left:auto;font-size:14px;font-weight:500;color:var(--grau)}
+.menue-status:active{transform:scale(.98)}
+
+/* ── Knoepfe: kurze, gleiche Bewegung -- beim Zeigen 1 px hoch, beim Druecken leicht kleiner ── */
+.knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.knopf,.teilen{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:0;border-radius:999px;font:600 16px var(--schrift);text-decoration:none;cursor:pointer;
+  transition:transform var(--mittel) var(--raus),box-shadow var(--mittel) var(--raus),background-color var(--mittel)}
+.knopf.voll,.teilen{color:#fff;background:var(--eloxal);box-shadow:var(--schatten-knopf)}
+.knopf.leer{color:var(--tinte);background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(23,22,30,.12)}
+.knopf:active,.teilen:active{transform:scale(.97);transition-duration:var(--kurz)}
+@media (hover:hover){
+  .knopf:hover,.teilen:hover,.bald:hover,.menue-status:hover{transform:translateY(-1px)}
+  .knopf.voll:hover,.teilen:hover{box-shadow:var(--schatten-knopf-hover)}
+  .knopf.leer:hover{background:#fff}
+  .bald:hover{box-shadow:0 8px 20px -10px rgba(23,22,30,.55)}
+}
+
+/* ── Karten mit Farbverlauf ── */
+.karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate;box-shadow:var(--schatten-karte)}
 .karte.dunkel{box-shadow:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.06)}
 .karte .text{padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
 .karte .text p{margin-top:14px;font-size:clamp(17px,1.5vw,21px);color:var(--grau);line-height:1.42;max-width:34em}
@@ -132,10 +213,9 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 .k-mint{background:linear-gradient(160deg,#f0f6f3 0%,#dcf2e7 55%,#b6e6cf 100%)}
 .k-blau{background:linear-gradient(180deg,#f0f5ff 0%,#dbe7ff 60%,#bcd4ff 100%)}
 .k-pfirsich{background:linear-gradient(180deg,#fff4ee 0%,#ffe2d4 60%,#ffc9b0 100%)}
-.k-weiss{background:#fff}
-.echt{display:inline-block;margin-top:18px;font:500 12px/1.3 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--grau);background:rgba(23,22,30,.06);padding:8px 12px;border-radius:999px}
+.echt{display:inline-block;margin-top:18px;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--grau);background:var(--zart);padding:8px 12px;border-radius:999px}
 
-/* Buehne: Handy + herausspringende Karten, Masse in cqw */
+/* ── Buehne: Handy + herausspringende Karten, Masse in cqw ── */
 .buehne{position:relative;container-type:inline-size;width:100%;margin-top:auto;flex:none}
 .buehne>*{position:absolute}
 .geraet{--p:60;width:calc(var(--p)*1cqw);padding:calc(var(--p)*.028cqw);border-radius:calc(var(--p)*.165cqw);
@@ -153,13 +233,15 @@ h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-sp
 .pop img{width:100%;height:auto}
 .pop.kappe{max-height:calc(var(--w)*var(--k)*1cqw)}
 .blende{left:0;right:0;bottom:0;height:14cqw;background:linear-gradient(180deg,transparent,var(--blende))}
+/* sehr alte Browser ohne Container-Einheiten: lieber keine Buehne als eine verrutschte (der Text traegt alles) */
+@supports not (container-type:inline-size){ .buehne{display:none} }
 
-/* Seitenbau */
-main>section{padding:clamp(56px,8vw,120px) 0 0}
+/* ── Seitenbau ── */
+main>section{padding:var(--abschnitt) 0 0}
 main>section.start{padding-top:clamp(16px,2vw,28px)}
-/* Sprung zu einem Abschnitt (#modi usw.): die Ueberschrift landet 88 px unter dem Seitenrand, also unter der
-   Kopfzeile -- der Innenabstand des Abschnitts wird dafuer herausgerechnet. */
-main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
+/* Sprung zu einem Abschnitt (#modi usw.): die Ueberschrift landet unter der Kopfzeile -- der Innenabstand des
+   Abschnitts wird dafuer herausgerechnet. */
+main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
 .kopfzeile{max-width:780px;margin:0 0 clamp(28px,4vw,48px)}
 .kopfzeile h2{margin-top:12px}
 .kopfzeile .lead{margin-top:18px}
@@ -167,52 +249,55 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .drei{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
 @media (max-width:899px){ .zwei,.drei{grid-template-columns:1fr} }
 
-/* Start */
+/* ── Start ── */
 .start .karte{display:grid;grid-template-columns:1.05fr 1fr;align-items:end;min-height:min(820px,calc(100vh - 96px))}
 .start .text{padding-bottom:clamp(40px,5vw,72px);align-self:center}
 .start h1{margin-top:16px}
 .start .text p.lead{margin-top:22px;max-width:30em}
-.knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.knopf{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none}
-.knopf.voll{color:#fff;background:var(--eloxal);box-shadow:0 10px 30px -8px rgba(91,91,255,.6)}
-.knopf.leer{color:var(--tinte);background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(23,22,30,.12)}
-.knopf:hover{filter:brightness(1.06)}
 .fakten{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:30px;font-size:15px;color:var(--grau)}
 .fakten b{color:var(--tinte);font-weight:700}
 @media (max-width:899px){ .start .karte{grid-template-columns:1fr;min-height:0} .start .text{padding-bottom:8px} }
 
-/* Marken-Laufband */
-.band{padding:clamp(40px,5vw,64px) 0 0;overflow:hidden}
-.band .etikett{text-align:center;color:var(--grau);margin-bottom:18px}
-.lauf{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.lauf ul{display:flex;gap:44px;list-style:none;padding:8px 0;width:max-content;animation:lauf 60s linear infinite}
-.lauf.zurueck ul{animation-direction:reverse;animation-duration:70s}
-.lauf li{font-weight:700;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:#6a6c7b;white-space:nowrap}
-@keyframes lauf{to{transform:translateX(-50%)}}
-.band:hover .lauf ul{animation-play-state:paused}
+/* ── Marken-Laufband: eine Reihe, langsam; haelt beim Zeigen, bei Fokus, ausserhalb des Bildes und auf Knopfdruck an.
+   Ohne Bewegung (JavaScript aus oder "weniger Bewegung") steht die Reihe still und laesst sich wischen/scrollen. ── */
+.band{padding:clamp(40px,5vw,64px) 0 0}
+.band-kopf{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;padding:0 var(--rand)}
+.band .etikett{color:var(--grau)}
+.band .lauf-knopf{width:32px;height:32px;display:none}
+.lauf-knopf svg{width:14px;height:14px}
+.lauf-knopf .spielen,.lauf-knopf[aria-pressed="true"] .pause{display:none}
+.lauf-knopf[aria-pressed="true"] .spielen{display:block}
+.lauf{overflow-x:auto;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.lauf::-webkit-scrollbar{display:none}
+.lauf ul{display:flex;gap:40px;list-style:none;width:max-content;padding:8px max(var(--rand),8vw)}
+.lauf li{font-weight:700;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:var(--marken);white-space:nowrap}
+.lauf.laeuft{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.lauf.laeuft ul{padding:8px 0;gap:44px;animation:lauf 90s linear infinite}
+@keyframes lauf{to{transform:translateX(calc(-50% - 22px))}}
+.band.halt .lauf ul,.band.weg-vom-bild .lauf ul,.band:focus-within .lauf ul{animation-play-state:paused}
+@media (hover:hover){ .lauf.laeuft:hover ul{animation-play-state:paused} }
+.band.bewegt .lauf-knopf{display:grid}
 
-/* Prinzip-Punkte */
+/* ── Pruefung: Punkte ── */
 .punkte{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 clamp(24px,3vw,32px)}
-.punkte div{background:#fff;border-radius:var(--r-klein);padding:22px 24px;box-shadow:var(--schatten-weich)}
+.punkte div{background:var(--flaeche);border-radius:var(--r-klein);padding:22px 24px;box-shadow:var(--schatten-weich)}
 .punkte b{display:block;color:var(--tinte);font-size:18px;letter-spacing:-.02em}
 .punkte span{display:block;margin-top:4px;font-size:15px;color:var(--grau)}
 @media (max-width:899px){ .punkte{grid-template-columns:1fr} }
 
-/* Modi */
-.modus{padding:clamp(28px,3vw,40px);min-height:100%}
+/* ── Modi ── */
+.modus{display:flex;flex-direction:column;padding:clamp(28px,3vw,40px);min-height:100%}
 @media (max-width:520px){ .modus{padding:24px 22px} }
 .modus .kicker{display:flex;align-items:center;gap:10px;margin-top:0}
 .modus .kicker .etikett{color:var(--text)}
 .modus h3{margin-top:16px;font-size:clamp(26px,2.2vw,34px)}
 .modus p{margin-top:12px;color:var(--text);font-size:17px}
-.modus .beleg{margin-top:22px;font:500 13px/1.3 "IBM Plex Mono",monospace;color:var(--tinte);background:rgba(255,255,255,.75);padding:10px 14px;border-radius:14px;display:inline-block;box-shadow:0 4px 14px rgba(23,22,30,.04)}
-.modus{display:flex;flex-direction:column}
+.modus .beleg{align-self:flex-start;margin-top:22px;font:500 13px/1.3 var(--mono);color:var(--tinte);background:rgba(255,255,255,.75);padding:10px 14px;border-radius:14px;display:inline-block;box-shadow:0 4px 14px rgba(23,22,30,.04)}
+/* drei schmale Karten (900-1179 px): Beleg etwas kleiner, damit er einzeilig bleibt */
+@media (min-width:900px) and (max-width:1179px){ .modus .beleg{font-size:12px;padding:9px 9px;white-space:nowrap} }
+@media (max-width:359px){ .modus .beleg{font-size:12px;padding:9px 11px} }
 .buehne.mini{margin-top:auto;padding-top:24px;box-sizing:content-box}
-.modus .beleg{align-self:flex-start}
-/* drei schmale Karten (900–1179 px): Beleg etwas kleiner, damit er einzeilig bleibt */
-@media (min-width:900px) and (max-width:1179px){ .modus .beleg{font-size:12px;padding:9px 11px;white-space:nowrap} }
-.modus .zahl{font:500 12px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;color:#fff;background:var(--verlauf);padding:6px 9px;border-radius:999px}
-
+.modus .zahl{font:500 12px/1 var(--mono);letter-spacing:.1em;color:#fff;background:var(--verlauf);padding:6px 9px;border-radius:999px}
 /* App-Elemente in den Modus-Karten, als HTML nachgebaut (vorher Bildschirmfotos mit schwarzen Ecken) */
 .app-demo{margin-top:auto;padding-top:24px}
 .app-knopf{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;color:#fff;background:var(--verlauf);
@@ -232,14 +317,14 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .breit .text{align-self:center;padding-bottom:clamp(28px,4vw,56px)}
 @media (max-width:899px){ .breit{grid-template-columns:1fr} .breit .text{padding-bottom:0} }
 
-/* So funktioniert's: drei Schritte */
+/* ── So funktioniert's: drei Schritte ── */
 .schritte{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
-.schritt{background:#fff;border-radius:var(--r-klein);padding:28px 26px 26px;display:flex;flex-direction:column;box-shadow:var(--schatten-weich)}
-.s-nr{font:500 13px/1 "IBM Plex Mono",monospace;letter-spacing:.14em;color:#fff;background:var(--verlauf);align-self:flex-start;padding:8px 11px;border-radius:999px}
+.schritt{background:var(--flaeche);border-radius:var(--r-klein);padding:28px 26px 26px;display:flex;flex-direction:column;box-shadow:var(--schatten-weich)}
+.s-nr{font:500 13px/1 var(--mono);letter-spacing:.14em;color:#fff;background:var(--verlauf);align-self:flex-start;padding:8px 11px;border-radius:999px}
 .schritt h3{font-size:clamp(22px,1.9vw,26px);letter-spacing:-.025em;line-height:1.15;margin-top:18px}
 .schritt p{margin-top:8px;font-size:16px;color:var(--grau)}
 .s-bild{margin-top:auto;padding-top:22px;display:flex;flex-wrap:wrap;gap:6px}
-.s-bild>span{font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:999px;background:rgba(23,22,30,.06);color:var(--grau)}
+.s-bild>span{font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:999px;background:var(--zart);color:var(--grau)}
 .s-bild>span.an{background:var(--tinte);color:var(--seite)}
 .s-bild.liste{flex-direction:column;gap:6px}
 .s-bild.liste>span{display:flex;align-items:center;gap:10px;border-radius:14px;padding:10px 12px}
@@ -255,8 +340,6 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .s-bild .ring b{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--tinte)}
 .s-txt{font-size:15px;color:var(--grau);line-height:1.35}.s-txt b{color:var(--tinte)}
 @media (max-width:899px){ .schritte{grid-template-columns:1fr} }
-:where([data-design="dunkel"]) .s-bild>span{background:rgba(255,255,255,.07)}
-:where([data-design="dunkel"]) .s-bild.score>.ring{background:radial-gradient(closest-side,#15122a 78%,transparent 80% 100%),conic-gradient(#3ddc84 0 99%,rgba(255,255,255,.1) 99% 100%)}
 
 /* Herkunft und Stand: kleine graue Zeile unter Abschnitten */
 .quelle{margin-top:16px;font-size:14px;line-height:1.45;color:var(--grau);max-width:46em}
@@ -264,49 +347,71 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .schluss .quelle{margin-top:10px;max-width:none}
 
 /* Pro-Pille */
-.pro-pille{display:inline-block;vertical-align:middle;margin-left:10px;font:600 12px/1 "Inter",sans-serif;letter-spacing:.02em;color:#fff;
+.pro-pille{display:inline-block;vertical-align:middle;margin-left:10px;font:600 12px/1 var(--schrift);letter-spacing:.02em;color:#fff;
   background:linear-gradient(135deg,#ff7a45,#e0508a 50%,#7b5cff);padding:6px 10px;border-radius:999px}
 
-/* Kacheln */
-.kachel{background:#fff;border-radius:var(--r-klein);padding:26px;box-shadow:var(--schatten-weich)}
-.kachel .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#f0ecff;color:var(--akzent)}
+/* ── Kacheln ── */
+.kachel{background:var(--flaeche);border-radius:var(--r-klein);padding:26px;box-shadow:var(--schatten-weich)}
+.kachel .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--icon-flaeche);color:var(--akzent)}
 .kachel h3{font-size:20px;letter-spacing:-.02em;margin-top:16px;line-height:1.2}
 .kachel p{margin-top:6px;font-size:15.5px;color:var(--grau)}
 
-/* Zahlen */
-.zahlen{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:clamp(56px,8vw,120px)}
-.zahlen div{background:#fff;border-radius:var(--r-klein);padding:24px;text-align:center;box-shadow:var(--schatten-weich)}
-.zahlen b{display:block;font-size:clamp(34px,3.4vw,48px);font-weight:700;letter-spacing:-.04em;color:var(--tinte);line-height:1}
+/* ── Zahlen ── */
+.zahlen{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:var(--abschnitt)}
+.zahlen div{background:var(--flaeche);border-radius:var(--r-klein);padding:24px;text-align:center;box-shadow:var(--schatten-weich)}
+.zahlen b{display:block;font-size:clamp(34px,3.4vw,48px);font-weight:700;letter-spacing:-.04em;color:var(--tinte);line-height:1;font-variant-numeric:tabular-nums}
 .zahlen span{display:block;margin-top:8px;font-size:14px;color:var(--grau)}
 @media (max-width:899px){ .zahlen{grid-template-columns:repeat(2,1fr)} .zahlen div:last-child{grid-column:1/-1} }
 
-/* Fragen */
+/* ── Guide und Datenschutz ── */
+.guide{align-items:end}
+.guide-liste{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.guide-liste div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-klein);padding:18px}
+.karte .text .guide-liste p{font-size:14.5px;margin-top:6px;line-height:1.45}
+.guide-liste h3,.daten-liste h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
+.guide-liste p{margin-top:6px;color:#b3afcf;font-size:15.5px}
+.daten{padding-bottom:clamp(28px,4vw,56px)}
+.daten-liste{display:grid;grid-template-columns:1fr;gap:14px;padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
+.daten-liste div{background:rgba(255,255,255,.7);border-radius:var(--r-klein);padding:20px 22px;box-shadow:var(--schatten-weich)}
+.daten-liste p{margin-top:4px;color:var(--grau);font-size:15.5px}
+@media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
+
+/* ── Fragen: ganze Zeile klickbar, Pfeil dreht sich, Antwort klappt weich auf (wo der Browser Hoehe auf "auto"
+   animieren kann; sonst sofort) ── */
 .fragen-raster{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,64px);align-items:start}
 @media (max-width:899px){ .fragen-raster{grid-template-columns:1fr} }
-.fragen details{background:#fff;border-radius:20px;padding:0 24px;margin-bottom:10px;box-shadow:var(--schatten-weich)}
-.fragen summary{list-style:none;cursor:pointer;padding:20px 32px 20px 0;font-weight:600;color:var(--tinte);font-size:17.5px;position:relative}
+.fragen details{background:var(--flaeche);border-radius:var(--r-mittel);margin-bottom:10px;box-shadow:var(--schatten-weich)}
+.fragen summary{list-style:none;cursor:pointer;padding:20px 56px 20px 24px;font-weight:600;color:var(--tinte);font-size:17.5px;position:relative;border-radius:var(--r-mittel);transition:color var(--kurz)}
 .fragen summary::-webkit-details-marker{display:none}
-.fragen summary::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border:solid var(--grau);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.fragen summary::after{content:"";position:absolute;right:26px;top:50%;width:10px;height:10px;border:solid var(--grau);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);transition:transform var(--lang) var(--raus)}
 .fragen details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
-.fragen details p{padding:0 0 22px;color:var(--grau);font-size:16px}
+@media (hover:hover){ .fragen summary:hover{color:var(--akzent)} .fragen summary:hover::after{border-color:var(--akzent)} }
+.fragen details p{padding:0 24px 22px;color:var(--grau);font-size:16px}
+@supports (interpolate-size:allow-keywords) and selector(::details-content){
+  .fragen{interpolate-size:allow-keywords}
+  .fragen details::details-content{height:0;overflow:clip;transition:height var(--lang) var(--raus),content-visibility var(--lang) allow-discrete}
+  .fragen details[open]::details-content{height:auto}
+}
 
-/* Schluss */
+/* ── Schluss ── */
 .schluss .karte{text-align:center;align-items:center;padding:clamp(48px,7vw,96px) 24px}
 .schluss h2{font-size:clamp(40px,5vw,72px)}
 .schluss p{margin-top:16px}
-.teilen{display:none;align-items:center;gap:10px;margin-top:30px;min-height:48px;padding:0 24px;border:0;border-radius:999px;font:600 16px "Inter",sans-serif;color:#fff;background:var(--eloxal);cursor:pointer;box-shadow:0 10px 30px -8px rgba(91,91,255,.6)}
+.teilen{display:none;margin-top:30px;padding:0 24px}
+[data-design] .teilen{display:inline-flex}
+.teilen svg{transition:transform var(--mittel) var(--raus)}
+.teilen.ok svg{transform:scale(.9)}
 
-/* Fuss */
-.fuss{margin-top:clamp(56px,8vw,120px);background:#fff;border-top:1px solid var(--linie);padding:56px 0 32px;font-size:15px}
+/* ── Fuss ── */
+.fuss{margin-top:var(--abschnitt);background:var(--fuss);border-top:1px solid var(--linie);padding:56px 0 calc(32px + env(safe-area-inset-bottom));font-size:15px}
 .fuss-raster{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(max-content,1fr));gap:32px}
 .fuss .design-wahl,.fuss .sprach-wahl{display:none}
 [data-design] .fuss .design-wahl,[data-design] .fuss .sprach-wahl{display:block}
-[data-design] .teilen{display:inline-flex}
 .fuss p{margin-top:10px;color:var(--grau);max-width:22em}
-.fuss h2{font:500 12px "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:12px}
+.fuss h2{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:12px}
 .fuss ul{list-style:none;padding:0}
 .fuss li{margin:6px 0}
-.fuss li a,.fuss li button{color:var(--text);text-decoration:none;background:none;border:0;font:inherit;padding:0;cursor:pointer}
+.fuss li a,.fuss li button{color:var(--text);text-decoration:none;background:none;border:0;font:inherit;padding:0;cursor:pointer;transition:color var(--kurz)}
 .fuss li a:hover,.fuss li button:hover{color:var(--akzent)}
 .fuss li button[aria-pressed="true"]{font-weight:600;color:var(--tinte)}
 .klein{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 20px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--linie);font-size:13px;color:var(--grau)}
@@ -315,78 +420,72 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 @media (max-width:1023px){ .fuss-raster{grid-template-columns:1fr 1fr} .fuss-raster>div:first-child{grid-column:1/-1} }
 @media (max-width:400px){ .fuss-raster{column-gap:20px} .fuss li{font-size:14px} }
 
-/* Einblenden: Animation mit backwards (keine Transition -- die ueberschreibt Hover-Transforms) */
-.js [data-zeige]{opacity:0}
-.js [data-zeige].da{opacity:1;animation:auf .8s cubic-bezier(.2,.7,.2,1) backwards}
-@keyframes auf{from{opacity:0;transform:translateY(28px)}}
-.js .buehne .pop{animation:schweben 7s ease-in-out infinite alternate}
-.js .buehne .pop:nth-of-type(2n){animation-delay:-3.5s}
-@keyframes schweben{to{translate:0 -1.2cqw}}
-@media (prefers-reduced-motion:reduce){
-  .js [data-zeige]{opacity:1} .js [data-zeige].da{animation:none}
-  .js .buehne .pop{animation:none} .lauf ul{animation:none}
-}
-.guide{align-items:end}
-.guide-liste div{padding:18px}.karte .text .guide-liste p{font-size:14.5px;margin-top:6px;line-height:1.45}
-.guide-liste{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
-.daten-liste{display:grid;gap:14px;padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
-.guide-liste div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-klein);padding:22px}
-.guide-liste h3,.daten-liste h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
-.guide-liste p{margin-top:6px;color:#b3afcf;font-size:15.5px}
-.daten{padding-bottom:clamp(28px,4vw,56px)}
-.daten-liste{grid-template-columns:1fr}
-.daten-liste div{background:rgba(255,255,255,.7);border-radius:var(--r-klein);padding:20px 22px;box-shadow:var(--schatten-weich)}
-.daten-liste p{margin-top:4px;color:var(--grau);font-size:15.5px}
-@media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
+/* ── Meldungen (z. B. Link kopiert, Fehler): unten mittig, kurz eingeblendet ── */
+.meldung{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));z-index:60;max-width:min(92vw,460px);padding:12px 18px;border-radius:14px;
+  background:var(--tinte);color:var(--seite);font-size:15px;line-height:1.4;box-shadow:0 16px 40px -12px rgba(0,0,0,.35);
+  opacity:0;transform:translate(-50%,8px);pointer-events:none;transition:opacity var(--mittel) var(--raus),transform var(--mittel) var(--raus)}
+.meldung.da{opacity:1;transform:translate(-50%,0)}
+.meldung.fehler{background:#b42339;color:#fff}
 
-/* ── Dunkelmodus (Stand 2026-10-01): Schalter in der Kopfzeile (Mond/Sonne) und im Fuss; die Wahl
-   bleibt im Browser gespeichert (cs.design). Ohne Wahl folgt die Seite dem Geraet, ohne JavaScript
-   bleibt sie hell. Das Skript im Kopf setzt data-design="hell|dunkel" vor dem ersten Bild; :where() haelt die
-   Spezifitaet der Regeln wie bei der frueheren Media Query. Im Dunkelmodus gilt die Markenpalette der App (Nacht, Carbon, Titan, Lila) wie in der
-   Design-Loop-Checkliste B: Farbverlaeufe statt flaechigem Schwarz, Glas-Karten mit feiner Linie,
-   die Farbkarten als dunkle Varianten mit Farbschein am Boden. Kontraste per WCAG-Formel geprueft:
-   Grautext auf den Kartenkoepfen >= 6,7:1. ── */
-:root[data-design="dunkel"]{--seite:#07060d; --weiss:#141126; --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36; --akzent:#b49bff; --etikett:#b49bff;
-  --glas:rgba(22,19,40,.62); --glas-linie:rgba(255,255,255,.08); --schatten:0 30px 80px -30px rgba(0,0,0,.8)}
-:where(:root[data-design="dunkel"]) body{background:
+/* ── Einblenden: einmal, kurz (300 ms, 12 px), Geschwister um 50 ms versetzt. Animation mit backwards statt
+   Transition -- die wuerde spaetere Transforms (Druecken) ueberschreiben. Ohne JavaScript bleibt alles sichtbar. ── */
+.js [data-zeige]{opacity:0}
+.js [data-zeige].da{opacity:1;animation:auf var(--lang) var(--raus) backwards}
+@keyframes auf{from{opacity:0;transform:translateY(12px)}}
+
+/* ── Wechsel hell/dunkel: mit View Transitions blendet die Seite in 250 ms ueber; ohne gehen nur Farben weich
+   ueber (Klasse nur waehrend des Wechsels, damit beim Laden nichts animiert). Beim Laden setzt das Skript im
+   Kopf das Design vor dem ersten Bild -- kein Aufblitzen. ── */
+::view-transition-old(root),::view-transition-new(root){animation-duration:250ms;animation-timing-function:ease}
+.design-wechsel,.design-wechsel *,.design-wechsel *::before,.design-wechsel *::after{transition:background-color 250ms ease,color 250ms ease,border-color 250ms ease,box-shadow 250ms ease!important}
+
+/* ── Touch: groessere Ziele, kein Hover-Zustand, der haengen bleibt ── */
+@media (pointer:coarse){
+  .sprache button{min-height:36px;padding:6px 12px}
+  .fuss li a,.fuss li button{display:inline-block;padding:5px 0}
+  .band .lauf-knopf{width:36px;height:36px}
+}
+
+/* ── Weniger Bewegung: keine Einblend-, Lauf- und Uebergangsbewegungen ── */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important}
+  .js [data-zeige]{opacity:1}
+}
+
+/* ── Dunkelmodus: nur was die Variablen nicht abdecken ── */
+:root[data-design="dunkel"]{background:#07060d}
+:where(:root[data-design="dunkel"]) body{background:transparent}
+/* Himmel als feste Ebene hinter der Seite (statt background-attachment:fixed, das beim Scrollen jedes Bild neu malt) */
+:root[data-design="dunkel"] body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
   radial-gradient(1100px 720px at 12% -8%,rgba(138,77,255,.20),transparent 62%),
   radial-gradient(900px 640px at 105% 18%,rgba(47,140,255,.12),transparent 60%),
-  radial-gradient(1000px 800px at 50% 110%,rgba(91,91,255,.10),transparent 60%),#07060d;background-attachment:fixed}
-:where([data-design="dunkel"]) .kopf{background:rgba(7,6,13,.95)}
+  radial-gradient(1000px 800px at 50% 110%,rgba(91,91,255,.10),transparent 60%)}
 :where([data-design="dunkel"]) .kopf.unten{box-shadow:0 8px 24px -12px rgba(0,0,0,.6)}
 :where([data-design="dunkel"]) .pop{box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
 :where([data-design="dunkel"]) .modus p{color:var(--grau)}
 :where([data-design="dunkel"]) .modus .kicker .etikett{color:var(--grau)}
 :where([data-design="dunkel"]) .app-knopf{box-shadow:0 18px 40px -14px rgba(124,58,237,.65),inset 0 1px 0 rgba(255,255,255,.18)}
-:where([data-design="dunkel"]) .app-hinweis{background:var(--glas);box-shadow:inset 0 0 0 1px var(--glas-linie)}
-:where([data-design="dunkel"]) .modus .beleg{box-shadow:none}
-:where([data-design="dunkel"]) .nav a:hover,:where([data-design="dunkel"]) .nav a.an{background:rgba(255,255,255,.08)}
-:where([data-design="dunkel"]) .sprache{background:rgba(255,255,255,.07)}
-:where([data-design="dunkel"]) .sprache button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
-:where([data-design="dunkel"]) .bald,:where([data-design="dunkel"]) .weg{color:#0b0a12}
-/* Glas statt weisser Flaechen */
-:where([data-design="dunkel"]) .punkte div,:where([data-design="dunkel"]) .kachel,:where([data-design="dunkel"]) .zahlen div,:where([data-design="dunkel"]) .fragen details,:where([data-design="dunkel"]) .schritt{background:var(--glas);box-shadow:inset 0 0 0 1px var(--glas-linie);
-  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-:where([data-design="dunkel"]) .kachel .icon{background:rgba(180,155,255,.14)}
-:where([data-design="dunkel"]) .knopf.leer{color:var(--tinte);background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
-:where([data-design="dunkel"]) .modus .beleg{background:rgba(255,255,255,.08)}
-:where([data-design="dunkel"]) .daten-liste div{background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px var(--glas-linie)}
-:where([data-design="dunkel"]) .echt{background:rgba(255,255,255,.08)}
-:where([data-design="dunkel"]) .lauf li{color:#8a85ad}
+:where([data-design="dunkel"]) .app-hinweis{background:var(--flaeche);box-shadow:var(--schatten-weich)}
+:where([data-design="dunkel"]) .modus .beleg{background:rgba(255,255,255,.08);box-shadow:none}
+:where([data-design="dunkel"]) .sprache button[aria-pressed="true"],:where([data-design="dunkel"]) .segment button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
+:where([data-design="dunkel"]) .knopf.leer{background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+@media (hover:hover){ :where([data-design="dunkel"]) .knopf.leer:hover{background:rgba(255,255,255,.12)} }
+:where([data-design="dunkel"]) .daten-liste div{background:rgba(255,255,255,.06)}
+:where([data-design="dunkel"]) .s-bild.score>.ring{background:radial-gradient(closest-side,#15122a 78%,transparent 80% 100%),conic-gradient(#3ddc84 0 99%,rgba(255,255,255,.1) 99% 100%)}
+:where([data-design="dunkel"]) .meldung{background:#f7f5ff;color:#0b0a12}
+:where([data-design="dunkel"]) .meldung.fehler{background:#ff6b81;color:#14060a}
 /* Farbkarten dunkel: Kopf fast schwarz, Farbschein nach unten, feine Kante wie Glas */
-:where([data-design="dunkel"]) .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
 :where([data-design="dunkel"]) .k-lila{background:radial-gradient(90% 55% at 50% 100%,rgba(138,77,255,.55),transparent 70%),linear-gradient(180deg,#110e20 0%,#17122e 55%,#2a1c5e 100%)}
 :where([data-design="dunkel"]) .k-nacht{background:radial-gradient(90% 60% at 50% 80%,#34257a 0%,#16122c 50%,#0b0a14 100%)}
 :where([data-design="dunkel"]) .k-gruen{background:radial-gradient(90% 55% at 50% 100%,rgba(46,242,154,.22),transparent 70%),linear-gradient(180deg,#0c1512 0%,#0f1f18 60%,#123526 100%)}
 :where([data-design="dunkel"]) .k-mint{background:radial-gradient(90% 55% at 70% 100%,rgba(64,220,170,.22),transparent 70%),linear-gradient(160deg,#0c1413 0%,#0f1e1b 60%,#12352e 100%)}
 :where([data-design="dunkel"]) .k-blau{background:radial-gradient(90% 55% at 50% 100%,rgba(47,140,255,.35),transparent 70%),linear-gradient(180deg,#0c1020 0%,#0f172e 60%,#142551 100%)}
 :where([data-design="dunkel"]) .k-pfirsich{background:radial-gradient(90% 55% at 50% 100%,rgba(255,140,90,.26),transparent 70%),linear-gradient(180deg,#140e0c 0%,#1f1411 60%,#3a1d14 100%)}
-:where([data-design="dunkel"]) .k-weiss{background:var(--glas)}
 :where([data-design="dunkel"]) .k-gruen .buehne{--blende:#123526 !important}
 /* Bevel-Leuchten unter dem Start */
 :where([data-design="dunkel"]) .start .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 60px 140px -70px rgba(138,77,255,.7)}
 :where([data-design="dunkel"]) .geraet{box-shadow:0 30px 70px -10px rgba(0,0,0,.7),0 0 60px -20px rgba(138,77,255,.35)}
-:where([data-design="dunkel"]) .fuss{background:rgba(7,6,13,.7);border-top-color:var(--linie)}
 :where([data-design="dunkel"]) .fuss li button[aria-pressed="true"]{color:#fff}
 </style>
 </head>
@@ -407,19 +506,46 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
       <button type="button" data-sprache="de" aria-pressed="true" lang="de" aria-label="Deutsch">DE</button>
       <button type="button" data-sprache="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
     </div>
-    <button type="button" class="design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
+    <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dunkles Design" data-t-aria="design.aria">
       <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
       <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
     </button>
-    <a class="bald" href="#fragen" id="bald" aria-label="Kommt bald – zum aktuellen Stand" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
+    <a class="bald" href="#fragen" id="bald" data-frage="f1" aria-label="Kommt bald – zum aktuellen Stand" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span></a>
+    <button type="button" class="rund menue-knopf" id="menue-knopf" aria-controls="menue" aria-expanded="false" aria-label="Menü öffnen" data-t-aria="menue.oeffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8.5h16M4 15.5h16"/></svg></button>
   </div>
 </header>
+<dialog class="menue" id="menue" aria-label="Menü" data-t-aria="menue.aria">
+  <div class="menue-kopf">
+    <a class="marke" href="./" aria-label="CrankScore – Startseite" data-t-aria="marke.aria">Crank<i>Score</i></a>
+    <button type="button" class="rund menue-zu" aria-label="Menü schließen" data-t-aria="menue.schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
+  </div>
+  <div class="menue-inhalt">
+    <nav aria-label="Abschnitte der Seite" data-t-aria="menue.nav">
+      <ul class="menue-liste">
+        <li><a href="#prinzip" data-t="nav.prinzip">Prüfung</a></li>
+        <li><a href="#modi" data-t="nav.modi">Modi</a></li>
+        <li><a href="#ablauf" data-t="nav.ablauf">So funktioniert’s</a></li>
+        <li><a href="#funktionen" data-t="nav.fed">Größe &amp; Fahrwerk</a></li>
+        <li><a href="#guide" data-t="nav.guide">Guide</a></li>
+        <li><a href="#mehr" data-t="nav.mehr">Funktionen</a></li>
+        <li><a href="#fragen" data-t="nav.fragen">Fragen</a></li>
+      </ul>
+    </nav>
+    <div class="menue-einst">
+      <div><span class="etikett" id="menue-sprache" data-t="fuss.h3">Sprache</span>
+        <div class="segment" role="group" aria-labelledby="menue-sprache"><button type="button" data-sprache="de" aria-pressed="true" lang="de">Deutsch</button><button type="button" data-sprache="en" aria-pressed="false" lang="en">English</button></div></div>
+      <div><span class="etikett" id="menue-design" data-t="fuss.h4">Design</span>
+        <div class="segment" role="group" aria-labelledby="menue-design"><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Hell</button><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dunkel</button><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Wie Gerät</button></div></div>
+    </div>
+    <a class="menue-status" href="#fragen" data-frage="f1"><i aria-hidden="true"></i><span data-t="bald">Kommt bald</span><small data-t="bald.stand">Zum aktuellen Stand</small></a>
+  </div>
+</dialog>
 
 <main id="inhalt">
   <section class="start" id="start" aria-labelledby="titel">
     <div class="innen">
       <div class="karte k-lila">
-        <div class="text" data-zeige>
+        <div class="text">
           <p class="etikett" data-t="start.etikett">Die Web-App fürs Mountainbike</p>
           <h1 id="titel" data-t="start.h1">Passt das zusammen?</h1>
           <p class="lead" data-t="start.sub">Passt die neue Gabel zu deinem Rahmen? Läuft die Kassette auf deinem Freilauf? CrankScore prüft die Maße und Standards deiner Teile und zeigt dir mögliche Konflikte, bevor du etwas kaufst.</p>
@@ -431,19 +557,18 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <span class="echt" data-t="beispiel">Beispielansicht</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/1.02" role="img" aria-label="Beispielansicht der App: die Teileliste eines Trailbikes, davor Rahmen, Federgabel und Bremsen als Karten mit Preis und Gewicht." data-t-aria="alt.start">
-          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/auf.webp" width="720" height="1561" alt="" loading="eager"></div></div>
-          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><img data-bild src="img/s/de/t-rahmen.webp" width="900" height="381" alt=""></div>
-          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><img data-bild src="img/s/de/t-gabel.webp" width="900" height="246" alt=""></div>
-          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><img data-bild src="img/s/de/t-bremsen.webp" width="900" height="248" alt=""></div>
+          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/auf-480.avif 480w, img/s/de/auf.avif 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw"><img data-bild src="img/s/de/auf.webp" srcset="img/s/de/auf-480.webp 480w, img/s/de/auf.webp 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="eager" fetchpriority="high"></picture></div></div>
+          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/t-rahmen-600.avif 600w, img/s/de/t-rahmen.avif 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/de/t-rahmen.webp" srcset="img/s/de/t-rahmen-600.webp 600w, img/s/de/t-rahmen.webp 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="900" height="381" alt="" loading="lazy" decoding="async"></picture></div>
+          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/t-gabel-600.avif 600w, img/s/de/t-gabel.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/de/t-gabel.webp" srcset="img/s/de/t-gabel-600.webp 600w, img/s/de/t-gabel.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="246" alt="" loading="lazy" decoding="async"></picture></div>
+          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/t-bremsen-600.avif 600w, img/s/de/t-bremsen.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/de/t-bremsen.webp" srcset="img/s/de/t-bremsen-600.webp 600w, img/s/de/t-bremsen.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="248" alt="" loading="lazy" decoding="async"></picture></div>
         </div>
       </div>
     </div>
   </section>
 
 <section class="band" aria-label="Marken im Katalog" data-t-aria="band.aria">
-    <p class="etikett" data-t="band.etikett">125 Marken im Katalog</p>
-    <div class="lauf"><ul><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li><li aria-hidden="true">Fox</li><li aria-hidden="true">RockShox</li><li aria-hidden="true">Shimano</li><li aria-hidden="true">SRAM</li><li aria-hidden="true">Maxxis</li><li aria-hidden="true">Schwalbe</li><li aria-hidden="true">DT Swiss</li><li aria-hidden="true">Race Face</li><li aria-hidden="true">Hope</li><li aria-hidden="true">Magura</li><li aria-hidden="true">Continental</li><li aria-hidden="true">Öhlins</li><li aria-hidden="true">Marzocchi</li><li aria-hidden="true">OneUp</li><li aria-hidden="true">Specialized</li><li aria-hidden="true">Canyon</li><li aria-hidden="true">Santa Cruz</li><li aria-hidden="true">Trek</li><li aria-hidden="true">Commencal</li><li aria-hidden="true">Propain</li><li aria-hidden="true">YT</li><li aria-hidden="true">Radon</li><li aria-hidden="true">Nukeproof</li><li aria-hidden="true">Crankbrothers</li></ul></div>
-    <div class="lauf zurueck"><ul><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li><li aria-hidden="true">Ergon</li><li aria-hidden="true">WTB</li><li aria-hidden="true">e*thirteen</li><li aria-hidden="true">Cane Creek</li><li aria-hidden="true">Chromag</li><li aria-hidden="true">Spank</li><li aria-hidden="true">Hunt</li><li aria-hidden="true">Newmen</li><li aria-hidden="true">Michelin</li><li aria-hidden="true">Vittoria</li><li aria-hidden="true">Pirelli</li><li aria-hidden="true">TRP</li><li aria-hidden="true">Trickstuff</li><li aria-hidden="true">SQlab</li><li aria-hidden="true">Fizik</li><li aria-hidden="true">KMC</li><li aria-hidden="true">X-Fusion</li><li aria-hidden="true">Manitou</li><li aria-hidden="true">Formula</li><li aria-hidden="true">Sixpack</li><li aria-hidden="true">Orbea</li><li aria-hidden="true">Giant</li><li aria-hidden="true">Scott</li><li aria-hidden="true">Roval</li></ul></div>
+    <div class="band-kopf"><p class="etikett" id="band-titel" data-t="band.etikett">125 Marken im Katalog</p><button type="button" class="rund lauf-knopf" aria-pressed="false" aria-label="Laufband anhalten" data-t-aria="lauf.pause"><svg class="pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg><svg class="spielen" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></div>
+    <div class="lauf"><ul><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li></ul></div>
   </section>
 
   <section id="prinzip" aria-labelledby="prinzip-titel">
@@ -466,8 +591,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="beispiel">Beispielansicht</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.87" role="img" aria-label="Beispielansicht: Score 99 von 100, „Stimmig. Alles zieht in Richtung Trail.“ Passform 100, Einsatz 98, 6.247&nbsp;€, 14,27 kg." data-t-aria="alt.score">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/bremsen.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
-            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><img data-bild src="img/s/de/k-score.webp" width="900" height="369" alt="" loading="lazy"></div>
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/bremsen-480.avif 480w, img/s/de/bremsen.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/de/bremsen.webp" srcset="img/s/de/bremsen-480.webp 480w, img/s/de/bremsen.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-score-600.avif 600w, img/s/de/k-score.avif 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw"><img data-bild src="img/s/de/k-score.webp" srcset="img/s/de/k-score-600.webp 600w, img/s/de/k-score.webp 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw" width="900" height="369" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
         <article class="karte k-gruen" data-zeige>
@@ -477,9 +602,9 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="beispiel">Beispielansicht</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.8;--blende:#eef8eb" role="img" aria-label="Beispielansicht: Die Prüfung meldet keine Konflikte, alle Maße passen." data-t-aria="alt.pruef">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/pr.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/pr-480.avif 480w, img/s/de/pr.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/de/pr.webp" srcset="img/s/de/pr-480.webp 480w, img/s/de/pr.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
             <div class="blende" aria-hidden="true"></div>
-            <div class="pop kappe" style="--w:74;--k:.163;left:13cqw;top:63cqw" aria-hidden="true"><img data-bild src="img/s/de/k-ok.webp" width="900" height="820" alt="" loading="lazy"></div>
+            <div class="pop kappe" style="--w:74;--k:.163;left:13cqw;top:63cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-ok-600.avif 600w, img/s/de/k-ok.avif 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw"><img data-bild src="img/s/de/k-ok.webp" srcset="img/s/de/k-ok-600.webp 600w, img/s/de/k-ok.webp 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw" width="900" height="820" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
       </div>
@@ -522,7 +647,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <p class="kicker"><span class="zahl">03</span><span class="etikett" data-t="weg3.etikett">Gebrauchtrad</span></p>
           <h3 data-t="weg3.h3">Ein Angebot einschätzen</h3>
           <p data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Modelljahr, Zustand und Preis. Die App schätzt den Gebrauchtwert und zeigt, ob der Preis fair wirkt und ob dir das Rad passt. Eine Besichtigung ersetzt das nicht.</p>
-          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Beispielansicht: ein Angebot einschätzen, Modelljahr 2023, Zustand „gepflegt, normale Spuren“." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-gebraucht.webp" width="900" height="1862" alt="" loading="lazy"></div></div>
+          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Beispielansicht: ein Angebot einschätzen, Modelljahr 2023, Zustand „gepflegt, normale Spuren“." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/m-gebraucht-600.avif 600w, img/s/de/m-gebraucht.avif 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw"><img data-bild src="img/s/de/m-gebraucht.webp" srcset="img/s/de/m-gebraucht-600.webp 600w, img/s/de/m-gebraucht.webp 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw" width="900" height="1862" alt="" decoding="async" loading="lazy"></picture></div></div>
         </article>
       </div>
       <p class="quelle" data-t="modi.quelle">Knopf und Hinweis in den ersten beiden Karten sind der App nachgebaut. Die dritte Karte zeigt eine Beispielansicht vom 30.09.2026.</p>
@@ -574,9 +699,9 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="ausschnitt">Beispielausschnitte</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.84" role="img" aria-label="Beispielausschnitte bei 182 cm Körpergröße: Rahmengröße L, Lenkerbreite 800 mm, Vorbau 40 bis 50 mm." data-t-aria="alt.fit">
-            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><img data-bild src="img/s/de/k-groesse.webp" width="900" height="332" alt="" loading="lazy"></div>
-            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><img data-bild src="img/s/de/k-lenker.webp" width="528" height="339" alt="" loading="lazy"></div>
-            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><img data-bild src="img/s/de/k-vorbau.webp" width="528" height="339" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-groesse-600.avif 600w, img/s/de/k-groesse.avif 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw"><img data-bild src="img/s/de/k-groesse.webp" srcset="img/s/de/k-groesse-600.webp 600w, img/s/de/k-groesse.webp 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw" width="900" height="332" alt="" decoding="async" loading="lazy"></picture></div>
+            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-lenker.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/de/k-lenker.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
+            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-vorbau.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/de/k-vorbau.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
         <article class="karte k-blau" id="federung" data-zeige>
@@ -586,8 +711,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="ausschnitt">Beispielausschnitte</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Beispielausschnitte: Fahrprofil mit 78 kg, ruppigen Trails und zügigem Tempo; Startwert für die Federgabel 75 psi (5,2 bar) bei 18 % Sag." data-t-aria="alt.fed">
-            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><img data-bild src="img/s/de/k-profil.webp" width="900" height="606" alt="" loading="lazy"></div>
-            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><img data-bild src="img/s/de/k-psi.webp" width="900" height="212" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-profil-600.avif 600w, img/s/de/k-profil.avif 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/de/k-profil.webp" srcset="img/s/de/k-profil-600.webp 600w, img/s/de/k-profil.webp 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw" width="900" height="606" alt="" decoding="async" loading="lazy"></picture></div>
+            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-psi-600.avif 600w, img/s/de/k-psi.avif 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/de/k-psi.webp" srcset="img/s/de/k-psi-600.webp 600w, img/s/de/k-psi.webp 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw" width="900" height="212" alt="" decoding="async" loading="lazy"></picture></div>
           </div>
         </article>
       </div>
@@ -598,8 +723,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <span class="echt" data-t="beispiel">Beispielansicht</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/.78" role="img" aria-label="Beispielansichten: Upgrade auf den Reifen Maxxis Minion DHR II für einen Punkt mehr, daneben die Einkaufsliste mit 19 Teilen für 6.247&nbsp;€." data-t-aria="alt.up">
-          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/up.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
-          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/kauf.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
+          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/up-480.avif 480w, img/s/de/up.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/de/up.webp" srcset="img/s/de/up-480.webp 480w, img/s/de/up.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/kauf-480.avif 480w, img/s/de/kauf.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/de/kauf.webp" srcset="img/s/de/kauf-480.webp 480w, img/s/de/kauf.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
         </div>
       </article>
     </div>
@@ -621,8 +746,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <span class="echt" data-t="beispiel">Beispielansicht</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Beispielansicht des Guides: Auf „Passt eine Fox 38?“ nennt er die Fox 38 Factory für 1.549 €, gebaut für Enduro und Downhill, und meldet, dass ihr Federweg die Freigabe des Rahmens übersteigt." data-t-aria="alt.guide">
-          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/guide.webp" width="720" height="1561" alt="" loading="lazy"></div></div>
-          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><img data-bild src="img/s/de/k-antwort.webp" width="900" height="993" alt="" loading="lazy"></div>
+          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/de/guide-480.avif 480w, img/s/de/guide.avif 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw"><img data-bild src="img/s/de/guide.webp" srcset="img/s/de/guide-480.webp 480w, img/s/de/guide.webp 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
+          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/de/k-antwort-600.avif 600w, img/s/de/k-antwort.avif 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw"><img data-bild src="img/s/de/k-antwort.webp" srcset="img/s/de/k-antwort-600.webp 600w, img/s/de/k-antwort.webp 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw" width="900" height="993" alt="" decoding="async" loading="lazy"></picture></div>
         </div>
       </div>
     </div>
@@ -709,6 +834,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
         <p class="lead" data-t="schluss.p">Bis zum Start feilen wir weiter an Katalog und Prüfung. Kennst du jemanden, der gerade ein Rad plant oder ein gebrauchtes sucht? Dann teil die Seite.</p>
         <p class="quelle" data-t="schluss.stand">Stand: 8. Oktober 2026</p>
         <button type="button" class="teilen" id="teilen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg><span data-t="schluss.knopf">Seite teilen</span></button>
+        <span hidden data-t="schluss.kopiert">Link kopiert</span><span hidden data-t="schluss.fehler">Kopieren hat nicht geklappt. Die Adresse lautet crankscore.de.</span>
       </div>
     </div>
   </section>
@@ -756,38 +882,88 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
   var ruhig = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var hatIO = "IntersectionObserver" in window;
   function alle(sel, wo){ return [].slice.call((wo || document).querySelectorAll(sel)); }
+  /* Texte fuer Meldungen stehen versteckt im Markup und wechseln mit der Sprache */
+  function text(schluessel){ var e = document.querySelector('[data-t="' + schluessel + '"]'); return e ? e.textContent : ""; }
 
-  /* ── Seite teilen: Web Share, sonst Link in die Zwischenablage ── */
+  /* ── Menue unter 1024 px: <dialog> mit allen Abschnitten, Sprache und Design. Esc und der Schliessen-Knopf
+     bringen den Fokus zurueck auf den Menue-Knopf; ein Abschnitts-Link schliesst und springt. ── */
+  var menue = document.getElementById("menue"), menueKnopf = document.getElementById("menue-knopf");
+  if(menue && menueKnopf && typeof menue.showModal === "function"){
+    var perLink = false;
+    menueKnopf.addEventListener("click", function(){ perLink = false; menue.showModal(); menueKnopf.setAttribute("aria-expanded", "true"); });
+    menue.querySelector(".menue-zu").addEventListener("click", function(){ menue.close(); });
+    alle('a[href^="#"]', menue).forEach(function(a){ a.addEventListener("click", function(){ perLink = true; menue.close(); }); });
+    menue.addEventListener("close", function(){ menueKnopf.setAttribute("aria-expanded", "false"); if(!perLink) menueKnopf.focus(); });
+    if(window.matchMedia){
+      var breit = window.matchMedia("(min-width: 1024px)");
+      var zu = function(){ if(breit.matches && menue.open) menue.close(); };
+      if(breit.addEventListener) breit.addEventListener("change", zu); else if(breit.addListener) breit.addListener(zu);
+    }
+  } else if(menueKnopf){ menueKnopf.hidden = true; }
+
+  /* ── Seite teilen: Web Share, sonst Link in die Zwischenablage; klappt beides nicht, sagt eine Meldung es ── */
   var teilen = document.getElementById("teilen");
   if(teilen) teilen.addEventListener("click", function(){
     var url = "https://crankscore.de/";
-    if(navigator.share){ navigator.share({title:"CrankScore", url:url}).catch(function(){}); return; }
-    if(navigator.clipboard) navigator.clipboard.writeText(url).then(function(){
-      var span = teilen.querySelector("span"), vorher = span.textContent; teilen.style.minWidth = teilen.offsetWidth + "px";
-      span.textContent = (window.CS && CS.t("schluss.kopiert")) || "Link kopiert";
-      setTimeout(function(){ span.textContent = vorher; teilen.style.minWidth = ""; }, 2200);
-    }).catch(function(){});
+    function geklappt(){
+      var span = teilen.querySelector("span"), vorher = span.textContent;
+      teilen.style.minWidth = teilen.offsetWidth + "px"; teilen.classList.add("ok");
+      span.textContent = text("schluss.kopiert");
+      setTimeout(function(){ span.textContent = vorher; teilen.style.minWidth = ""; teilen.classList.remove("ok"); }, 2200);
+    }
+    function fehler(){ if(window.CS && CS.melde) CS.melde(text("schluss.fehler"), "fehler"); }
+    function kopieren(){
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(geklappt, fehler); else fehler();
+    }
+    if(navigator.share){ navigator.share({title: "CrankScore", url: url}).catch(function(e){ if(!e || e.name !== "AbortError") kopieren(); }); return; }
+    kopieren();
   });
 
-  /* ── "Kommt bald" in der Kopfzeile fuehrt zur Antwort in den Fragen ── */
-  var bald = document.getElementById("bald"), f1 = document.getElementById("f1");
-  if(bald && f1) bald.addEventListener("click", function(){ f1.open = true; });
+  /* ── "Kommt bald" (Kopfzeile und Menue) fuehrt zur Antwort in den Fragen und klappt sie auf ── */
+  var f1 = document.getElementById("f1");
+  alle("[data-frage]").forEach(function(a){ a.addEventListener("click", function(){ if(f1) f1.open = true; }); });
 
-  /* ── Kopfzeile: Kante beim Scrollen; aktiver Abschnitt in der Navigation ── */
-  var kopf = document.getElementById("kopf");
-  var kante = function(){ kopf.classList.toggle("unten", window.scrollY > 8); };
-  window.addEventListener("scroll", kante, {passive:true}); kante();
-  var navLinks = alle(".nav a");
+  /* ── Kopfzeile: Kante erst beim Scrollen (Klasse nur bei Wechsel setzen) ── */
+  var kopf = document.getElementById("kopf"), unten = null;
+  var kante = function(){ var u = window.scrollY > 8; if(u !== unten){ unten = u; kopf.classList.toggle("unten", u); } };
+  window.addEventListener("scroll", kante, {passive: true}); kante();
+
+  /* ── aktiver Abschnitt in Navigation und Menue ── */
+  var navLinks = alle(".nav a, .menue-liste a");
   if(hatIO){
     var nio = new IntersectionObserver(function(eintraege){
-      eintraege.forEach(function(e){ if(!e.isIntersecting) return;
-        var ziel = e.target.getAttribute("data-nav") || e.target.id;
-        navLinks.forEach(function(a){ a.classList.toggle("an", a.getAttribute("href") === "#" + ziel); }); });
-    }, {rootMargin:"-40% 0px -55% 0px"});
+      eintraege.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var ziel = "#" + (e.target.getAttribute("data-nav") || e.target.id);
+        navLinks.forEach(function(a){
+          var an = a.getAttribute("href") === ziel;
+          a.classList.toggle("an", an);
+          if(an) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current");
+        });
+      });
+    }, {rootMargin: "-40% 0px -55% 0px"});
     alle("main > section[id]").forEach(function(s){ nio.observe(s); });
   }
 
-  /* ── Karten erscheinen einmal, leise, wenn sie ins Bild kommen; Geschwister leicht versetzt ── */
+  /* ── Laufband: nur mit Bewegung; die Marken werden fuer die Endlosschleife einmal verdoppelt (fuer Screenreader
+     versteckt). Haelt an beim Zeigen, bei Fokus, ausserhalb des Bildes und mit dem Knopf. ── */
+  var band = document.querySelector(".band"), lauf = band && band.querySelector(".lauf");
+  if(band && lauf && !ruhig){
+    var liste = lauf.querySelector("ul");
+    alle("li", liste).forEach(function(li){ var k = li.cloneNode(true); k.setAttribute("aria-hidden", "true"); liste.appendChild(k); });
+    lauf.classList.add("laeuft"); band.classList.add("bewegt");
+    var halt = band.querySelector(".lauf-knopf");
+    if(halt) halt.addEventListener("click", function(){
+      var an = halt.getAttribute("aria-pressed") !== "true";
+      halt.setAttribute("aria-pressed", String(an)); band.classList.toggle("halt", an);
+    });
+    if(hatIO) new IntersectionObserver(function(e){ band.classList.toggle("weg-vom-bild", !e[0].isIntersecting); }).observe(band);
+  } else if(lauf){
+    /* ohne Bewegung: die stehende Reihe laesst sich auch per Tastatur scrollen */
+    lauf.tabIndex = 0; lauf.setAttribute("role", "region"); lauf.setAttribute("aria-labelledby", "band-titel");
+  }
+
+  /* ── Karten erscheinen einmal, kurz, wenn sie ins Bild kommen; Geschwister leicht versetzt ── */
   var teile = alle("[data-zeige]");
   if(ruhig || !hatIO){ teile.forEach(function(e){ e.classList.add("da"); }); }
   else {
@@ -795,11 +971,11 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
       eintraege.forEach(function(e){
         if(!e.isIntersecting) return;
         var nachbarn = [].slice.call(e.target.parentNode.children).filter(function(x){ return x.hasAttribute("data-zeige"); });
-        e.target.style.animationDelay = Math.min(Math.max(0, nachbarn.indexOf(e.target)), 6) * 80 + "ms";
+        e.target.style.animationDelay = Math.min(Math.max(0, nachbarn.indexOf(e.target)), 3) * 50 + "ms";
         e.target.classList.add("da");
         io.unobserve(e.target);
       });
-    }, {rootMargin:"0px 0px -6% 0px", threshold:.08});
+    }, {rootMargin: "0px 0px -40px 0px", threshold: 0});
     teile.forEach(function(e){ io.observe(e); });
   }
 })();

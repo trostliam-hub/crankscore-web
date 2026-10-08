@@ -3,9 +3,9 @@
 Startseite für CrankScore, die Web-App zum Planen, Prüfen und Einschätzen von
 Mountainbikes. Live unter **https://crankscore.de** (die App selbst ist noch nicht veröffentlicht).
 
-`index.html` mit eingebettetem CSS und JavaScript, dazu Impressum und Datenschutz, echte
-App-Aufnahmen in `img/` und selbst gehostete Schriften in `fonts/` (Archivo, Inter,
-IBM Plex Mono — SIL Open Font License, siehe `fonts/OFL-*.txt`).
+`index.html` mit eingebettetem CSS und JavaScript, dazu Impressum, Datenschutz und eine eigene
+404-Seite, echte App-Aufnahmen in `img/` (AVIF und WebP, je zwei Größen) und selbst gehostete
+Schriften in `fonts/` (Inter, IBM Plex Mono — SIL Open Font License, siehe `fonts/OFL-*.txt`).
 
 Keine Abhängigkeiten, keine Cookies, kein Tracking. GitHub Pages veröffentlicht `main` unverändert.
 
@@ -17,7 +17,10 @@ Das HTML trägt nur die Schlüssel (`data-t`, `data-th`, `data-t-aria`, `data-t-
     node werkzeuge/texte.mjs            # deutsche Fassung ins HTML schreiben, Skript-Version setzen
     node werkzeuge/texte.mjs --pruefen  # nur prüfen (fehlende Übersetzungen, Platzhalter, Sprachmischung)
 
-`seite.js` schaltet auf allen Seiten Sprache und Design um und merkt sich die Wahl.
+`seite.js` schaltet auf allen Seiten Sprache und Design um und merkt sich die Wahl; `texte.js`
+lädt es erst, wenn Englisch gebraucht wird. Unter 1024 px öffnet ein Menü-Knopf alle Abschnitte,
+Sprache und Design (`<dialog>`). Bewegungen sind kurz (150–300 ms) und entfallen bei
+„weniger Bewegung“.
 Das Vorschaubild für geteilte Links (`img/vorschau.png`) entsteht aus `werkzeuge/vorschau.html`.
 
 **Hell und dunkel.** Schalter in der Kopfzeile (Mond/Sonne, auch auf Impressum und
