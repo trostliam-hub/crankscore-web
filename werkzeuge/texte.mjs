@@ -9,7 +9,11 @@
    Geprueft wird ausserdem: jeder Schluessel im HTML steht in texte.js, jeder Eintrag hat Deutsch und
    Englisch, kein Platzhalter bleibt offen, kein Eintrag ist ungenutzt, keine Sprachmischung
    (Umlaute oder deutsche Woerter im Englischen, englische Woerter im Deutschen), das Kopf-Skript ist
-   auf allen Seiten gleich. */
+   auf allen Seiten gleich, vor jedem Halbgeviertstrich steht ein geschuetztes Leerzeichen.
+
+   Release-Schalter: WERTE.appAdresse in texte.js. Leer: Knoepfe mit data-app heissen "Kommt bald" und fuehren zu
+   #q0, Elemente mit data-nach-release bekommen hidden. Mit Adresse (nur https, nie die Testadresse der App):
+   "App oeffnen" mit dieser Adresse, data-vor-release bekommt hidden. */
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -23,9 +27,13 @@ const lies = (d) => fs.readFileSync(path.join(WURZEL, d), "utf8");
 
 const kontext = { window: {} };
 vm.runInNewContext(lies("texte.js"), kontext);
-const { texte: T, fuelle } = kontext.window.CS_TEXTE;
+const { texte: T, fuelle, werte: W } = kontext.window.CS_TEXTE;
+/* Release-Schalter (WERTE.appAdresse): leer = vor dem Release ("Kommt bald" fuehrt zur Frage #q0), sonst "App oeffnen" */
+const APP = String(W.appAdresse || "").trim();
 
 const fehler = [], hinweise = [];
+if (/trostliam-hub\.github\.io|dreambuild/i.test(APP)) fehler.push("appAdresse: die Testadresse der App darf nie auf die Website");
+if (APP && !/^https:\/\//.test(APP)) fehler.push("appAdresse muss mit https:// beginnen");
 const ATTR = { "data-t-aria": "aria-label", "data-t-alt": "alt", "data-t-title": "title", "data-t-content": "content" };
 const NUR_DEUTSCH_LEER = new Set(["recht.hinweis"]);
 
@@ -77,13 +85,22 @@ function ersetzeAttribute(html, benutzt) {
 }
 
 const version = crypto.createHash("sha1").update(lies("texte.js")).update(lies("seite.js")).digest("hex").slice(0, 8);
-const benutzt = new Set();
+const benutzt = new Set(["app.oeffnen", "app.bald"]);
 const kopfSkripte = new Map();
 let geaendert = 0;
 
 for (const seite of SEITEN) {
   const alt = lies(seite);
-  let html = ersetzeInhalte(alt, "data-t", (k) => escText(standard(k)), benutzt);
+  /* Knoepfe zur App: Ziel und Text nach dem Release-Schalter */
+  let html = alt.replace(/<a\b[^>]*\sdata-app\b[^>]*>/g, (tag) => tag
+    .replace(/\shref="[^"]*"/, ` href="${APP ? escAttr(APP) : "#q0"}"`)
+    .replace(/\sdata-t="[^"]*"/, ` data-t="${APP ? "app.oeffnen" : "app.bald"}"`));
+  /* Inhalte nur vor bzw. nur nach dem Release */
+  html = html.replace(/<([a-z0-9]+)\b([^>]*\sdata-(vor|nach)-release\b[^>]*)>/g, (m, tag, attrs, art) => {
+    const weg = art === "vor" ? !!APP : !APP;
+    return `<${tag}${attrs.replace(/\shidden\b/, "")}${weg ? " hidden" : ""}>`;
+  });
+  html = ersetzeInhalte(html, "data-t", (k) => escText(standard(k)), benutzt);
   html = ersetzeInhalte(html, "data-th", (k) => nbsp(standard(k)), benutzt);
   html = ersetzeAttribute(html, benutzt);
   html = html.replace(/(texte|seite)\.js\?v=[0-9a-z]*/g, `$1.js?v=${version}`);
@@ -119,6 +136,7 @@ for (const [k, paar] of Object.entries(T)) {
   if (/ —|— /.test(de + en)) fehler.push(`${k}: Geviertstrich; auf der Website gilt der Halbgeviertstrich mit Leerzeichen`);
   if (/\s'|'\s|\w'\w/.test(de.replace(/<[^>]+>/g, "") + en.replace(/<[^>]+>/g, ""))) fehler.push(`${k}: gerades Apostroph, bitte ’`);
   if (/ {2}/.test(de + en)) fehler.push(`${k}: doppeltes Leerzeichen`);
+  if (/ – /.test(de + en)) fehler.push(`${k}: vor dem Gedankenstrich gehoert ein geschuetztes Leerzeichen (\u00a0–), sonst bricht er an den Zeilenanfang`);
 }
 for (const k of Object.keys(T)) if (!benutzt.has(k)) fehler.push(`ungenutzter Eintrag in texte.js: ${k}`);
 const kopfe = new Set(kopfSkripte.values());

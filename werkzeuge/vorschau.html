@@ -5,52 +5,52 @@
 <title>Vorschaubild 1200×630</title>
 <!-- Vorlage fuer img/vorschau.png (das Bild, das Messenger und soziale Netzwerke beim Teilen von
      crankscore.de zeigen, og:image). Die Texte kommen aus texte.js (englische Fassung = Standardsprache,
-     Schluessel in data-t), das Handy zeigt eine echte App-Aufnahme aus img/s/en.
+     Schluessel in data-t), das Rad ist das Blender-Rendering aus img/rad, das Handy zeigt eine echte
+     App-Aufnahme aus img/app/en/hell. Farben und Schriften wie Website und App.
      Neu erzeugen: im Repo-Ordner python3 -m http.server 8766, dann
      http://127.0.0.1:8766/werkzeuge/vorschau.html bei genau 1200×630 Pixeln als PNG abfotografieren
      (z. B. Chrome-Entwicklertools, Geraet 1200×630, "Screenshot aufnehmen") und als img/vorschau.png
      speichern. werkzeuge/ wird nicht veroeffentlicht (_config.yml). -->
 <style>
 @font-face{font-family:"Inter";src:url(../fonts/inter-400-800-latin.woff2) format("woff2");font-weight:400 800}
-@font-face{font-family:"IBM Plex Mono";src:url(../fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500}
+@font-face{font-family:"Barlow Semi Condensed";src:url(../fonts/barlowsemicondensed-700-latin.woff2) format("woff2");font-weight:700}
 html,body{margin:0}
-body{width:1200px;height:630px;overflow:hidden;position:relative;font-family:"Inter",sans-serif;color:#17161e;
-  background:linear-gradient(180deg,#f1f1fa 0%,#ebe7fc 45%,#d6ccff 100%)}
-.text{position:absolute;left:84px;top:0;bottom:0;width:610px;display:flex;flex-direction:column;justify-content:center}
-.marke{font-weight:800;font-size:40px;letter-spacing:-.035em;line-height:1}
-.marke i{font-style:normal;background:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.etikett{max-width:none;margin:46px 0 0;font:500 17px/1.3 "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#5a33d6}
-h1{margin:14px 0 0;font-size:94px;line-height:.98;letter-spacing:-.045em;font-weight:800}
-p{margin:26px 0 0;font-size:29px;line-height:1.36;color:#5c5e6b;max-width:20em}
-.url{margin-top:28px;font-weight:600;font-size:26px;color:#6d45f0;letter-spacing:-.01em}
-.geraet{position:absolute;left:770px;top:78px;width:350px;padding:10px;border-radius:58px;
-  background:linear-gradient(135deg,#e3e7ee,#8f96a3 30%,#eceff3 55%,#7d8491 80%,#ccd1d8);box-shadow:0 30px 60px -10px rgba(23,22,30,.35)}
-.glas{position:relative;border-radius:49px;overflow:hidden;background:#000;border:3px solid #0a0a0c}
-.leiste{height:46px;background:#0b0b10;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:6px 32px 0 38px;font-weight:600;font-size:15px}
-.leiste::after{content:"";width:40px;height:11px;border-radius:3px;background:linear-gradient(90deg,#fff 0 72%,rgba(255,255,255,.35) 72%)}
-.insel{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:96px;height:27px;border-radius:999px;background:#000;z-index:2}
-.glas img{display:block;width:100%;height:auto}
-.beispiel{position:absolute;left:945px;top:24px;transform:translateX(-50%);font:500 14px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;
-  color:#3c3d48;background:rgba(255,255,255,.92);padding:10px 14px;border-radius:999px;box-shadow:0 8px 24px -8px rgba(28,22,64,.35)}
+body{width:1200px;height:630px;overflow:hidden;position:relative;font-family:"Inter",sans-serif;color:#14171b;background:#f2f0ec}
+.text{position:absolute;left:72px;top:0;bottom:0;width:560px;display:flex;flex-direction:column;justify-content:center}
+.marke{display:flex;align-items:center;gap:12px;font:700 30px/1 "Barlow Semi Condensed",sans-serif;letter-spacing:.07em}
+.marke svg{width:46px;height:35px;color:#2563a8}
+.marke b{color:#5b5f65}
+h1{margin:34px 0 0;font:700 78px/.95 "Barlow Semi Condensed",sans-serif;letter-spacing:-.005em}
+p{margin:26px 0 0;font-size:24px;line-height:1.4;color:#43474d;max-width:20em}
+.rad{position:absolute;left:556px;top:178px;width:430px}
+.handy{position:absolute;left:972px;top:56px;width:196px;aspect-ratio:720/1640;padding:7px;border-radius:33px;background:#1b1d21;box-shadow:0 30px 60px -20px rgba(20,23,27,.45)}
+.glas{height:100%;border-radius:26px;overflow:hidden;background:#f2f0ec}
+.leiste{height:5.2%;display:flex;align-items:center;justify-content:space-between;padding:0 20px 0 24px;font:600 10px/1 "Inter",sans-serif}
+.glas img{display:block;width:100%}
+.beispiel{position:absolute;left:72px;bottom:38px;font:600 14px/1 "Inter",sans-serif;color:#5b5f65}
 </style>
 </head>
 <body>
   <div class="text">
-    <div class="marke">Crank<i>Score</i></div>
-    <p class="etikett" data-t="start.etikett">The web app for your mountain bike</p>
-    <h1 data-t="start.h1">Does it all fit?</h1>
-    <p data-t="fuss.claim">Plan, check and size up mountain bikes, part by part.</p>
-    <div class="url">crankscore.de</div>
+    <div class="marke"><svg viewBox="-152 -114 304 228" aria-hidden="true"><defs><mask id="l" maskUnits="userSpaceOnUse" x="-152" y="-114" width="304" height="228"><rect x="-152" y="-114" width="304" height="228" fill="#fff"/><circle r="15" fill="#000"/><circle cx="129.8" cy="-33.3" r="9" fill="#000"/></mask></defs><g mask="url(#l)" fill="currentColor" id="logo"></g></svg><span>CRANK<b>SCORE</b></span></div>
+    <h1 data-th="start.h1">Your bike.<br>Matching parts.<br>A clear plan.</h1>
+    <p data-t="seite.ogdesc">x</p>
   </div>
-  <div class="geraet"><div class="glas"><span class="insel"></span><div class="leiste">9:41</div><img src="../img/s/en/pr.webp" alt=""></div></div>
-  <div class="beispiel" data-t="beispiel">Sample view</div>
+  <img class="rad" src="../img/rad/rad-held.webp" alt="">
+  <div class="handy"><div class="glas"><div class="leiste">9:41</div><img src="../img/app/en/hell/uebersicht.webp" alt=""></div></div>
+  <div class="beispiel">crankscore.de</div>
 <script src="../texte.js"></script>
 <script>
-  /* englische Texte (Standardsprache) aus texte.js einsetzen, damit das Bild zur Website passt */
+  /* Logo wie auf der Website (Symbol #cs-logo aus index.html) und englische Texte aus texte.js */
+  fetch("../index.html").then(function(r){ return r.text(); }).then(function(h){
+    var m = h.match(/<symbol id="cs-logo"[^>]*><g[^>]*>([\s\S]*?)<\/g><\/symbol>/); if(m) document.getElementById("logo").innerHTML = m[1];
+  });
   (function(){
     var TX = window.CS_TEXTE; if(!TX) return;
-    [].forEach.call(document.querySelectorAll("[data-t]"), function(e){
-      var paar = TX.texte[e.getAttribute("data-t")]; if(paar) e.textContent = TX.fuelle(paar[1], "en");
+    [].forEach.call(document.querySelectorAll("[data-t],[data-th]"), function(e){
+      var k = e.getAttribute("data-t") || e.getAttribute("data-th"), paar = TX.texte[k];
+      if(!paar) return; var t = TX.fuelle(paar[1], "en");
+      if(e.hasAttribute("data-th")) e.innerHTML = t; else e.textContent = t;
     });
   })();
 </script>

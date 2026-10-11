@@ -74,7 +74,7 @@
     Object.keys(ATTRIBUTE).forEach(function(a){
       alle("[" + a + "]").forEach(function(e){ var t = text(e.getAttribute(a)); if(t !== null) e.setAttribute(ATTRIBUTE[a], t); });
     });
-    /* App-Aufnahmen gibt es in beiden Sprachen (img/s/en, img/s/de), jeweils auch als AVIF und kleiner */
+    /* App-Aufnahmen gibt es in beiden Sprachen (img/app/en, img/app/de), je hell und dunkel, als AVIF und WebP */
     alle("img[data-bild]").forEach(function(e){
       ["src", "srcset"].forEach(function(a){ var v = e.getAttribute(a); if(v) e.setAttribute(a, tausche(v, sp)); });
       if(e.parentNode && e.parentNode.nodeName === "PICTURE"){
@@ -125,7 +125,7 @@
   function zeigeDesign(){
     var d = zielDesign();
     doc.setAttribute("data-design", d);
-    alle('meta[name="theme-color"]').forEach(function(m){ m.setAttribute("content", d === "dunkel" ? "#07060d" : "#f4f4f8"); });
+    alle('meta[name="theme-color"]').forEach(function(m){ m.setAttribute("content", d === "dunkel" ? "#16181b" : "#f2f0ec"); });
     var k = document.getElementById("design");
     if(k) k.setAttribute("aria-pressed", String(d === "dunkel"));
     alle("button[data-design-wahl]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-design-wahl") === designWahl)); });

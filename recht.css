@@ -1,86 +1,95 @@
-/* Impressum, Datenschutz und 404: gleiche Farben, Schriften und Bewegungen wie die Startseite, nur ruhiger;
-   hell und dunkel wie dort (Variablen gleich benannt). Ueberschriften in Inter wie auf der Startseite. */
+/* Impressum, Datenschutz und 404: gleiche Farben, Schriften und Bewegungen wie die Startseite (und die App), nur
+   ruhiger; hell und dunkel wie dort (Variablen gleich benannt). Ueberschriften in Barlow Semi Condensed, Text in Inter. */
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin-ext.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlowsemicondensed-700-latin.woff2) format("woff2");font-weight:700;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlowsemicondensed-700-latin-ext.woff2) format("woff2");font-weight:700;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlowsemicondensed-600-latin.woff2) format("woff2");font-weight:600;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter Ersatz";src:local("Arial"),local("Helvetica"),local("Liberation Sans"),local("Arimo");
   size-adjust:107.12%;ascent-override:90.44%;descent-override:22.52%;line-gap-override:0%}
-:root{--seite:#f4f4f8;--flaeche:#fff;--linie:#e3e3ec;--tinte:#17161e;--text:#3c3d48;--grau:#5c5e6b;--akzent:#6d45f0;--etikett:#5a33d6;
-  --zart:rgba(23,22,30,.06);--zart-2:rgba(23,22,30,.1);--eloxal:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff);
-  --rand:clamp(18px,5vw,40px);--kurz:150ms;--mittel:200ms;--lang:300ms;--raus:cubic-bezier(.2,.7,.2,1);
-  --schrift:"Inter","Inter Ersatz",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace;color-scheme:light}
+@font-face{font-family:"Barlow Ersatz";src:local("Arial"),local("Helvetica"),local("Liberation Sans"),local("Arimo");
+  size-adjust:82.33%;ascent-override:121.46%;descent-override:24.29%;line-gap-override:0%}
+:root{--grund:#f2f0ec;--flaeche:#fbfaf7;--versenkt:#e9e6e0;--linie:#dfdbd4;--tinte:#14171b;--text:#43474d;--grau:#5b5f65;
+  --stahl:#2563a8;--stahl-zart:#e3eefa;--knopf:#2563a8;--knopf-2:#1d4f87;
+  --rand:clamp(20px,5vw,48px);--kurz:150ms;--mittel:220ms;--lang:300ms;--raus:cubic-bezier(.2,.8,.2,1);
+  --schrift:"Inter","Inter Ersatz",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --titel:"Barlow Semi Condensed","Barlow Ersatz","Arial Narrow",system-ui,sans-serif;color-scheme:light}
 /* Dunkel: gesetzt vom Skript im Kopf und von seite.js (Wahl auf irgendeiner Seite oder Einstellung des Geraets) */
-:root[data-design="dunkel"]{--seite:#07060d;--flaeche:rgba(22,19,40,.72);--linie:#211d36;--tinte:#f7f5ff;--text:#d9d5ee;--grau:#a8a3c8;--akzent:#b49bff;--etikett:#b49bff;
-  --zart:rgba(255,255,255,.07);--zart-2:rgba(255,255,255,.13);color-scheme:dark}
+:root[data-design="dunkel"]{--grund:#16181b;--flaeche:#1f2226;--versenkt:#30343a;--linie:#363a40;--tinte:#f2f3f5;--text:#c3c7cc;--grau:#a2a7ae;
+  --stahl:#8ec2f7;--stahl-zart:rgba(142,194,247,.14);--knopf:#2f6db0;--knopf-2:#3a7cc2;color-scheme:dark}
 *{box-sizing:border-box}
-html{background:var(--seite);-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--seite);color:var(--text);font:400 16.5px/1.65 var(--schrift);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
-a{color:var(--tinte);text-decoration-color:var(--akzent);text-underline-offset:3px;transition:color var(--kurz),text-decoration-color var(--kurz)}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background-color:var(--grund);color:var(--text);font:400 16.5px/1.65 var(--schrift);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:var(--tinte);text-decoration-color:var(--stahl);text-underline-offset:3px;transition:color var(--kurz),text-decoration-color var(--kurz)}
 a:hover{text-decoration-color:currentColor}
-:focus-visible{outline:3px solid var(--akzent);outline-offset:3px}
+:focus-visible{outline:3px solid var(--stahl);outline-offset:3px;border-radius:6px}
 .innen{max-width:760px;margin:0 auto;padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
 .kopf{border-bottom:1px solid var(--linie);padding-top:env(safe-area-inset-top)}
-.kopf .innen{display:flex;align-items:center;gap:16px;height:64px;max-width:1160px}
-.marke{flex:none;font-weight:800;font-size:20px;letter-spacing:-.035em;color:var(--tinte);text-decoration:none}
-.marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
-.zurueck{margin-left:auto;font-size:15px;color:var(--text);text-decoration:none;white-space:nowrap;padding:8px 12px;border-radius:999px;transition:color var(--kurz),background-color var(--kurz)}
-.zurueck:hover{color:var(--tinte);background:var(--zart)}
+.kopf .innen{display:flex;align-items:center;gap:14px;height:68px;max-width:1200px}
+.marke{display:inline-flex;align-items:center;gap:10px;flex:none;min-height:44px;color:var(--tinte);text-decoration:none;border-radius:8px}
+.marke .logo{width:34px;height:26px;color:var(--stahl)}
+.marke .schrift{font:700 21px/1 var(--titel);letter-spacing:.07em}
+.marke .schrift b{font-weight:700;color:var(--grau)}
+.zurueck{margin-left:auto;font-size:15px;color:var(--text);text-decoration:none;white-space:nowrap;padding:8px 13px;border-radius:999px;transition:color var(--kurz),background-color var(--kurz)}
+.zurueck:hover{color:var(--tinte);background:var(--versenkt)}
 /* Sprachwahl und Design-Knopf wie auf der Startseite; ohne JavaScript ausgeblendet (dann gilt Englisch, hell) */
-.sprache{display:none;flex:none;background:var(--zart);border-radius:999px;padding:3px}
+.sprache{display:none;flex:none;background:var(--versenkt);border-radius:999px;padding:3px}
 [data-design] .sprache{display:flex}
-.sprache button{font:600 13px var(--schrift);border:0;background:none;color:var(--text);padding:6px 10px;border-radius:999px;cursor:pointer;min-height:32px;
+.sprache button{font:600 13px var(--schrift);border:0;background:none;color:var(--text);padding:6px 11px;border-radius:999px;cursor:pointer;min-height:34px;
   transition:background-color var(--mittel) var(--raus),color var(--kurz),box-shadow var(--mittel) var(--raus)}
 .sprache button:hover{color:var(--tinte)}
-.sprache button[aria-pressed="true"]{background:#fff;color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-[data-design="dunkel"] .sprache button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
+.sprache button[aria-pressed="true"]{background:var(--flaeche);color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.14)}
 button.laedt{animation:puls 1s ease-in-out infinite}
 @keyframes puls{50%{opacity:.45}}
-.rund{display:none;place-items:center;width:40px;height:40px;flex:none;padding:0;border:0;border-radius:50%;background:var(--zart);color:var(--tinte);cursor:pointer;
+.rund{display:none;place-items:center;width:42px;height:42px;flex:none;padding:0;border:0;border-radius:50%;background:var(--versenkt);color:var(--tinte);cursor:pointer;
   transition:background-color var(--kurz),transform var(--kurz) var(--raus)}
 [data-design] .rund{display:grid}
-.rund:hover{background:var(--zart-2)}
+.rund:hover{background:var(--linie)}
 .rund:active{transform:scale(.92)}
-.rund svg{grid-area:1/1;width:18px;height:18px}
+.rund svg{grid-area:1/1;width:19px;height:19px}
 .design svg{transition:opacity var(--mittel) var(--raus),transform var(--lang) var(--raus)}
 .design .sonne,[data-design="dunkel"] .design .mond{opacity:0;transform:rotate(-90deg) scale(.5)}
 [data-design="dunkel"] .design .sonne{opacity:1;transform:none}
-/* Besucher mit gespeichertem Deutsch: Seite kurz aus, bis seite.js die Texte eingesetzt hat */
+/* Besucher mit gespeichertem Deutsch: Seite kurz aus, bis seite.js die deutschen Texte eingesetzt hat */
 .sprache-lade body{visibility:hidden}
 /* Schmale Handys: das Logo fuehrt ebenfalls zur Startseite */
-@media (max-width:439px){ .zurueck{display:none} .kopf .sprache{margin-left:auto} .kopf .innen{gap:10px} }
-@media (pointer:coarse){ .sprache button{min-height:36px;padding:6px 12px} }
+@media (max-width:579px){ .zurueck{display:none} .kopf .sprache{margin-left:auto} .kopf .innen{gap:10px} }
+@media (max-width:379px){ .marke .schrift{font-size:16px;letter-spacing:.05em} .marke .logo{width:28px;height:22px} .kopf .innen{gap:8px} .sprache button{padding:6px 9px} }
+@media (pointer:coarse){ .sprache button{min-height:38px;padding:6px 13px} }
 .text{padding-top:clamp(40px,7vw,80px);padding-bottom:clamp(56px,8vw,100px)}
-.etikett{font:500 12.5px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--etikett);margin:0}
-h1{font-weight:800;font-size:clamp(36px,7vw,56px);line-height:1.02;letter-spacing:-.04em;color:var(--tinte);margin:14px 0 30px;text-wrap:balance}
-h2{font-size:17px;font-weight:700;color:var(--tinte);margin:32px 0 6px}
+.etikett{font:600 14px/1.3 var(--schrift);color:var(--stahl);margin:0}
+h1{font:700 clamp(42px,8vw,64px)/1 var(--titel);color:var(--tinte);margin:12px 0 30px;text-wrap:balance}
+h2{font:600 21px/1.25 var(--titel);color:var(--tinte);margin:34px 0 6px}
 p{margin:0 0 10px;text-wrap:pretty}
 b{color:var(--tinte)}
-.lead{font-size:clamp(18px,2.4vw,21px);line-height:1.5;color:var(--grau);max-width:34em}
-.fehlt{padding:12px 16px;border-radius:14px;border:1px solid rgba(214,150,0,.4);background:rgba(255,190,46,.14);color:#7a4d00;margin-bottom:10px}
-[data-design="dunkel"] .fehlt{border-color:rgba(255,190,46,.35);background:rgba(255,190,46,.08);color:#ffd27a}
+.lead{font-size:clamp(18px,2.4vw,20px);line-height:1.55;color:var(--text);max-width:34em}
+.fehlt{padding:12px 16px;border-radius:14px;border:1px solid rgba(168,82,10,.35);background:rgba(255,159,67,.12);color:#7a3c06;margin-bottom:10px}
+[data-design="dunkel"] .fehlt{border-color:rgba(255,159,67,.35);background:rgba(255,159,67,.08);color:#ffc27e}
 /* Hinweis nur in der englischen Fassung (deutscher Text ist leer) */
-.recht-hinweis{padding:12px 16px;border-radius:14px;background:rgba(109,69,240,.08);color:var(--tinte);margin:0 0 18px;font-size:15px}
+.recht-hinweis{padding:12px 16px;border-radius:14px;background:var(--stahl-zart);color:var(--tinte);margin:0 0 18px;font-size:15px}
 .recht-hinweis:empty{display:none}
-[data-design="dunkel"] .recht-hinweis{background:rgba(164,123,255,.12)}
 .stand{margin-top:30px;color:var(--grau);font-size:14px}
 /* Knopf (404-Seite): wie der Hauptknopf der Startseite */
-.knopf{display:inline-flex;align-items:center;min-height:48px;margin-top:22px;padding:0 22px;border-radius:999px;font:600 16px var(--schrift);text-decoration:none;color:#fff;
-  background:var(--eloxal);box-shadow:0 10px 30px -8px rgba(91,91,255,.6);transition:transform var(--mittel) var(--raus),box-shadow var(--mittel) var(--raus)}
+.knopf{display:inline-flex;align-items:center;min-height:52px;margin-top:22px;padding:0 26px;border-radius:999px;font:600 16px var(--schrift);text-decoration:none;color:#fff;
+  background:var(--knopf);transition:transform var(--mittel) var(--raus),background-color var(--mittel)}
 .knopf:active{transform:scale(.97)}
-@media (hover:hover){ .knopf:hover{transform:translateY(-1px);box-shadow:0 14px 34px -8px rgba(91,91,255,.75)} }
-.fuss{border-top:1px solid var(--linie);padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px))}
-.fuss .innen{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;max-width:1160px}
-.fuss a{color:var(--text);text-decoration:none}
+@media (hover:hover){ .knopf:hover{transform:translateY(-1px);background:var(--knopf-2)} }
+.fuss{border-top:1px solid var(--linie);padding:18px 0 calc(18px + env(safe-area-inset-bottom,0px))}
+.fuss .innen{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;max-width:1200px}
+.fuss a{display:inline-block;padding:10px 0;color:var(--text);text-decoration:none}
 .fuss a:hover{color:var(--tinte)}
 /* Meldungen (seite.js): unten mittig, kurz eingeblendet */
 .meldung{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));z-index:60;max-width:min(92vw,460px);padding:12px 18px;border-radius:14px;
-  background:var(--tinte);color:var(--seite);font-size:15px;line-height:1.4;box-shadow:0 16px 40px -12px rgba(0,0,0,.35);
+  background:var(--tinte);color:var(--grund);font-size:15px;line-height:1.4;box-shadow:0 16px 40px -12px rgba(0,0,0,.35);
   opacity:0;transform:translate(-50%,8px);pointer-events:none;transition:opacity var(--mittel) var(--raus),transform var(--mittel) var(--raus)}
 .meldung.da{opacity:1;transform:translate(-50%,0)}
-.meldung.fehler{background:#b42339;color:#fff}
-[data-design="dunkel"] .meldung.fehler{background:#ff6b81;color:#14060a}
+.meldung.fehler{background:#c42a52;color:#fff}
+[data-design="dunkel"] .meldung.fehler{background:#ff7586;color:#14060a}
 /* Wechsel hell/dunkel wie auf der Startseite */
 ::view-transition-old(root),::view-transition-new(root){animation-duration:250ms;animation-timing-function:ease}
 .design-wechsel,.design-wechsel *,.design-wechsel *::before,.design-wechsel *::after{transition:background-color 250ms ease,color 250ms ease,border-color 250ms ease,box-shadow 250ms ease!important}

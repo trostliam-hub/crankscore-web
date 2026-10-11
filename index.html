@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title data-t="seite.titel">CrankScore – Will your mountain bike parts fit together?</title>
-<meta name="description" content="CrankScore checks whether the parts on your mountain bike work together. Plan a new bike, check your own or size up a used one." data-t-content="seite.desc">
+<title data-t="seite.titel">CrankScore&nbsp;– Plan your mountain bike and check that the parts fit</title>
+<meta name="description" content="CrankScore checks the dimensions and standards on your mountain bike, finds parts that fit, adapters included, and keeps your wishlist and shopping list. For a new build or your own bike. Web app, no account." data-t-content="seite.desc">
 <link rel="canonical" href="https://crankscore.de/">
-<meta name="theme-color" content="#f4f4f8">
+<meta name="theme-color" content="#f2f0ec">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
 <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -18,145 +18,141 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:locale:alternate" content="de_DE">
 <meta property="og:site_name" content="CrankScore">
-<meta property="og:title" content="CrankScore – Will your mountain bike parts fit together?" data-t-content="seite.ogtitel">
-<meta property="og:description" content="Plan a new bike, check your own, size up a used one. The web app for your mountain bike is in testing." data-t-content="seite.ogdesc">
+<meta property="og:title" content="CrankScore&nbsp;– Your bike. Matching parts. A clear plan." data-t-content="seite.ogtitel">
+<meta property="og:description" content="The web app checks whether your mountain bike’s parts work together, finds parts that fit, adapters included, and plans what to buy." data-t-content="seite.ogdesc">
 <meta property="og:url" content="https://crankscore.de/">
 <meta property="og:image" content="https://crankscore.de/img/vorschau.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="CrankScore preview image: the headline “Does it all fit?” next to a sample view of the app with a score of 99 and no conflicts." data-t-content="seite.ogbild">
+<meta property="og:image:alt" content="CrankScore preview image: the headline “Your bike. Matching parts. A clear plan.” next to a 3D render of a white full-suspension enduro bike and a real app view with a score of 96." data-t-content="seite.ogbild">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CrankScore","alternateName":"crankscore.de","url":"https://crankscore.de/","inLanguage":["de","en"]},{"@type":"Organization","name":"CrankScore","url":"https://crankscore.de/","logo":"https://crankscore.de/img/icon-512.png"}]}</script>
 <meta name="twitter:card" content="summary_large_image">
-<script src="/seite.js?v=8368c059" data-texte="/texte.js?v=8368c059" defer></script>
+<script src="/seite.js?v=25b89e8c" data-texte="/texte.js?v=25b89e8c" defer></script>
 <script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet), dazu theme-color fuer Status- und
    Browserleiste. Standardsprache ist Englisch (steht im HTML). Wer Deutsch gewaehlt hat (cs.sprache), sieht die Seite
    erst, wenn seite.js die deutschen Texte eingesetzt hat (Klasse sprache-lade, hoechstens 2,5 s); texte.js laedt dafuer
    schon jetzt. Steht hinter dem seite.js-Tag (data-texte). Gleich auf allen Seiten. */
-(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#07060d":"#f4f4f8",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);if(s==="de"){d.className+=" sprache-lade";setTimeout(function(){d.classList.remove("sprache-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
+(function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#16181b":"#f2f0ec",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);if(s==="de"){d.className+=" sprache-lade";setTimeout(function(){d.classList.remove("sprache-lade");},2500);var t=document.querySelector("script[data-texte]");if(t){var l=document.createElement("link");l.rel="preload";l.as="script";l.href=t.getAttribute("data-texte");document.head.appendChild(l);}}}catch(e){}})();</script>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/barlowsemicondensed-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-/* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO) */
+/* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO). Wie in der App: Ueberschriften,
+   Zahlen und Masse in Barlow Semi Condensed, Fliesstext in Inter. Die Ersatzschriften haben die Masse der echten,
+   damit beim Nachladen nichts springt. */
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:"Inter";src:url(fonts/inter-400-800-latin-ext.woff2) format("woff2");font-weight:400 800;font-display:swap;
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
-@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500;font-display:swap;
+@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlowsemicondensed-700-latin.woff2) format("woff2");font-weight:700;font-display:swap;
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-/* Ersatzschrift mit Inters Massen (Arial oder das massgleiche Liberation Sans, angepasst): bis Inter geladen ist,
-   bleiben Zeilen gleich lang und gleich hoch -- der Schriftwechsel verschiebt nichts (vorher CLS 0,07 auf dem Handy) */
+@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlowsemicondensed-700-latin-ext.woff2) format("woff2");font-weight:700;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlowsemicondensed-600-latin.woff2) format("woff2");font-weight:600;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Barlow Semi Condensed";src:url(fonts/barlowsemicondensed-600-latin-ext.woff2) format("woff2");font-weight:600;font-display:swap;
+  unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"Inter Ersatz";src:local("Arial"),local("Helvetica"),local("Liberation Sans"),local("Arimo");
   size-adjust:107.12%;ascent-override:90.44%;descent-override:22.52%;line-gap-override:0%}
+@font-face{font-family:"Barlow Ersatz";src:local("Arial"),local("Helvetica"),local("Liberation Sans"),local("Arimo");
+  size-adjust:82.33%;ascent-override:121.46%;descent-override:24.29%;line-gap-override:0%}
 
-/* ── Designsystem (Stand 2026-10-08): helle Seite, grosse Karten mit Farbverlauf wie in den Werbebildern, darin ein
-   silbernes Handy mit echter App-Aufnahme und herausspringende App-Karten. Farben der Karten: Lila (Marke), Nacht,
-   Gruen (Pruefung), Mint (Fit), Blau (Federung), Pfirsich (Upgrades). Masse in den Buehnen in cqw.
-   Alle Farben, Flaechen, Radien und Bewegungen kommen aus den Variablen hier; das dunkle Design setzt nur die
-   Variablen neu (unten) und braucht so kaum eigene Regeln. Bewegung: 150/200/300 ms, auslaufende Kurve. ── */
+/* ── Farben wie in der App (APP-BEVEL-002/003): warme helle Flaechen, Anthrazit im Dunkeln, Stahlblau als einziger
+   Akzent, Gruen/Gelb/Rot nur fuer Zustaende. Keine Verlaeufe, kein Leuchten. Alle Texte >= 4,5:1. ── */
 :root{
-  --seite:#f4f4f8; --flaeche:#fff; --tinte:#17161e; --text:#3c3d48; --grau:#5c5e6b; --linie:#e3e3ec;
-  --akzent:#6d45f0; --ok:#12a86a;
-  /* kleine Etiketten: dunkleres Lila, Kontrast >= 6,5:1 auf Seite und Karten */
-  --etikett:#5a33d6;
-  --eloxal:linear-gradient(90deg,#8a4dff,#5b5bff 55%,#2f8cff);
-  /* Knoepfe und Nummern: Indigo -> Violett, weisse Schrift >= 5,6:1 an jeder Stelle des Verlaufs */
-  --verlauf:linear-gradient(135deg,#4f46e5 0%,#6d45f0 50%,#7c3aed 100%);
-  /* leise Flaechen fuer Pillen und runde Knoepfe, beim Zeigen etwas kraeftiger */
-  --zart:rgba(23,22,30,.06); --zart-2:rgba(23,22,30,.1);
-  --icon-flaeche:#f0ecff; --fuss:#fff; --marken:#6a6c7b;
-  /* Karten und Kacheln: sehr leiser, weicher Schatten statt Kante */
-  --schatten-weich:0 10px 30px rgba(23,22,30,.05),0 1px 2px rgba(23,22,30,.03);
-  --schatten-karte:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.6);
-  --schatten-knopf:0 10px 30px -8px rgba(91,91,255,.6);
-  --schatten-knopf-hover:0 14px 34px -8px rgba(91,91,255,.75);
-  --r:40px; --r-klein:24px; --r-mittel:20px; --innen:1240px; --rand:24px; --kopf:64px;
-  --abschnitt:clamp(56px,8vw,120px);
-  --h1:clamp(44px,6.2vw,84px); --h2:clamp(34px,4.4vw,60px); --h3:clamp(28px,2.6vw,40px);
-  --kurz:150ms; --mittel:200ms; --lang:300ms;
-  --raus:cubic-bezier(.2,.7,.2,1); --rein:cubic-bezier(.4,0,1,1);
-  --schrift:"Inter","Inter Ersatz",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
-  color-scheme:light;
-}
-@media (min-width:1600px){ :root{ --innen:1400px; } }
-@media (max-width:520px){ :root{ --r:32px; --r-klein:22px; --rand:12px; } }
-/* ── Dunkelmodus: Markenpalette der App (Nacht, Carbon, Titan, Lila) wie in der Design-Loop-Checkliste B;
-   Farbverlaeufe statt flaechigem Schwarz, Glas-Karten mit feiner Linie. Kontraste per WCAG-Formel geprueft
-   (Grautext auf den Kartenkoepfen >= 6,7:1). Ohne Wahl folgt die Seite dem Geraet (Skript im Kopf). ── */
+  --grund:#f2f0ec;--flaeche:#fbfaf7;--flaeche-2:#f6f4f0;--versenkt:#e9e6e0;--linie:#dfdbd4;--linie-zart:#ebe8e2;
+  --tinte:#14171b;--text:#43474d;--grau:#5b5f65;
+  --stahl:#2563a8;--stahl-2:#1d4f87;--stahl-zart:#e3eefa;--knopf:#2563a8;--knopf-2:#1d4f87;--auf-knopf:#fff;
+  --gut:#0f7653;--warn:#a8520a;--schlecht:#c42a52;
+  --geraet:#1b1d21;--geraet-rand:#30343a;--app-grund:#f2f0ec;
+  --schatten:0 1px 2px rgba(20,23,27,.04),0 12px 32px -18px rgba(20,23,27,.22);
+  --schatten-hoch:0 2px 4px rgba(20,23,27,.05),0 30px 60px -28px rgba(20,23,27,.38);
+  --schrift:"Inter","Inter Ersatz",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --titel:"Barlow Semi Condensed","Barlow Ersatz","Arial Narrow",system-ui,sans-serif;
+  --breite:1200px;--rand:clamp(20px,5vw,48px);--kopf:68px;
+  --r-gross:32px;--r-karte:24px;--r:16px;--r-s:10px;
+  --kurz:150ms;--mittel:220ms;--lang:300ms;--raus:cubic-bezier(.2,.8,.2,1);
+  color-scheme:light}
+/* Dunkel: gesetzt vom Skript im Kopf und von seite.js (Wahl auf irgendeiner Seite oder Einstellung des Geraets) */
 :root[data-design="dunkel"]{
-  --seite:#07060d; --flaeche:rgba(22,19,40,.72); --tinte:#f7f5ff; --text:#d9d5ee; --grau:#a8a3c8; --linie:#211d36;
-  --akzent:#b49bff; --etikett:#b49bff; --zart:rgba(255,255,255,.07); --zart-2:rgba(255,255,255,.13);
-  --icon-flaeche:rgba(180,155,255,.14); --fuss:rgba(7,6,13,.7); --marken:#8a85ad;
-  --schatten-weich:inset 0 0 0 1px rgba(255,255,255,.08); --schatten-karte:inset 0 0 0 1px rgba(255,255,255,.06);
-  --schatten-knopf:0 10px 30px -10px rgba(124,58,237,.7); --schatten-knopf-hover:0 14px 36px -10px rgba(124,58,237,.85);
-  color-scheme:dark;
-}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(80px + env(safe-area-inset-top))}
-.sprache-lade body{visibility:hidden}
-/* waehrenddessen keine nachladbaren Bilder holen: sie kaemen sonst erst englisch, dann deutsch */
-.sprache-lade img[loading="lazy"]{display:none}
-body{background:var(--seite);color:var(--text);font:400 17px/1.55 var(--schrift);-webkit-font-smoothing:antialiased;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
-img{display:block;max-width:100%}
-picture{display:contents}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--akzent);outline-offset:3px}
-.weg{position:absolute;left:12px;top:-60px;z-index:100;background:var(--tinte);color:var(--seite);padding:10px 16px;border-radius:999px;text-decoration:none}
-.weg:focus{top:12px}
-.innen{max-width:var(--innen);margin:0 auto;padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
-h1,h2,h3{color:var(--tinte);font-weight:700;letter-spacing:-.035em;line-height:1.03;text-wrap:balance}
-h1{font-size:var(--h1)} h2{font-size:var(--h2)} h3{font-size:var(--h3);letter-spacing:-.03em}
-p,li,summary{text-wrap:pretty}
-.etikett{font:500 12px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--etikett)}
-.lead{font-size:clamp(18px,1.6vw,22px);color:var(--grau);line-height:1.45;letter-spacing:-.01em}
+  --grund:#16181b;--flaeche:#1f2226;--flaeche-2:#1b1e21;--versenkt:#30343a;--linie:#363a40;--linie-zart:#2b2e33;
+  --tinte:#f2f3f5;--text:#c3c7cc;--grau:#a2a7ae;
+  --stahl:#8ec2f7;--stahl-2:#b5d8fb;--stahl-zart:rgba(142,194,247,.14);--knopf:#2f6db0;--knopf-2:#3a7cc2;
+  --gut:#3ddc84;--warn:#ff9f43;--schlecht:#ff7586;
+  --geraet:#0c0d0f;--geraet-rand:#3a3e45;--app-grund:#16181b;
+  --schatten:0 1px 2px rgba(0,0,0,.3),0 12px 32px -18px rgba(0,0,0,.6);
+  --schatten-hoch:0 2px 4px rgba(0,0,0,.3),0 30px 60px -28px rgba(0,0,0,.8);
+  color-scheme:dark}
 
-/* ── Kopfzeile: deckend (kein Weichzeichner -- der kostete beim Scrollen auf Handys Bilder pro Sekunde) und in der
-   Farbe der Seite; sie reicht in die Safe Area (Statusleiste bei Web-App/Querformat). Zusammen mit theme-color (Skript im
-   Kopf, seite.js) und dem Seitenhintergrund (body, wird zum Hintergrund des ganzen Fensters) traegt so auch der Bereich
-   ueber der Kopfzeile die Farbe des gewaehlten Designs: hell #f4f4f8, dunkel #07060d. ── */
-.kopf{position:sticky;top:0;z-index:50;background:var(--seite);padding-top:env(safe-area-inset-top);border-bottom:1px solid transparent;transition:border-color var(--mittel),box-shadow var(--mittel)}
-.kopf.unten{border-bottom-color:var(--linie);box-shadow:0 8px 24px -12px rgba(23,22,30,.12)}
-.kopf .innen{display:flex;align-items:center;gap:20px;height:var(--kopf)}
-.marke{flex:none;font-weight:800;font-size:22px;letter-spacing:-.04em;text-decoration:none;color:var(--tinte)}
-.marke i{font-style:normal;background:var(--eloxal);-webkit-background-clip:text;background-clip:text;color:transparent}
-.nav{display:flex;gap:4px;margin-left:auto}
-.nav a{font-size:15px;text-decoration:none;color:var(--grau);padding:8px 12px;border-radius:999px;white-space:nowrap;transition:color var(--kurz),background-color var(--kurz)}
-.nav a:hover,.nav a.an{color:var(--tinte);background:var(--zart)}
-/* Sprachwahl, Design-Knopf, Menue und "Seite teilen" brauchen JavaScript; ohne (kein data-design) bleiben sie weg */
-.sprache,.segment{display:none;flex:none;background:var(--zart);border-radius:999px;padding:3px}
-[data-design] .sprache,[data-design] .segment{display:flex}
-.sprache button,.segment button{flex:1;font:600 13px var(--schrift);border:0;background:none;color:var(--grau);padding:6px 11px;border-radius:999px;cursor:pointer;min-height:32px;white-space:nowrap;
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--kopf) + 16px + env(safe-area-inset-top))}
+body{margin:0;background-color:var(--grund);color:var(--text);font:400 17px/1.6 var(--schrift);-webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;overflow-x:clip;font-feature-settings:"cv11"}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+p{margin:0}
+h1,h2,h3{font-family:var(--titel);font-weight:700;color:var(--tinte);margin:0;letter-spacing:-.005em;text-wrap:balance}
+h1{font-size:clamp(50px,8.6vw,104px);line-height:.94}
+h2{font-size:clamp(36px,5.4vw,62px);line-height:1}
+h3{font-size:clamp(23px,2.4vw,28px);line-height:1.1;font-weight:600}
+:focus-visible{outline:3px solid var(--stahl);outline-offset:3px;border-radius:6px}
+.weg{position:absolute;left:12px;top:-60px;z-index:100;padding:12px 18px;border-radius:12px;background:var(--tinte);color:var(--grund);font-weight:600;text-decoration:none}
+.weg:focus{top:calc(12px + env(safe-area-inset-top))}
+.innen{max-width:calc(var(--breite) + 2 * var(--rand));margin:0 auto;padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
+.etikett{display:block;font:600 14px/1.3 var(--schrift);color:var(--stahl);margin:0 0 14px}
+.lead{font-size:clamp(18px,1.6vw,20px);line-height:1.55;color:var(--text);max-width:36em}
+.einleitung{max-width:760px}
+.einleitung p{margin-top:18px}
+section{padding:clamp(72px,10vw,140px) 0 0}
+.nur-dunkel{display:none}
+[data-design="dunkel"] .nur-dunkel{display:block}
+[data-design="dunkel"] .nur-hell{display:none}
+
+/* ── Marke: Logo der App (Kettenblatt mit Kurbel) und Schriftzug wie am Unterrohr des Beispielrads ── */
+.marke{display:inline-flex;align-items:center;gap:10px;flex:none;min-height:44px;color:var(--tinte);text-decoration:none;border-radius:8px}
+.marke .logo{width:34px;height:26px;color:var(--stahl)}
+.marke .schrift{font:700 21px/1 var(--titel);letter-spacing:.07em}
+.marke .schrift b{font-weight:700;color:var(--grau)}
+
+/* ── Kopfzeile: deckend in Seitenfarbe, reicht unter die Statusleiste; Kante erst beim Scrollen ── */
+.kopf{position:sticky;top:0;z-index:50;background:var(--grund);padding-top:env(safe-area-inset-top);border-bottom:1px solid transparent;
+  transition:border-color var(--mittel)}
+.kopf.unten{border-bottom-color:var(--linie)}
+.kopf .innen{display:flex;align-items:center;gap:14px;height:var(--kopf)}
+.nav{display:none;gap:4px;margin:0 auto}
+.nav a{padding:8px 13px;border-radius:999px;color:var(--text);font-size:15px;font-weight:500;text-decoration:none;white-space:nowrap;
+  transition:color var(--kurz),background-color var(--kurz)}
+.nav a:hover{color:var(--tinte);background:var(--versenkt)}
+.nav a.an{color:var(--tinte);background:var(--flaeche);box-shadow:inset 0 0 0 1px var(--linie)}
+.kopf-rechts{display:flex;align-items:center;gap:10px;margin-left:auto}
+.sprache{display:none;background:var(--versenkt);border-radius:999px;padding:3px}
+[data-design] .sprache{display:flex}
+.sprache button,.segment button{font:600 13px var(--schrift);border:0;background:none;color:var(--text);padding:6px 11px;border-radius:999px;cursor:pointer;min-height:34px;
   transition:background-color var(--mittel) var(--raus),color var(--kurz),box-shadow var(--mittel) var(--raus)}
 .sprache button:hover,.segment button:hover{color:var(--tinte)}
-.sprache button[aria-pressed="true"],.segment button[aria-pressed="true"]{background:#fff;color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-/* Englische Texte werden beim ersten Umschalten nachgeladen: der Knopf pulsiert leise, bis sie da sind */
-button.laedt{animation:puls 1s ease-in-out infinite}
-@keyframes puls{50%{opacity:.45}}
-/* runde Knoepfe: Design, Menue, Menue schliessen, Laufband anhalten */
-.rund{display:none;place-items:center;width:40px;height:40px;flex:none;padding:0;border:0;border-radius:50%;background:var(--zart);color:var(--tinte);cursor:pointer;
+.sprache button[aria-pressed="true"],.segment button[aria-pressed="true"]{background:var(--flaeche);color:var(--tinte);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.rund{display:none;place-items:center;width:42px;height:42px;flex:none;padding:0;border:0;border-radius:50%;background:var(--versenkt);color:var(--tinte);cursor:pointer;
   transition:background-color var(--kurz),transform var(--kurz) var(--raus)}
 [data-design] .rund{display:grid}
-.rund:hover{background:var(--zart-2)}
+.rund:hover{background:var(--linie)}
 .rund:active{transform:scale(.92)}
-.rund svg{grid-area:1/1;width:18px;height:18px}
-/* Design-Knopf: Mond im hellen, Sonne im dunklen Design -- die Zeichen drehen sich weich ineinander */
+.rund svg{grid-area:1/1;width:19px;height:19px}
 .design svg{transition:opacity var(--mittel) var(--raus),transform var(--lang) var(--raus)}
 .design .sonne,[data-design="dunkel"] .design .mond{opacity:0;transform:rotate(-90deg) scale(.5)}
 [data-design="dunkel"] .design .sonne{opacity:1;transform:none}
-.bald{flex:none;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;text-decoration:none;color:var(--seite);background:var(--tinte);padding:9px 16px;border-radius:999px;white-space:nowrap;
-  transition:transform var(--mittel) var(--raus),box-shadow var(--mittel) var(--raus)}
-.bald i{width:8px;height:8px;border-radius:50%;background:#2ef29a;box-shadow:0 0 0 3px rgba(46,242,154,.25)}
-.bald:active{transform:scale(.97)}
-/* Navigation erst ab 1024 px; darunter oeffnet der Menue-Knopf alle Abschnitte. Unter 600 px wandern
-   Sprache und Design ins Menue, damit die Kopfzeile bis 320 px einzeilig bleibt (geprueft 320-1600 px, DE/EN). */
-@media (max-width:1023px){ .nav{display:none} .sprache{margin-left:auto} }
-@media (min-width:1024px){ [data-design] .menue-knopf{display:none} }
-@media (min-width:1024px) and (max-width:1179px){ .nav a{padding:8px 9px} .kopf .innen{gap:14px} }
-@media (max-width:599px){ [data-design] .kopf .sprache,[data-design] .kopf .design{display:none} .bald{margin-left:auto} .kopf .innen{gap:10px} }
-@media (max-width:359px){ .bald span{display:none} .bald{padding:9px 11px} }
+.kopf .knopf{min-height:42px;padding:0 18px;font-size:15px}
+button.laedt{animation:puls 1s ease-in-out infinite}
+@keyframes puls{50%{opacity:.45}}
+/* Kopfzeile je Breite: unter 480 px nur Marke und Menue (der App-Knopf steht im Einstieg und im Menue), unter 760 px
+   Sprache und Design nur im Menue, die Navigation ab 1120 px (darunter passt sie in Deutsch nicht neben die Knoepfe) */
+@media (max-width:479px){ .kopf .knopf{display:none} }
+@media (max-width:759px){ .kopf .sprache,[data-design] .kopf .sprache,.kopf .design,[data-design] .kopf .design{display:none} }
+@media (max-width:379px){ .marke .schrift{font-size:18px} .marke .logo{width:28px;height:22px} }
+@media (min-width:1120px){ .nav{display:flex} .menue-knopf,[data-design] .menue-knopf{display:none} }
 
-/* ── Menue (Handy und Tablet): ganze Flaeche, als <dialog> -- Tastatur bleibt darin, Esc schliesst, die Seite
-   dahinter ruht. Oeffnet in 200 ms (Einblenden, 8 px Weg), die Eintraege folgen leicht versetzt. ── */
+/* ── Menue (bis 1119 px): ganze Flaeche als <dialog>; Esc schliesst, der Fokus kehrt zum Knopf zurueck ── */
 .menue{position:fixed;inset:0;width:100%;max-width:none;height:100%;max-height:none;margin:0;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);border:0;
-  background:var(--seite);color:var(--text);overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateY(-8px);
+  background:var(--grund);color:var(--text);overflow-y:auto;overscroll-behavior:contain;opacity:0;transform:translateY(-8px);
   transition:opacity var(--mittel) var(--raus),transform var(--mittel) var(--raus),overlay var(--mittel) allow-discrete,display var(--mittel) allow-discrete}
 .menue[open]{opacity:1;transform:none}
 @starting-style{ .menue[open]{opacity:0;transform:translateY(-8px)} }
@@ -164,682 +160,575 @@ button.laedt{animation:puls 1s ease-in-out infinite}
 html:has(.menue[open]){overflow:hidden}
 .menue-kopf{display:flex;align-items:center;justify-content:space-between;gap:12px;height:var(--kopf);padding:0 max(var(--rand),env(safe-area-inset-right)) 0 max(var(--rand),env(safe-area-inset-left))}
 .menue-inhalt{padding:8px max(var(--rand),env(safe-area-inset-right)) 32px max(var(--rand),env(safe-area-inset-left));max-width:640px}
-.menue-liste{list-style:none;padding:0}
-.menue-liste a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px;font-size:clamp(22px,6vw,28px);font-weight:600;letter-spacing:-.025em;
+.menue-liste{list-style:none;padding:0;margin:0}
+.menue-liste a{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;font:700 clamp(26px,7vw,32px)/1.1 var(--titel);
   color:var(--tinte);text-decoration:none;border-bottom:1px solid var(--linie);transition:color var(--kurz)}
 .menue-liste a::after{content:"";flex:none;width:9px;height:9px;border:solid currentColor;border-width:2px 2px 0 0;transform:rotate(45deg);opacity:.35;transition:transform var(--mittel) var(--raus),opacity var(--kurz)}
-.menue-liste a:hover,.menue-liste a.an{color:var(--akzent)}
+.menue-liste a:hover,.menue-liste a.an{color:var(--stahl)}
 .menue-liste a:hover::after{opacity:.8;transform:translateX(3px) rotate(45deg)}
-.menue[open] .menue-liste li,.menue[open] .menue-einst{animation:auf var(--mittel) var(--raus) backwards}
+.menue[open] .menue-liste li,.menue[open] .menue-einst,.menue[open] .menue-app{animation:auf var(--mittel) var(--raus) backwards}
 .menue[open] .menue-liste li:nth-child(2){animation-delay:25ms} .menue[open] .menue-liste li:nth-child(3){animation-delay:50ms}
 .menue[open] .menue-liste li:nth-child(4){animation-delay:75ms} .menue[open] .menue-liste li:nth-child(5){animation-delay:100ms}
-.menue[open] .menue-liste li:nth-child(6){animation-delay:125ms} .menue[open] .menue-liste li:nth-child(7){animation-delay:150ms}
-.menue[open] .menue-einst{animation-delay:150ms}
+.menue[open] .menue-einst,.menue[open] .menue-app{animation-delay:125ms}
+.menue-app{margin-top:28px;width:100%;max-width:420px}
 .menue-einst{display:grid;gap:18px;margin-top:28px}
-.menue-einst .etikett{display:block;color:var(--grau);margin-bottom:8px}
-.menue-einst .segment{display:flex;width:100%;max-width:420px}
-.menue-einst .segment button{font-size:15px;min-height:44px}
-.menue-status{display:flex;align-items:center;gap:10px;margin-top:28px;padding:16px 18px;border-radius:var(--r-mittel);background:var(--flaeche);box-shadow:var(--schatten-weich);
-  text-decoration:none;color:var(--tinte);font-weight:600;transition:transform var(--kurz) var(--raus)}
-.menue-status i{width:8px;height:8px;border-radius:50%;background:#2ef29a;box-shadow:0 0 0 3px rgba(46,242,154,.25)}
-.menue-status small{margin-left:auto;font-size:14px;font-weight:500;color:var(--grau)}
-.menue-status:active{transform:scale(.98)}
+.menue-einst .etikett{color:var(--grau);margin-bottom:8px}
+.segment{display:flex;width:100%;max-width:420px;background:var(--versenkt);border-radius:999px;padding:3px}
+.segment button{flex:1;font-size:15px;min-height:44px}
 
-/* ── Knoepfe: kurze, gleiche Bewegung -- beim Zeigen 1 px hoch, beim Druecken leicht kleiner ── */
-.knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.knopf,.teilen{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:0;border-radius:999px;font:600 16px var(--schrift);text-decoration:none;cursor:pointer;
-  transition:transform var(--mittel) var(--raus),box-shadow var(--mittel) var(--raus),background-color var(--mittel)}
-.knopf.voll,.teilen{color:#fff;background:var(--eloxal);box-shadow:var(--schatten-knopf)}
-.knopf.leer{color:var(--tinte);background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(23,22,30,.12)}
-.knopf:active,.teilen:active{transform:scale(.97);transition-duration:var(--kurz)}
+/* ── Knoepfe: Pille, Hauptknopf Stahlblau wie in der App; beim Zeigen 1 px hoch, beim Druecken leicht kleiner ── */
+.knoepfe{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.knopf{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:0;border-radius:999px;
+  font:600 16px var(--schrift);text-decoration:none;cursor:pointer;white-space:nowrap;
+  transition:transform var(--mittel) var(--raus),background-color var(--mittel),box-shadow var(--mittel) var(--raus)}
+.knopf.haupt{background:var(--knopf);color:var(--auf-knopf)}
+.knopf.zweit{background:var(--flaeche);color:var(--tinte);box-shadow:inset 0 0 0 1px var(--linie)}
+.knopf svg{width:18px;height:18px}
+.knopf:active{transform:scale(.97);transition-duration:var(--kurz)}
 @media (hover:hover){
-  .knopf:hover,.teilen:hover,.bald:hover,.menue-status:hover{transform:translateY(-1px)}
-  .knopf.voll:hover,.teilen:hover{box-shadow:var(--schatten-knopf-hover)}
-  .knopf.leer:hover{background:#fff}
-  .bald:hover{box-shadow:0 8px 20px -10px rgba(23,22,30,.55)}
+  .knopf.haupt:hover{background:var(--knopf-2);transform:translateY(-1px)}
+  .knopf.zweit:hover{transform:translateY(-1px);box-shadow:inset 0 0 0 1px var(--grau)}
+}
+.knopf[data-app][data-bald]{background:var(--tinte);color:var(--grund)}
+.knopf[data-app][data-bald]::before{content:"";width:8px;height:8px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 3px rgba(61,220,132,.28)}
+
+/* ── Geraete: Handy mit echter App-Aufnahme, Fenster fuer die Desktop-Ansicht ── */
+.handy{position:relative;width:100%;aspect-ratio:720/1640;padding:3.4%;border-radius:15% / 6.6%;background:var(--geraet);
+  box-shadow:inset 0 0 0 1.5px var(--geraet-rand),var(--schatten-hoch)}
+.handy .glas{position:relative;height:100%;border-radius:11.5% / 5.2%;overflow:hidden;background:var(--app-grund)}
+.handy .leiste{height:5.2%;display:flex;align-items:center;justify-content:space-between;padding:0 9% 0 11%;color:var(--tinte);
+  font:600 clamp(8px,3.6cqw,14px)/1 var(--schrift)}
+.handy .leiste::before{content:"9:41"}
+.handy .leiste::after{content:"";width:9%;aspect-ratio:2.4;border-radius:2px;background:currentColor;opacity:.9}
+.handy .insel{position:absolute;top:1.3%;left:50%;width:30%;height:3%;transform:translateX(-50%);border-radius:999px;background:#000}
+.handy img{width:100%}
+.handy{container-type:inline-size}
+.fenster{border-radius:18px;background:var(--flaeche);box-shadow:inset 0 0 0 1px var(--linie),var(--schatten-hoch);overflow:hidden}
+.fenster .balken{display:flex;gap:7px;align-items:center;height:34px;padding:0 16px;border-bottom:1px solid var(--linie)}
+.fenster .balken i{width:10px;height:10px;border-radius:50%;background:var(--versenkt)}
+.fenster img{width:100%}
+.unterschrift{margin-top:14px;font-size:13.5px;line-height:1.5;color:var(--grau)}
+
+/* ── Einstieg ── */
+.held{padding-top:clamp(28px,5vw,64px)}
+.held-raster{display:grid;gap:clamp(36px,5vw,56px);align-items:center}
+.held h1{margin-top:6px}
+.held .lead{margin-top:24px}
+.fakten{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:36px;font-size:15px;color:var(--grau)}
+.fakten b{display:block;font:700 34px/1 var(--titel);color:var(--tinte);font-variant-numeric:tabular-nums;margin-bottom:2px}
+.daten-zeile{margin-top:20px;font-size:14px;color:var(--grau)}
+.held h1{font-size:clamp(40px,11.4vw,64px)}
+.held-bild{position:relative;margin:0;display:grid;grid-template-columns:minmax(0,1fr) 33%;align-items:end}
+.held-bild picture:first-child{grid-column:1;align-self:center;margin-right:-12%}
+.held-bild .rad{width:100%}
+.held-bild .handy{grid-column:2;position:relative;z-index:1;max-width:290px;justify-self:end}
+.held-bild .unterschrift{grid-column:1 / -1;margin-top:20px;max-width:30em}
+@media (min-width:1024px){
+  .held-raster{grid-template-columns:minmax(0,11fr) minmax(0,13fr)}
+  .held h1{font-size:clamp(56px,5.3vw,80px)}
+  .held-bild{grid-template-columns:minmax(0,1fr) 31%}
+}
+@media (max-width:599px){ .fakten b{font-size:30px} }
+
+/* ── Karten allgemein ── */
+.karte{background:var(--flaeche);border-radius:var(--r-karte);box-shadow:inset 0 0 0 1px var(--linie-zart),var(--schatten);padding:clamp(24px,3vw,32px)}
+.karte h3{margin-bottom:10px}
+.karte p{font-size:16px;line-height:1.6}
+.raster{display:grid;gap:16px;margin-top:clamp(36px,5vw,56px)}
+@media (min-width:760px){ .raster.drei{grid-template-columns:repeat(3,1fr)} .raster.zwei{grid-template-columns:repeat(2,1fr)} .raster.vier{grid-template-columns:repeat(2,1fr)} }
+@media (min-width:1100px){ .raster.vier{grid-template-columns:repeat(4,1fr)} }
+.symbol{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--stahl-zart);color:var(--stahl);margin-bottom:22px}
+.symbol svg{width:24px;height:24px}
+.modus .etikett{margin-bottom:6px}
+
+/* ── Produktansicht ── */
+.produkt .fenster{margin-top:clamp(36px,5vw,56px)}
+.produkt .raster{margin-top:28px}
+.produkt .raster > div{padding:4px 2px}
+.produkt h3{font-size:22px;margin-bottom:8px}
+.produkt p{font-size:16px}
+
+/* ── Ablauf: vier Schritte mit grosser Ziffer ── */
+.schritt-liste{list-style:none;padding:0;margin-bottom:0}
+.schritt .nr{display:block;font:700 54px/1 var(--titel);color:var(--stahl);font-variant-numeric:tabular-nums;margin-bottom:18px}
+
+/* ── Datenblatt: Seitenansicht mit nummerierten Punkten und Legende ── */
+.blatt-karte{margin-top:clamp(36px,5vw,56px);padding:clamp(20px,4vw,48px);border-radius:var(--r-gross)}
+.blatt-raster{display:grid;gap:clamp(24px,4vw,48px);align-items:center}
+@media (min-width:1024px){ .blatt-raster{grid-template-columns:minmax(0,7fr) minmax(0,4fr)} }
+.seite-bild{position:relative}
+.punkt{position:absolute;display:grid;place-items:center;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;
+  background:var(--knopf);color:#fff;font:700 14px/1 var(--titel);box-shadow:0 0 0 4px color-mix(in srgb,var(--knopf) 22%,transparent)}
+.legende{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.legende li{display:grid;grid-template-columns:30px 1fr;gap:4px 12px;padding:12px 0;border-bottom:1px solid var(--linie-zart)}
+.legende li:last-child{border-bottom:0}
+.legende .n{grid-row:span 2;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--stahl-zart);color:var(--stahl);font:700 14px/1 var(--titel)}
+.legende .k{font-size:14px;color:var(--grau);line-height:1.3}
+.legende .w{font:600 19px/1.25 var(--titel);color:var(--tinte);font-variant-numeric:tabular-nums}
+.blatt-karte .unterschrift{margin-top:24px}
+
+/* ── Funktionen: abwechselnd Text und Handy ── */
+.funktion{display:grid;gap:clamp(32px,5vw,72px);align-items:center;margin-top:clamp(56px,8vw,112px)}
+.funktion .handy{width:min(300px,72vw);margin:0 auto}
+.funktion h3{font-size:clamp(30px,3.6vw,44px);font-weight:700;margin-bottom:16px}
+.funktion .etikett{margin-bottom:10px}
+.funktion p{max-width:34em}
+.haken{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.haken li{position:relative;padding-left:32px;font-size:16px;line-height:1.5}
+.haken li::before{content:"";position:absolute;left:0;top:2px;width:20px;height:20px;border-radius:50%;background:var(--stahl-zart)}
+.haken li::after{content:"";position:absolute;left:6px;top:7px;width:8px;height:5px;border:solid var(--stahl);border-width:0 0 2px 2px;transform:rotate(-45deg)}
+.buehne{position:relative;padding:clamp(28px,5vw,56px) 0;border-radius:var(--r-gross);background:var(--flaeche-2);box-shadow:inset 0 0 0 1px var(--linie-zart)}
+@media (min-width:900px){
+  .funktion{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .funktion.links .buehne{order:-1}
+}
+.klein-raster .karte{display:flex;flex-direction:column}
+.klein-raster h3{font-size:22px}
+.marke-pro{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:6px;background:var(--tinte);color:var(--grund);font:700 13px/1.4 var(--titel);letter-spacing:.04em;vertical-align:3px}
+
+/* ── Beispiel ── */
+.beispiel-raster{display:grid;gap:clamp(36px,5vw,72px);align-items:center;margin-top:clamp(36px,5vw,56px)}
+@media (min-width:900px){ .beispiel-raster{grid-template-columns:minmax(0,7fr) minmax(0,5fr)} }
+.ausgang{padding:18px 20px;border-radius:var(--r);background:var(--flaeche);box-shadow:inset 0 0 0 1px var(--linie);font-size:16px;color:var(--tinte)}
+.schritte{list-style:none;counter-reset:s;margin:24px 0 0;padding:0;display:grid;gap:4px}
+.schritte li{counter-increment:s;position:relative;padding:14px 0 14px 44px;border-bottom:1px solid var(--linie-zart);font-size:16px;line-height:1.55}
+.schritte li:last-child{border-bottom:0}
+.schritte li::before{content:counter(s);position:absolute;left:0;top:13px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
+  background:var(--stahl-zart);color:var(--stahl);font:700 15px/1 var(--titel)}
+.schritte b{color:var(--tinte)}
+.beispiel .buehne .handy{width:min(320px,74vw);margin:0 auto}
+
+/* ── Ehrlich gerechnet ── */
+.ehrlich .karte h3{font-size:22px}
+
+/* ── Preise ── */
+.preise .raster{max-width:920px}
+.tarif{display:flex;flex-direction:column;padding:clamp(28px,3.4vw,40px)}
+.tarif .name{font:700 26px/1 var(--titel);color:var(--tinte);display:flex;align-items:center;gap:10px}
+.tarif .betrag{display:flex;align-items:baseline;gap:8px;margin-top:22px}
+.tarif .betrag b{font:700 60px/1 var(--titel);color:var(--tinte);font-variant-numeric:tabular-nums}
+.tarif .betrag span{font-size:16px;color:var(--grau)}
+.tarif .sub{margin-top:8px;font-size:15px;color:var(--grau);min-height:3em}
+.tarif .haken{margin-top:26px;padding-top:22px;border-top:1px solid var(--linie)}
+.tarif.pro{background:var(--tinte);color:#c9cdd2;box-shadow:var(--schatten-hoch)}
+.tarif.pro .name,.tarif.pro .betrag b{color:#fff}
+.tarif.pro .sub,.tarif.pro .betrag span{color:#aeb3ba}
+.tarif.pro .haken{border-top-color:rgba(255,255,255,.14)}
+.tarif.pro .haken li::before{background:rgba(142,194,247,.16)}
+.tarif.pro .haken li::after{border-color:#8ec2f7}
+[data-design="dunkel"] .tarif.pro{background:#262a2f;box-shadow:inset 0 0 0 1px #3a3e45,var(--schatten-hoch)}
+.preise .hinweis{margin-top:20px;font-size:14.5px;color:var(--grau);max-width:46em}
+
+/* ── Fragen ── */
+.fragen-liste{margin-top:clamp(32px,4vw,48px);max-width:860px;border-top:1px solid var(--linie)}
+.fragen-liste details{border-bottom:1px solid var(--linie)}
+.fragen-liste summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 2px;cursor:pointer;
+  font:600 clamp(20px,2.2vw,24px)/1.25 var(--titel);color:var(--tinte);border-radius:8px}
+.fragen-liste summary::-webkit-details-marker{display:none}
+.fragen-liste summary::after{content:"";flex:none;width:11px;height:11px;margin-right:6px;border:solid var(--grau);border-width:0 2px 2px 0;transform:translateY(-3px) rotate(45deg);
+  transition:transform var(--mittel) var(--raus)}
+.fragen-liste details[open] summary::after{transform:translateY(2px) rotate(-135deg)}
+.fragen-liste details p{padding:0 2px 24px;max-width:46em}
+@supports selector(::details-content){
+  .fragen-liste details::details-content{block-size:0;overflow:clip;transition:block-size var(--lang) var(--raus),content-visibility var(--lang) allow-discrete}
+  .fragen-liste details[open]::details-content{block-size:auto}
+  :root{interpolate-size:allow-keywords}
 }
 
-/* ── Karten mit Farbverlauf ── */
-.karte{position:relative;border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;isolation:isolate;box-shadow:var(--schatten-karte)}
-.karte.dunkel{box-shadow:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.06)}
-.karte .text{padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
-.karte .text p{margin-top:14px;font-size:clamp(17px,1.5vw,21px);color:var(--grau);line-height:1.42;max-width:34em}
-.karte .text p.etikett{margin-top:0;font-size:12px;line-height:1.3;color:var(--etikett)}
-.karte.dunkel .text p.etikett{color:#b9a4ff}
-.fragen-raster h2{margin-top:12px}.fragen-raster .lead{margin-top:16px}
-.karte.dunkel h1,.karte.dunkel h2,.karte.dunkel h3{color:#fff}
-.karte.dunkel .text p{color:#b3afcf}
-.karte.dunkel .echt{color:#b3afcf;background:rgba(255,255,255,.08)}
-.k-lila{background:linear-gradient(180deg,#f1f1fa 0%,#ebe7fc 45%,#d6ccff 100%)}
-.k-nacht{background:radial-gradient(90% 60% at 50% 78%,#3b2a8a 0%,#1a1433 48%,#0b0a12 100%)}
-.k-gruen{background:linear-gradient(180deg,#c9ecc3 0%,#e7f5e3 60%,#f3f6f1 100%)}
-.k-mint{background:linear-gradient(160deg,#f0f6f3 0%,#dcf2e7 55%,#b6e6cf 100%)}
-.k-blau{background:linear-gradient(180deg,#f0f5ff 0%,#dbe7ff 60%,#bcd4ff 100%)}
-.k-pfirsich{background:linear-gradient(180deg,#fff4ee 0%,#ffe2d4 60%,#ffc9b0 100%)}
-.echt{display:inline-block;margin-top:18px;font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--grau);background:var(--zart);padding:8px 12px;border-radius:999px}
-
-/* ── Buehne: Handy + herausspringende Karten, Masse in cqw ── */
-.buehne{position:relative;container-type:inline-size;width:100%;margin-top:auto;flex:none}
-.buehne>*{position:absolute}
-.geraet{--p:60;width:calc(var(--p)*1cqw);padding:calc(var(--p)*.028cqw);border-radius:calc(var(--p)*.165cqw);
-  background:linear-gradient(135deg,#e3e7ee,#8f96a3 30%,#eceff3 55%,#7d8491 80%,#ccd1d8);box-shadow:0 30px 60px -10px rgba(23,22,30,.35)}
-.geraet .glas{position:relative;border-radius:calc(var(--p)*.14cqw);overflow:hidden;background:#000;border:calc(var(--p)*.008cqw) solid #0a0a0c}
-.geraet .leiste{height:calc(var(--p)*.13cqw);background:#0b0b10;color:#fff;display:flex;justify-content:space-between;align-items:center;
-  padding:calc(var(--p)*.016cqw) calc(var(--p)*.095cqw) 0 calc(var(--p)*.11cqw);font-weight:600;font-size:calc(var(--p)*.04cqw)}
-.geraet .leiste::after{content:"";width:calc(var(--p)*.12cqw);height:calc(var(--p)*.03cqw);border-radius:calc(var(--p)*.01cqw);
-  background:linear-gradient(90deg,#fff 0 72%,rgba(255,255,255,.35) 72%)}
-.geraet .insel{position:absolute;top:calc(var(--p)*.036cqw);left:50%;transform:translateX(-50%);width:calc(var(--p)*.28cqw);height:calc(var(--p)*.078cqw);border-radius:999px;background:#000;z-index:2}
-.geraet img{width:100%;height:auto}
-.pop{border-radius:calc(var(--w,60)*.045cqw);overflow:hidden;background:#15141f;width:calc(var(--w,60)*1cqw);
-  box-shadow:0 24px 48px -18px rgba(28,22,64,.38),0 2px 8px -2px rgba(28,22,64,.12)}
-.karte.dunkel .pop{box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
-.pop img{width:100%;height:auto}
-.pop.kappe{max-height:calc(var(--w)*var(--k)*1cqw)}
-/* Pruefungs-Kachel: Ausschnitt mit Ueberschrift und Ergebnis (20 % der Bildbreite) liegt genau ueber derselben Stelle im
-   Handy und endet 9 cqw ueber dem Kartenrand; darunter blendet das Handy aus, damit nichts doppelt zu sehen ist */
-.blende{left:0;right:0;bottom:0;height:13cqw;background:linear-gradient(180deg,transparent,var(--blende) 50%)}
-/* sehr alte Browser ohne Container-Einheiten: lieber keine Buehne als eine verrutschte (der Text traegt alles) */
-@supports not (container-type:inline-size){ .buehne{display:none} }
-
-/* ── Seitenbau ── */
-main>section{padding:var(--abschnitt) 0 0}
-main>section.start{padding-top:clamp(16px,2vw,28px)}
-/* Sprung zu einem Abschnitt (#modi usw.): die Ueberschrift landet unter der Kopfzeile -- der Innenabstand des
-   Abschnitts wird dafuer herausgerechnet. */
-main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
-.kopfzeile{max-width:780px;margin:0 0 clamp(28px,4vw,48px)}
-.kopfzeile h2{margin-top:12px}
-.kopfzeile .lead{margin-top:18px}
-.zwei{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)}
-.drei{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
-@media (max-width:899px){ .zwei,.drei{grid-template-columns:1fr} }
-
-/* ── Start ── */
-.start .karte{display:grid;grid-template-columns:1.05fr 1fr;align-items:end;min-height:min(820px,calc(100vh - 96px))}
-.start .text{padding-bottom:clamp(40px,5vw,72px);align-self:center}
-.start h1{margin-top:16px}
-.start .text p.lead{margin-top:22px;max-width:30em}
-.fakten{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:30px;font-size:15px;color:var(--grau)}
-.fakten b{color:var(--tinte);font-weight:700}
-@media (max-width:899px){ .start .karte{grid-template-columns:1fr;min-height:0} .start .text{padding-bottom:8px} }
-
-/* ── Marken-Laufband: eine Reihe, langsam; haelt beim Zeigen, bei Fokus, ausserhalb des Bildes und auf Knopfdruck an.
-   Ohne Bewegung (JavaScript aus oder "weniger Bewegung") steht die Reihe still und laesst sich wischen/scrollen. ── */
-.band{padding:clamp(40px,5vw,64px) 0 0}
-.band-kopf{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:14px;padding:0 var(--rand)}
-.band .etikett{color:var(--grau)}
-.band .lauf-knopf{width:32px;height:32px;display:none}
-.lauf-knopf svg{width:14px;height:14px}
-.lauf-knopf .spielen,.lauf-knopf[aria-pressed="true"] .pause{display:none}
-.lauf-knopf[aria-pressed="true"] .spielen{display:block}
-.lauf{overflow-x:auto;scrollbar-width:none;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.lauf::-webkit-scrollbar{display:none}
-.lauf ul{display:flex;gap:40px;list-style:none;width:max-content;padding:8px max(var(--rand),8vw)}
-.lauf li{font-weight:700;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:var(--marken);white-space:nowrap}
-.lauf.laeuft{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.lauf.laeuft ul{padding:8px 0;gap:44px;animation:lauf 90s linear infinite}
-@keyframes lauf{to{transform:translateX(calc(-50% - 22px))}}
-.band.halt .lauf ul,.band.weg-vom-bild .lauf ul,.band:focus-within .lauf ul{animation-play-state:paused}
-@media (hover:hover){ .lauf.laeuft:hover ul{animation-play-state:paused} }
-.band.bewegt .lauf-knopf{display:grid}
-
-/* ── Pruefung: Punkte ── */
-.punkte{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 clamp(24px,3vw,32px)}
-.punkte div{background:var(--flaeche);border-radius:var(--r-klein);padding:22px 24px;box-shadow:var(--schatten-weich)}
-.punkte b{display:block;color:var(--tinte);font-size:18px;letter-spacing:-.02em}
-.punkte span{display:block;margin-top:4px;font-size:15px;color:var(--grau)}
-@media (max-width:899px){ .punkte{grid-template-columns:1fr} }
-
-/* ── Modi ── */
-.modus{display:flex;flex-direction:column;padding:clamp(28px,3vw,40px);min-height:100%}
-@media (max-width:520px){ .modus{padding:24px 22px} }
-.modus .kicker{display:flex;align-items:center;gap:10px;margin-top:0}
-.modus .kicker .etikett{color:var(--text)}
-.modus h3{margin-top:16px;font-size:clamp(26px,2.2vw,34px)}
-.modus p{margin-top:12px;color:var(--text);font-size:17px}
-.modus .beleg{align-self:flex-start;margin-top:22px;font:500 13px/1.3 var(--mono);color:var(--tinte);background:rgba(255,255,255,.75);padding:10px 14px;border-radius:14px;display:inline-block;box-shadow:0 4px 14px rgba(23,22,30,.04)}
-/* drei schmale Karten (900-1179 px): Beleg etwas kleiner, damit er einzeilig bleibt */
-@media (min-width:900px) and (max-width:1179px){ .modus .beleg{font-size:12px;padding:9px 9px;white-space:nowrap} }
-@media (max-width:359px){ .modus .beleg{font-size:12px;padding:9px 11px} }
-.buehne.mini{margin-top:auto;padding-top:24px;box-sizing:content-box}
-.modus .zahl{font:500 12px/1 var(--mono);letter-spacing:.1em;color:#fff;background:var(--verlauf);padding:6px 9px;border-radius:999px}
-/* App-Elemente in den Modus-Karten, als HTML nachgebaut (vorher Bildschirmfotos mit schwarzen Ecken) */
-.app-demo{margin-top:auto;padding-top:24px}
-.app-knopf{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;color:#fff;background:var(--verlauf);
-  box-shadow:0 16px 34px -12px rgba(91,60,230,.55),0 4px 12px -6px rgba(79,70,229,.4),inset 0 1px 0 rgba(255,255,255,.2)}
-.app-knopf .ico{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.24)}
-.app-knopf svg{display:block;width:20px;height:20px;color:#fff}
-.app-knopf .was{min-width:0}
-.app-knopf b{display:block;font-size:17px;font-weight:700;letter-spacing:-.015em;line-height:1.25;color:#fff}
-.app-knopf small{display:block;margin-top:3px;font-size:13px;line-height:1.35;color:#fff;text-wrap:pretty}
-.app-knopf .pfeil{flex:none;width:16px;height:16px;margin-left:auto}
-.app-hinweis{padding:18px 20px;border-radius:20px;background:rgba(255,255,255,.82);box-shadow:var(--schatten-weich),inset 0 0 0 1px rgba(255,255,255,.7)}
-.app-hinweis b{display:block;font-size:16.5px;font-weight:700;letter-spacing:-.015em;line-height:1.3;color:var(--tinte)}
-.app-hinweis span{display:block;margin-top:6px;font-size:14.5px;line-height:1.45;color:var(--text)}
-
-/* Breite Karte mit Text links und Buehne rechts */
-.breit{display:grid;grid-template-columns:1fr 1.1fr;align-items:end}
-.breit .text{align-self:center;padding-bottom:clamp(28px,4vw,56px)}
-@media (max-width:899px){ .breit{grid-template-columns:1fr} .breit .text{padding-bottom:0} }
-
-/* ── So funktioniert's: drei Schritte ── */
-.schritte{list-style:none;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,24px)}
-.schritt{background:var(--flaeche);border-radius:var(--r-klein);padding:28px 26px 26px;display:flex;flex-direction:column;box-shadow:var(--schatten-weich)}
-.s-nr{font:500 13px/1 var(--mono);letter-spacing:.14em;color:#fff;background:var(--verlauf);align-self:flex-start;padding:8px 11px;border-radius:999px}
-.schritt h3{font-size:clamp(22px,1.9vw,26px);letter-spacing:-.025em;line-height:1.15;margin-top:18px}
-.schritt p{margin-top:8px;font-size:16px;color:var(--grau)}
-.s-bild{margin-top:auto;padding-top:22px;display:flex;flex-wrap:wrap;gap:6px}
-.s-bild>span{font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:999px;background:var(--zart);color:var(--grau)}
-.s-bild>span.an{background:var(--tinte);color:var(--seite)}
-.s-bild.liste{flex-direction:column;gap:6px}
-.s-bild.liste>span{display:flex;align-items:center;gap:10px;border-radius:14px;padding:10px 12px}
-.s-bild.liste b{font-weight:600;color:var(--tinte)}
-.s-bild i{width:18px;height:18px;border-radius:50%;flex:none;position:relative}
-.s-bild i.ok{background:#12a86a}.s-bild i.nein{background:#e0344f}
-.s-bild i.ok::after{content:"";position:absolute;left:6px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-.s-bild i.nein::after{content:"";position:absolute;left:4px;top:8px;width:10px;height:2px;background:#fff}
-.s-bild.score{align-items:center;gap:14px;flex-wrap:nowrap}
-.s-bild.score>.s-txt{background:none;padding:0;border-radius:0;font-weight:400}
-.s-bild.score>.ring{width:64px;height:64px;border-radius:50%;flex:none;display:grid;place-items:center;
-  background:radial-gradient(closest-side,#fff 78%,transparent 80% 100%),conic-gradient(#2fb86b 0 99%,rgba(23,22,30,.08) 99% 100%)}
-.s-bild .ring b{font-size:22px;font-weight:800;letter-spacing:-.04em;color:var(--tinte)}
-.s-txt{font-size:15px;color:var(--grau);line-height:1.35}.s-txt b{color:var(--tinte)}
-@media (max-width:899px){ .schritte{grid-template-columns:1fr} }
-
-/* Herkunft und Stand: kleine graue Zeile unter Abschnitten */
-.quelle{margin-top:16px;font-size:14px;line-height:1.45;color:var(--grau);max-width:46em}
-.quelle.mitte{text-align:center;margin-left:auto;margin-right:auto}
-.schluss .quelle{margin-top:10px;max-width:none}
-
-/* Pro-Pille */
-.pro-pille{display:inline-block;vertical-align:middle;margin-left:10px;font:600 12px/1 var(--schrift);letter-spacing:.02em;color:#fff;
-  background:linear-gradient(135deg,#ff7a45,#e0508a 50%,#7b5cff);padding:6px 10px;border-radius:999px}
-
-/* ── Kacheln ── */
-.kachel{background:var(--flaeche);border-radius:var(--r-klein);padding:26px;box-shadow:var(--schatten-weich)}
-.kachel .icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--icon-flaeche);color:var(--akzent)}
-.kachel h3{font-size:20px;letter-spacing:-.02em;margin-top:16px;line-height:1.2}
-.kachel p{margin-top:6px;font-size:15.5px;color:var(--grau)}
-
-/* ── Zahlen ── */
-.zahlen{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:var(--abschnitt)}
-.zahlen div{background:var(--flaeche);border-radius:var(--r-klein);padding:24px;text-align:center;box-shadow:var(--schatten-weich)}
-.zahlen b{display:block;font-size:clamp(34px,3.4vw,48px);font-weight:700;letter-spacing:-.04em;color:var(--tinte);line-height:1;font-variant-numeric:tabular-nums}
-.zahlen span{display:block;margin-top:8px;font-size:14px;color:var(--grau)}
-@media (max-width:899px){ .zahlen{grid-template-columns:repeat(2,1fr)} .zahlen div:last-child{grid-column:1/-1} }
-
-/* ── Guide und Datenschutz ── */
-.guide{align-items:end}
-.guide-liste{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
-.guide-liste div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-klein);padding:18px}
-.karte .text .guide-liste p{font-size:14.5px;margin-top:6px;line-height:1.45}
-.guide-liste h3,.daten-liste h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
-.guide-liste p{margin-top:6px;color:#b3afcf;font-size:15.5px}
-.daten{padding-bottom:clamp(28px,4vw,56px)}
-.daten-liste{display:grid;grid-template-columns:1fr;gap:14px;padding:clamp(28px,4vw,56px) clamp(24px,4vw,56px) 0}
-.daten-liste div{background:rgba(255,255,255,.7);border-radius:var(--r-klein);padding:20px 22px;box-shadow:var(--schatten-weich)}
-.daten-liste p{margin-top:4px;color:var(--grau);font-size:15.5px}
-@media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
-
-/* ── Fragen: ganze Zeile klickbar, Pfeil dreht sich, Antwort klappt weich auf (wo der Browser Hoehe auf "auto"
-   animieren kann; sonst sofort) ── */
-.fragen-raster{display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(24px,4vw,64px);align-items:start}
-@media (max-width:899px){ .fragen-raster{grid-template-columns:1fr} }
-.fragen details{background:var(--flaeche);border-radius:var(--r-mittel);margin-bottom:10px;box-shadow:var(--schatten-weich)}
-.fragen summary{list-style:none;cursor:pointer;padding:20px 56px 20px 24px;font-weight:600;color:var(--tinte);font-size:17.5px;position:relative;border-radius:var(--r-mittel);transition:color var(--kurz)}
-.fragen summary::-webkit-details-marker{display:none}
-.fragen summary::after{content:"";position:absolute;right:26px;top:50%;width:10px;height:10px;border:solid var(--grau);border-width:0 2px 2px 0;transform:translateY(-70%) rotate(45deg);transition:transform var(--lang) var(--raus)}
-.fragen details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
-@media (hover:hover){ .fragen summary:hover{color:var(--akzent)} .fragen summary:hover::after{border-color:var(--akzent)} }
-.fragen details p{padding:0 24px 22px;color:var(--grau);font-size:16px}
-@supports (interpolate-size:allow-keywords) and selector(::details-content){
-  .fragen{interpolate-size:allow-keywords}
-  .fragen details::details-content{height:0;overflow:clip;transition:height var(--lang) var(--raus),content-visibility var(--lang) allow-discrete}
-  .fragen details[open]::details-content{height:auto}
-}
-
-/* ── Schluss ── */
-.schluss .karte{text-align:center;align-items:center;padding:clamp(48px,7vw,96px) 24px}
-.schluss h2{font-size:clamp(40px,5vw,72px)}
-.schluss p{margin-top:16px}
-.teilen{display:none;margin-top:30px;padding:0 24px}
-[data-design] .teilen{display:inline-flex}
-.teilen svg{transition:transform var(--mittel) var(--raus)}
-.teilen.ok svg{transform:scale(.9)}
+/* ── Schluss: dunkle Buehne mit dem Rad von hinten ── */
+.schluss-karte{position:relative;overflow:hidden;border-radius:var(--r-gross);background:#16181b;color:#c3c7cc;padding:clamp(32px,6vw,72px);
+  display:grid;gap:24px;align-items:center}
+[data-design="dunkel"] .schluss-karte{background:#1f2226;box-shadow:inset 0 0 0 1px #2b2e33}
+.schluss-karte h2{color:#f2f3f5}
+.schluss-karte p{max-width:30em;margin-top:16px}
+.schluss-karte .knopf.haupt{background:#2f6db0}
+.schluss-karte .knopf.haupt:hover{background:#3a7cc2}
+.schluss-karte .knopf[data-bald]{background:#f2f3f5;color:#16181b}
+.schluss-karte .knopf.zweit{background:transparent;color:#f2f3f5;box-shadow:inset 0 0 0 1px #4a4f57}
+.schluss-karte .rad{width:100%;max-width:640px;margin:0 auto}
+.teilen.ok{background:#0f7653!important;color:#fff!important;box-shadow:none!important}
+@media (min-width:900px){ .schluss-karte{grid-template-columns:minmax(0,5fr) minmax(0,6fr)} }
 
 /* ── Fuss ── */
-.fuss{margin-top:var(--abschnitt);background:var(--fuss);border-top:1px solid var(--linie);padding:56px 0 calc(32px + env(safe-area-inset-bottom));font-size:15px}
-.fuss-raster{display:grid;grid-template-columns:minmax(0,2fr) repeat(4,minmax(max-content,1fr));gap:32px}
-.fuss .design-wahl,.fuss .sprach-wahl{display:none}
-[data-design] .fuss .design-wahl,[data-design] .fuss .sprach-wahl{display:block}
-.fuss p{margin-top:10px;color:var(--grau);max-width:22em}
-.fuss h2{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--grau);margin-bottom:12px}
-.fuss ul{list-style:none;padding:0}
-.fuss li{margin:6px 0}
-.fuss li a,.fuss li button{color:var(--text);text-decoration:none;background:none;border:0;font:inherit;padding:0;cursor:pointer;transition:color var(--kurz)}
-.fuss li a:hover,.fuss li button:hover{color:var(--akzent)}
-.fuss li button[aria-pressed="true"]{font-weight:600;color:var(--tinte)}
-.klein{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 20px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--linie);font-size:13px;color:var(--grau)}
-.klein .hinweise{max-width:46em}
-/* Fuss: fuenf Spalten erst ab 1024 px, darunter zwei; Linkspalten nie schmaler als ihr laengster Link ("Sizing & suspension") */
-@media (max-width:1023px){ .fuss-raster{grid-template-columns:1fr 1fr} .fuss-raster>div:first-child{grid-column:1/-1} }
-@media (max-width:400px){ .fuss-raster{column-gap:20px} .fuss li{font-size:14px} }
+.fuss{margin-top:clamp(72px,10vw,140px);border-top:1px solid var(--linie);padding:clamp(40px,6vw,64px) 0 calc(32px + env(safe-area-inset-bottom))}
+.fuss-raster{display:grid;gap:32px 24px;grid-template-columns:1fr 1fr}
+.fuss-raster > div:first-child{grid-column:1 / -1}
+.fuss-raster p{margin-top:12px;font-size:15px;color:var(--grau);max-width:22em}
+.fuss h2{font:600 14px/1.3 var(--schrift);color:var(--grau);margin:0 0 12px}
+.fuss ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.fuss ul a,.fuss ul button{font:500 15px/1.5 var(--schrift);color:var(--text);text-decoration:none;background:none;border:0;padding:4px 0;cursor:pointer;text-align:left}
+.fuss ul a:hover,.fuss ul button:hover{color:var(--tinte)}
+.fuss ul button[aria-pressed="true"]{color:var(--tinte);text-decoration:underline;text-decoration-color:var(--stahl);text-underline-offset:4px;text-decoration-thickness:2px}
+.sprach-wahl,.design-wahl{display:none}
+[data-design] .sprach-wahl,[data-design] .design-wahl{display:block}
+.fuss .klein{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;margin-top:40px;padding-top:24px;border-top:1px solid var(--linie);font-size:13px;line-height:1.55;color:var(--grau)}
+.fuss .klein .hinweise{max-width:62em}
+@media (min-width:900px){ .fuss-raster{grid-template-columns:2fr 1fr 1fr 1fr 1fr} .fuss-raster > div:first-child{grid-column:auto} }
 
-/* ── Meldungen (z. B. Link kopiert, Fehler): unten mittig, kurz eingeblendet ── */
+/* ── Meldungen (seite.js): unten mittig, kurz eingeblendet ── */
 .meldung{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom));z-index:60;max-width:min(92vw,460px);padding:12px 18px;border-radius:14px;
-  background:var(--tinte);color:var(--seite);font-size:15px;line-height:1.4;box-shadow:0 16px 40px -12px rgba(0,0,0,.35);
+  background:var(--tinte);color:var(--grund);font-size:15px;line-height:1.4;box-shadow:var(--schatten-hoch);
   opacity:0;transform:translate(-50%,8px);pointer-events:none;transition:opacity var(--mittel) var(--raus),transform var(--mittel) var(--raus)}
 .meldung.da{opacity:1;transform:translate(-50%,0)}
-.meldung.fehler{background:#b42339;color:#fff}
+.meldung.fehler{background:#c42a52;color:#fff}
+[data-design="dunkel"] .meldung.fehler{background:#ff7586;color:#14060a}
 
-/* ── Einblenden: einmal, kurz (300 ms, 12 px), Geschwister um 50 ms versetzt. Animation mit backwards statt
-   Transition -- die wuerde spaetere Transforms (Druecken) ueberschreiben. Ohne JavaScript bleibt alles sichtbar. ── */
+/* ── Erscheinen: einmal, kurz, nur opacity/transform ── */
+@keyframes auf{from{opacity:0;transform:translateY(12px)}}
 .js [data-zeige]{opacity:0}
 .js [data-zeige].da{opacity:1;animation:auf var(--lang) var(--raus) backwards}
-@keyframes auf{from{opacity:0;transform:translateY(12px)}}
+/* Besucher mit gespeichertem Deutsch: Seite kurz aus, bis seite.js die deutschen Texte eingesetzt hat
+   (sie kaemen sonst erst englisch, dann deutsch) */
+.sprache-lade body{visibility:hidden}
+.sprache-lade img[loading="lazy"]{display:none}
 
-/* ── Wechsel hell/dunkel: mit View Transitions blendet die Seite in 250 ms ueber; ohne gehen nur Farben weich
-   ueber (Klasse nur waehrend des Wechsels, damit beim Laden nichts animiert). Beim Laden setzt das Skript im
-   Kopf das Design vor dem ersten Bild -- kein Aufblitzen. ── */
+/* ── Wechsel hell/dunkel: View Transition 250 ms, sonst Farbuebergang ── */
 ::view-transition-old(root),::view-transition-new(root){animation-duration:250ms;animation-timing-function:ease}
 .design-wechsel,.design-wechsel *,.design-wechsel *::before,.design-wechsel *::after{transition:background-color 250ms ease,color 250ms ease,border-color 250ms ease,box-shadow 250ms ease!important}
-
-/* ── Touch: groessere Ziele, kein Hover-Zustand, der haengen bleibt ── */
-@media (pointer:coarse){
-  .sprache button{min-height:36px;padding:6px 12px}
-  .fuss li a,.fuss li button{display:inline-block;padding:5px 0}
-  .band .lauf-knopf{width:36px;height:36px}
-}
-
-/* ── Weniger Bewegung: keine Einblend-, Lauf- und Uebergangsbewegungen ── */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:0s!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:0s!important;transition-delay:0s!important}
   .js [data-zeige]{opacity:1}
   button.laedt{opacity:.55}
 }
-
-/* ── Dunkelmodus: nur was die Variablen nicht abdecken ── */
-:root[data-design="dunkel"] body{background-color:var(--seite)}
-/* Himmel als feste Ebene hinter der Seite (statt background-attachment:fixed, das beim Scrollen jedes Bild neu malt) */
-:root[data-design="dunkel"] body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
-  radial-gradient(1100px 720px at 12% -8%,rgba(138,77,255,.20),transparent 62%),
-  radial-gradient(900px 640px at 105% 18%,rgba(47,140,255,.12),transparent 60%),
-  radial-gradient(1000px 800px at 50% 110%,rgba(91,91,255,.10),transparent 60%)}
-:where([data-design="dunkel"]) .kopf.unten{box-shadow:0 8px 24px -12px rgba(0,0,0,.6)}
-:where([data-design="dunkel"]) .pop{box-shadow:0 30px 60px -12px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
-:where([data-design="dunkel"]) .modus p{color:var(--grau)}
-:where([data-design="dunkel"]) .modus .kicker .etikett{color:var(--grau)}
-:where([data-design="dunkel"]) .app-knopf{box-shadow:0 18px 40px -14px rgba(124,58,237,.65),inset 0 1px 0 rgba(255,255,255,.18)}
-:where([data-design="dunkel"]) .app-hinweis{background:var(--flaeche);box-shadow:var(--schatten-weich)}
-:where([data-design="dunkel"]) .modus .beleg{background:rgba(255,255,255,.08);box-shadow:none}
-:where([data-design="dunkel"]) .sprache button[aria-pressed="true"],:where([data-design="dunkel"]) .segment button[aria-pressed="true"]{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
-:where([data-design="dunkel"]) .knopf.leer{background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
-@media (hover:hover){ :where([data-design="dunkel"]) .knopf.leer:hover{background:rgba(255,255,255,.12)} }
-:where([data-design="dunkel"]) .daten-liste div{background:rgba(255,255,255,.06)}
-:where([data-design="dunkel"]) .s-bild.score>.ring{background:radial-gradient(closest-side,#15122a 78%,transparent 80% 100%),conic-gradient(#3ddc84 0 99%,rgba(255,255,255,.1) 99% 100%)}
-:where([data-design="dunkel"]) .meldung{background:#f7f5ff;color:#0b0a12}
-:where([data-design="dunkel"]) .meldung.fehler{background:#ff6b81;color:#14060a}
-/* Farbkarten dunkel: Kopf fast schwarz, Farbschein nach unten, feine Kante wie Glas */
-:where([data-design="dunkel"]) .k-lila{background:radial-gradient(90% 55% at 50% 100%,rgba(138,77,255,.55),transparent 70%),linear-gradient(180deg,#110e20 0%,#17122e 55%,#2a1c5e 100%)}
-:where([data-design="dunkel"]) .k-nacht{background:radial-gradient(90% 60% at 50% 80%,#34257a 0%,#16122c 50%,#0b0a14 100%)}
-:where([data-design="dunkel"]) .k-gruen{background:radial-gradient(90% 55% at 50% 100%,rgba(46,242,154,.22),transparent 70%),linear-gradient(180deg,#0c1512 0%,#0f1f18 60%,#123526 100%)}
-:where([data-design="dunkel"]) .k-mint{background:radial-gradient(90% 55% at 70% 100%,rgba(64,220,170,.22),transparent 70%),linear-gradient(160deg,#0c1413 0%,#0f1e1b 60%,#12352e 100%)}
-:where([data-design="dunkel"]) .k-blau{background:radial-gradient(90% 55% at 50% 100%,rgba(47,140,255,.35),transparent 70%),linear-gradient(180deg,#0c1020 0%,#0f172e 60%,#142551 100%)}
-:where([data-design="dunkel"]) .k-pfirsich{background:radial-gradient(90% 55% at 50% 100%,rgba(255,140,90,.26),transparent 70%),linear-gradient(180deg,#140e0c 0%,#1f1411 60%,#3a1d14 100%)}
-:where([data-design="dunkel"]) .k-gruen .buehne{--blende:#123526 !important}
-/* Bevel-Leuchten unter dem Start */
-:where([data-design="dunkel"]) .start .karte{box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),0 60px 140px -70px rgba(138,77,255,.7)}
-:where([data-design="dunkel"]) .geraet{box-shadow:0 30px 70px -10px rgba(0,0,0,.7),0 0 60px -20px rgba(138,77,255,.35)}
-:where([data-design="dunkel"]) .fuss li button[aria-pressed="true"]{color:#fff}
+@media (pointer:coarse){ .sprache button{min-height:38px;padding:6px 13px} }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="cs-loch" maskUnits="userSpaceOnUse" x="-152" y="-114" width="304" height="228"><rect x="-152" y="-114" width="304" height="228" fill="#fff"/><circle r="15" fill="#000"/><circle cx="129.8" cy="-33.3" r="9" fill="#000"/></mask>
+    <symbol id="cs-logo" viewBox="-152 -114 304 228"><g mask="url(#cs-loch)" fill="currentColor"><path fill-rule="evenodd" d="M-90 0a90 90 0 1 0 180 0a90 90 0 1 0 -180 0ZM-60 0a60 60 0 1 0 120 0a60 60 0 1 0 -120 0Z"/><path d="M7.5 87.7L4.7 109.9L-4.7 109.9L-7.5 87.7ZM-17.5 86.2L-26.4 106.8L-35.5 104.1L-31.9 82ZM-41.1 77.8L-55.5 95L-63.4 89.9L-53.7 69.7ZM-61.3 63.1L-80 75.5L-86.1 68.4L-71.2 51.7ZM-76.6 43.3L-98 49.9L-101.9 41.4L-82.9 29.6ZM-85.7 19.9L-108.1 20.3L-109.5 11L-87.9 5ZM-87.9 -5L-109.5 -11L-108.1 -20.3L-85.7 -19.9ZM-82.9 -29.6L-101.9 -41.4L-98 -49.9L-76.6 -43.3ZM-71.2 -51.7L-86.1 -68.4L-80 -75.5L-61.3 -63.1ZM-53.7 -69.7L-63.4 -89.9L-55.5 -95L-41.1 -77.8ZM-31.9 -82L-35.5 -104.1L-26.4 -106.8L-17.5 -86.2ZM-7.5 -87.7L-4.7 -109.9L4.7 -109.9L7.5 -87.7ZM17.5 -86.2L26.4 -106.8L35.5 -104.1L31.9 -82ZM41.1 -77.8L55.5 -95L63.4 -89.9L53.7 -69.7ZM61.3 -63.1L80 -75.5L86.1 -68.4L71.2 -51.7ZM76.6 -43.3L98 -49.9L101.9 -41.4L82.9 -29.6ZM85.7 -19.9L108.1 -20.3L109.5 -11L87.9 -5ZM87.9 5L109.5 11L108.1 20.3L85.7 19.9ZM82.9 29.6L101.9 41.4L98 49.9L76.6 43.3ZM71.2 51.7L86.1 68.4L80 75.5L61.3 63.1ZM53.7 69.7L63.4 89.9L55.5 95L41.1 77.8ZM31.9 82L35.5 104.1L26.4 106.8L17.5 86.2ZM-8.5 8.5L46.7 63.6L63.6 46.7L8.5 -8.5ZM28.8 43.8a15 15 0 1 0 30 0a15 15 0 1 0 -30 0ZM-8.5 -8.5L-63.6 46.7L-46.7 63.6L8.5 8.5ZM-58.8 43.8a15 15 0 1 0 30 0a15 15 0 1 0 -30 0ZM8.5 -8.5L-46.7 -63.6L-63.6 -46.7L-8.5 8.5ZM-58.8 -43.8a15 15 0 1 0 30 0a15 15 0 1 0 -30 0ZM8.5 8.5L63.6 -46.7L46.7 -63.6L-8.5 -8.5ZM28.8 -43.8a15 15 0 1 0 30 0a15 15 0 1 0 -30 0ZM8.2 32L135.3 -12L124.3 -54.6L-8.2 -32ZM107.8 -33.3a22 22 0 1 0 44 0a22 22 0 1 0 -44 0ZM-44 0a44 44 0 1 0 88 0a44 44 0 1 0 -88 0Z"/></g></symbol>
+  </defs>
+</svg>
 <a class="weg" href="#inhalt" data-t="weg">Skip to content</a>
 <header class="kopf" id="kopf">
   <div class="innen">
-    <a class="marke" href="./" aria-label="CrankScore – home" data-t-aria="marke.aria">Crank<i>Score</i></a>
+    <a class="marke" href="./" aria-label="CrankScore&nbsp;– home" data-t-aria="marke.aria"><svg class="logo" aria-hidden="true" focusable="false"><use href="#cs-logo"/></svg><span class="schrift">CRANK<b>SCORE</b></span></a>
     <nav class="nav" aria-label="Sections" data-t-aria="nav.aria">
-      <a href="#prinzip" data-t="nav.prinzip">The check</a>
-      <a href="#modi" data-t="nav.modi">Modes</a>
-      <a href="#funktionen" data-t="nav.fed">Sizing &amp; suspension</a>
-      <a href="#guide" data-t="nav.guide">Guide</a>
-      <a href="#mehr" data-t="nav.mehr">Features</a>
+      <a href="#ablauf" data-t="nav.ablauf">How it works</a>
+      <a href="#funktionen" data-t="nav.funktionen">Features</a>
+      <a href="#beispiel" data-t="nav.beispiel">Example</a>
+      <a href="#preise" data-t="nav.preise">Pricing</a>
       <a href="#fragen" data-t="nav.fragen">FAQ</a>
     </nav>
-    <div class="sprache" role="group" aria-label="Language" data-t-aria="sprache.aria">
-      <button type="button" data-sprache="de" aria-pressed="true" lang="de" aria-label="Deutsch">DE</button>
-      <button type="button" data-sprache="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
+    <div class="kopf-rechts">
+      <div class="sprache" role="group" aria-label="Language" data-t-aria="sprache.aria">
+        <button type="button" data-sprache="de" aria-pressed="false" lang="de" aria-label="Deutsch">DE</button>
+        <button type="button" data-sprache="en" aria-pressed="true" lang="en" aria-label="English">EN</button>
+      </div>
+      <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dark mode" data-t-aria="design.aria">
+        <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
+        <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+      </button>
+      <a class="knopf haupt" data-app href="#q0" data-t="app.bald">Coming soon</a>
+      <button type="button" class="rund menue-knopf" id="menue-knopf" aria-controls="menue" aria-expanded="false" aria-label="Open menu" data-t-aria="menue.oeffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8.5h16M4 15.5h16"/></svg></button>
     </div>
-    <button type="button" class="rund design" id="design" aria-pressed="false" aria-label="Dark mode" data-t-aria="design.aria">
-      <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
-      <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
-    </button>
-    <a class="bald" href="#fragen" id="bald" data-frage="f1" aria-label="Coming soon – see the current status" data-t-aria="bald.aria"><i aria-hidden="true"></i><span data-t="bald">Coming soon</span></a>
-    <button type="button" class="rund menue-knopf" id="menue-knopf" aria-controls="menue" aria-expanded="false" aria-label="Open menu" data-t-aria="menue.oeffnen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8.5h16M4 15.5h16"/></svg></button>
   </div>
 </header>
 <dialog class="menue" id="menue" aria-label="Menu" data-t-aria="menue.aria">
   <div class="menue-kopf">
-    <a class="marke" href="./" aria-label="CrankScore – home" data-t-aria="marke.aria">Crank<i>Score</i></a>
+    <a class="marke" href="./" aria-label="CrankScore&nbsp;– home" data-t-aria="marke.aria"><svg class="logo" aria-hidden="true" focusable="false"><use href="#cs-logo"/></svg><span class="schrift">CRANK<b>SCORE</b></span></a>
     <button type="button" class="rund menue-zu" aria-label="Close menu" data-t-aria="menue.schliessen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button>
   </div>
   <div class="menue-inhalt">
     <nav aria-label="Page sections" data-t-aria="menue.nav">
       <ul class="menue-liste">
-        <li><a href="#prinzip" data-t="nav.prinzip">The check</a></li>
-        <li><a href="#modi" data-t="nav.modi">Modes</a></li>
         <li><a href="#ablauf" data-t="nav.ablauf">How it works</a></li>
-        <li><a href="#funktionen" data-t="nav.fed">Sizing &amp; suspension</a></li>
-        <li><a href="#guide" data-t="nav.guide">Guide</a></li>
-        <li><a href="#mehr" data-t="nav.mehr">Features</a></li>
+        <li><a href="#funktionen" data-t="nav.funktionen">Features</a></li>
+        <li><a href="#beispiel" data-t="nav.beispiel">Example</a></li>
+        <li><a href="#preise" data-t="nav.preise">Pricing</a></li>
         <li><a href="#fragen" data-t="nav.fragen">FAQ</a></li>
       </ul>
     </nav>
+    <a class="knopf haupt menue-app" data-app href="#q0" data-t="app.bald">Coming soon</a>
     <div class="menue-einst">
       <div><span class="etikett" id="menue-sprache" data-t="fuss.h3">Language</span>
-        <div class="segment" role="group" aria-labelledby="menue-sprache"><button type="button" data-sprache="de" aria-pressed="true" lang="de">Deutsch</button><button type="button" data-sprache="en" aria-pressed="false" lang="en">English</button></div></div>
+        <div class="segment" role="group" aria-labelledby="menue-sprache"><button type="button" data-sprache="de" aria-pressed="false" lang="de">Deutsch</button><button type="button" data-sprache="en" aria-pressed="true" lang="en">English</button></div></div>
       <div><span class="etikett" id="menue-design" data-t="fuss.h4">Appearance</span>
         <div class="segment" role="group" aria-labelledby="menue-design"><button type="button" data-design-wahl="hell" aria-pressed="false" data-t="design.hell">Light</button><button type="button" data-design-wahl="dunkel" aria-pressed="false" data-t="design.dunkel">Dark</button><button type="button" data-design-wahl="auto" aria-pressed="true" data-t="design.auto">Match device</button></div></div>
     </div>
-    <a class="menue-status" href="#fragen" data-frage="f1"><i aria-hidden="true"></i><span data-t="bald">Coming soon</span><small data-t="bald.stand">See the current status</small></a>
   </div>
 </dialog>
 
 <main id="inhalt">
-  <section class="start" id="start" aria-labelledby="titel">
-    <div class="innen">
-      <div class="karte k-lila">
-        <div class="text">
-          <p class="etikett" data-t="start.etikett">The web app for your mountain bike</p>
-          <h1 id="titel" data-t="start.h1">Does it all fit?</h1>
-          <p class="lead" data-t="start.sub">Will the new fork fit your frame? Will that cassette work with your freehub? CrankScore checks the dimensions and standards of your parts and flags potential conflicts before you buy anything.</p>
-          <div class="knoepfe">
-            <a class="knopf voll" href="#prinzip" data-t="start.knopf">How the check works</a>
-            <a class="knopf leer" href="#modi" data-t="start.knopf2">The three modes</a>
-          </div>
-          <p class="fakten" data-th="start.fakten"><span><b>766</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span><span><b>Free</b> to use</span><span><b>Pro</b> €6.99 a month</span></p>
-          <span class="echt" data-t="beispiel">Sample view</span>
+  <section class="held" id="start" aria-labelledby="titel">
+    <div class="innen held-raster">
+      <div class="held-text">
+        <p class="etikett" data-t="start.etikett">The web app for your mountain bike</p>
+        <h1 id="titel" data-th="start.h1">Your bike.<br>Matching parts.<br>A clear plan.</h1>
+        <p class="lead" data-t="start.lead">CrankScore checks whether the parts on your mountain bike work together&nbsp;– by dimensions, standards and manufacturer approvals. It finds parts that fit, adapters included, compares them with yours and plans what to buy.</p>
+        <div class="knoepfe">
+          <a class="knopf haupt" data-app href="#q0" data-t="app.bald">Coming soon</a>
+          <a class="knopf zweit" href="#ablauf" data-t="start.knopf2">How it works</a>
         </div>
-        <div class="buehne" style="aspect-ratio:1/1.02" role="img" aria-label="Sample app view: the parts list of a trail bike, with the frame, fork and brakes shown as cards with price and weight." data-t-aria="alt.start">
-          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/auf-480.avif 480w, img/s/en/auf.avif 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw"><img data-bild src="img/s/en/auf.webp" srcset="img/s/en/auf-480.webp 480w, img/s/en/auf.webp 720w" sizes="(min-width:1600px) 355px, (min-width:1280px) 314px, (min-width:900px) 26vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="eager" fetchpriority="high"></picture></div></div>
-          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/t-rahmen-600.avif 600w, img/s/en/t-rahmen.avif 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/en/t-rahmen.webp" srcset="img/s/en/t-rahmen-600.webp 600w, img/s/en/t-rahmen.webp 900w" sizes="(min-width:1600px) 396px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="900" height="381" alt="" loading="lazy" decoding="async"></picture></div>
-          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/t-gabel-600.avif 600w, img/s/en/t-gabel.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/en/t-gabel.webp" srcset="img/s/en/t-gabel-600.webp 600w, img/s/en/t-gabel.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="246" alt="" loading="lazy" decoding="async"></picture></div>
-          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/t-bremsen-600.avif 600w, img/s/en/t-bremsen.avif 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw"><img data-bild src="img/s/en/t-bremsen.webp" srcset="img/s/en/t-bremsen-600.webp 600w, img/s/en/t-bremsen.webp 900w" sizes="(min-width:1600px) 369px, (min-width:1280px) 326px, (min-width:900px) 27vw, 54vw" width="900" height="248" alt="" loading="lazy" decoding="async"></picture></div>
-        </div>
+        <p class="fakten" data-th="start.fakten"><span><b>766</b> parts</span><span><b>125</b> brands</span><span><b>7</b> disciplines</span></p>
+        <p class="daten-zeile" data-t="start.daten">No account · Your data stays on your device · Works offline</p>
       </div>
+      <figure class="held-bild">
+        <picture><source type="image/avif" srcset="img/rad/rad-held-klein.avif 900w, img/rad/rad-held-mittel.avif 1200w, img/rad/rad-held.avif 1600w" sizes="(min-width:1240px) 490px, (min-width:1024px) 40vw, 68vw"><img class="rad" src="img/rad/rad-held.webp" srcset="img/rad/rad-held-klein.webp 900w, img/rad/rad-held-mittel.webp 1200w, img/rad/rad-held.webp 1600w" sizes="(min-width:1240px) 490px, (min-width:1024px) 40vw, 68vw" width="1600" height="1130" alt="3D render of a white full-suspension enduro bike with a red fork and the CrankScore lettering on the down tube, seen from the front at an angle." data-t-alt="alt.rad.held" decoding="async" loading="eager" fetchpriority="high"></picture>
+        <div class="handy"><div class="glas"><span class="insel" aria-hidden="true"></span><div class="leiste" aria-hidden="true"></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/uebersicht-klein.avif 480w, img/app/en/hell/uebersicht.avif 720w" sizes="(min-width:1240px) 220px, (min-width:1024px) 18vw, 33vw"><img data-bild src="img/app/en/hell/uebersicht.webp" srcset="img/app/en/hell/uebersicht-klein.webp 480w, img/app/en/hell/uebersicht.webp 720w" sizes="(min-width:1240px) 220px, (min-width:1024px) 18vw, 33vw" width="720" height="1558" alt="App view Build: a Propain Spindrift as a dream bike, shown as a 3D model; overall score 96 for enduro, compatibility 94, discipline 98." data-t-alt="alt.app.uebersicht" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/uebersicht-klein.avif 480w, img/app/en/dunkel/uebersicht.avif 720w" sizes="(min-width:1240px) 220px, (min-width:1024px) 18vw, 33vw"><img data-bild src="img/app/en/dunkel/uebersicht.webp" srcset="img/app/en/dunkel/uebersicht-klein.webp 480w, img/app/en/dunkel/uebersicht.webp 720w" sizes="(min-width:1240px) 220px, (min-width:1024px) 18vw, 33vw" width="720" height="1558" alt="App view Build: a Propain Spindrift as a dream bike, shown as a 3D model; overall score 96 for enduro, compatibility 94, discipline 98." data-t-alt="alt.app.uebersicht" decoding="async" loading="lazy"></picture></div></div>
+        <figcaption class="unterschrift" data-t="start.bild">Real view from the app. The bike: the app’s 3D model, rendered in Blender.</figcaption>
+      </figure>
     </div>
   </section>
 
-<section class="band" aria-label="Brands in the catalogue" data-t-aria="band.aria">
-    <div class="band-kopf"><p class="etikett" id="band-titel" data-t="band.etikett">125 brands in the catalogue</p><button type="button" class="rund lauf-knopf" aria-pressed="false" aria-label="Pause the ticker" data-t-aria="lauf.pause"><svg class="pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1.2"/><rect x="13.5" y="5" width="4" height="14" rx="1.2"/></svg><svg class="spielen" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.2-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></button></div>
-    <div class="lauf"><ul><li>Fox</li><li>RockShox</li><li>Shimano</li><li>SRAM</li><li>Maxxis</li><li>Schwalbe</li><li>DT Swiss</li><li>Race Face</li><li>Hope</li><li>Magura</li><li>Continental</li><li>Öhlins</li><li>Marzocchi</li><li>OneUp</li><li>Specialized</li><li>Canyon</li><li>Santa Cruz</li><li>Trek</li><li>Commencal</li><li>Propain</li><li>YT</li><li>Radon</li><li>Nukeproof</li><li>Crankbrothers</li><li>Ergon</li><li>WTB</li><li>e*thirteen</li><li>Cane Creek</li><li>Chromag</li><li>Spank</li><li>Hunt</li><li>Newmen</li><li>Michelin</li><li>Vittoria</li><li>Pirelli</li><li>TRP</li><li>Trickstuff</li><li>SQlab</li><li>Fizik</li><li>KMC</li><li>X-Fusion</li><li>Manitou</li><li>Formula</li><li>Sixpack</li><li>Orbea</li><li>Giant</li><li>Scott</li><li>Roval</li></ul></div>
-  </section>
-
-  <section id="prinzip" aria-labelledby="prinzip-titel">
+  <section id="fuer-wen" aria-labelledby="zg-titel">
     <div class="innen">
-      <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="prinzip.etikett">The check</p>
-        <h2 id="prinzip-titel" data-t="prinzip.h2">Checked wherever parts meet</h2>
-        <p class="lead" data-t="prinzip.p">When a part goes into your build, CrankScore checks the points where it meets other parts. If something clashes, you see why, along with suggestions from the catalogue that can fix it.</p>
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="zg.etikett">Who it’s for</span>
+        <h2 id="zg-titel" data-t="zg.h2">For riders who plan their own bike.</h2>
+        <p class="lead" data-t="zg.p">You don’t need to be a mechanic. CrankScore knows the standards; you decide what goes on your bike. Three modes, one check.</p>
       </div>
-      <div class="punkte" data-zeige>
-        <div><b data-t="pp1.b">Dimensions</b><span data-t="pp1.s">Travel limit, shock size, bar clamp, seatpost diameter</span></div>
-        <div><b data-t="pp2.b">Standards</b><span data-t="pp2.s">Axles, freehub, bottom bracket, headset, brake mount, UDH</span></div>
-        <div><b data-t="pp3.b">Purpose</b><span data-t="pp3.s">Does the part suit what you ride, be it trail, enduro or downhill?</span></div>
-      </div>
-      <div class="zwei">
-        <article class="karte k-nacht dunkel" data-zeige>
-          <div class="text">
-            <h3 data-t="score.h3">Your score</h3>
-            <p data-t="score.p">One number from 0 to 100 for your whole build, based on two ratings: fit shows whether the parts work together technically, purpose whether they suit your discipline.</p>
-            <span class="echt" data-t="beispiel">Sample view</span>
-          </div>
-          <div class="buehne" style="aspect-ratio:1/.87" role="img" aria-label="Sample view: score 99 out of 100, “Spot on. Everything pulls towards trail.” Fit 100, purpose 98, €6,247, 14.27 kg." data-t-aria="alt.score">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/bremsen-480.avif 480w, img/s/en/bremsen.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/en/bremsen.webp" srcset="img/s/en/bremsen-480.webp 480w, img/s/en/bremsen.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-score-600.avif 600w, img/s/en/k-score.avif 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw"><img data-bild src="img/s/en/k-score.webp" srcset="img/s/en/k-score-600.webp 600w, img/s/en/k-score.webp 900w" sizes="(min-width:1600px) 518px, (min-width:1280px) 456px, (min-width:900px) 37vw, 74vw" width="900" height="369" alt="" decoding="async" loading="lazy"></picture></div>
-          </div>
+      <div class="raster drei">
+        <article class="karte modus" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="16" r="3.5"/><circle cx="18.5" cy="16" r="3.5"/><path d="M5.5 16 9.5 8h7l2 8M9.5 8 12 16h-6.5M12 16l4.5-8M8.5 5.5h2.5M15 5h2.5l-1 3"/></svg></div>
+          <span class="etikett" data-t="m1.etikett">Dream bike</span>
+          <h3 data-t="m1.h3">Plan a new bike</h3>
+          <p data-t="m1.p">Choose your discipline and budget. The app puts together a coherent build that you can adjust part by part&nbsp;– or you build it up yourself from the frame.</p>
         </article>
-        <article class="karte k-gruen" data-zeige>
-          <div class="text">
-            <h3 data-t="pruef.h3">Compatibility check</h3>
-            <p data-t="pruef.p">More than 20 rules based on established standards. Red means the bike can’t be built this way. Yellow means it works, but with a compromise or an adapter.</p>
-            <span class="echt" data-t="beispiel">Sample view</span>
-          </div>
-          <div class="buehne" style="aspect-ratio:1/.86;--blende:#eef8eb" role="img" aria-label="Sample view: the check finds no conflicts and every dimension matches." data-t-aria="alt.pruef">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/pr-480.avif 480w, img/s/en/pr.avif 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw"><img data-bild src="img/s/en/pr.webp" srcset="img/s/en/pr-480.webp 480w, img/s/en/pr.webp 720w" sizes="(min-width:1600px) 395px, (min-width:1280px) 349px, (min-width:900px) 28vw, 57vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-            <div class="blende" aria-hidden="true"></div>
-            <div class="pop kappe" style="--w:74;--k:.2;left:13cqw;top:62cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-ok-600.avif 600w, img/s/en/k-ok.avif 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw"><img data-bild src="img/s/en/k-ok.webp" srcset="img/s/en/k-ok-600.webp 600w, img/s/en/k-ok.webp 900w" sizes="(min-width:1600px) 491px, (min-width:1280px) 432px, (min-width:900px) 35vw, 71vw" width="900" height="820" alt="" decoding="async" loading="lazy"></picture></div>
-          </div>
+        <article class="karte modus" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.6 17.2a1.9 1.9 0 0 0 2.7 2.7l5.7-5.7a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.5-.5-2.4z"/></svg></div>
+          <span class="etikett" data-t="m2.etikett">My bike</span>
+          <h3 data-t="m2.h3">Record and upgrade your bike</h3>
+          <p data-t="m2.p">Enter what’s fitted. The check shows what doesn’t work together and which upgrades actually make a difference for your goal.</p>
+        </article>
+        <article class="karte modus" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.4"/></svg></div>
+          <span class="etikett" data-t="m3.etikett">Used</span>
+          <h3 data-t="m3.h3">Size up a listing</h3>
+          <p data-t="m3.p">Enter the parts from the listing, plus model year and condition. The app estimates whether the price is fair. It’s no substitute for seeing the bike.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="modi" aria-labelledby="modi-titel">
+  <section class="produkt" id="app" aria-labelledby="produkt-titel">
     <div class="innen">
-      <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="modi.etikett">Three modes</p>
-        <h2 id="modi-titel" data-t="modi.h2">A new bike, your bike or a used one</h2>
-        <p class="lead" data-t="modi.p">Pick what you’re working on. The check is the same in all three modes; only the starting point changes.</p>
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="produkt.etikett">The app</span>
+        <h2 id="produkt-titel" data-t="produkt.h2">Everything that matters, at a glance.</h2>
+        <p class="lead" data-t="produkt.p">Your bike at the top, the score beside it, the check below. On your phone or your computer&nbsp;– in the browser, nothing to install.</p>
       </div>
-      <div class="drei">
-        <article class="karte k-lila modus" data-zeige>
-          <p class="kicker"><span class="zahl">01</span><span class="etikett" data-t="weg1.etikett">Dream bike</span></p>
-          <h3 data-t="weg1.h3">Plan a new bike</h3>
-          <p data-t="weg1.p">Set your discipline, budget and favourite brands. The assistant puts together a complete build that passes the check without any conflicts. Then you swap whatever you’d like to change.</p>
-          <p class="beleg" data-t="weg1.beleg">Example: score 99 · €6,247</p>
-          <div class="app-demo" role="img" aria-label="Recreated app button: Dream bike assistant – discipline, budget, brands and a finished build." data-t-aria="alt.m1">
-            <div class="app-knopf" aria-hidden="true">
-              <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 2.8l1.55 4.65a3 3 0 0 0 1.9 1.9L18.1 10.9l-4.65 1.55a3 3 0 0 0-1.9 1.9L10 19l-1.55-4.65a3 3 0 0 0-1.9-1.9L1.9 10.9l4.65-1.55a3 3 0 0 0 1.9-1.9z"/><path d="M18.5 14.5l.75 2.25 2.25.75-2.25.75-.75 2.25-.75-2.25-2.25-.75 2.25-.75z"/></svg></span>
-              <span class="was"><b data-t="m1.titel">Dream bike assistant</b><small data-t="m1.sub">Discipline, budget, brands – and a finished build.</small></span>
-              <svg class="pfeil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-            </div>
-          </div>
-        </article>
-        <article class="karte k-blau modus" data-zeige>
-          <p class="kicker"><span class="zahl">02</span><span class="etikett" data-t="weg2.etikett">My bike</span></p>
-          <h3 data-t="weg2.h3">Check your bike</h3>
-          <p data-t="weg2.p">How well does your bike hang together, and will the part you’ve got your eye on fit? The app shows you what doesn’t work together and suggests parts that can resolve the conflict.</p>
-          <div class="app-demo" role="img" aria-label="Recreated app hint: enter what’s on your bike, starting with the frame." data-t-aria="alt.m2">
-            <div class="app-hinweis" aria-hidden="true">
-              <b data-t="m2.titel">Enter what’s on your bike</b>
-              <span data-t="m2.text">Start with the frame&nbsp;– it sets wheel size, axle dimensions and bottom bracket and so narrows down everything else. Leave open what you don’t know; only what’s entered gets rated.</span>
-            </div>
-          </div>
-        </article>
-        <article class="karte k-pfirsich modus" data-zeige>
-          <p class="kicker"><span class="zahl">03</span><span class="etikett" data-t="weg3.etikett">Used bike</span></p>
-          <h3 data-t="weg3.h3">Check a used listing</h3>
-          <p data-t="weg3.p">Enter the parts from the listing, plus model year, condition and asking price. The app estimates the used value and shows whether the price looks fair and whether the bike fits you. It’s no substitute for seeing the bike in person.</p>
-          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Sample view: checking a listing, model year 2023, condition “well kept, normal wear”." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/m-gebraucht-600.avif 600w, img/s/en/m-gebraucht.avif 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw"><img data-bild src="img/s/en/m-gebraucht.webp" srcset="img/s/en/m-gebraucht-600.webp 600w, img/s/en/m-gebraucht.webp 900w" sizes="(min-width:1600px) 373px, (min-width:1280px) 321px, (min-width:900px) 26vw, 94vw" width="900" height="1862" alt="" decoding="async" loading="lazy"></picture></div></div>
-        </article>
+      <div class="fenster" data-zeige><div class="balken" aria-hidden="true"><i></i><i></i><i></i></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/desktop-klein.avif 960w, img/app/en/hell/desktop.avif 1600w" sizes="(min-width:1240px) 1200px, 94vw"><img data-bild src="img/app/en/hell/desktop.webp" srcset="img/app/en/hell/desktop-klein.webp 960w, img/app/en/hell/desktop.webp 1600w" sizes="(min-width:1240px) 1200px, 94vw" width="1600" height="1000" alt="Desktop app view: the bike on the left; on the right an overall score of 96, compatibility 94, discipline 98, price and weight, and below them the check with no conflicts." data-t-alt="alt.app.desktop" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/desktop-klein.avif 960w, img/app/en/dunkel/desktop.avif 1600w" sizes="(min-width:1240px) 1200px, 94vw"><img data-bild src="img/app/en/dunkel/desktop.webp" srcset="img/app/en/dunkel/desktop-klein.webp 960w, img/app/en/dunkel/desktop.webp 1600w" sizes="(min-width:1240px) 1200px, 94vw" width="1600" height="1000" alt="Desktop app view: the bike on the left; on the right an overall score of 96, compatibility 94, discipline 98, price and weight, and below them the check with no conflicts." data-t-alt="alt.app.desktop" decoding="async" loading="lazy"></picture></div>
+      <div class="raster drei">
+        <div data-zeige><h3 data-t="p1.h3">One score, two ratings</h3><p data-t="p1.p">Compatibility measures whether everything fits mechanically; discipline, whether the parts suit how you ride. Together they make the score from 0 to 100.</p></div>
+        <div data-zeige><h3 data-t="p2.h3">The check says what’s open</h3><p data-t="p2.p">Conflicts, compromises and missing details sit right below the bike&nbsp;– along with anything that hasn’t been checked.</p></div>
+        <div data-zeige><h3 data-t="p3.h3">One tap to the next step</h3><p data-t="p3.p">“What would you like to improve?” takes you straight to the part finder&nbsp;– with goal, brand and budget.</p></div>
       </div>
-      <p class="quelle" data-t="modi.quelle">The button and hint in the first two cards are recreated from the app. The third card shows a sample view from 30 Sept 2026.</p>
     </div>
   </section>
 
   <section id="ablauf" aria-labelledby="ablauf-titel">
     <div class="innen">
-      <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="ablauf.etikett">How it works</p>
-        <h2 id="ablauf-titel" data-t="ablauf.h2">Three steps to your score</h2>
-        <p class="lead" data-t="ablauf.p">No account, no sign-up. You don’t need to know dimensions and standards by heart; the app knows them for the parts in its catalogue.</p>
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="ablauf.etikett">How it works</span>
+        <h2 id="ablauf-titel" data-t="ablauf.h2">From bike to shopping list in four steps.</h2>
+        <p class="lead" data-t="ablauf.p">No account, no sign-up. You don’t need to know dimensions and standards&nbsp;– the app knows them for the parts in its catalogue.</p>
       </div>
-      <ol class="schritte">
-        <li class="schritt" data-zeige>
-          <span class="s-nr">01</span>
-          <h3 data-t="s1.h3">Choose a mode</h3>
-          <p data-t="s1.p">A new bike, your own or a used one. All you need is an idea of what you want to ride, your bike’s spec or the listing.</p>
-          <div class="s-bild" aria-hidden="true"><span class="an" data-t="s1.a">Dream bike</span><span data-t="s1.b">My bike</span><span data-t="s1.c">Used bike</span></div>
-        </li>
-        <li class="schritt" data-zeige>
-          <span class="s-nr">02</span>
-          <h3 data-t="s2.h3">Add your parts</h3>
-          <p data-t="s2.p">Fork, shock, wheels, drivetrain: each time you pick a part, you can see straight away which options suit your build and which don’t.</p>
-          <div class="s-bild liste" aria-hidden="true"><span><i class="ok"></i><b data-t="s2.a">Frame</b></span><span><i class="ok"></i><b data-t="s2.b">Fork</b></span><span><i class="nein"></i><b data-t="s2.c">Shock · 190×45</b></span></div>
-        </li>
-        <li class="schritt" data-zeige>
-          <span class="s-nr">03</span>
-          <h3 data-t="s3.h3">See your score and next step</h3>
-          <p data-t="s3.p">You get the score, any conflicts with suggested fixes and the one step that would improve your bike most right now. Pro adds starting values for your suspension.</p>
-          <div class="s-bild score" aria-hidden="true"><span class="ring"><b>99</b></span><span class="s-txt"><b data-t="s3.a">Spot on.</b> <span data-t="s3.b">No conflicts.</span></span></div>
-        </li>
+      <ol class="raster vier schritt-liste">
+        <li class="karte schritt" data-zeige><span class="nr" aria-hidden="true">01</span><h3 data-t="s1.h3">Pick or enter your bike</h3><p data-t="s1.p">Plan a new bike, enter your own or a used listing. Start with the frame&nbsp;– it decides a lot.</p></li>
+        <li class="karte schritt" data-zeige><span class="nr" aria-hidden="true">02</span><h3 data-t="s2.h3">Read the check</h3><p data-t="s2.p">Red means the bike can’t be built this way. Amber: it works, with a compromise or an adapter. Conflicts lead straight to a fix.</p></li>
+        <li class="karte schritt" data-zeige><span class="nr" aria-hidden="true">03</span><h3 data-t="s3.h3">Find a part that fits</h3><p data-t="s3.p">Goal, brand, budget&nbsp;– three quick questions. The app shows parts that fit, compares them with yours and includes adapters and accessories in the cost.</p></li>
+        <li class="karte schritt" data-zeige><span class="nr" aria-hidden="true">04</span><h3 data-t="s4.h3">Save, try, buy</h3><p data-t="s4.p">Try a part in your build before you commit. The shopping list shows what you actually need to buy.</p></li>
       </ol>
+    </div>
+  </section>
+
+  <section id="pruefung" aria-labelledby="blatt-titel">
+    <div class="innen">
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="blatt.etikett">What gets checked</span>
+        <h2 id="blatt-titel" data-t="blatt.h2">Compatibility means dimensions that match.</h2>
+        <p class="lead" data-t="blatt.p">Every frame comes with fixed dimensions. CrankScore checks the parts you fit against them&nbsp;– with more than 20 rules, from the axles to the seatpost.</p>
+      </div>
+      <div class="karte blatt-karte" data-zeige>
+        <div class="blatt-raster">
+          <div class="seite-bild">
+            <picture><source type="image/avif" srcset="img/rad/rad-seite-klein.avif 900w, img/rad/rad-seite-mittel.avif 1200w, img/rad/rad-seite.avif 1600w" sizes="(min-width:1240px) 700px, (min-width:1024px) 56vw, 86vw"><img class="rad" src="img/rad/rad-seite.webp" srcset="img/rad/rad-seite-klein.webp 900w, img/rad/rad-seite-mittel.webp 1200w, img/rad/rad-seite.webp 1600w" sizes="(min-width:1240px) 700px, (min-width:1024px) 56vw, 86vw" width="1600" height="884" alt="3D render of the same bike from the side, with numbered points at the rear axle, brake mount, shock, bottom bracket, seat tube, head tube and front wheel." data-t-alt="alt.rad.seite" decoding="async" loading="lazy"></picture>
+            <span class="punkt" style="left:20.5%;top:71.0%" aria-hidden="true">1</span>
+            <span class="punkt" style="left:24.8%;top:62.2%" aria-hidden="true">2</span>
+            <span class="punkt" style="left:41.0%;top:48.5%" aria-hidden="true">3</span>
+            <span class="punkt" style="left:40.7%;top:72.1%" aria-hidden="true">4</span>
+            <span class="punkt" style="left:36.6%;top:35.6%" aria-hidden="true">5</span>
+            <span class="punkt" style="left:63.0%;top:17.7%" aria-hidden="true">6</span>
+            <span class="punkt" style="left:79.3%;top:69.9%" aria-hidden="true">7</span>
+          </div>
+          <ol class="legende">
+            <li><span class="n" aria-hidden="true">1</span><span class="k" data-t="b1.k">Rear axle</span><span class="w" data-t="b1.w">148 × 12 mm Boost · UDH</span></li>
+            <li><span class="n" aria-hidden="true">2</span><span class="k" data-t="b2.k">Rear brake</span><span class="w" data-t="b2.w">Post mount 180 · rotor up to 203 mm</span></li>
+            <li><span class="n" aria-hidden="true">3</span><span class="k" data-t="b3.k">Shock</span><span class="w" data-t="b3.w">230 × 65 mm, standard mount</span></li>
+            <li><span class="n" aria-hidden="true">4</span><span class="k" data-t="b4.k">Bottom bracket</span><span class="w" data-t="b4.w">BSA, 73 mm</span></li>
+            <li><span class="n" aria-hidden="true">5</span><span class="k" data-t="b5.k">Seat tube</span><span class="w" data-t="b5.w">31.6 mm post · 240 mm insertion</span></li>
+            <li><span class="n" aria-hidden="true">6</span><span class="k" data-t="b6.k">Head tube</span><span class="w" data-t="b6.w">tapered · forks up to 180 mm travel</span></li>
+            <li><span class="n" aria-hidden="true">7</span><span class="k" data-t="b7.k">Wheels</span><span class="w" data-t="b7.w">29″ front · 27.5″ rear · rear tyre up to 66 mm</span></li>
+          </ol>
+        </div>
+        <p class="unterschrift" data-t="blatt.quelle">Figures from the app’s catalogue for the Propain Spindrift frame. The 3D model recreates the frame; components are shown generically, and the CrankScore lettering replaces the manufacturer’s logo.</p>
+      </div>
     </div>
   </section>
 
   <section id="funktionen" aria-labelledby="funk-titel">
     <div class="innen">
-      <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="funk.etikett">Set up for you</p>
-        <h2 id="funk-titel" data-t="funk.h2">Your body, your riding style</h2>
-        <p class="lead" data-t="funk.p">Whether a bike really works for you isn’t only about the parts. CrankScore also takes your body measurements, your weight and your riding style into account.</p>
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="funk.etikett">Features</span>
+        <h2 id="funk-titel" data-t="funk.h2">What CrankScore does for you.</h2>
+        <p class="lead" data-t="funk.p">Each feature answers a question that comes up when you work on a bike&nbsp;– with catalogue data rather than gut feeling.</p>
       </div>
-      <div class="zwei">
-        <article class="karte k-mint" id="fit" data-zeige>
-          <div class="text">
-            <h3 data-t="fit.h3">Your sizing</h3>
-            <p data-t="fit.p">From your height, plus your inseam, shoulder width and arm span if you like, the app estimates frame size, bar width, stem length, crank length and dropper travel. These are guide values, not a professional bike fit.</p>
-            <span class="echt" data-t="ausschnitt">Sample crops</span>
-          </div>
-          <div class="buehne" style="aspect-ratio:1/.84" role="img" aria-label="Sample crops for a rider 182 cm tall: frame size L, bar width 800 mm, stem 40 to 50 mm." data-t-aria="alt.fit">
-            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-groesse-600.avif 600w, img/s/en/k-groesse.avif 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw"><img data-bild src="img/s/en/k-groesse.webp" srcset="img/s/en/k-groesse-600.webp 600w, img/s/en/k-groesse.webp 900w" sizes="(min-width:1600px) 544px, (min-width:1280px) 479px, (min-width:900px) 39vw, 78vw" width="900" height="332" alt="" decoding="async" loading="lazy"></picture></div>
-            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-lenker.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/en/k-lenker.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
-            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-vorbau.avif 528w" sizes="(min-width:1600px) 305px, (min-width:1280px) 269px, (min-width:900px) 22vw, 44vw"><img data-bild src="img/s/en/k-vorbau.webp" width="528" height="339" alt="" decoding="async" loading="lazy"></picture></div>
-          </div>
-        </article>
-        <article class="karte k-blau" id="federung" data-zeige>
-          <div class="text">
-            <h3><span data-t="fed.h3">Suspension</span><span class="pro-pille">Pro</span></h3>
-            <p data-t="fed.kurz">Starting values for fork and shock: a sag target, meaning how far the suspension should settle under your weight, plus rebound and compression in clicks, counted the way your dial is marked. The app only gives an air pressure when it’s backed up, for example by the manufacturer’s table for your fork’s model and year. Otherwise it walks you through a sag measurement to find the right value.</p>
-            <span class="echt" data-t="ausschnitt">Sample crops</span>
-          </div>
-          <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Sample crops: riding profile with 78 kg, rough trails and a brisk pace; fork starting value 75 psi (5.2 bar) at 18% sag." data-t-aria="alt.fed">
-            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-profil-600.avif 600w, img/s/en/k-profil.avif 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/en/k-profil.webp" srcset="img/s/en/k-profil-600.webp 600w, img/s/en/k-profil.webp 900w" sizes="(min-width:1600px) 584px, (min-width:1280px) 514px, (min-width:900px) 42vw, 84vw" width="900" height="606" alt="" decoding="async" loading="lazy"></picture></div>
-            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-psi-600.avif 600w, img/s/en/k-psi.avif 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw"><img data-bild src="img/s/en/k-psi.webp" srcset="img/s/en/k-psi-600.webp 600w, img/s/en/k-psi.webp 900w" sizes="(min-width:1600px) 588px, (min-width:1280px) 517px, (min-width:900px) 42vw, 84vw" width="900" height="212" alt="" decoding="async" loading="lazy"></picture></div>
-          </div>
-        </article>
-      </div>
-      <article class="karte k-pfirsich breit" style="margin-top:clamp(16px,2vw,24px)" data-zeige>
-        <div class="text">
-          <h3 data-t="up.h3">Upgrades &amp; shopping list</h3>
-          <p data-t="up.p">Upgrades only lists parts that are at least as good and score higher. When you’re planning, the app also shows cheaper alternatives and tells you what changes, such as less travel. The shopping list gathers everything, with shop links or as text for your workshop.</p>
-          <span class="echt" data-t="beispiel">Sample view</span>
-        </div>
-        <div class="buehne" style="aspect-ratio:1/.78" role="img" aria-label="Sample views: an upgrade to the Maxxis Minion DHR II tyre for one more point, next to the shopping list with 19 parts for €6,247." data-t-aria="alt.up">
-          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/up-480.avif 480w, img/s/en/up.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/en/up.webp" srcset="img/s/en/up-480.webp 480w, img/s/en/up.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/kauf-480.avif 480w, img/s/en/kauf.avif 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw"><img data-bild src="img/s/en/kauf.webp" srcset="img/s/en/kauf-480.webp 480w, img/s/en/kauf.webp 720w" sizes="(min-width:1600px) 333px, (min-width:1280px) 293px, (min-width:900px) 24vw, 45vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-        </div>
+      <article class="funktion" aria-labelledby="fp-titel">
+        <div data-zeige><span class="etikett" data-t="fp.etikett">Compatibility check</span><h3 id="fp-titel" data-t="fp.h3">Spots conflicts before you order.</h3><p data-t="fp.p">Will that SRAM cassette fit your Micro Spline freehub? The check shows what doesn’t work together and why&nbsp;– and when the fix is just a different version of a part you already have, it says so.</p>
+          <ul class="haken"><li data-t="fp.l1">More than 20 rules: axles, freehub, shock size, bottom bracket, headset, brake mount, tyre clearance, clamps</li><li data-t="fp.l2">Fits, compromise, doesn’t fit&nbsp;– always in words, not just colour</li><li data-t="fp.l3">If a detail is missing, the app asks for it rather than guessing</li></ul></div>
+        <div class="buehne" data-zeige><div class="handy"><div class="glas"><span class="insel" aria-hidden="true"></span><div class="leiste" aria-hidden="true"></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/pruefung-klein.avif 480w, img/app/en/hell/pruefung.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/hell/pruefung.webp" srcset="img/app/en/hell/pruefung-klein.webp 480w, img/app/en/hell/pruefung.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view of the check: “Freehub body doesn’t fit the cassette”&nbsp;– the wheelset has Micro Spline, the cassette needs HG; plus a compromise between derailleur and cassette." data-t-alt="alt.app.pruefung" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/pruefung-klein.avif 480w, img/app/en/dunkel/pruefung.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/dunkel/pruefung.webp" srcset="img/app/en/dunkel/pruefung-klein.webp 480w, img/app/en/dunkel/pruefung.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view of the check: “Freehub body doesn’t fit the cassette”&nbsp;– the wheelset has Micro Spline, the cassette needs HG; plus a compromise between derailleur and cassette." data-t-alt="alt.app.pruefung" decoding="async" loading="lazy"></picture></div></div></div>
       </article>
+      <article class="funktion links" aria-labelledby="ff-titel">
+        <div data-zeige><span class="etikett" data-t="ff.etikett">Part finder</span><h3 id="ff-titel" data-t="ff.h3">Three questions instead of a hundred spec sheets.</h3><p data-t="ff.p">Say what should improve, which brands you like and what you want to spend. The app shows parts that fit&nbsp;– and only ones that are better for your goal and no worse anywhere than what you have.</p>
+          <ul class="haken"><li data-t="ff.l1">Goals such as more stopping power, less weight or replacing a broken part</li><li data-t="ff.l2">Your budget covers the part and its accessories together</li><li data-t="ff.l3">If nothing beats your part, the app tells you to keep it</li></ul></div>
+        <div class="buehne" data-zeige><div class="handy"><div class="glas"><span class="insel" aria-hidden="true"></span><div class="leiste" aria-hidden="true"></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/finden-klein.avif 480w, img/app/en/hell/finden.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/hell/finden.webp" srcset="img/app/en/hell/finden-klein.webp 480w, img/app/en/hell/finden.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view of the part finder: brakes, step 1 of 3&nbsp;– “What should improve?” with goals ranging from more stopping power to a cheaper replacement." data-t-alt="alt.app.finden" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/finden-klein.avif 480w, img/app/en/dunkel/finden.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/dunkel/finden.webp" srcset="img/app/en/dunkel/finden-klein.webp 480w, img/app/en/dunkel/finden.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view of the part finder: brakes, step 1 of 3&nbsp;– “What should improve?” with goals ranging from more stopping power to a cheaper replacement." data-t-alt="alt.app.finden" decoding="async" loading="lazy"></picture></div></div></div>
+      </article>
+      <article class="funktion" aria-labelledby="fv-titel">
+        <div data-zeige><span class="etikett" data-t="fv.etikett">Comparison and adapters</span><h3 id="fv-titel" data-t="fv.h3">Before and after, with everything it takes.</h3><p data-t="fv.p">Your part and the new one side by side, value by value, with a verdict for your goal. If the switch needs an adapter, the app picks it: the right part number from your brake’s brand, front and rear separately, with the reason.</p>
+          <ul class="haken"><li data-t="fv.l1">Cost of the switch including adapters and accessories, where prices are known</li><li data-t="fv.l2">What stays, what’s needed, what’s no longer needed</li><li data-t="fv.l3">Whole-bike compatibility before and after</li></ul></div>
+        <div class="buehne" data-zeige><div class="handy"><div class="glas"><span class="insel" aria-hidden="true"></span><div class="leiste" aria-hidden="true"></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/vergleich-klein.avif 480w, img/app/en/hell/vergleich.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/hell/vergleich.webp" srcset="img/app/en/hell/vergleich-klein.webp 480w, img/app/en/hell/vergleich.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view Before and after: Shimano XT M8120 with 203/180 mm rotors against the same brake with 220/203 mm&nbsp;– rotors better, design and brake fluid the same, weight not comparable." data-t-alt="alt.app.vergleich" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/vergleich-klein.avif 480w, img/app/en/dunkel/vergleich.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/dunkel/vergleich.webp" srcset="img/app/en/dunkel/vergleich-klein.webp 480w, img/app/en/dunkel/vergleich.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view Before and after: Shimano XT M8120 with 203/180 mm rotors against the same brake with 220/203 mm&nbsp;– rotors better, design and brake fluid the same, weight not comparable." data-t-alt="alt.app.vergleich" decoding="async" loading="lazy"></picture></div></div></div>
+      </article>
+      <article class="funktion links" aria-labelledby="fw-titel">
+        <div data-zeige><span class="etikett" data-t="fw.etikett">Wishlist</span><h3 id="fw-titel" data-t="fw.h3">Try it first, then commit.</h3><p data-t="fw.p">Save parts for each bike and move them through four stages: saved, trying in build, buying, fitted. A trial is only a preview&nbsp;– your real part stays saved until you commit.</p>
+          <ul class="haken"><li data-t="fw.l1">Score and check reflect the trial part straight away</li><li data-t="fw.l2">Goal and budget can be changed for each item</li><li data-t="fw.l3">Every change is logged and can be undone</li></ul></div>
+        <div class="buehne" data-zeige><div class="handy"><div class="glas"><span class="insel" aria-hidden="true"></span><div class="leiste" aria-hidden="true"></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/wunsch-klein.avif 480w, img/app/en/hell/wunsch.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/hell/wunsch.webp" srcset="img/app/en/hell/wunsch-klein.webp 480w, img/app/en/hell/wunsch.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view Wishlist: a Magura MT4 at the “Trying in build” stage with the status “Checked: fits”, and below it a RockShox Lyrik Ultimate at the “Buying” stage." data-t-alt="alt.app.wunsch" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/wunsch-klein.avif 480w, img/app/en/dunkel/wunsch.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/dunkel/wunsch.webp" srcset="img/app/en/dunkel/wunsch-klein.webp 480w, img/app/en/dunkel/wunsch.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view Wishlist: a Magura MT4 at the “Trying in build” stage with the status “Checked: fits”, and below it a RockShox Lyrik Ultimate at the “Buying” stage." data-t-alt="alt.app.wunsch" decoding="async" loading="lazy"></picture></div></div></div>
+      </article>
+      <article class="funktion" aria-labelledby="fe-titel">
+        <div data-zeige><span class="etikett" data-t="fe.etikett">Shopping</span><h3 id="fe-titel" data-t="fe.h3">One list for the shop or the workshop.</h3><p data-t="fe.p">The shopping list gathers every part with its price and adds up the total. Copy it as text and take it to your bike shop. You order from the shop&nbsp;– CrankScore doesn’t sell anything itself.</p>
+          <ul class="haken"><li data-t="fe.l1">For your own bike, only what you actually need to buy</li><li data-t="fe.l2">Adapters you already have are marked so you don’t buy them twice</li><li data-t="fe.l3">“View product” only with a verified offer for exactly that version</li></ul></div>
+        <div class="buehne" data-zeige><div class="handy"><div class="glas"><span class="insel" aria-hidden="true"></span><div class="leiste" aria-hidden="true"></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/einkauf-klein.avif 480w, img/app/en/hell/einkauf.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/hell/einkauf.webp" srcset="img/app/en/hell/einkauf-klein.webp 480w, img/app/en/hell/einkauf.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view Shopping list: 19 parts with a total, including a Propain Spindrift frame, a Marzocchi Bomber Z1 Coil fork and a RockShox Super Deluxe Coil shock." data-t-alt="alt.app.einkauf" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/einkauf-klein.avif 480w, img/app/en/dunkel/einkauf.avif 720w" sizes="(min-width:900px) 300px, 72vw"><img data-bild src="img/app/en/dunkel/einkauf.webp" srcset="img/app/en/dunkel/einkauf-klein.webp 480w, img/app/en/dunkel/einkauf.webp 720w" sizes="(min-width:900px) 300px, 72vw" width="720" height="1558" alt="App view Shopping list: 19 parts with a total, including a Propain Spindrift frame, a Marzocchi Bomber Z1 Coil fork and a RockShox Super Deluxe Coil shock." data-t-alt="alt.app.einkauf" decoding="async" loading="lazy"></picture></div></div></div>
+      </article>
+      <div class="raster drei klein-raster">
+        <article class="karte" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v7M16 3v7M6 10h4v4H6zM14 10h4v4h-4zM8 14v7M16 14v7M8 6h8"/></svg></div>
+          <h3><span data-t="k1.h3">Suspension setup</span><span class="marke-pro" data-t="pro.marke">Pro</span></h3><p data-t="k1.p">Starting values for fork and shock: sag target, rebound and compression in clicks, counted the way your dial is marked. The app only gives an air pressure when it’s backed by data.</p>
+        </article>
+        <article class="karte" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-11.2 6.5L4 19.5l1.5-4.4A7.5 7.5 0 1 1 20 11.5z"/><path d="M9 10.5h6M9 13.5h4"/></svg></div>
+          <h3 data-t="k2.h3">Guide</h3><p data-t="k2.p">Questions about your bike and the tech behind it, answered on your device&nbsp;– no AI service in the background. Free includes 10 questions a day.</p>
+        </article>
+        <article class="karte" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="14" height="12" rx="2.5"/><path d="M7 4.5h12a2 2 0 0 1 2 2V16"/></svg></div>
+          <h3><span data-t="k3.h3">Several bikes</span><span class="marke-pro" data-t="pro.marke">Pro</span></h3><p data-t="k3.p">Each bike keeps its own build, wishlist and history. Free gives you one bike per mode, Pro as many as you like.</p>
+        </article>
+        <article class="karte" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 7.5v6M9.5 11l2.5 2.5 2.5-2.5M10 18h4"/></svg></div>
+          <h3 data-t="k4.h3">Offline and on your home screen</h3><p data-t="k4.p">No app store needed: add CrankScore to your home screen. After the first load, it works without a connection too.</p>
+        </article>
+        <article class="karte" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8 20 7.3v9.4l-8 4.5-8-4.5V7.3z"/><path d="M4 7.3l8 4.5 8-4.5M12 11.8v9.4"/></svg></div>
+          <h3 data-t="k5.h3">3D view</h3><p data-t="k5.p">For the Propain Spindrift, the app shows the bike as a 3D model you can rotate, with assemblies highlighted one by one. Other frames appear as a diagram drawn from catalogue geometry.</p>
+        </article>
+        <article class="karte" data-zeige>
+          <div class="symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5 5 13.5h6.5L11 21.5l8-11h-6.5z"/></svg></div>
+          <h3 data-t="k6.h3">E-MTBs</h3><p data-t="k6.p">The catalogue includes e-MTB frames. The app checks whether the crank fits the motor spindle and whether brakes and wheels can take the extra weight.</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section id="guide" aria-labelledby="guide-titel">
+  <section class="beispiel" id="beispiel" aria-labelledby="bsp-titel">
     <div class="innen">
-      <div class="karte k-nacht dunkel breit guide">
-        <div class="text" data-zeige>
-          <p class="etikett" data-t="guide.etikett">The guide</p>
-          <h2 id="guide-titel" style="margin-top:12px" data-t="guide.h2">Not sure? Ask the guide.</h2>
-          <p data-t="guide.p">The guide answers questions about your bike and the tech behind it, right inside the app. It works offline and doesn’t send anything to an AI service.</p>
-          <div class="guide-liste">
-            <div><h3 data-t="g1.h3">Knows your bike</h3><p data-t="g1.p">“What’s missing for 100?” or “Is my bike up to enduro?” The guide works out the answer from your build.</p></div>
-            <div><h3 data-t="g2.h3">Checks parts</h3><p data-t="g2.p">“Will a Fox 38 fit?” The guide finds the part in the catalogue and checks whether it would cause new conflicts on your bike.</p></div>
-            <div><h3 data-t="g3.h3">Explains the jargon</h3><p data-t="g3.p">Boost, freehub, sag, HSC: in plain words, even if you’re new to this.</p></div>
-            <div><h3 data-t="g4.h3">Takes you there</h3><p data-t="g4.p">Buttons under the answers take you straight to the right place in the app.</p></div>
-          </div>
-          <span class="echt" data-t="beispiel">Sample view</span>
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="bsp.etikett">An example from the app</span>
+        <h2 id="bsp-titel" data-t="bsp.h2">More stopping power&nbsp;– without a new brake.</h2>
+      </div>
+      <div class="beispiel-raster">
+        <div data-zeige>
+          <p class="ausgang" data-t="bsp.p">A Specialized Stumpjumper Alloy with a RockShox Pike and Shimano XT M8120 brakes, a 203 mm rotor at the front and 180 mm at the rear. Goal: more stopping power and fade resistance.</p>
+          <ol class="schritte">
+            <li data-th="bsp.1"><b>No new model.</b> Whether another brake stops harder with the same rotor can’t be shown without manufacturer data, so the app recommends keeping the XT.</li>
+            <li data-th="bsp.2"><b>Bigger rotors:</b> 220 mm front, 203 mm rear&nbsp;– the route to more stopping power that can actually be backed up.</li>
+            <li data-th="bsp.3"><b>Adapters picked automatically:</b> Shimano SM-MA-F220P/PM instead of F203P/PM at the front and a new SM-MA-F203P/PM at the rear&nbsp;– each with the reason and a guide price.</li>
+            <li data-th="bsp.4"><b>Honest about gaps:</b> there’s no record that the frame is rated for 203 mm at the rear. The app flags it as “Still to check” and asks, rather than guessing.</li>
+            <li data-th="bsp.5"><b>Cost of the switch:</b> €41 guide price for the adapters. The rotors come on top&nbsp;– their price isn’t in the catalogue.</li>
+          </ol>
+          <p class="unterschrift" data-t="bsp.quelle">Figures from the app as of 11 Oct 2026. Prices are guide prices at RRP level, not offers.</p>
         </div>
-        <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Sample view of the guide: asked “Will a Fox 38 fit?”, it names the Fox 38 Factory at €1,549, built for enduro and downhill, and reports that its travel exceeds the frame’s limit." data-t-aria="alt.guide">
-          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><picture><source type="image/avif" srcset="img/s/en/guide-480.avif 480w, img/s/en/guide.avif 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw"><img data-bild src="img/s/en/guide.webp" srcset="img/s/en/guide-480.webp 480w, img/s/en/guide.webp 720w" sizes="(min-width:1600px) 382px, (min-width:1280px) 338px, (min-width:900px) 27vw, 52vw" width="720" height="1561" alt="" decoding="async" loading="lazy"></picture></div></div>
-          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><picture><source type="image/avif" srcset="img/s/en/k-antwort-600.avif 600w, img/s/en/k-antwort.avif 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw"><img data-bild src="img/s/en/k-antwort.webp" srcset="img/s/en/k-antwort-600.webp 600w, img/s/en/k-antwort.webp 900w" sizes="(min-width:1600px) 425px, (min-width:1280px) 375px, (min-width:900px) 30vw, 57vw" width="900" height="993" alt="" decoding="async" loading="lazy"></picture></div>
-        </div>
+        <div class="buehne" data-zeige><div class="handy"><div class="glas"><span class="insel" aria-hidden="true"></span><div class="leiste" aria-hidden="true"></div><picture class="nur-hell"><source type="image/avif" srcset="img/app/en/hell/paket-klein.avif 480w, img/app/en/hell/paket.avif 720w" sizes="(min-width:900px) 320px, 74vw"><img data-bild src="img/app/en/hell/paket.webp" srcset="img/app/en/hell/paket-klein.webp 480w, img/app/en/hell/paket.webp 720w" sizes="(min-width:900px) 320px, 74vw" width="720" height="1558" alt="App view “What the switch includes”: the Shimano XT M8120 stays; needed are 220 and 203 mm rotors plus the SM-MA-F203P/PM adapter for the rear (€17) and the SM-MA-F220P/PM for the front (€24); the front SM-MA-F203P/PM is no longer needed; cost of the switch €41." data-t-alt="alt.app.paket" decoding="async" loading="lazy"></picture><picture class="nur-dunkel"><source type="image/avif" srcset="img/app/en/dunkel/paket-klein.avif 480w, img/app/en/dunkel/paket.avif 720w" sizes="(min-width:900px) 320px, 74vw"><img data-bild src="img/app/en/dunkel/paket.webp" srcset="img/app/en/dunkel/paket-klein.webp 480w, img/app/en/dunkel/paket.webp 720w" sizes="(min-width:900px) 320px, 74vw" width="720" height="1558" alt="App view “What the switch includes”: the Shimano XT M8120 stays; needed are 220 and 203 mm rotors plus the SM-MA-F203P/PM adapter for the rear (€17) and the SM-MA-F220P/PM for the front (€24); the front SM-MA-F203P/PM is no longer needed; cost of the switch €41." data-t-alt="alt.app.paket" decoding="async" loading="lazy"></picture></div></div></div>
       </div>
     </div>
   </section>
 
-  <section id="mehr" aria-labelledby="mehr-titel">
+  <section class="ehrlich" id="ehrlich" aria-labelledby="eh-titel">
     <div class="innen">
-      <div class="kopfzeile" data-zeige>
-        <p class="etikett" data-t="mehr.etikett">More features</p>
-        <h2 id="mehr-titel" data-t="mehr.h2">What else it can do</h2>
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="eh.etikett">Straight answers</span>
+        <h2 id="eh-titel" data-t="eh.h2">Clear answers, limits included.</h2>
+        <p class="lead" data-t="eh.p">CrankScore is there to help you avoid buying the wrong part. That means being open about what the app knows and what it doesn’t.</p>
       </div>
-      <div class="drei">
-        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="m7.5 10 4.5 4.5 4.5-4.5"/><path d="M4 15.5V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3.5"/></svg></span>
-          <h3 data-t="k4.h3">Backup</h3><p data-t="k4.p">Save your bikes, rider profile, setup and notes to a file, photos included if you like, and load them again later.</p></div>
-        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="3"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></span>
-          <h3 data-t="k5.h3">Model year</h3><p data-t="k5.p">Older model years cost less, so the assistant may fall back on an older frame year when the budget is tight. The check also knows about changes between model years, such as UDH.</p></div>
-        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17 9 5 9-5"/></svg></span>
-          <h3><span data-t="k6.h3">Several bikes</span><span class="pro-pille">Pro</span></h3><p data-t="k6.p">Each bike keeps its own build. Free gives you one bike per mode, Pro as many as you like.</p></div>
-        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6H8l1.5-2h5L16 6h1.5A2.5 2.5 0 0 1 20 8.5v9a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg></span>
-          <h3><span data-t="k7.h3">Your top-cap photo</span><span class="pro-pille">Pro</span></h3><p data-t="k7.p">Take a photo of your fork’s adjusters and tap each one. The app writes the setting straight onto the photo, which stays on your device.</p></div>
-        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
-          <h3 data-t="k8.h3">German and English</h3><p data-t="k8.p">The whole app is available in both languages, with prices and numbers in the right format.</p></div>
-        <div class="kachel" data-zeige><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/><path d="m3 3 18 18"/></svg></span>
-          <h3 data-t="k9.h3">Works offline</h3><p data-t="k9.p">Once it has fully loaded, the app works without a connection, on the trail or in the workshop. Only current prices need a signal, and Pro stays active offline for 14 days.</p></div>
+      <div class="raster vier">
+        <article class="karte" data-zeige><h3 data-t="e1.h3">Guide prices, clearly labelled</h3><p data-t="e1.p">The app works with guide prices at RRP level. It only shows a “View product” link when there’s a verified offer for exactly that version&nbsp;– recent, in stock and dated.</p></article>
+        <article class="karte" data-zeige><h3 data-t="e2.h3">No guesswork</h3><p data-t="e2.p">If the catalogue lacks a detail, such as your frame’s brake mount, the app asks you for it. Until then it counts as neither better nor worse.</p></article>
+        <article class="karte" data-zeige><h3 data-t="e3.h3">Independent of shops</h3><p data-t="e3.p">CrankScore doesn’t sell parts. Which part fits is decided by the check. If a link is a partner link, it’s marked “Ad”.</p></article>
+        <article class="karte" data-zeige><h3 data-t="e4.h3">Your data stays with you</h3><p data-t="e4.p">No account, no tracking. Bikes, measurements and photos live only in your browser’s storage. For Pro, only the licence code goes to Lemon Squeezy to be checked.</p></article>
       </div>
-      <div class="zahlen" role="group" aria-label="The catalogue in numbers" data-t-aria="zahlen.aria" data-zeige>
-        <div><b data-t="z1.zahl">766</b><span data-t="z1">parts</span></div>
-        <div><b data-t="z2.zahl">125</b><span data-t="z2">brands</span></div>
-        <div><b data-t="z3.zahl">7</b><span data-t="z3">disciplines</span></div>
-        <div><b data-t="z4.zahl">15</b><span data-t="z4">suspension tables</span></div>
-        <div><b data-t="z5.zahl">100+</b><span data-t="z5">guide topics</span></div>
-      </div>
-      <p class="quelle mitte" data-t="zahlen.quelle">Counted in the app: catalogue from 1 Oct 2026, app version 20261008-0728.</p>
     </div>
   </section>
 
-  <section id="daten" data-nav="mehr" aria-labelledby="daten-titel">
+  <section class="preise" id="preise" aria-labelledby="pr-titel">
     <div class="innen">
-      <div class="karte k-gruen breit daten">
-        <div class="text" data-zeige>
-          <p class="etikett" data-t="daten.etikett">Privacy</p>
-          <h2 id="daten-titel" style="margin-top:12px" data-t="daten.h2">Your bikes stay on your device</h2>
-          <p data-t="daten.p">The app doesn’t need a server for your data: it works out the check, the score and the guide’s answers right on your device.</p>
-        </div>
-        <div class="daten-liste" data-zeige>
-          <div><h3 data-t="d1.h3">No account</h3><p data-t="d1.p">No sign-up, no password. If you buy Pro, you give your email address to Lemon Squeezy, which handles the purchase. The app only stores the licence code.</p></div>
-          <div><h3 data-t="d2.h3">Everything on your device</h3><p data-t="d2.p">Bikes, measurements, setup and photos live in your browser’s storage. Before you clear your browser data or switch devices, back everything up to a file.</p></div>
-          <div><h3 data-t="d3.h3">No tracking</h3><p data-t="d3.p">No analytics, no cookies. Your entries never leave your device. Only with Pro does the app check the licence code with Lemon Squeezy, at most once a day.</p></div>
-        </div>
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="pr.etikett">Pricing</span>
+        <h2 id="pr-titel" data-t="pr.h2">Start for free. Go Pro when you need more.</h2>
+        <p class="lead" data-t="pr.p">Free does almost everything. Pro adds what keen home mechanics tend to need.</p>
       </div>
+      <div class="raster zwei">
+        <article class="karte tarif" data-zeige aria-labelledby="free-titel">
+          <h3 class="name" id="free-titel" data-t="free.name">Free</h3>
+          <p class="betrag"><b data-t="free.preis">€0</b></p>
+          <p class="sub" data-t="free.sub">No cost, no account</p>
+          <ul class="haken"><li data-t="free.l1">Check, score and missing details</li><li data-t="free.l2">Part finder, comparison, adapters in the package</li><li data-t="free.l3">Wishlist and shopping list</li><li data-t="free.l4">One bike per mode</li><li data-t="free.l5">Guide: 10 questions a day</li></ul>
+        </article>
+        <article class="karte tarif pro" data-zeige aria-labelledby="pro-titel">
+          <h3 class="name" id="pro-titel" data-t="pro.marke">Pro</h3>
+          <p class="betrag"><b data-t="pro.preis">€6.99</b><span data-t="pro.einheit">a month</span></p>
+          <p class="sub" data-t="pro.sub">or €3.99 a month billed yearly (€47.88 a year)</p>
+          <ul class="haken"><li data-t="pro.l1">Everything in Free</li><li data-t="pro.l2">As many bikes per mode as you like</li><li data-t="pro.l3">Suspension setup for fork and shock</li><li data-t="pro.l4">Guide with no daily limit</li></ul>
+        </article>
+      </div>
+      <p class="hinweis"><span data-t="pr.hinweis">You unlock Pro with the code from your purchase email&nbsp;– no account needed. Payment is handled by Lemon Squeezy.</span> <span data-vor-release data-t="pr.bald">Pro will be available once the app launches.</span></p>
     </div>
   </section>
 
-<section id="fragen" aria-labelledby="fragen-titel">
-    <div class="innen fragen-raster">
-      <div class="text" data-zeige>
-        <p class="etikett" data-t="fragen.etikett">FAQ</p>
-        <h2 id="fragen-titel" data-t="fragen.h2">Quick answers</h2>
-        <p class="lead" data-t="fragen.p">The essentials before launch: status, price and how reliable the results are.</p>
+  <section id="fragen" aria-labelledby="fragen-titel">
+    <div class="innen">
+      <div class="einleitung" data-zeige>
+        <span class="etikett" data-t="fragen.etikett">FAQ</span>
+        <h2 id="fragen-titel" data-t="fragen.h2">Frequently asked questions</h2>
       </div>
-      <div class="fragen" data-zeige>
-        <details id="f1"><summary data-t="f1.q">When will CrankScore launch?</summary>
-          <p data-t="f1.a">CrankScore is currently in testing and there’s no launch date yet. We’ll release the app once the catalogue and the checks are solid enough for you to rely on. You’ll find news here first.</p></details>
-        <details><summary data-t="f2.q">What will CrankScore cost?</summary>
-          <p data-t="f2.a">The basic version, Free, costs nothing and works without an account. Pro is set to cost €6.99 a month or €47.88 a year, which works out at €3.99 a month, and you’ll be able to cancel at any time. It gives you as many bikes per mode as you like (Free: one), the suspension setup and the guide without a daily limit (Free: 10 questions a day).</p></details>
-        <details><summary data-t="f3.q">What does the score tell me?</summary>
-          <p data-t="f3.a">The score sums up your build in one number from 0 to 100. Fit shows whether the parts work together technically, purpose whether they suit your discipline. From 85 the build is coherent, from 60 it’s rideable with compromises, and below that something fundamental is wrong. Only the parts you’ve entered are rated.</p></details>
-        <details><summary data-t="f4.q">How reliable are the results?</summary>
-          <p data-t="f4.a">The check works with dimensions and standards taken from manufacturer data. It knows the common standards, but not every quirk of a particular frame year. Used values are estimates, and suspension settings are starting points for fine-tuning. Before you buy, the manufacturer’s spec sheet has the final say.</p></details>
-        <details><summary data-t="f5.q">Does it cover e-MTBs?</summary>
-          <p data-t="f5.a">Yes, though the selection is still small: the catalogue has 7 e-MTB frames, 5 with full-power motors (Bosch, Shimano, Specialized) and 2 light e-MTBs with smaller motors (TQ, Shimano), plus matching cranks and wheels. The app checks whether the crank fits the motor spindle and whether brakes and wheels can handle the extra weight. The suspension setup accounts for the motor and battery.</p></details>
-        <details><summary data-t="f6.q">Is CrankScore in the app stores?</summary>
-          <p data-t="f6.a">No, and that’s deliberate: CrankScore runs in your browser. On your phone you can add it to your home screen, and it then opens like any other app.</p></details>
-        <details><summary data-t="f7.q">How is CrankScore funded?</summary>
-          <p data-t="f7.a">Through Pro and partner links. Some shop links in the app will be marked “Ad”. If you buy through one, CrankScore earns a small commission and your price stays the same. Which part fits is decided by the check, not by the commission.</p></details>
+      <div class="fragen-liste">
+        <details id="q0" data-vor-release><summary data-t="q0.q">When will CrankScore launch?</summary><p data-t="q0.a">CrankScore is in testing. We’ll release the app once the catalogue and the check are solid enough for you to rely on. When that happens, you’ll find “Open the app” here.</p></details>
+        <details><summary data-t="q1.q">What does CrankScore cost?</summary><p data-t="q1.a">Free costs nothing and needs no account. Pro costs €6.99 a month, or €3.99 a month billed yearly (€47.88 a year), and adds unlimited bikes, the suspension setup and the guide with no daily limit.</p></details>
+        <details><summary data-t="q2.q">Do I need an account?</summary><p data-t="q2.a">No. You open the app in your browser and get started. Pro doesn’t need an account either: you unlock it with the code from your purchase email.</p></details>
+        <details><summary data-t="q3.q">Where is my data stored?</summary><p data-t="q3.a">Only on your device, in your browser’s storage. If you clear your browser data or switch devices, it’s gone&nbsp;– so back it up to a file in the app first. For Pro, only the licence code goes to Lemon Squeezy to be checked, at most once a day.</p></details>
+        <details><summary data-t="q4.q">Does CrankScore work offline?</summary><p data-t="q4.a">Yes. After the first full load, the app works without a connection, in the workshop or out on the trail. Pro stays active offline for 14 days.</p></details>
+        <details><summary data-t="q5.q">How do I get the app on my phone?</summary><p data-t="q5.a">No app store needed: on an iPhone, tap Share in Safari, then “Add to Home Screen”. On Android, open the Chrome menu and choose “Install app” or “Add to Home screen”.</p></details>
+        <details><summary data-t="q6.q">Where do the prices come from?</summary><p data-t="q6.a">The app works with guide prices at RRP level and prices older model years lower. If there’s a verified offer from a partner shop for exactly that version, it shows that price with its date and shipping. The price in the shop is always what counts.</p></details>
+        <details><summary data-t="q7.q">How reliable is the check?</summary><p data-t="q7.a">It works with dimensions, standards and manufacturer approvals from the catalogue. If a detail is missing, the app asks for it, and anything it doesn’t check is listed right below the score. Before you buy, the manufacturer’s spec sheet has the final say.</p></details>
+        <details><summary data-t="q8.q">Which bikes is CrankScore for?</summary><p data-t="q8.a">For mountain bikes from XC, trail and enduro to downhill, dirt, slopestyle and trials&nbsp;– hardtails, full-suspension bikes and e-MTBs. The catalogue holds 766 parts from 125 brands.</p></details>
+        <details><summary data-t="q9.q">Is CrankScore in the app stores?</summary><p data-t="q9.a">No, and that’s deliberate: CrankScore is a web app that runs in your browser, on your phone or your computer.</p></details>
+        <details><summary data-t="q10.q">Which languages is CrankScore available in?</summary><p data-t="q10.a">The website and the app are available in German and English, with prices and numbers in the right format.</p></details>
       </div>
     </div>
   </section>
 
   <section class="schluss" id="schluss" aria-labelledby="schluss-titel">
     <div class="innen">
-      <div class="karte k-lila" data-zeige>
-        <h2 id="schluss-titel" data-t="schluss.h2">Coming soon.</h2>
-        <p class="lead" data-t="schluss.p">Until launch, we’re still fine-tuning the catalogue and the checks. Know someone who’s planning a bike or looking for a used one? Share this page with them.</p>
-        <p class="quelle" data-t="schluss.stand">Last updated: 8 October 2026</p>
-        <button type="button" class="teilen" id="teilen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></svg><span data-t="schluss.knopf">Share this page</span></button>
-        <span hidden data-t="schluss.kopiert">Link copied</span><span hidden data-t="schluss.fehler">Couldn’t copy the link. The address is crankscore.de.</span>
+      <div class="schluss-karte" data-zeige>
+        <div>
+          <h2 id="schluss-titel"><span data-nach-release data-t="schluss.h2" hidden>Ready to plan your build?</span><span data-vor-release data-t="schluss.bald.h2">Almost ready.</span></h2>
+          <p><span data-nach-release data-t="schluss.p" hidden>Open CrankScore in your browser, pick your bike and see what fits.</span><span data-vor-release data-t="schluss.bald.p">CrankScore is in testing. Know someone who’s planning or upgrading a bike? Share this page with them.</span></p>
+          <div class="knoepfe">
+            <a class="knopf haupt" data-app href="#q0" data-t="app.bald">Coming soon</a>
+            <button type="button" class="knopf zweit teilen" id="teilen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><span data-t="schluss.knopf">Share this page</span></button>
+          </div>
+          <span hidden data-t="schluss.kopiert">Link copied</span><span hidden data-t="schluss.fehler">Couldn’t copy the link. The address is crankscore.de.</span>
+        </div>
+        <picture><source type="image/avif" srcset="img/rad/rad-heck-klein.avif 900w, img/rad/rad-heck-mittel.avif 1200w, img/rad/rad-heck.avif 1600w" sizes="(min-width:1240px) 580px, (min-width:900px) 46vw, 80vw"><img class="rad" src="img/rad/rad-heck.webp" srcset="img/rad/rad-heck-klein.webp 900w, img/rad/rad-heck-mittel.webp 1200w, img/rad/rad-heck.webp 1600w" sizes="(min-width:1240px) 580px, (min-width:900px) 46vw, 80vw" width="1600" height="1176" alt="3D render of the same bike from the rear left at an angle." data-t-alt="alt.rad.heck" decoding="async" loading="lazy"></picture>
       </div>
     </div>
   </section>
@@ -849,12 +738,12 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
   <div class="innen">
     <div class="fuss-raster">
       <div>
-        <a class="marke" href="./">Crank<i>Score</i></a>
-        <p data-t="fuss.claim">Plan, check and size up mountain bikes, part by part.</p>
+        <a class="marke" href="./" aria-label="CrankScore&nbsp;– home" data-t-aria="marke.aria"><svg class="logo" aria-hidden="true" focusable="false"><use href="#cs-logo"/></svg><span class="schrift">CRANK<b>SCORE</b></span></a>
+        <p data-t="fuss.claim">Plan, check and upgrade mountain bikes, part by part.</p>
       </div>
       <div>
         <h2 data-t="fuss.h1">On this page</h2>
-        <ul><li><a href="#prinzip" data-t="nav.prinzip">The check</a></li><li><a href="#modi" data-t="nav.modi">Modes</a></li><li><a href="#ablauf" data-t="nav.ablauf">How it works</a></li><li><a href="#funktionen" data-t="nav.fed">Sizing &amp; suspension</a></li><li><a href="#guide" data-t="nav.guide">Guide</a></li><li><a href="#mehr" data-t="nav.mehr">Features</a></li><li><a href="#fragen" data-t="nav.fragen">FAQ</a></li></ul>
+        <ul><li><a href="#ablauf" data-t="nav.ablauf">How it works</a></li><li><a href="#funktionen" data-t="nav.funktionen">Features</a></li><li><a href="#beispiel" data-t="nav.beispiel">Example</a></li><li><a href="#preise" data-t="nav.preise">Pricing</a></li><li><a href="#fragen" data-t="nav.fragen">FAQ</a></li></ul>
       </div>
       <div>
         <h2 data-t="fuss.h2">Legal</h2>
@@ -862,7 +751,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
       </div>
       <div class="sprach-wahl">
         <h2 data-t="fuss.h3">Language</h2>
-        <ul><li><button type="button" data-sprache="de" aria-pressed="true" lang="de">Deutsch</button></li><li><button type="button" data-sprache="en" aria-pressed="false" lang="en">English</button></li></ul>
+        <ul><li><button type="button" data-sprache="de" aria-pressed="false" lang="de">Deutsch</button></li><li><button type="button" data-sprache="en" aria-pressed="true" lang="en">English</button></li></ul>
       </div>
       <div class="design-wahl">
         <h2 data-t="fuss.h4">Appearance</h2>
@@ -870,12 +759,11 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
       </div>
     </div>
     <div class="klein">
-      <div class="hinweise"><span data-t="fuss.bilder">All app images are sample views from the test version of 30 Sept 2026.</span> <span data-t="fuss.marken">Brand names belong to their owners and are only used to identify parts in the catalogue.</span></div>
+      <div class="hinweise"><span data-t="fuss.bilder">App views: real screenshots of the app as of 11 Oct 2026 (version 20261011-1532). Bike images: the app’s 3D model, rendered in Blender.</span> <span data-t="fuss.marken">Brand names belong to their owners and are only used to identify parts in the catalogue.</span></div>
       <span>© 2026 CrankScore</span>
     </div>
   </div>
 </footer>
-
 <script>
 (function(){
   /* Reste der App, die am 29.09. kurz hier lag, abmelden (siehe mtb-sw.js) */
@@ -890,8 +778,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
   /* Texte fuer Meldungen stehen versteckt im Markup und wechseln mit der Sprache */
   function text(schluessel){ var e = document.querySelector('[data-t="' + schluessel + '"]'); return e ? e.textContent : ""; }
 
-  /* ── Menue unter 1024 px: <dialog> mit allen Abschnitten, Sprache und Design. Esc und der Schliessen-Knopf
-     bringen den Fokus zurueck auf den Menue-Knopf; ein Abschnitts-Link schliesst und springt. ── */
+  /* ── Menue unter 1120 px: <dialog> mit allen Abschnitten, App, Sprache und Design. Esc und der Schliessen-Knopf
+     bringen den Fokus zurueck auf den Menue-Knopf; ein Link schliesst und springt. ── */
   var menue = document.getElementById("menue"), menueKnopf = document.getElementById("menue-knopf");
   if(menue && menueKnopf && typeof menue.showModal === "function"){
     var perLink = false;
@@ -900,11 +788,15 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
     alle('a[href^="#"]', menue).forEach(function(a){ a.addEventListener("click", function(){ perLink = true; menue.close(); }); });
     menue.addEventListener("close", function(){ menueKnopf.setAttribute("aria-expanded", "false"); if(!perLink) menueKnopf.focus(); });
     if(window.matchMedia){
-      var breit = window.matchMedia("(min-width: 1024px)");
+      var breit = window.matchMedia("(min-width: 1120px)");
       var zu = function(){ if(breit.matches && menue.open) menue.close(); };
       if(breit.addEventListener) breit.addEventListener("change", zu); else if(breit.addListener) breit.addListener(zu);
     }
   } else if(menueKnopf){ menueKnopf.hidden = true; }
+
+  /* ── Vor dem Release fuehrt "Kommt bald" zur Frage "Wann erscheint CrankScore?" und klappt sie auf ── */
+  var q0 = document.getElementById("q0");
+  alle('a[data-app][href="#q0"]').forEach(function(a){ a.setAttribute("data-bald", ""); a.addEventListener("click", function(){ if(q0) q0.open = true; }); });
 
   /* ── Seite teilen: Web Share, sonst Link in die Zwischenablage; klappt beides nicht, sagt eine Meldung es ── */
   var teilen = document.getElementById("teilen");
@@ -923,10 +815,6 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
     if(navigator.share){ navigator.share({title: "CrankScore", url: url}).catch(function(e){ if(!e || e.name !== "AbortError") kopieren(); }); return; }
     kopieren();
   });
-
-  /* ── "Kommt bald" (Kopfzeile und Menue) fuehrt zur Antwort in den Fragen und klappt sie auf ── */
-  var f1 = document.getElementById("f1");
-  alle("[data-frage]").forEach(function(a){ a.addEventListener("click", function(){ if(f1) f1.open = true; }); });
 
   /* ── Kopfzeile: Kante erst beim Scrollen (Klasse nur bei Wechsel setzen) ── */
   var kopf = document.getElementById("kopf"), unten = null;
@@ -950,25 +838,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
     alle("main > section[id]").forEach(function(s){ nio.observe(s); });
   }
 
-  /* ── Laufband: nur mit Bewegung; die Marken werden fuer die Endlosschleife einmal verdoppelt (fuer Screenreader
-     versteckt). Haelt an beim Zeigen, bei Fokus, ausserhalb des Bildes und mit dem Knopf. ── */
-  var band = document.querySelector(".band"), lauf = band && band.querySelector(".lauf");
-  if(band && lauf && !ruhig){
-    var liste = lauf.querySelector("ul");
-    alle("li", liste).forEach(function(li){ var k = li.cloneNode(true); k.setAttribute("aria-hidden", "true"); liste.appendChild(k); });
-    lauf.classList.add("laeuft"); band.classList.add("bewegt");
-    var halt = band.querySelector(".lauf-knopf");
-    if(halt) halt.addEventListener("click", function(){
-      var an = halt.getAttribute("aria-pressed") !== "true";
-      halt.setAttribute("aria-pressed", String(an)); band.classList.toggle("halt", an);
-    });
-    if(hatIO) new IntersectionObserver(function(e){ band.classList.toggle("weg-vom-bild", !e[0].isIntersecting); }).observe(band);
-  } else if(lauf){
-    /* ohne Bewegung: die stehende Reihe laesst sich auch per Tastatur scrollen */
-    lauf.tabIndex = 0; lauf.setAttribute("role", "region"); lauf.setAttribute("aria-labelledby", "band-titel");
-  }
-
-  /* ── Karten erscheinen einmal, kurz, wenn sie ins Bild kommen; Geschwister leicht versetzt ── */
+  /* ── Inhalte erscheinen einmal, kurz, wenn sie ins Bild kommen; Geschwister leicht versetzt ── */
   var teile = alle("[data-zeige]");
   if(ruhig || !hatIO){ teile.forEach(function(e){ e.classList.add("da"); }); }
   else {
@@ -976,7 +846,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - var(--abschnitt))}
       eintraege.forEach(function(e){
         if(!e.isIntersecting) return;
         var nachbarn = [].slice.call(e.target.parentNode.children).filter(function(x){ return x.hasAttribute("data-zeige"); });
-        e.target.style.animationDelay = Math.min(Math.max(0, nachbarn.indexOf(e.target)), 3) * 50 + "ms";
+        e.target.style.animationDelay = Math.min(Math.max(0, nachbarn.indexOf(e.target)), 3) * 60 + "ms";
         e.target.classList.add("da");
         io.unobserve(e.target);
       });
