@@ -21,29 +21,27 @@
     teile: 766, marken: 125, disziplinen: 7, federtabellen: 15, guideThemen: 100, pruefregeln: 20,
     emtbRahmen: 7, emtbFullPower: 5, emtbLight: 2,
     proMonat: 6.99, proJahr: 47.88, proJahrMonat: 3.99, guideFrei: 10, proOffline: 14,
-    beispielPreis: 6247,
-    katalog: "2026-10-01", appVersion: "20261008-0728",
-    aufnahme: "2026-09-30",     /* Datum der App-Aufnahmen in img/s/de und img/s/en */
-    seitenStand: "2026-10-08",  /* "Stand" im Schluss der Startseite */
+    beispielPreis: 6242,
+    katalog: "2026-10-01", appVersion: "20261013-2127",
+    aufnahme: "2026-10-14",     /* Datum der App-Aufnahmen in img/s/de und img/s/en */
+    seitenStand: "2026-10-14",  /* "Stand" im Schluss der Startseite */
     dsStand: "2026-09-30"       /* "Stand" der Datenschutzerklaerung */
   };
 
   var T = {
     /* ── Kopf der Startseite (Titel, Beschreibung, Vorschau beim Teilen) ── */
-    "seite.titel": ["CrankScore – Passen die Teile deines Mountainbikes zusammen?",
-                    "CrankScore – Will your mountain bike parts fit together?"],
+    "seite.titel": ["CrankScore – Dein Bike. Bis ins Detail.", "CrankScore – Your bike. Every detail."],
     "seite.desc": ["CrankScore prüft, ob die Teile deines Mountainbikes zusammenpassen. Plane ein neues Rad, prüfe dein eigenes oder schätze ein Gebrauchtangebot ein.",
                    "CrankScore checks whether the parts on your mountain bike work together. Plan a new bike, check your own or size up a used one."],
-    "seite.ogtitel": ["CrankScore – Passen die Teile deines Mountainbikes zusammen?",
-                      "CrankScore – Will your mountain bike parts fit together?"],
+    "seite.ogtitel": ["CrankScore – Dein Bike. Bis ins Detail.", "CrankScore – Your bike. Every detail."],
     "seite.ogdesc": ["Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot einschätzen. Die Web-App fürs Mountainbike ist in der Testphase.",
                      "Plan a new bike, check your own, size up a used one. The web app for your mountain bike is in testing."],
-    "seite.ogbild": ["Vorschaubild von CrankScore: die Überschrift „Passt das zusammen?“ neben einer Beispielansicht der App mit Score 99 und ohne Konflikte.",
-      "CrankScore preview image: the German headline asking whether it all fits, next to a sample view of the app with a score of 99 and no conflicts."],
+    "seite.ogbild": ["CrankScore in Schwarz und Weiß: „Dein Bike. Bis ins Detail.“ neben einer echten Beispielansicht mit Score 99.", "CrankScore in black and white: the German headline next to a real sample view with a score of 99."],
 
     /* ── Kopfzeile und Navigation ── */
     "weg": ["Zum Inhalt springen", "Skip to content"],
     "marke.aria": ["CrankScore – Startseite", "CrankScore – home"],
+    "nav.menu": ["Menü öffnen", "Open menu"],
     "nav.aria": ["Abschnitte", "Sections"],
     "nav.prinzip": ["Prüfung", "The check"],
     "nav.modi": ["Modi", "Modes"],
@@ -59,17 +57,14 @@
 
     /* ── Einstieg ── */
     "start.etikett": ["Die Web-App fürs Mountainbike", "The web app for your mountain bike"],
-    "start.h1": ["Passt das zusammen?", "Does it all fit?"],
-    "start.sub": ["Passt die neue Gabel zu deinem Rahmen? Läuft die Kassette auf deinem Freilauf? CrankScore prüft die Maße und Standards deiner Teile und zeigt dir mögliche Konflikte, bevor du etwas kaufst.",
-                  "Will the new fork fit your frame? Will that cassette work with your freehub? CrankScore checks the dimensions and standards of your parts and flags potential conflicts before you buy anything."],
-    "start.knopf": ["So prüft CrankScore", "How the check works"],
-    "start.knopf2": ["Die drei Modi", "The three modes"],
-    "start.fakten": ["<span><b>{zahl:teile}</b> Teile</span><span><b>{zahl:marken}</b> Marken</span><span><b>{zahl:disziplinen}</b> Disziplinen</span><span><b>Free</b> kostenlos</span><span><b>Pro</b> {preis:proMonat} im Monat</span>",
-                     "<span><b>{zahl:teile}</b> parts</span><span><b>{zahl:marken}</b> brands</span><span><b>{zahl:disziplinen}</b> disciplines</span><span><b>Free</b> to use</span><span><b>Pro</b> {preis:proMonat} a month</span>"],
+    "start.h1": ["Dein Bike.<br>Bis ins Detail.", "Your bike.<br>Every detail."],
+    "start.sub": ["Plane deinen Aufbau, prüfe die Teile deines Mountainbikes und finde einen Startpunkt fürs Fahrwerk. Verständlich, Teil für Teil.", "Plan your build, check your mountain bike parts and find a starting point for your suspension. Clear advice, part by part."],
+    "start.knopf": ["CrankScore entdecken", "Explore CrankScore"],
+    "start.knopf2": ["Fahrwerk ansehen", "See suspension setup"],
+    "start.fakten": ["<span>Prüfung & Score</span><span>Drei Modi</span><span>Fahrwerk mit Pro</span>", "<span>Checks & score</span><span>Three modes</span><span>Suspension with Pro</span>"],
     "beispiel": ["Beispielansicht", "Sample view"],
     "ausschnitt": ["Beispielausschnitte", "Sample crops"],
-    "alt.start": ["Beispielansicht der App: die Teileliste eines Trailbikes, davor Rahmen, Federgabel und Bremsen als Karten mit Preis und Gewicht.",
-                  "Sample app view: the parts list of a trail bike, with the frame, fork and brakes shown as cards with price and weight."],
+    "alt.start": ["Echte Beispielansicht der aktuellen App im OLED-Design: Score und Prüfung eines Trailbikes, ergänzt durch Ausschnitte der Teile.", "Real sample of the current app in OLED mode: the score and checks for a trail bike, with crops of its parts."],
 
     /* ── Markenband ── */
     "band.aria": ["Marken im Katalog", "Brands in the catalogue"],
@@ -77,9 +72,8 @@
 
     /* ── Prüfung und Score ── */
     "prinzip.etikett": ["Die Prüfung", "The check"],
-    "prinzip.h2": ["Geprüft, wo Teile aufeinandertreffen", "Checked wherever parts meet"],
-    "prinzip.p": ["Kommt ein Teil in deinen Aufbau, prüft CrankScore die Stellen, an denen es auf andere Teile trifft. Gibt es einen Konflikt, siehst du, woran es liegt, und bekommst Vorschläge aus dem Katalog, die ihn lösen können.",
-      "When a part goes into your build, CrankScore checks the points where it meets other parts. If something clashes, you see why, along with suggestions from the catalogue that can fix it."],
+    "prinzip.h2": ["Ein Aufbau. Alles im Blick.", "One build. The whole picture."],
+    "prinzip.p": ["CrankScore prüft Maße, Standards und Einsatz deiner Teile. Du siehst den Score, mögliche Konflikte und passende nächste Schritte, bevor du deinen Aufbau veränderst.", "CrankScore checks your parts’ dimensions, standards and purpose. See the score, potential conflicts and practical next steps before you change your build."],
     "pp1.b": ["Maße", "Dimensions"],
     "pp1.s": ["Federweg-Freigabe, Dämpfermaß, Lenkerklemmung, Stützendurchmesser", "Travel limit, shock size, bar clamp, seatpost diameter"],
     "pp2.b": ["Standards", "Standards"],
@@ -87,15 +81,11 @@
     "pp3.b": ["Einsatz", "Purpose"],
     "pp3.s": ["Passt das Teil zu dem, was du fährst, ob Trail, Enduro oder Downhill?", "Does the part suit what you ride, be it trail, enduro or downhill?"],
     "score.h3": ["Dein Score", "Your score"],
-    "score.p": ["Eine Zahl von 0 bis 100 für den ganzen Aufbau. Dahinter stehen zwei Werte: Passform zeigt, ob die Teile technisch zusammenpassen, Einsatz, ob sie zu deiner Disziplin passen.",
-                "One number from 0 to 100 for your whole build, based on two ratings: fit shows whether the parts work together technically, purpose whether they suit your discipline."],
-    "alt.score": ["Beispielansicht: Score 99 von 100, „Stimmig. Alles zieht in Richtung Trail.“ Passform 100, Einsatz 98, {preis:beispielPreis}, 14,27 kg.",
-                  "Sample view: score 99 out of 100, “Spot on. Everything pulls towards trail.” Fit 100, purpose 98, {preis:beispielPreis}, 14.27 kg."],
+    "score.p": ["Eine Zahl von 0 bis 100 für deinen Aufbau. Dahinter stehen zwei Werte: Kompatibilität zeigt, ob die Teile technisch zusammenpassen, Einsatz, ob sie zu deiner Disziplin passen.", "One score from 0 to 100 for your build, based on two ratings: compatibility shows whether the parts work together technically, purpose whether they suit your discipline."],
+    "alt.score": ["Beispielansicht: Gesamtscore 99 von 100, Kompatibilität 100 und Einsatz 98 für Trail.", "Sample view: overall score 99 out of 100, compatibility 100 and purpose 98 for trail."],
     "pruef.h3": ["Prüfung", "Compatibility check"],
-    "pruef.p": ["Mehr als {zahl:pruefregeln} Regeln auf Basis gängiger Standards. Rot heißt: So lässt sich das Rad nicht bauen. Gelb heißt: Es geht, aber mit Kompromiss oder Adapter.",
-                "More than {zahl:pruefregeln} rules based on established standards. Red means the bike can’t be built this way. Yellow means it works, but with a compromise or an adapter."],
-    "alt.pruef": ["Beispielansicht: Die Prüfung meldet keine Konflikte, alle Maße passen.",
-                  "Sample view: the check finds no conflicts and every dimension matches."],
+    "pruef.p": ["Mehr als {zahl:pruefregeln} Regeln prüfen gängige Standards. Rot kennzeichnet einen Konflikt, Gelb einen Kompromiss. Nötige Adapter werden automatisch eingeplant, mit Preis, Gewicht und Montagehinweis.", "More than {zahl:pruefregeln} rules check established standards. Red marks a conflict, yellow a compromise. Required adapters are included automatically, with price, weight and a fitting note."],
+    "alt.pruef": ["Beispielansicht: keine Konflikte in den geprüften Angaben, dazu Hinweise zur Größe.", "Sample view: no conflicts in the checked details, plus sizing advice."],
 
     /* ── Drei Modi ── */
     "modi.etikett": ["Drei Modi", "Three modes"],
@@ -160,18 +150,14 @@
     "fit.h3": ["Deine Größe", "Your sizing"],
     "fit.p": ["Aus deiner Körpergröße und, wenn du willst, Schrittlänge, Schulterbreite und Spannweite schätzt die App Rahmengröße, Lenkerbreite, Vorbau, Kurbellänge und Hub der Variostütze. Das sind Richtwerte, kein Bikefitting.",
               "From your height, plus your inseam, shoulder width and arm span if you like, the app estimates frame size, bar width, stem length, crank length and dropper travel. These are guide values, not a professional bike fit."],
-    "alt.fit": ["Beispielausschnitte bei 182 cm Körpergröße: Rahmengröße L, Lenkerbreite 800 mm, Vorbau 40 bis 50 mm.",
-                "Sample crops for a rider 182 cm tall: frame size L, bar width 800 mm, stem 40 to 50 mm."],
+    "alt.fit": ["Beispielausschnitte bei 182 cm Körpergröße: Rahmengröße L, Lenkerbreite 780 mm, Vorbau 40 bis 50 mm.",
+                "Sample crops for a rider 182 cm tall: frame size L, bar width 780 mm, stem 40 to 50 mm."],
     "fed.h3": ["Fahrwerk", "Suspension"],
-    "fed.kurz": ["Startwerte für Gabel und Dämpfer: das Sag-Ziel, also wie tief das Fahrwerk unter dir einsinken soll, dazu Zug- und Druckstufe in Klicks, gezählt wie auf dem Knopf. Einen Luftdruck nennt die App nur, wenn er belegt ist, etwa durch die Herstellertabelle für Modell und Baujahr deiner Gabel. Sonst führt sie dich mit einer Sag-Messung zum passenden Wert.",
-                 "Starting values for fork and shock: a sag target, meaning how far the suspension should settle under your weight, plus rebound and compression in clicks, counted the way your dial is marked. The app only gives an air pressure when it’s backed up, for example by the manufacturer’s table for your fork’s model and year. Otherwise it walks you through a sag measurement to find the right value."],
-    "alt.fed": ["Beispielausschnitte: Fahrprofil mit 78 kg, ruppigen Trails und zügigem Tempo; Startwert für die Federgabel 75 psi (5,2 bar) bei 18 % Sag.",
-                "Sample crops: riding profile with 78 kg, rough trails and a brisk pace; fork starting value 75 psi (5.2 bar) at 18% sag."],
+    "fed.kurz": ["SAG messen, Einsteller finden, Schritt für Schritt abstimmen. Die App zeigt Startwerte für Gabel und Dämpfer und führt dich durch die Messung. Luftdruck gibt es nur mit belegten Herstellerdaten für dein Modell und Baujahr. Echte, markierte Nahaufnahmen helfen bei unterstützten Modellen, den richtigen Einsteller zu finden.", "Measure sag, find each adjuster and tune step by step. The app gives starting values for fork and shock and guides you through the measurement. Air pressure is shown only when supported by manufacturer data for your model and year. Real close-ups with markers help you find the right adjuster on supported models."],
+    "alt.fed": ["Beispielausschnitte: Fahrer- und Raddaten mit 78 kg Fahrergewicht und 4 kg Ausrüstung; Startwert für die RockShox Pike Ultimate 2025: 75 psi bei 18 % SAG.", "Sample crops: rider and bike details with a rider weight of 78 kg and 4 kg of kit; starting value for the 2025 RockShox Pike Ultimate: 75 psi at 18% sag."],
     "up.h3": ["Upgrades & Einkaufsliste", "Upgrades & shopping list"],
-    "up.p": ["Unter Upgrades stehen nur Teile, die mindestens gleichwertig sind und besser abschneiden. Beim Planen zeigt die App auch günstigere Alternativen und sagt dir, was sich dabei ändert, etwa weniger Federweg. Die Einkaufsliste sammelt alles, mit Shop-Links oder als Text für deine Werkstatt.",
-             "Upgrades only lists parts that are at least as good and score higher. When you’re planning, the app also shows cheaper alternatives and tells you what changes, such as less travel. The shopping list gathers everything, with shop links or as text for your workshop."],
-    "alt.up": ["Beispielansichten: Upgrade auf den Reifen Maxxis Minion DHR II für einen Punkt mehr, daneben die Einkaufsliste mit 19 Teilen für {preis:beispielPreis}.",
-               "Sample views: an upgrade to the Maxxis Minion DHR II tyre for one more point, next to the shopping list with 19 parts for {preis:beispielPreis}."],
+    "up.p": ["Finde passende Alternativen und vergleiche, was sich an deinem Rad ändert: etwa Grip, Gewicht oder Preis. Die Einkaufsliste sammelt die Teile deines Aufbaus und lässt sich als Text für deine Werkstatt kopieren. Richtpreise und geprüfte Angebote werden getrennt gekennzeichnet.", "Find compatible alternatives and compare what changes on your bike, such as grip, weight or price. The shopping list gathers your build’s parts and can be copied as text for your workshop. Guide prices and verified offers are labelled separately."],
+    "alt.up": ["Beispielansichten: passende Reifen mit höher eingeschätztem Grip im Vergleich, daneben die Einkaufsliste mit 19 Teilen für {preis:beispielPreis}.", "Sample views: compatible tyres with higher estimated grip for comparison, beside the shopping list with 19 parts for {preis:beispielPreis}."],
 
     /* ── Guide ── */
     "guide.etikett": ["Der Guide", "The guide"],
@@ -234,14 +220,12 @@
     "daten.p": ["Die App braucht für deine Daten keinen Server: Prüfung, Score und die Antworten des Guides berechnet sie direkt auf deinem Gerät.",
       "The app doesn’t need a server for your data: it works out the check, the score and the guide’s answers right on your device."],
     "d1.h3": ["Kein Konto", "No account"],
-    "d1.p": ["Keine Anmeldung, kein Passwort. Kaufst du Pro, gibst du deine E-Mail-Adresse bei Lemon Squeezy an, dem Anbieter, über den der Kauf läuft. Die App speichert nur den Lizenzcode.",
-             "No sign-up, no password. If you buy Pro, you give your email address to Lemon Squeezy, which handles the purchase. The app only stores the licence code."],
+    "d1.p": ["Keine Anmeldung, kein Passwort. Für den späteren Pro-Kauf ist eine E-Mail-Adresse bei Lemon Squeezy vorgesehen. Die App speichert die Lizenzdaten auf deinem Gerät.", "No sign-up or password. The planned Pro purchase will use an email address at Lemon Squeezy. The app stores licence details on your device."],
     "d2.h3": ["Alles auf deinem Gerät", "Everything on your device"],
     "d2.p": ["Räder, Maße, Setup und Fotos liegen im Speicher deines Browsers. Willst du die Browserdaten löschen oder das Gerät wechseln, sichere vorher alles als Datei.",
       "Bikes, measurements, setup and photos live in your browser’s storage. Before you clear your browser data or switch devices, back everything up to a file."],
     "d3.h3": ["Kein Tracking", "No tracking"],
-    "d3.p": ["Keine Analyse-Werkzeuge, keine Cookies. Deine Einträge verlassen dein Gerät nicht. Nur mit Pro prüft die App höchstens einmal am Tag den Lizenzcode bei Lemon Squeezy.",
-             "No analytics, no cookies. Your entries never leave your device. Only with Pro does the app check the licence code with Lemon Squeezy, at most once a day."],
+    "d3.p": ["Keine Analyse-Werkzeuge, keine Tracking-Cookies. Deine Radeinträge bleiben lokal. Externe Produktbilder und die Lizenzprüfung können Verbindungen zu anderen Anbietern herstellen.", "No analytics tools or tracking cookies. Your bike entries stay local. External product images and licence checks can connect to other providers."],
 
     /* ── Häufige Fragen ── */
     "fragen.etikett": ["Fragen", "FAQ"],
@@ -255,7 +239,7 @@
     "f2.a": ["Die Grundversion Free ist kostenlos und kommt ohne Konto aus. Pro soll {preis:proMonat} im Monat oder {preis:proJahr} im Jahr kosten, also {preis:proJahrMonat} im Monat, und jederzeit kündbar sein. Dafür gibt es beliebig viele Räder pro Modus (Free: eines), das Fahrwerk-Setup und den Guide ohne Tageslimit (Free: {zahl:guideFrei} Fragen am Tag).",
       "The basic version, Free, costs nothing and works without an account. Pro is set to cost {preis:proMonat} a month or {preis:proJahr} a year, which works out at {preis:proJahrMonat} a month, and you’ll be able to cancel at any time. It gives you as many bikes per mode as you like (Free: one), the suspension setup and the guide without a daily limit (Free: {zahl:guideFrei} questions a day)."],
     "f3.q": ["Was sagt der Score aus?", "What does the score tell me?"],
-    "f3.a": ["Der Score fasst deinen Aufbau in einer Zahl von 0 bis 100 zusammen. Passform zeigt, ob die Teile technisch zusammenpassen, Einsatz, ob sie zu deiner Disziplin passen. Ab 85 ist der Aufbau stimmig, ab 60 fahrbar mit Kompromissen, darunter stimmt etwas Grundsätzliches nicht. Bewertet wird nur, was du eingetragen hast.",
+    "f3.a": ["Der Score fasst deinen Aufbau in einer Zahl von 0 bis 100 zusammen. Kompatibilität zeigt, ob die Teile technisch zusammenpassen, Einsatz, ob sie zu deiner Disziplin passen. Ab 85 ist der Aufbau stimmig, ab 60 fahrbar mit Kompromissen, darunter stimmt etwas Grundsätzliches nicht. Bewertet wird nur, was du eingetragen hast.",
              "The score sums up your build in one number from 0 to 100. Fit shows whether the parts work together technically, purpose whether they suit your discipline. From 85 the build is coherent, from 60 it’s rideable with compromises, and below that something fundamental is wrong. Only the parts you’ve entered are rated."],
     "f4.q": ["Wie verlässlich sind die Ergebnisse?", "How reliable are the results?"],
     "f4.a": ["Die Prüfung arbeitet mit Maßen und Standards aus Herstellerangaben. Sie kennt die gängigen Normen, aber nicht jede Besonderheit eines einzelnen Rahmenjahrgangs. Gebrauchtwerte sind Schätzungen, Fahrwerkswerte sind Startpunkte zum Feinstellen. Vor dem Kauf gilt das Datenblatt des Herstellers.",
@@ -264,8 +248,7 @@
     "f5.a": ["Ja, aber die Auswahl ist noch klein: Im Katalog stehen {zahl:emtbRahmen} E-MTB-Rahmen, {zahl:emtbFullPower} mit Full-Power-Motor (Bosch, Shimano, Specialized) und {zahl:emtbLight} Light-E-Modelle mit kleinerem Motor (TQ, Shimano), dazu passende Kurbeln und Laufräder. Die App prüft, ob die Kurbel zur Motorwelle passt und ob Bremsen und Laufräder das Mehrgewicht aushalten. Das Fahrwerk-Setup rechnet Motor und Akku mit ein.",
              "Yes, though the selection is still small: the catalogue has {zahl:emtbRahmen} e-MTB frames, {zahl:emtbFullPower} with full-power motors (Bosch, Shimano, Specialized) and {zahl:emtbLight} light e-MTBs with smaller motors (TQ, Shimano), plus matching cranks and wheels. The app checks whether the crank fits the motor spindle and whether brakes and wheels can handle the extra weight. The suspension setup accounts for the motor and battery."],
     "f6.q": ["Gibt es CrankScore im App Store?", "Is CrankScore in the app stores?"],
-    "f6.a": ["Nein, das ist Absicht: CrankScore läuft im Browser. Auf dem Handy legst du die App auf den Startbildschirm, dann öffnet sie sich wie jede andere App.",
-             "No, and that’s deliberate: CrankScore runs in your browser. On your phone you can add it to your home screen, and it then opens like any other app."],
+    "f6.a": ["CrankScore ist eine Web-App. Auf dem iPhone lässt sie sich in Safari über „Teilen“ und „Zum Home-Bildschirm“ hinzufügen. Auf Android geht das in Chrome über „App installieren“ oder „Zum Startbildschirm hinzufügen“.", "CrankScore is a web app. On iPhone, use Safari’s Share menu and Add to Home Screen. On Android, use Install app or Add to Home screen in Chrome’s menu."],
     "f7.q": ["Wie finanziert sich CrankScore?", "How is CrankScore funded?"],
     "f7.a": ["Über Pro und über Partnerlinks. Manche Shop-Links in der App werden mit „Anzeige“ gekennzeichnet sein. Kaufst du darüber, bekommt CrankScore eine kleine Provision, für dich bleibt der Preis gleich. Welches Teil passt, entscheidet die Prüfung, nicht die Provision.",
              "Through Pro and partner links. Some shop links in the app will be marked “Ad”. If you buy through one, CrankScore earns a small commission and your price stays the same. Which part fits is decided by the check, not by the commission."],
@@ -277,6 +260,11 @@
     "schluss.stand": ["Stand: {datum:seitenStand}", "Last updated: {datum:seitenStand}"],
     "schluss.knopf": ["Seite teilen", "Share this page"],
     "schluss.kopiert": ["Link kopiert", "Link copied"],  /* erscheint nach dem Klick auf "Seite teilen" */
+
+    "adapter.p": ["Zum Beispiel: Bei einer PM180-Aufnahme und einer 203-mm-Scheibe plant die App einen +23-mm-Adapter ein. Du bekommst den Hinweis, ihn bei der Montage zu berücksichtigen.", "For example, a PM180 mount with a 203 mm rotor needs a +23 mm adapter. The app adds it to the build and reminds you to account for it when fitting the brake."],
+    "look.etikett": ["Das neue Design", "The new design"],
+    "look.h3": ["OLED-Schwarz. Klares Weiß.", "OLED black. Clear white."],
+    "look.p": ["Im Dunkelmodus bleibt der Hintergrund tiefschwarz. Helle Akzente führen durch die App; Warnungen und Fehler behalten ihre eigenen Farben. Oder du wählst den warmen Hellmodus.", "The dark mode keeps the background pure black. Bright accents guide you through the app; warnings and errors keep their own colours. A warm light mode is also available."],
 
     /* ── Fuß ── */
     "fuss.claim": ["Mountainbikes planen, prüfen und einschätzen. Teil für Teil.", "Plan, check and size up mountain bikes, part by part."],

@@ -69,7 +69,7 @@
   function zeigeDesign(){
     var d = designWahl !== "auto" ? designWahl : (systemDunkel && systemDunkel.matches ? "dunkel" : "hell");
     doc.setAttribute("data-design", d);
-    alle('meta[name="theme-color"]').forEach(function(m){ m.setAttribute("content", d === "dunkel" ? "#07060d" : "#f4f4f8"); });
+    alle('meta[name="theme-color"]').forEach(function(m){ m.setAttribute("content", d === "dunkel" ? "#000000" : "#f5f3ef"); });
     var knopf = document.getElementById("design");
     if(knopf) knopf.setAttribute("aria-pressed", String(d === "dunkel"));
     alle("button[data-design-wahl]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-design-wahl") === designWahl)); });

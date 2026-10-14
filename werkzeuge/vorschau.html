@@ -32,13 +32,18 @@ p{margin:26px 0 0;font-size:29px;line-height:1.36;color:#5c5e6b;max-width:20em}
 .glas img{display:block;width:100%;height:auto}
 .beispiel{position:absolute;left:945px;top:24px;transform:translateX(-50%);font:500 14px/1 "IBM Plex Mono",monospace;letter-spacing:.1em;text-transform:uppercase;
   color:#3c3d48;background:rgba(255,255,255,.92);padding:10px 14px;border-radius:999px;box-shadow:0 8px 24px -8px rgba(28,22,64,.35)}
+
+body{background:#000;color:#fff}
+.marke i{background:none;color:#fff}
+.etikett{color:#aaa}h1{font-size:80px;font-weight:600;line-height:1.04}p{color:#aaa}
+.url{color:#fff}.leiste{background:#000}.beispiel{color:#aaa;background:#171717;box-shadow:none}
 </style>
 </head>
 <body>
   <div class="text">
     <div class="marke">Crank<i>Score</i></div>
     <p class="etikett" data-t="start.etikett">Die Web-App fürs Mountainbike</p>
-    <h1 data-t="start.h1">Passt das zusammen?</h1>
+    <h1 data-th="start.h1">Passt das zusammen?</h1>
     <p data-t="fuss.claim">Mountainbikes planen, prüfen und einschätzen. Teil für Teil.</p>
     <div class="url">crankscore.de</div>
   </div>
@@ -52,6 +57,7 @@ p{margin:26px 0 0;font-size:29px;line-height:1.36;color:#5c5e6b;max-width:20em}
     [].forEach.call(document.querySelectorAll("[data-t]"), function(e){
       var paar = TX.texte[e.getAttribute("data-t")]; if(paar) e.textContent = TX.fuelle(paar[0], "de");
     });
+    [].forEach.call(document.querySelectorAll("[data-th]"), function(e){var paar=TX.texte[e.getAttribute("data-th")];if(paar)e.innerHTML=TX.fuelle(paar[0],"de");});
   })();
 </script>
 </body>

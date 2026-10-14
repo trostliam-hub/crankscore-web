@@ -3,7 +3,7 @@
 Startseite für CrankScore, die Web-App zum Planen, Prüfen und Einschätzen von
 Mountainbikes. Live unter **https://crankscore.de** (die App selbst ist noch nicht veröffentlicht).
 
-`index.html` mit eingebettetem CSS und JavaScript, dazu Impressum und Datenschutz, echte
+`index.html` mit Layout-CSS und JavaScript, die aktuelle Gestaltung in `design.css`, dazu Impressum und Datenschutz, echte
 App-Aufnahmen in `img/` und selbst gehostete Schriften in `fonts/` (Archivo, Inter,
 IBM Plex Mono — SIL Open Font License, siehe `fonts/OFL-*.txt`).
 
@@ -29,3 +29,8 @@ Kopf jeder Seite setzt `data-design="hell|dunkel"` vor dem ersten Bild, `seite.j
 (16/32/48), `favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png` im
 Hauptverzeichnis, dazu `img/favicon-96.png` und `img/icon-192.png`. Suchmaschinen
 bekommen immer die deutsche Fassung, auch wenn sie sich als englischer Browser melden.
+
+
+Designstand 14.10.2026: an bevel.health orientierte, zentrierte Produktdarstellung mit großen Überschriften, kompaktem mobilen Abschnittsmenü, OLED-Schwarz/Weiß und warmem Hellmodus. Warnungen und Fehler bleiben semantisch farbig. Alle 36 App-Aufnahmen wurden aus der öffentlichen Testversion 20261013-2127 neu aufgenommen (synthetischer Beispielaufbau, keine Nutzerdaten). Pro bleibt geplant; die Website bleibt ein Teaser.
+
+`werkzeuge/texte.mjs` erzeugt die Cache-Kennung aus Texten, JavaScript, Styles und App-Aufnahmen. Dadurch erhalten erneuerte Bilder und Styles automatisch neue URLs; keine Versionsnummer von Hand setzen. Änderungen am Design oder den Bildern ebenfalls mit dem Textwerkzeug abgleichen.

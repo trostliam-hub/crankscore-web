@@ -74,7 +74,14 @@ function ersetzeAttribute(html, benutzt) {
   });
 }
 
-const version = crypto.createHash("sha1").update(lies("texte.js")).update(lies("seite.js")).digest("hex").slice(0, 8);
+/* Content-derived cache keys also cover styles and renewed app captures. */
+const fingerabdruck = crypto.createHash("sha1").update(lies("texte.js")).update(lies("seite.js")).update(lies("design.css")).update(lies("recht.css"));
+for (const sprache of ["de", "en"]) {
+  const ordner = path.join(WURZEL, "img", "s", sprache);
+  for (const datei of fs.readdirSync(ordner).filter(x => x.endsWith(".webp")).sort()) fingerabdruck.update(fs.readFileSync(path.join(ordner, datei)));
+}
+for (const datei of ["favicon.ico", "favicon-16x16.png", "favicon-32x32.png", "apple-touch-icon.png", "img/favicon-96.png", "img/icon-192.png", "img/icon-512.png", "img/vorschau.png"]) fingerabdruck.update(fs.readFileSync(path.join(WURZEL, datei)));
+const version = fingerabdruck.digest("hex").slice(0, 8);
 const benutzt = new Set();
 const kopfSkripte = new Map();
 let geaendert = 0;
@@ -85,6 +92,10 @@ for (const seite of SEITEN) {
   html = ersetzeInhalte(html, "data-th", (k) => nbsp(deutsch(k)), benutzt);
   html = ersetzeAttribute(html, benutzt);
   html = html.replace(/(texte|seite)\.js\?v=[0-9a-z]*/g, `$1.js?v=${version}`);
+  html = html.replace(/href="(design|recht)\.css(?:\?v=[0-9a-z]*)?"/g, `href="$1.css?v=${version}"`);
+  html = html.replace(/(img\/s\/(?:de|en)\/[a-z0-9-]+\.webp)(?:\?v=[0-9a-z]*)?/g, `$1?v=${version}`);
+  html = html.replace(/(img\/vorschau\.png)(?:\?v=[0-9a-z]*)?/g, `$1?v=${version}`);
+  html = html.replace(/((?:img\/)?(?:favicon(?:-\d+x\d+|-96)?\.(?:png|ico)|apple-touch-icon\.png|icon-(?:192|512)\.png))(?:\?v=[0-9a-z]*)?/g, `$1?v=${version}`);
   for (const m of html.matchAll(/CS\.t\("([^"]+)"\)/g)) benutzt.add(m[1]);
   const kopf = html.match(/<script>\/\* Vor dem ersten Bild[\s\S]*?<\/script>/);
   kopfSkripte.set(seite, kopf ? kopf[0] : "");

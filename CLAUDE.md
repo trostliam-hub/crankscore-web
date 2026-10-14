@@ -1,5 +1,9 @@
 # CrankScore — Webseite
 
+**Aktueller Designauftrag, 14.10.2026:** Liam möchte die Website an Bevel anlehnen und die Farben/Infos aktualisieren. `bevel.de` zeigt eine Server-Anmeldung; das belegte Vorbild ist `bevel.health/de`. Der neue Stil in `design.css` ersetzt die älteren Violett-/Farbkarten-Regeln unten: zentrierter Hero, große Überschriften, OLED-Schwarz/Weiß, neutral warme helle Flächen, echte aktuelle App-Aufnahmen, kompaktes mobiles Abschnittsmenü. Die bestehenden Sprach-/Designfunktionen bleiben. Alle 36 Aufnahmen stammen vom 14.10.2026 aus App 20261013-2127; Beispiel: Score 99, 6.242 €, 14,26 kg, 182 cm / 78 kg. Lenkerempfehlung 780 mm. Alte Zahlen und Screenshot-Beschreibungen unten sind historisch. Website weiterhin Teaser, Pro-Kauf noch nicht konfiguriert. Nötige Adapter werden automatisch mitgerechnet und als Montagehinweis erklärt, nicht als gelber Kompromiss. Keine App-Version von Hand ändern.
+
+Die aktuelle Cache-Kennung für Skripte, Styles und Aufnahmen wird vom Textwerkzeug aus den Inhalten erzeugt; nach Änderungen `node werkzeuge/texte.mjs` und `--pruefen` ausführen.
+
 Die **Teaser-Seite** unter **https://crankscore.de** (dieses Repo, GitHub Pages aus `main`).
 Die App ist **noch nicht veröffentlicht** (Liam 2026-09-29: „da soll nur ein Teaser sein“) —
 die Seite verlinkt die App nicht. Die App liegt im Repo `trostliam-hub/dreambuild` und läuft

@@ -5,10 +5,10 @@
   unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"IBM Plex Mono";src:url(fonts/ibmplexmono-500-latin.woff2) format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"Archivo";src:url(fonts/archivo-latin-standard-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
-:root{--seite:#f4f4f8;--linie:#e3e3ec;--tinte:#17161e;--text:#3c3d48;--grau:#6c6e7b;--akzent:#6d45f0;
-  --eloxal:linear-gradient(120deg,#8a4dff 0%,#5b5bff 50%,#2f8cff 100%);--rand:clamp(18px,5vw,40px);color-scheme:light}
+:root{--seite:#f5f3ef;--linie:#dedcd7;--tinte:#161616;--text:#363636;--grau:#62625f;--akzent:#202020;
+  --eloxal:linear-gradient(120deg,#161616,#484848);--rand:clamp(18px,5vw,40px);color-scheme:light}
 /* Dunkel: gesetzt von design.js (Wahl auf der Startseite oder Einstellung des Geraets) */
-:root[data-design="dunkel"]{--seite:#07060d;--linie:#1a1729;--tinte:#f7f5ff;--text:#c6c1e4;--grau:#8a84ad;--akzent:#a47bff;color-scheme:dark}
+:root[data-design="dunkel"]{--seite:#000000;--linie:#2b2b2b;--tinte:#ffffff;--text:#dedede;--grau:#aaaaaa;--akzent:#ffffff;--eloxal:linear-gradient(120deg,#ffffff,#d1d1d1);color-scheme:dark}
 *{box-sizing:border-box}
 html{background:var(--seite);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--seite);color:var(--text);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -50,9 +50,9 @@ b{color:var(--tinte)}
 .fehlt{padding:12px 16px;border-radius:14px;border:1px solid rgba(214,150,0,.4);background:rgba(255,190,46,.14);color:#7a4d00;margin-bottom:10px}
 [data-design="dunkel"] .fehlt{border-color:rgba(255,190,46,.35);background:rgba(255,190,46,.08);color:#ffd27a}
 /* Hinweis nur in der englischen Fassung (deutscher Text ist leer) */
-.recht-hinweis{padding:12px 16px;border-radius:14px;background:rgba(109,69,240,.08);color:var(--tinte);margin:0 0 18px;font-size:15px}
+.recht-hinweis{padding:12px 16px;border-radius:14px;background:rgba(0,0,0,.05);color:var(--tinte);margin:0 0 18px;font-size:15px}
 .recht-hinweis:empty{display:none}
-[data-design="dunkel"] .recht-hinweis{background:rgba(164,123,255,.12)}
+[data-design="dunkel"] .recht-hinweis{background:rgba(255,255,255,.08)}
 .stand{margin-top:30px;color:var(--grau);font-size:14px}
 .fuss{border-top:1px solid var(--linie);padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px))}
 .fuss .innen{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:14px;max-width:1160px}
