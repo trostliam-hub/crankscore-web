@@ -193,3 +193,6 @@ main>section.start{padding-top:22px}
 /* End crops at a complete row and keep the full compatibility verdict visible. */
 #federung .pop:first-child{max-height:47cqw}
 .k-gruen .buehne .pop.kappe{top:49cqw!important;max-height:27cqw}
+/* English app labels use fewer lines; crop at their own complete-row boundaries. */
+html[lang="en"] #federung .pop:first-child{max-height:39cqw}
+html[lang="en"] .k-gruen .buehne .pop.kappe{max-height:20cqw}
