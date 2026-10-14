@@ -41,18 +41,8 @@
       var s = e.getAttribute("src");
       e.setAttribute("src", sp === "en" ? s.replace("/de/", "/en/") : s.replace("/en/", "/de/"));
     });
-    /* Picture links follow the selected language, including the no-gallery fallback. */
-    alle("a[data-galerie]").forEach(function(a){
-      var bild = a.querySelector("img[data-bild]");
-      if(!bild) return;
-      a.href = bild.src;
-      var titel = text(a.getAttribute("data-galerie-titel"), sp) || bild.alt;
-      if(!bild.hasAttribute("data-t-alt")) bild.alt = titel;
-      a.setAttribute("aria-label", titel + ": " + text("gal.open", sp));
-    });
     doc.lang = sp;
     alle("button[data-sprache]").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-sprache") === sp)); });
-    document.dispatchEvent(new CustomEvent("cs:sprache", {detail:{sprache:sp}}));
   }
   function startSprache(){
     var g = lesen(SPRACHE_KEY);

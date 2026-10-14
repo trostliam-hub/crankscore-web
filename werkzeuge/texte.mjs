@@ -76,7 +76,6 @@ function ersetzeAttribute(html, benutzt) {
 
 /* Content-derived cache keys also cover styles and renewed app captures. */
 const fingerabdruck = crypto.createHash("sha1").update(lies("texte.js")).update(lies("seite.js")).update(lies("design.css")).update(lies("recht.css"));
-for (const datei of ["galerie.js", "galerie.css"]) fingerabdruck.update(lies(datei));
 for (const sprache of ["de", "en"]) {
   const ordner = path.join(WURZEL, "img", "s", sprache);
   for (const datei of fs.readdirSync(ordner).filter(x => x.endsWith(".webp")).sort()) fingerabdruck.update(fs.readFileSync(path.join(ordner, datei)));
@@ -92,15 +91,11 @@ for (const seite of SEITEN) {
   let html = ersetzeInhalte(alt, "data-t", (k) => escText(deutsch(k)), benutzt);
   html = ersetzeInhalte(html, "data-th", (k) => nbsp(deutsch(k)), benutzt);
   html = ersetzeAttribute(html, benutzt);
-  html = html.replace(/(texte|seite|galerie)\.js(?:\?v=[0-9a-z]*)?/g, `$1.js?v=${version}`);
-  html = html.replace(/href="(design|recht|galerie)\.css(?:\?v=[0-9a-z]*)?"/g, `href="$1.css?v=${version}"`);
+  html = html.replace(/(texte|seite)\.js\?v=[0-9a-z]*/g, `$1.js?v=${version}`);
+  html = html.replace(/href="(design|recht)\.css(?:\?v=[0-9a-z]*)?"/g, `href="$1.css?v=${version}"`);
   html = html.replace(/(img\/s\/(?:de|en)\/[a-z0-9-]+\.webp)(?:\?v=[0-9a-z]*)?/g, `$1?v=${version}`);
   html = html.replace(/(img\/vorschau\.png)(?:\?v=[0-9a-z]*)?/g, `$1?v=${version}`);
   html = html.replace(/((?:img\/)?(?:favicon(?:-\d+x\d+|-96)?\.(?:png|ico)|apple-touch-icon\.png|icon-(?:192|512)\.png))(?:\?v=[0-9a-z]*)?/g, `$1?v=${version}`);
-  for (const m of html.matchAll(/data-galerie-titel="([^"]+)"/g)) {
-    benutzt.add(m[1]);
-    if (!T[m[1]]) fehler.push(`Galerietitel fehlt in texte.js: ${m[1]}`);
-  }
   for (const m of html.matchAll(/CS\.t\("([^"]+)"\)/g)) benutzt.add(m[1]);
   const kopf = html.match(/<script>\/\* Vor dem ersten Bild[\s\S]*?<\/script>/);
   kopfSkripte.set(seite, kopf ? kopf[0] : "");
@@ -109,12 +104,6 @@ for (const seite of SEITEN) {
     if (PRUEFEN) fehler.push(`${seite} passt nicht zu texte.js (node werkzeuge/texte.mjs ausfuehren)`);
     else fs.writeFileSync(path.join(WURZEL, seite), html);
   }
-}
-
-/* The viewer also uses translated dynamic controls and load-error messages. */
-for (const m of lies("galerie.js").matchAll(/["'](gal\.[a-z]+)["']/g)) {
-  benutzt.add(m[1]);
-  if (!T[m[1]]) fehler.push(`Galerietext fehlt in texte.js: ${m[1]}`);
 }
 
 /* Eintraege pruefen */

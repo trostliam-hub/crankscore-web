@@ -34,6 +34,3 @@ bekommen immer die deutsche Fassung, auch wenn sie sich als englischer Browser m
 Designstand 14.10.2026: an bevel.health orientierte, zentrierte Produktdarstellung mit großen Überschriften, kompaktem mobilen Abschnittsmenü, OLED-Schwarz/Weiß und warmem Hellmodus. Warnungen und Fehler bleiben semantisch farbig. Alle 36 App-Aufnahmen wurden aus der öffentlichen Testversion 20261013-2127 neu aufgenommen (synthetischer Beispielaufbau, keine Nutzerdaten). Pro bleibt geplant; die Website bleibt ein Teaser.
 
 `werkzeuge/texte.mjs` erzeugt die Cache-Kennung aus Texten, JavaScript, Styles und App-Aufnahmen. Dadurch erhalten erneuerte Bilder und Styles automatisch neue URLs; keine Versionsnummer von Hand setzen. Änderungen am Design oder den Bildern ebenfalls mit dem Textwerkzeug abgleichen.
-
-
-Bildgalerie 14.10.2026: 49 anklickbare echte App-Bilder zu allen Funktionskarten und FAQ. Neue Aufnahmen in `img/s/{de,en}/g-*.webp`; schwarze Medienflächen in beiden Designs. `galerie.js` und `galerie.css` öffnen einen nativen Dialog mit Bildwechsel und Zoom. Escape und Schließen führen zum ursprünglichen Link und zur gleichen Scrollposition zurück. Ohne JavaScript bleiben normale Original-Bildlinks. Galerie-Textschlüssel und Bildtitelschlüssel werden vom vorhandenen Textprüfer mitvalidiert.
