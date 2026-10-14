@@ -196,3 +196,90 @@ main>section.start{padding-top:22px}
 /* English app labels use fewer lines; crop at their own complete-row boundaries. */
 html[lang="en"] #federung .pop:first-child{max-height:39cqw}
 html[lang="en"] .k-gruen .buehne .pop.kappe{max-height:20cqw}
+
+/* All product views open the original app image. Black media areas stay black in both appearances. */
+.bild-link{display:block;position:relative;background:#000;color:#fff;text-decoration:none;cursor:zoom-in;min-width:0;isolation:isolate}
+.bild-link img{display:block;width:100%;height:auto;background:#000}
+.bild-link:focus-visible{outline:3px solid #fff;outline-offset:-4px;border-radius:10px;z-index:8}
+.bild-action{display:inline-flex;align-items:center;gap:7px;font-size:12px;line-height:1.3;font-weight:600;white-space:nowrap;color:#fff}
+.bild-action::after{content:'↗';font-size:16px;line-height:1}
+.buehne{background:#000;border-top:1px solid #292929;overflow:hidden}
+.buehne .bild-link>.bild-action{position:absolute;top:7px;right:7px;z-index:3;border:1px solid #555;border-radius:999px;background:rgba(0,0,0,.94);padding:6px 9px;font-size:clamp(9px,2cqw,12px);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.buehne .bild-link:hover>.bild-action,.buehne .bild-link:focus-visible>.bild-action{background:#fff;color:#000;border-color:#fff}
+.buehne .blende{background:linear-gradient(180deg,transparent,#000);pointer-events:none}
+.hero-buehne{border:1px solid #292929;border-radius:28px 28px 0 0}
+.hero-buehne::after{background:linear-gradient(transparent,#000);pointer-events:none}
+.galerie-hinweis{font-size:13px!important;color:var(--grau)!important;margin:18px auto 0!important;max-width:none!important}
+.funktionsbild{display:block;flex:none;margin:22px 0 0;background:#000;border:1px solid #3a3a3a;border-radius:16px;overflow:hidden;min-width:0;text-align:left}
+.funktionsbild .bild-flaeche{display:block;height:230px;width:100%;background:#000;overflow:hidden}
+.funktionsbild .bild-flaeche img{width:100%;height:100%;object-fit:contain;object-position:center;background:#000}
+.funktionsbild .bild-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:11px 13px;border-top:1px solid #292929;color:#fff;background:#000}
+.funktionsbild .bild-meta>span:first-child{font-size:12px;color:#bdbdbd;line-height:1.4}
+.funktionsbild .bild-meta .bild-action{margin:0;color:#fff;font-size:12px}
+.funktionsbild .bild-link:hover .bild-action,.funktionsbild .bild-link:focus-visible .bild-action{text-decoration:underline;text-underline-offset:4px}
+.funktionsbild.flach .bild-flaeche{height:150px}
+.punkte>div{display:flex;flex-direction:column;min-width:0}
+.punkte>div>span{margin-bottom:0}
+.punkte .funktionsbild{margin-top:auto;padding-top:0}
+.punkte>div>.funktionsbild{margin-top:20px}
+.punkte .funktionsbild span{margin-top:0;color:#fff;line-height:1.4}
+.punkte .funktionsbild .bild-meta>span:first-child{color:#bdbdbd;font-size:12px}
+.punkte .funktionsbild .bild-flaeche{height:180px}
+.punkte .funktionsbild.flach .bild-flaeche{height:150px}
+.modus>.funktionsbild{margin-top:auto}
+.modus>.funktionsbild .bild-flaeche{height:300px}
+.modus>p:last-of-type{margin-bottom:24px}
+.schritt>.funktionsbild{margin-top:24px}
+.schritt .bild-flaeche{height:220px}
+.kachel{display:flex;flex-direction:column;min-width:0}
+.kachel>.funktionsbild{margin-top:auto}
+.kachel>p{margin-bottom:24px}
+.guide.breit{grid-template-columns:1fr;align-items:start}
+.guide .text{padding-bottom:32px}
+.guide>.buehne{width:min(630px,100%);margin:0 auto;border:1px solid #292929;border-radius:28px 28px 0 0}
+.guide-liste{grid-template-columns:repeat(2,minmax(0,1fr))}
+.guide-liste>div{display:flex;flex-direction:column;min-width:0}
+.guide-liste>div>p{margin-bottom:18px}
+.guide-liste .funktionsbild{margin-top:auto}
+.guide-liste .funktionsbild .bild-flaeche{height:230px}
+.guide-liste .funktionsbild.flach .bild-flaeche{height:150px}
+.daten.breit{grid-template-columns:1fr}
+.daten-liste{grid-template-columns:repeat(3,minmax(0,1fr));padding:0 36px 36px;align-items:stretch}
+.daten-liste>div{display:flex;flex-direction:column;min-width:0}
+.daten-liste>div>p{margin-bottom:20px}
+.daten-liste .funktionsbild{margin-top:auto}
+.daten-liste .bild-flaeche{height:240px}
+.zahlen+.funktionsbild{max-width:640px;margin:28px auto 0}
+.zahlen+.funktionsbild .bild-flaeche{height:300px}
+.design-info .funktionsbild{margin-top:24px}
+.design-info .bild-flaeche{height:180px}
+.fragen .funktionsbild{margin:18px 0 24px;max-width:100%}
+.fragen .bild-flaeche{height:250px}
+#federung>.funktionsbild{margin:24px 28px 28px}
+#federung>.funktionsbild .bild-flaeche{height:270px}
+@media(max-width:899px){
+ .daten-liste{grid-template-columns:1fr;padding:0 28px 28px}
+ .daten-liste .bild-flaeche{height:240px}
+ .modus>.funktionsbild .bild-flaeche{height:330px}
+ .guide-liste{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:599px){
+ .guide-liste{grid-template-columns:1fr}
+ .funktionsbild .bild-flaeche{height:250px}
+ .funktionsbild .bild-meta{padding:11px 12px;gap:8px}
+ .guide-liste .funktionsbild .bild-flaeche{height:280px}
+ .guide-liste .funktionsbild.flach .bild-flaeche{height:150px}
+ .buehne .bild-link>.bild-action{font-size:9px;padding:5px 7px;right:4px;top:4px;gap:3px}
+ .buehne .bild-action::after{font-size:12px}
+ .hero-buehne{border-radius:22px 22px 0 0}
+ .galerie-hinweis{font-size:12px!important;max-width:300px!important}
+}
+/* Keep the enlargement arrow typographic on iOS, and crop-window focus visible. */
+.bild-action::after{content:'↗︎'}
+.pop:focus-within,.geraet:focus-within .glas{outline:3px solid #fff;outline-offset:-4px}
+
+/* Small mockups use the expansion icon; the link retains its full accessible name. */
+@media(max-width:599px){.buehne .bild-link>.bild-action{font-size:0;width:28px;height:28px;padding:6px;gap:0;justify-content:center}.buehne .bild-action::after{font-size:14px}}
+
+/* Use a vector expansion icon so platform emoji fonts cannot colour it. */
+.bild-action::after{content:"";display:inline-block;flex:none;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M5%2019%2019%205M5%205h14v14%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M5%2019%2019%205M5%205h14v14%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat}
