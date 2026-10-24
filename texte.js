@@ -270,6 +270,8 @@
     "fuss.claim": ["Mountainbikes planen, prüfen und einschätzen. Teil für Teil.", "Plan, check and size up mountain bikes, part by part."],
     "fuss.h1": ["Inhalt", "On this page"],
     "fuss.h2": ["Rechtliches", "Legal"],
+    "fuss.tiktok": ["TikTok", "TikTok"],
+    "fuss.tiktok.aria": ["CrankScore auf TikTok (öffnet in neuem Tab)", "CrankScore on TikTok (opens in a new tab)"],
     "fuss.imp": ["Impressum", "Legal notice"],
     "fuss.ds": ["Datenschutz", "Privacy policy"],
     "fuss.h3": ["Sprache", "Language"],
