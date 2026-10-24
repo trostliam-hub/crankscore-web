@@ -9,12 +9,12 @@
 <meta name="theme-color" content="#f5f3ef" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="/favicon.ico?v=e578a3e2" sizes="16x16 32x32 48x48">
-<link rel="icon" href="/favicon-32x32.png?v=e578a3e2" sizes="32x32" type="image/png">
-<link rel="icon" href="/favicon-16x16.png?v=e578a3e2" sizes="16x16" type="image/png">
-<link rel="icon" href="/img/favicon-96.png?v=e578a3e2" sizes="96x96" type="image/png">
-<link rel="icon" href="/img/icon-192.png?v=e578a3e2" sizes="192x192" type="image/png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=e578a3e2">
+<link rel="icon" href="/favicon.ico?v=03f16545" sizes="16x16 32x32 48x48">
+<link rel="icon" href="/favicon-32x32.png?v=03f16545" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png?v=03f16545" sizes="16x16" type="image/png">
+<link rel="icon" href="/img/favicon-96.png?v=03f16545" sizes="96x96" type="image/png">
+<link rel="icon" href="/img/icon-192.png?v=03f16545" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=03f16545">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
 <meta property="og:locale:alternate" content="en_GB">
@@ -22,17 +22,17 @@
 <meta property="og:title" content="CrankScore – Dein Bike. Bis ins Detail." data-t-content="seite.ogtitel">
 <meta property="og:description" content="Neues Rad planen, eigenes Rad prüfen, Gebrauchtangebot einschätzen. Die Web-App fürs Mountainbike ist in der Testphase." data-t-content="seite.ogdesc">
 <meta property="og:url" content="https://crankscore.de/">
-<meta property="og:image" content="https://crankscore.de/img/vorschau.png?v=e578a3e2">
+<meta property="og:image" content="https://crankscore.de/img/vorschau.png?v=03f16545">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="CrankScore in Schwarz und Weiß: „Dein Bike. Bis ins Detail.“ neben einer echten Beispielansicht mit Score 99." data-t-content="seite.ogbild">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CrankScore","alternateName":"crankscore.de","url":"https://crankscore.de/","inLanguage":["de","en"]},{"@type":"Organization","name":"CrankScore","url":"https://crankscore.de/","logo":"https://crankscore.de/img/icon-512.png?v=e578a3e2"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"CrankScore","alternateName":"crankscore.de","url":"https://crankscore.de/","inLanguage":["de","en"]},{"@type":"Organization","name":"CrankScore","url":"https://crankscore.de/","sameAs":["https://www.tiktok.com/@crankscore_offiacial"],"logo":"https://crankscore.de/img/icon-512.png?v=03f16545"}]}</script>
 <meta name="twitter:card" content="summary_large_image">
 <script>/* Vor dem ersten Bild: Design setzen (cs.design, sonst wie das Geraet). Englische Besucher sehen die Seite
    erst, wenn seite.js die Texte eingesetzt hat (Klasse en-lade, hoechstens 2,5 s). Gleich auf allen Seiten. */
 (function(){var d=document.documentElement;try{var w=null,s=null;try{w=localStorage.getItem("cs.design");s=localStorage.getItem("cs.sprache");}catch(e){}if(w!=="hell"&&w!=="dunkel")w=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dunkel":"hell";d.setAttribute("data-design",w);var f=w==="dunkel"?"#000000":"#f5f3ef",m=document.querySelectorAll('meta[name="theme-color"]');for(var i=0;i<m.length;i++)m[i].setAttribute("content",f);var n=((navigator.languages&&navigator.languages[0])||navigator.language||"de").toLowerCase();if(!/bot|crawl|spider|slurp|google-inspectiontool|lighthouse/i.test(navigator.userAgent||"")&&(s==="en"||(s!=="de"&&n.indexOf("de")!==0))){d.className+=" en-lade";setTimeout(function(){d.classList.remove("en-lade");},2500);}}catch(e){}})();</script>
-<script src="texte.js?v=e578a3e2" defer></script>
-<script src="seite.js?v=e578a3e2" defer></script>
+<script src="texte.js?v=03f16545" defer></script>
+<script src="seite.js?v=03f16545" defer></script>
 <link rel="preload" href="fonts/inter-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Schriften liegen auf diesem Server -- keine Verbindung zu Google Fonts (DSGVO) */
@@ -308,6 +308,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 .fuss li{margin:6px 0}
 .fuss li a,.fuss li button{color:var(--text);text-decoration:none;background:none;border:0;font:inherit;padding:0;cursor:pointer}
 .fuss li a:hover,.fuss li button:hover{color:var(--akzent)}
+.fuss .sozial{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:var(--text);text-decoration:none}
+.fuss .sozial:hover{color:var(--akzent)}
 .fuss li button[aria-pressed="true"]{font-weight:600;color:var(--tinte)}
 .klein{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 20px;flex-wrap:wrap;margin-top:40px;padding-top:24px;border-top:1px solid var(--linie);font-size:13px;color:var(--grau)}
 .klein .hinweise{max-width:46em}
@@ -340,7 +342,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
 @media (max-width:899px){ .guide-liste{grid-template-columns:1fr} }
 
 </style>
-<link rel="stylesheet" href="design.css?v=e578a3e2">
+<link rel="stylesheet" href="design.css?v=03f16545">
 </head>
 <body>
 <a class="weg" href="#inhalt" data-t="weg">Zum Inhalt springen</a>
@@ -386,10 +388,10 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <span class="echt" data-t="beispiel">Beispielansicht</span>
         </div>
         <div class="buehne hero-buehne" style="aspect-ratio:1/1.02" role="img" aria-label="Echte Beispielansicht der aktuellen App im OLED-Design: Score und Prüfung eines Trailbikes, ergänzt durch Ausschnitte der Teile." data-t-aria="alt.start">
-          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/pr.webp?v=e578a3e2" width="720" height="1561" alt="" loading="eager"></div></div>
-          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><img data-bild src="img/s/de/t-rahmen.webp?v=e578a3e2" width="900" height="235" alt=""></div>
-          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><img data-bild src="img/s/de/t-gabel.webp?v=e578a3e2" width="900" height="283" alt=""></div>
-          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><img data-bild src="img/s/de/t-bremsen.webp?v=e578a3e2" width="900" height="238" alt=""></div>
+          <div class="geraet" style="--p:58;left:21cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/pr.webp?v=03f16545" width="720" height="1561" alt="" loading="eager"></div></div>
+          <div class="pop" style="--w:60;left:38cqw;top:22cqw" aria-hidden="true"><img data-bild src="img/s/de/t-rahmen.webp?v=03f16545" width="900" height="235" alt=""></div>
+          <div class="pop" style="--w:56;left:3cqw;top:51cqw" aria-hidden="true"><img data-bild src="img/s/de/t-gabel.webp?v=03f16545" width="900" height="283" alt=""></div>
+          <div class="pop" style="--w:56;left:41cqw;top:74cqw" aria-hidden="true"><img data-bild src="img/s/de/t-bremsen.webp?v=03f16545" width="900" height="238" alt=""></div>
         </div>
       </div>
     </div>
@@ -421,8 +423,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="beispiel">Beispielansicht</span>
           </div>
           <div class="buehne" id="score-buehne" style="aspect-ratio:1/.87" role="img" aria-label="Beispielansicht: Gesamtscore 99 von 100, Kompatibilität 100 und Einsatz 98 für Trail." data-t-aria="alt.score">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/bremsen.webp?v=e578a3e2" width="720" height="1561" alt="" loading="lazy"></div></div>
-            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><img data-bild src="img/s/de/k-score.webp?v=e578a3e2" width="900" height="425" alt="" loading="lazy"></div>
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/bremsen.webp?v=03f16545" width="720" height="1561" alt="" loading="lazy"></div></div>
+            <div class="pop" style="--w:78;left:11cqw;top:56cqw;animation:none" aria-hidden="true"><img data-bild src="img/s/de/k-score.webp?v=03f16545" width="900" height="425" alt="" loading="lazy"></div>
           </div>
         </article>
         <article class="karte k-gruen" data-zeige>
@@ -433,9 +435,9 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="beispiel">Beispielansicht</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.8;--blende:#eef8eb" role="img" aria-label="Beispielansicht: keine Konflikte in den geprüften Angaben, dazu Hinweise zur Größe." data-t-aria="alt.pruef">
-            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/pr.webp?v=e578a3e2" width="720" height="1561" alt="" loading="lazy"></div></div>
+            <div class="geraet" style="--p:64;left:18cqw;top:5cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/pr.webp?v=03f16545" width="720" height="1561" alt="" loading="lazy"></div></div>
             <div class="blende" aria-hidden="true"></div>
-            <div class="pop kappe" style="--w:74;--k:.163;left:13cqw;top:63cqw" aria-hidden="true"><img data-bild src="img/s/de/k-ok.webp?v=e578a3e2" width="900" height="1963" alt="" loading="lazy"></div>
+            <div class="pop kappe" style="--w:74;--k:.163;left:13cqw;top:63cqw" aria-hidden="true"><img data-bild src="img/s/de/k-ok.webp?v=03f16545" width="900" height="1963" alt="" loading="lazy"></div>
           </div>
         </article>
       </div>
@@ -478,7 +480,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <p class="kicker"><span class="zahl">03</span><span class="etikett" data-t="weg3.etikett">Gebrauchtrad</span></p>
           <h3 data-t="weg3.h3">Ein Angebot einschätzen</h3>
           <p data-t="weg3.p">Trag die Teile aus der Anzeige ein, dazu Modelljahr, Zustand und Preis. Die App schätzt den Gebrauchtwert und zeigt, ob der Preis fair wirkt und ob dir das Rad passt. Eine Besichtigung ersetzt das nicht.</p>
-          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Beispielansicht: ein Angebot einschätzen, Modelljahr 2023, Zustand „gepflegt, normale Spuren“." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-gebraucht.webp?v=e578a3e2" width="900" height="1961" alt="" loading="lazy"></div></div>
+          <div class="buehne mini" style="aspect-ratio:1/.94" role="img" aria-label="Beispielansicht: ein Angebot einschätzen, Modelljahr 2023, Zustand „gepflegt, normale Spuren“." data-t-aria="alt.m3"><div class="pop kappe" style="--w:100;--k:.86;left:0;top:4cqw;rotate:-1.5deg" aria-hidden="true"><img data-bild src="img/s/de/m-gebraucht.webp?v=03f16545" width="900" height="1961" alt="" loading="lazy"></div></div>
         </article>
       </div>
       <p class="quelle" data-t="modi.quelle">Knopf und Hinweis in den ersten beiden Karten sind der App nachgebaut. Die dritte Karte zeigt eine Beispielansicht vom 14.10.2026.</p>
@@ -530,9 +532,9 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="ausschnitt">Beispielausschnitte</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.84" role="img" aria-label="Beispielausschnitte bei 182 cm Körpergröße: Rahmengröße L, Lenkerbreite 780 mm, Vorbau 40 bis 50 mm." data-t-aria="alt.fit">
-            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><img data-bild src="img/s/de/k-groesse.webp?v=e578a3e2" width="900" height="334" alt="" loading="lazy"></div>
-            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><img data-bild src="img/s/de/k-lenker.webp?v=e578a3e2" width="528" height="349" alt="" loading="lazy"></div>
-            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><img data-bild src="img/s/de/k-vorbau.webp?v=e578a3e2" width="528" height="349" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:82;left:6cqw;top:6cqw" aria-hidden="true"><img data-bild src="img/s/de/k-groesse.webp?v=03f16545" width="900" height="334" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:46;left:5cqw;top:42cqw" aria-hidden="true"><img data-bild src="img/s/de/k-lenker.webp?v=03f16545" width="528" height="349" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:46;left:49cqw;top:48cqw" aria-hidden="true"><img data-bild src="img/s/de/k-vorbau.webp?v=03f16545" width="528" height="349" alt="" loading="lazy"></div>
           </div>
         </article>
         <article class="karte k-blau" id="federung" data-zeige>
@@ -542,8 +544,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
             <span class="echt" data-t="ausschnitt">Beispielausschnitte</span>
           </div>
           <div class="buehne" style="aspect-ratio:1/.88" role="img" aria-label="Beispielausschnitte: Fahrer- und Raddaten mit 78 kg Fahrergewicht und 4 kg Ausrüstung; Startwert für die RockShox Pike Ultimate 2025: 75 psi bei 18 % SAG." data-t-aria="alt.fed">
-            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><img data-bild src="img/s/de/k-profil.webp?v=e578a3e2" width="900" height="1682" alt="" loading="lazy"></div>
-            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><img data-bild src="img/s/de/k-psi.webp?v=e578a3e2" width="900" height="184" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:86;left:7cqw;top:5cqw;rotate:-2deg" aria-hidden="true"><img data-bild src="img/s/de/k-profil.webp?v=03f16545" width="900" height="1682" alt="" loading="lazy"></div>
+            <div class="pop" style="--w:88;left:6cqw;top:63cqw;rotate:1.5deg" aria-hidden="true"><img data-bild src="img/s/de/k-psi.webp?v=03f16545" width="900" height="184" alt="" loading="lazy"></div>
           </div>
         </article>
       </div>
@@ -554,8 +556,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <span class="echt" data-t="beispiel">Beispielansicht</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/.78" role="img" aria-label="Beispielansichten: passende Reifen mit höher eingeschätztem Grip im Vergleich, daneben die Einkaufsliste mit 19 Teilen für 6.242&nbsp;€." data-t-aria="alt.up">
-          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/up.webp?v=e578a3e2" width="720" height="1561" alt="" loading="lazy"></div></div>
-          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/kauf.webp?v=e578a3e2" width="720" height="1561" alt="" loading="lazy"></div></div>
+          <div class="geraet" style="--p:44;left:5cqw;top:12cqw;rotate:-4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/up.webp?v=03f16545" width="720" height="1561" alt="" loading="lazy"></div></div>
+          <div class="geraet" style="--p:44;left:51cqw;top:7cqw;rotate:4deg" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/kauf.webp?v=03f16545" width="720" height="1561" alt="" loading="lazy"></div></div>
         </div>
       </article>
     </div>
@@ -577,8 +579,8 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
           <span class="echt" data-t="beispiel">Beispielansicht</span>
         </div>
         <div class="buehne" style="aspect-ratio:1/1.08" role="img" aria-label="Beispielansicht des Guides: Auf „Passt eine Fox 38?“ nennt er die Fox 38 Factory für 1.549 €, gebaut für Enduro und Downhill, und meldet, dass ihr Federweg die Freigabe des Rahmens übersteigt." data-t-aria="alt.guide">
-          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/guide.webp?v=e578a3e2" width="720" height="1561" alt="" loading="lazy"></div></div>
-          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><img data-bild src="img/s/de/k-antwort.webp?v=e578a3e2" width="900" height="2048" alt="" loading="lazy"></div>
+          <div class="geraet" style="--p:58;left:38cqw;top:6cqw" aria-hidden="true"><div class="glas"><div class="insel"></div><div class="leiste">9:41</div><img data-bild src="img/s/de/guide.webp?v=03f16545" width="720" height="1561" alt="" loading="lazy"></div></div>
+          <div class="pop" style="--w:60;left:4cqw;top:38cqw" aria-hidden="true"><img data-bild src="img/s/de/k-antwort.webp?v=03f16545" width="900" height="2048" alt="" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -677,6 +679,7 @@ main>section:not(.start){scroll-margin-top:calc(8px - clamp(56px,8vw,120px))}
       <div>
         <a class="marke" href="./">Crank<i>Score</i></a>
         <p data-t="fuss.claim">Mountainbikes planen, prüfen und einschätzen. Teil für Teil.</p>
+        <a class="sozial" href="https://www.tiktok.com/@crankscore_offiacial" target="_blank" rel="noopener noreferrer" aria-label="CrankScore auf TikTok (öffnet in neuem Tab)" data-t-aria="fuss.tiktok.aria"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg><span data-t="fuss.tiktok">TikTok</span></a>
       </div>
       <div>
         <h2 data-t="fuss.h1">Inhalt</h2>
